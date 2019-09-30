@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/03/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 9c7f920c6b66995d53ef742a9faf574286a51d69
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: cf4eade598de24e323a8c8647a64921f8797e3a2
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390436"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71686746"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>Usare i riferimenti a Key Vault per Servizio app e Funzioni di Azure (anteprima)
 
@@ -46,7 +46,7 @@ Per leggere i segreti da Key Vault, è necessario avere creato un insieme di cre
 Un riferimento a Key Vault viene espresso nel formato `@Microsoft.KeyVault({referenceString})`, in cui sostituire `{referenceString}` con una delle opzioni seguenti:
 
 > [!div class="mx-tdBreakAll"]
-> | Stringa di riferimento                                                            | DESCRIZIONE                                                                                                                                                                                 |
+> | Stringa di riferimento                                                            | Descrizione                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | SecretUri=_secretUri_                                                       | **SecretUri** deve essere l'URI del piano dati completo di un segreto in Key Vault, inclusa una versione, ad esempio, https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
 > | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | **VaultName** deve essere il nome della risorsa Key Vault. **SecretName** deve essere il nome del segreto di destinazione. **SecretVersion** deve essere la versione del segreto da usare. |
@@ -188,7 +188,7 @@ Uno pseudo-modello di esempio per un'app per le funzioni potrebbe essere simile 
 
 ## <a name="troubleshooting-key-vault-references"></a>Risoluzione dei problemi relativi ai riferimenti a Key Vault
 
-Se un riferimento non viene risolto correttamente, verrà utilizzato il valore di riferimento. Ciò significa che, per le impostazioni dell'applicazione, viene creata una variabile di ambiente il `@Microsoft.KeyVault(...)` cui valore ha la sintassi. Questa operazione può causare la generazione di errori da parte dell'applicazione, perché era previsto un segreto di una determinata struttura.
+Se un riferimento non viene risolto correttamente, verrà utilizzato il valore di riferimento. Ciò significa che, per le impostazioni dell'applicazione, viene creata una variabile di ambiente il cui valore ha la sintassi `@Microsoft.KeyVault(...)`. Questa operazione può causare la generazione di errori da parte dell'applicazione, perché era previsto un segreto di una determinata struttura.
 
 In genere, ciò è dovuto a un errore di configurazione dei [criteri di accesso key Vault](#granting-your-app-access-to-key-vault). Tuttavia, potrebbe anche essere dovuto a un segreto non più esistente o a un errore di sintassi nel riferimento stesso.
 
@@ -197,7 +197,7 @@ Se la sintassi è corretta, è possibile visualizzare altre cause per l'errore c
 ### <a name="using-the-detector-for-app-service"></a>Uso del detector per il servizio app
 
 1. Nel portale passare all'app.
-2. Selezionare **diagnostica e risolvi prolems**.
+2. Selezionare **diagnostica e Risolvi i problemi**.
 3. Scegliere **disponibilità e prestazioni** e selezionare **app Web in basso.**
 4. Individuare **Key Vault Application Settings Diagnostics** e fare clic su **altre informazioni**.
 
@@ -206,6 +206,6 @@ Se la sintassi è corretta, è possibile visualizzare altre cause per l'errore c
 
 1. Nel portale passare all'app.
 2. Passare a **funzionalità della piattaforma.**
-3. Selezionare **diagnostica e risolvi prolems**.
+3. Selezionare **diagnostica e Risolvi i problemi**.
 4. Scegliere **disponibilità e prestazioni** e selezionare l'app per le **funzioni inattiva o segnalazione errori.**
 5. Fare clic su **Key Vault impostazioni applicazione diagnostica.**

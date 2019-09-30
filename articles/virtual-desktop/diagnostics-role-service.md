@@ -1,22 +1,22 @@
 ---
-title: Identificare i problemi con la funzionalità di diagnostica di anteprima di desktop virtuale di Windows-Azure
-description: Viene descritta la funzionalità di diagnostica di anteprima di desktop virtuale di Windows e viene illustrato come usarla.
+title: Identificare i problemi con la funzionalità diagnostica desktop virtuale di Windows-Azure
+description: Viene descritta la funzionalità diagnostica desktop virtuale di Windows e viene illustrato come usarla.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: c07086feef1851f1a6e2a5cda2f541d52a50d91d
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: f041889f1594ef3852c8f2393be93bb7a6513b4c
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163485"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676642"
 ---
 # <a name="identify-issues-with-the-diagnostics-feature"></a>Identificare i problemi con la funzionalità di diagnostica
 
-Windows Virtual Desktop Preview offre una funzionalità di diagnostica che consente all'amministratore di identificare i problemi tramite un'unica interfaccia. I ruoli desktop virtuale di Windows registrano un'attività di diagnostica ogni volta che un utente interagisce con il sistema. Ogni log contiene informazioni rilevanti, ad esempio i ruoli desktop virtuale di Windows interessati dalla transazione, i messaggi di errore, le informazioni sul tenant e le informazioni sull'utente. Le attività di diagnostica vengono create sia dall'utente finale che dalle azioni amministrative e possono essere categorizzate in tre bucket principali:
+Desktop virtuale di Windows offre una funzionalità di diagnostica che consente all'amministratore di identificare i problemi tramite un'unica interfaccia. I ruoli desktop virtuale di Windows registrano un'attività di diagnostica ogni volta che un utente interagisce con il sistema. Ogni log contiene informazioni rilevanti, ad esempio i ruoli desktop virtuale di Windows interessati dalla transazione, i messaggi di errore, le informazioni sul tenant e le informazioni sull'utente. Le attività di diagnostica vengono create sia dall'utente finale che dalle azioni amministrative e possono essere categorizzate in tre bucket principali:
 
 * Attività di sottoscrizione di feed: l'utente finale attiva queste attività ogni volta che tentano di connettersi al feed tramite Desktop remoto Microsoft applicazioni.
 * Attività di connessione: l'utente finale attiva queste attività ogni volta che tentano di connettersi a un desktop o a RemoteApp tramite Desktop remoto Microsoft applicazioni.
@@ -136,11 +136,11 @@ Gli scenari di errore sono suddivisi in categorie interne al servizio ed esterni
 La tabella seguente elenca gli errori comuni che possono essere eseguiti dagli amministratori.
 
 >[!NOTE]
->Questa anteprima non include una categorizzazione completa degli errori e verrà aggiornata a intervalli regolari. Per assicurarsi di disporre delle informazioni più aggiornate, assicurarsi di consultare nuovamente questo articolo almeno una volta al mese.
+>Questo elenco include gli errori più comuni e viene aggiornato a cadenza regolare. Per assicurarsi di disporre delle informazioni più aggiornate, assicurarsi di consultare nuovamente questo articolo almeno una volta al mese.
 
 ### <a name="external-management-error-codes"></a>Codici di errore di gestione esterna
 
-|Codice numerico|Codice di errore|Soluzione suggerita|
+|Codice numerico|Codice errore|Soluzione suggerita|
 |---|---|---|
 |3|UnauthorizedAccess|L'utente che ha tentato di eseguire il cmdlet di PowerShell amministrativo non ha le autorizzazioni per eseguire questa operazione o il nome utente è digitato in modo improprio.|
 |1000|TenantNotFound|Il nome del tenant immesso non corrisponde ad alcun tenant esistente. Verificare il nome del tenant per gli errori di ortografia e riprovare.|
@@ -161,7 +161,7 @@ La tabella seguente elenca gli errori comuni che possono essere eseguiti dagli a
 
 ### <a name="external-connection-error-codes"></a>Codici di errore della connessione esterna
 
-|Codice numerico|Codice di errore|Soluzione suggerita|
+|Codice numerico|Codice errore|Soluzione suggerita|
 |---|---|---|
 |-2147467259|ConnectionFailedAdTrustedRelationshipFailure|L'host sessione non è stato aggiunto correttamente al Active Directory.|
 |-2146233088|ConnectionFailedUserHasValidSessionButRdshIsUnhealthy|Connessioni non riuscite perché l'host sessione non è disponibile. Controllare l'integrità dell'host sessione.|
@@ -176,6 +176,6 @@ La tabella seguente elenca gli errori comuni che possono essere eseguiti dagli a
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni sui ruoli all'interno di desktop virtuale di Windows, vedere [ambiente di anteprima di desktop virtuale di Windows](environment-setup.md).
+Per ulteriori informazioni sui ruoli all'interno di desktop virtuale di Windows, vedere [ambiente desktop virtuale di Windows](environment-setup.md).
 
 Per visualizzare un elenco dei cmdlet di PowerShell disponibili per desktop virtuale di Windows, vedere le informazioni di [riferimento su PowerShell](/powershell/windows-virtual-desktop/overview).

@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7b731c9936ab85b19428687330044a46c563c49
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 168fbb275f70acd229dfd8f2e3f0d4c325db0f94
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268359"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71678026"
 ---
 # <a name="mobile-app-that-calls-web-apis---code-configuration"></a>App per dispositivi mobili che chiama API Web-configurazione del codice
 
@@ -155,9 +155,13 @@ In Android e iOS i broker abilitano:
 - Identificazione del dispositivo. Abilita Azure AD criteri di accesso condizionale correlati ai dispositivi, accedendo al certificato del dispositivo creato sul dispositivo quando è stato aggiunto all'area di lavoro.
 - Verifica dell'identificazione dell'applicazione. Quando un'applicazione chiama il broker, passa l'URL di reindirizzamento e il broker lo verifica.
 
-### <a name="enable-the-brokers-on-xamarin"></a>Abilitare i broker in Novell
+### <a name="enable-the-broker-on-xamarin"></a>Abilitare Service Broker in Novell
 
 Per abilitare una di queste funzionalità, usare il `WithBroker()` parametro quando si chiama `PublicClientApplicationBuilder.CreateApplication` il metodo. `.WithBroker()`per impostazione predefinita, è impostato su true. Attenersi alla procedura seguente per [Novell. iOS](#brokered-authentication-for-xamarinios).
+
+### <a name="enable-the-broker-for-msal-for-android"></a>Abilitare Service Broker per MSAL per Android
+
+Per informazioni sull'abilitazione di un broker in Android, vedere [autenticazione negoziata in Android](brokered-auth.md) . 
 
 ### <a name="enable-the-broker-for-msal-for-ios-and-macos"></a>Abilitare Service Broker per MSAL per iOS e macOS
 

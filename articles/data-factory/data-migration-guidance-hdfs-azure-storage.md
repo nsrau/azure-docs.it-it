@@ -1,6 +1,6 @@
 ---
-title: Usare Azure Data Factory per eseguire la migrazione dei dati dal cluster Hadoop locale ad archiviazione di Azure | Microsoft Docs
-description: Usare Azure Data Factory per eseguire la migrazione dei dati dal cluster Hadoop locale al servizio di archiviazione di Azure.
+title: Usare Azure Data Factory per migrare i dati da un cluster Hadoop locale ad archiviazione di Azure | Microsoft Docs
+description: Informazioni su come usare Azure Data Factory per eseguire la migrazione dei dati dal cluster Hadoop locale al servizio di archiviazione di Azure.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -12,21 +12,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 8/30/2019
-ms.openlocfilehash: 1b26b22fa9cdf9f6671702ceb9640aa39a6ecf17
-ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
+ms.openlocfilehash: a2e98e46b168ff2e1270c6512aa515278190350f
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70211606"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677945"
 ---
-# <a name="use-azure-data-factory-to-migrate-data-from-on-premises-hadoop-cluster-to-azure-storage"></a>Usare Azure Data Factory per eseguire la migrazione dei dati dal cluster Hadoop locale ad archiviazione di Azure 
+# <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-hadoop-cluster-to-azure-storage"></a>Usare Azure Data Factory per migrare i dati da un cluster Hadoop locale ad archiviazione di Azure 
 
-Azure Data Factory offre un meccanismo efficiente, affidabile ed economicamente conveniente per la migrazione dei dati su larga scala dalla HDFS locale all'archivio BLOB di Azure o alla Azure Data Lake Storage Gen2. Fondamentalmente, Azure Data Factory contiene due approcci per eseguire la migrazione dei dati da HDFS locale ad Azure. È possibile selezionare ognuno di essi in base allo scenario. 
+Azure Data Factory offre un meccanismo efficiente, affidabile ed economicamente conveniente per la migrazione dei dati su larga scala dalla HDFS locale all'archivio BLOB di Azure o alla Azure Data Lake Storage Gen2. 
 
-- Modalità DistCp di ADF. ADF supporta l'uso di [DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) per copiare i file così come sono nel BLOB di Azure (inclusa la [copia](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#staged-copy)di staging) o Azure Data Lake Store, nel qual caso è possibile sfruttare appieno la potenza del cluster anziché eseguire il runtime di integrazione self-hosted di ADF. Fornirà una migliore velocità effettiva di copia, specialmente quando il cluster è molto potente. In base alla configurazione in Azure Data Factory, l'attività di copia crea automaticamente un comando DistCp, invia il cluster Hadoop e monitora lo stato della copia. Grazie all'uso di ADF integrato con DistCp, il cliente non può solo sfruttare il potente cluster esistente per ottenere la migliore velocità effettiva di copia, ma anche sfruttare i vantaggi offerti dalla pianificazione flessibile e dall'esperienza di monitoraggio unificato di ADF. Per impostazione predefinita, la modalità DistCp di ADF è il modo consigliato per eseguire la migrazione dei dati dal cluster Hadoop locale ad Azure.
-- Modalità IR nativa di ADF. In alcuni scenari, DistCp non può funzionare per i casi (ad esempio, nell'ambiente VNET, lo strumento DistCp non supporta il peering privato Express Route e l'endpoint VNet di archiviazione di Azure). Inoltre, a volte non si vuole usare il cluster Hadoop esistente come motore per eseguire la migrazione dei dati, in quanto in questo modo verranno portati carichi pesanti nel cluster, che potrebbero influisca sulle prestazioni dei processi ETL esistenti. In tal caso, è possibile usare la funzionalità nativa di ADF, dove ADF Integration Runtime (IR) può essere il motore per copiare i dati da HDFS locale ad Azure.
+Data Factory offre due approcci di base per la migrazione dei dati da HDFS locale ad Azure. È possibile selezionare l'approccio in base allo scenario. 
 
-Questo articolo fornisce le informazioni seguenti di entrambi gli approcci per gli sviluppatori e gli sviluppatori di dati:
+- **Data Factory modalità DistCp** (scelta consigliata): In Data Factory, è possibile usare [DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) (copia distribuita) per copiare i file così come sono nell'archiviazione BLOB di Azure (inclusa la [copia](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#staged-copy)di staging) o Azure Data Lake Store Gen2. USA Data Factory integrato con DistCp per sfruttare i vantaggi di un cluster potente esistente per ottenere la migliore velocità effettiva di copia. Si ottiene anche il vantaggio di una pianificazione flessibile e un'esperienza di monitoraggio unificata da Data Factory. A seconda della configurazione di Data Factory, l'attività di copia crea automaticamente un comando DistCp, invia i dati al cluster Hadoop e quindi monitora lo stato della copia. È consigliabile Data Factory modalità DistCp per la migrazione dei dati da un cluster Hadoop locale ad Azure.
+- **Data Factory modalità runtime di integrazione nativa**: DistCp non è un'opzione in tutti gli scenari. Ad esempio, in un ambiente di reti virtuali di Azure, lo strumento DistCp non supporta il peering privato di Azure ExpressRoute con un endpoint di rete virtuale di archiviazione di Azure. Inoltre, in alcuni casi, non si vuole usare il cluster Hadoop esistente come motore per la migrazione dei dati, in modo da non inserire carichi elevati nel cluster, che potrebbero influire sulle prestazioni dei processi ETL esistenti. È invece possibile usare la funzionalità nativa del runtime di integrazione Data Factory come motore che copia i dati da HDFS locale ad Azure.
+
+Questo articolo fornisce le informazioni seguenti su entrambi gli approcci:
 > [!div class="checklist"]
 > * Prestazioni 
 > * Resilienza della copia
@@ -36,112 +38,120 @@ Questo articolo fornisce le informazioni seguenti di entrambi gli approcci per g
 
 ## <a name="performance"></a>Prestazioni
 
-In modalità DistCp di ADF, la velocità effettiva è identica a quella usata dallo strumento DistCp in modo indipendente, che sfrutta la capacità del cluster Hadoop esistente. DistCp (copia distribuita) è uno strumento usato per la copia tra cluster di grandi dimensioni. USA MapReduce per influire sulla distribuzione, la gestione degli errori e il ripristino e la creazione di report. Espande un elenco di file e directory in input per eseguire il mapping delle attività, ognuna delle quali copia una partizione dei file specificati nell'elenco di origine. Grazie all'uso di ADF integrato con DistCp, è possibile compilare pipeline per usare completamente la larghezza di banda di rete, oltre a IOPS e larghezza di banda di archiviazione per ottimizzare la velocità effettiva di spostamento dei dati per l'ambiente.  
+In Data Factory modalità DistCp, la velocità effettiva è identica a quella usata dallo strumento DistCp in modo indipendente. Data Factory modalità DistCp ottimizza la capacità del cluster Hadoop esistente. È possibile usare DistCp per la copia tra cluster o intra-cluster di grandi dimensioni. 
 
-In modalità IR nativa di ADF, consente anche il parallelismo a livelli diversi, che può usare completamente la larghezza di banda di rete, oltre a IOPS e larghezza di banda di archiviazione per ottimizzare la velocità effettiva di spostamento dei dati scalando manualmente il computer IR self-hosted o aumentando il livello di scalabilità orizzontale Runtime di integrazione self-hosted di più computer.
+DistCp utilizza MapReduce per influire sulla distribuzione, la gestione degli errori e il ripristino e la creazione di report. Espande un elenco di file e directory in input per il mapping delle attività. Ogni attività copia una partizione di file specificata nell'elenco di origine. È possibile usare Data Factory integrato con DistCp per creare pipeline per sfruttare al meglio la larghezza di banda di rete, i IOPS di archiviazione e la larghezza di banda per ottimizzare la velocità effettiva di spostamento dei dati per l'ambiente.  
 
-- Una singola attività di copia può sfruttare le risorse di calcolo scalabili. Con il runtime di integrazione self-hosted è possibile scalare manualmente il computer o scalare orizzontalmente in più computer ([fino a 4 nodi](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)) e una singola attività di copia partiziona il set di file in tutti i nodi. 
+Data Factory modalità runtime di integrazione nativa consente anche il parallelismo a livelli diversi. Puoi usare il parallelismo per sfruttare al meglio la larghezza di banda di rete, i IOPS di archiviazione e la larghezza di banda per ottimizzare la velocità effettiva di spostamento dei dati:
+
+- Una singola attività di copia può sfruttare le risorse di calcolo scalabili. Con un runtime di integrazione self-hosted è possibile scalare manualmente il computer o aumentare la scalabilità orizzontale in più computer ([fino a quattro nodi](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)). Una singola attività di copia esegue il partizionamento del set di file in tutti i nodi. 
 - Una singola attività di copia legge e scrive nell'archivio dati usando più thread. 
-- Il flusso di controllo ADF può avviare più attività di copia in parallelo, ad esempio utilizzando [per ogni ciclo](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity). 
+- Data Factory flusso di controllo può avviare più attività di copia in parallelo. Ad esempio, è possibile usare un [ciclo for each](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity). 
 
-È possibile ottenere altri dettagli dalla [Guida alle prestazioni dell'attività di copia](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)
+Per ulteriori informazioni, vedere la [Guida alle prestazioni dell'attività di copia](https://docs.microsoft.com/azure/data-factory/copy-activity-performance).
 
 ## <a name="resilience"></a>Resilienza
 
-In modalità DistCp di ADF è possibile utilizzare parametri della riga di comando DistCp diversi, ad esempio-i, ignorare gli errori, aggiornare, scrivere dati quando il file di origine e il file di destinazione presentano dimensioni diverse per ottenere livelli di resilienza diversi.
+In Data Factory modalità DistCp, è possibile usare parametri della riga di comando DistCp diversi, ad esempio `-i`, ignorare gli errori o `-update`, scrivere dati quando il file di origine e il file di destinazione presentano dimensioni diverse per i diversi livelli di resilienza.
 
-In modalità IR nativa di ADF, all'interno di una singola esecuzione dell'attività di copia, ADF include un meccanismo di ripetizione dei tentativi incorporato che consente di gestire un determinato livello di errori temporanei negli archivi dati o nella rete sottostante. Quando si esegue la copia binaria da un HDFS locale a un BLOB e da un HDFS locale a un ADLS Gen2, ADF esegue automaticamente il checkpoint in un ambito molto elevato. Se l'esecuzione di un'attività di copia ha avuto esito negativo o si è verificato un timeout, dopo un nuovo tentativo (assicurarsi di ritentare il conteggio > 1), la copia riprende dall'ultimo punto di errore anziché partire dall'inizio.
+In Data Factory modalità runtime di integrazione nativa, in una singola esecuzione dell'attività di copia, Data Factory dispone di un meccanismo di ripetizione dei tentativi incorporato. Può gestire un certo livello di errori temporanei negli archivi dati o nella rete sottostante. 
+
+Quando si esegue la copia binaria dalla HDFS locale all'archiviazione BLOB e da HDFS locale a Data Lake Store Gen2, Data Factory esegue automaticamente il checkpoint in un ambito esteso. Se l'esecuzione di un'attività di copia ha esito negativo o scade, in un tentativo successivo (assicurarsi che il numero di tentativi sia > 1), la copia riprende dall'ultimo punto di errore anziché partire dall'inizio.
 
 ## <a name="network-security"></a>Sicurezza di rete 
 
-Per impostazione predefinita, ADF trasferisce i dati da HDFS locali all'archivio BLOB di Azure o Azure Data Lake Storage Gen2 usando la connessione crittografata sul protocollo HTTPS.  HTTPS fornisce la crittografia dei dati in transito e impedisce l'intercettazione e gli attacchi man-in-the-Middle. 
+Per impostazione predefinita, Data Factory trasferisce i dati dalla HDFS locale all'archiviazione BLOB o Azure Data Lake Storage Gen2 tramite una connessione crittografata sul protocollo HTTPS. HTTPS fornisce la crittografia dei dati in transito e impedisce l'intercettazione e gli attacchi man-in-the-Middle. 
 
-In alternativa, se non si vuole trasferire i dati su Internet pubblico, è possibile ottenere una maggiore sicurezza trasferendo i dati tramite un collegamento di peering privato tramite Azure Express route. Per ottenere questo risultato, fare riferimento all'architettura della soluzione riportata di seguito.
+In alternativa, se non si vuole trasferire i dati attraverso la rete Internet pubblica, per una maggiore sicurezza è possibile trasferire i dati tramite un collegamento di peering privato tramite ExpressRoute. 
 
 ## <a name="solution-architecture"></a>Architettura della soluzione
 
-Migrare i dati su Internet pubblico:
+Questa immagine illustra la migrazione dei dati sulla rete Internet pubblica:
 
-![soluzione-architettura-pubblico-rete](media/data-migration-guidance-hdfs-to-azure-storage/solution-architecture-public-network.png)
+![Diagramma che illustra l'architettura della soluzione per la migrazione dei dati in una rete pubblica](media/data-migration-guidance-hdfs-to-azure-storage/solution-architecture-public-network.png)
 
-- In questa architettura i dati vengono trasferiti in modo sicuro tramite HTTPS tramite Internet pubblico. 
-- La modalità DistCp di ADF è consigliata per l'uso in un ambiente di rete pubblico. In questo modo, non solo è possibile sfruttare il cluster potente esistente per ottenere la migliore velocità effettiva di copia, ma anche sfruttare i vantaggi della pianificazione flessibile e dell'esperienza di monitoraggio unificato di ADF.
-- È necessario installare il runtime di integrazione self-hosted ADF in un computer Windows dietro il firewall aziendale per l'invio del comando DistCp al cluster Hadoop e il monitoraggio dello stato della copia. Dato che questo computer non sarà il motore per lo spostamento dei dati (solo a scopo di controllo), la capacità del computer non ha alcun effetto sulla velocità effettiva di spostamento dei dati.
+- In questa architettura i dati vengono trasferiti in modo sicuro tramite HTTPS tramite la rete Internet pubblica. 
+- Si consiglia di usare Data Factory modalità DistCp in un ambiente di rete pubblico. È possibile trarre vantaggio da un potente cluster esistente per ottenere la migliore velocità effettiva di copia. Si ottiene anche il vantaggio di una pianificazione flessibile e un'esperienza di monitoraggio unificata da Data Factory.
+- Per questa architettura, è necessario installare il Data Factory runtime di integrazione self-hosted in un computer Windows dietro a un firewall aziendale per inviare il comando DistCp al cluster Hadoop e per monitorare lo stato della copia. Poiché il computer non è il motore che sposterà i dati (solo a scopo di controllo), la capacità del computer non influisce sulla velocità effettiva dello spostamento dei dati.
 - Sono supportati i parametri esistenti dal comando DistCp.
 
+Questa immagine illustra la migrazione dei dati tramite un collegamento privato: 
 
-Migrare i dati su un collegamento privato: 
+![Diagramma che illustra l'architettura della soluzione per la migrazione dei dati in una rete privata](media/data-migration-guidance-hdfs-to-azure-storage/solution-architecture-private-network.png)
 
-![soluzione-architettura-privato-rete](media/data-migration-guidance-hdfs-to-azure-storage/solution-architecture-private-network.png)
+- In questa architettura viene eseguita la migrazione dei dati tramite un collegamento di peering privato tramite Azure ExpressRoute. I dati non passano mai attraverso la rete Internet pubblica.
+- Lo strumento DistCp non supporta il peering privato di ExpressRoute con un endpoint di rete virtuale di archiviazione di Azure. Per eseguire la migrazione dei dati, è consigliabile usare la funzionalità nativa di Data Factory tramite il runtime di integrazione.
+- Per questa architettura, è necessario installare il Data Factory runtime di integrazione self-hosted in una VM Windows nella rete virtuale di Azure. È possibile scalare manualmente la macchina virtuale o aumentare le prestazioni in più macchine virtuali per usare completamente la rete e gli IOPS di archiviazione o la larghezza di banda.
+- La configurazione consigliata per iniziare con per ogni macchina virtuale di Azure (con il Data Factory runtime di integrazione self-hosted installato) è Standard_D32s_v3 con 32 vCPU e 128 GB di memoria. È possibile monitorare l'utilizzo della CPU e della memoria della VM durante la migrazione dei dati per verificare se è necessario aumentare le prestazioni della macchina virtuale per ottenere prestazioni migliori o per ridurre la macchina virtuale per ridurre i costi.
+- È anche possibile aumentare la scalabilità orizzontale associando fino a quattro nodi VM con un singolo runtime di integrazione self-hosted. Un processo di copia singolo in esecuzione su un runtime di integrazione self-hosted suddivide automaticamente il set di file e usa tutti i nodi VM per copiare i file in parallelo. Per la disponibilità elevata, è consigliabile iniziare con due nodi VM per evitare uno scenario a singolo punto di errore durante la migrazione dei dati.
+- Quando si usa questa architettura, la migrazione iniziale dei dati dello snapshot e la migrazione dei dati Delta sono disponibili.
 
-- In questa architettura, la migrazione dei dati viene eseguita tramite un collegamento peering privato tramite Azure Express route in modo che i dati non attraversino mai la rete Internet pubblica.
-- Lo strumento DistCp non supporta il peering privato Express Route e l'endpoint VNet di archiviazione di Azure, pertanto è consigliabile usare la funzionalità nativa di ADF con Integration Runtime per eseguire la migrazione dei dati.
-- Per ottenere questa architettura, è necessario installare il runtime di integrazione self-hosted di ADF in una macchina virtuale Windows nella rete virtuale di Azure. È possibile scalare manualmente la macchina virtuale o aumentare le prestazioni in più macchine virtuali per usare completamente la rete e le operazioni di i/o della larghezza di banda di archiviazione.
-- La configurazione consigliata per iniziare con per ogni macchina virtuale di Azure (con il runtime di integrazione self-hosted ADF installato) è Standard_D32s_v3 con 32 vCPU e 128 GB di memoria. È possibile continuare a monitorare l'utilizzo della CPU e della memoria della VM durante la migrazione dei dati per verificare se è necessario aumentare ulteriormente la VM per ottenere prestazioni migliori o ridurre la macchina virtuale per ridurre i costi.
-- È anche possibile aumentare la scalabilità orizzontale associando fino a 4 nodi VM con un singolo runtime di integrazione self-hosted. Un processo di copia singolo in esecuzione su un runtime di integrazione self-hosted suddivide automaticamente il set di file e usa tutti i nodi VM per copiare i file in parallelo. Per la disponibilità elevata, si consiglia di iniziare con due nodi VM per evitare un singolo punto di errore durante la migrazione dei dati.
-- Con questa architettura è possibile ottenere sia la migrazione dei dati dello snapshot iniziale che la migrazione dei dati Delta.
+## <a name="implementation-best-practices"></a>Procedure consigliate per l'implementazione
 
-
-## <a name="implementation-best-practices"></a>Procedure consigliate per l'implementazione 
+Quando si implementa la migrazione dei dati, è consigliabile seguire queste procedure consigliate.
 
 ### <a name="authentication-and-credential-management"></a>Autenticazione e gestione delle credenziali 
 
 - Per eseguire l'autenticazione a HDFS, è possibile usare [Windows (Kerberos) o Anonymous](https://docs.microsoft.com/azure/data-factory/connector-hdfs#linked-service-properties). 
-- Sono supportati più tipi di autenticazione per la connessione all'archivio BLOB di Azure.  È consigliabile usare [identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#managed-identity) : basate su un ADF gestito automaticamente in Azure ad, consente di configurare le pipeline senza fornire le credenziali nella definizione del servizio collegato.  In alternativa, è possibile eseguire l'autenticazione nell'archiviazione BLOB di Azure usando un' [entità servizio](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#service-principal-authentication), una [firma di accesso condiviso](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#shared-access-signature-authentication)o una [chiave dell'account di archiviazione](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#account-key-authentication). 
-- Sono inoltre supportati più tipi di autenticazione per la connessione a Azure Data Lake Storage Gen2.  È consigliabile usare [identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#managed-identity) , anche se è possibile usare l' [entità servizio](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication) o la [chiave dell'account di archiviazione](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#account-key-authentication) . 
-- Quando non si usano identità gestite per le risorse di Azure, [l'archiviazione delle credenziali in Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) è fortemente consigliata per semplificare la gestione e la rotazione centralizzate delle chiavi senza modificare i servizi collegati di ADF.  Questa è anche una delle [procedure consigliate per ci/CD](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd). 
+- Sono supportati più tipi di autenticazione per la connessione all'archivio BLOB di Azure.  Si consiglia vivamente [di usare identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#managed-identity). Basati su un'identità Data Factory gestita automaticamente in Azure Active Directory (Azure AD), le identità gestite consentono di configurare pipeline senza fornire credenziali nella definizione del servizio collegato. In alternativa, è possibile eseguire l'autenticazione nell'archiviazione BLOB usando un' [entità servizio](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#service-principal-authentication), una [firma di accesso condiviso](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#shared-access-signature-authentication)o una [chiave dell'account di archiviazione](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#account-key-authentication). 
+- Sono supportati anche più tipi di autenticazione per la connessione a Data Lake Storage Gen2.  Si consiglia vivamente [di usare identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#managed-identity), ma è anche possibile usare un' [entità servizio](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication) o una [chiave dell'account di archiviazione](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#account-key-authentication). 
+- Quando non si usano identità gestite per le risorse di Azure, è consigliabile [archiviare le credenziali in Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) per semplificare la gestione e la rotazione centralizzate delle chiavi senza modificare data factory servizi collegati. Questa è anche una [procedura consigliata per ci/CD](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd). 
 
 ### <a name="initial-snapshot-data-migration"></a>Migrazione iniziale dei dati dello snapshot 
 
-In modalità DistCp di ADF è possibile creare un'attività di copia per inviare il comando DistCp con parametri diversi per controllare il comportamento iniziale della migrazione dei dati. 
+In Data Factory modalità DistCp è possibile creare un'attività di copia per inviare il comando DistCp e utilizzare parametri diversi per controllare il comportamento di migrazione dei dati iniziale. 
 
-Nella modalità IR nativa di ADF, la partizione dei dati è consigliata in particolare quando si esegue la migrazione di più di 10 TB di dati. Per partizionare i dati, sfruttare i nomi delle cartelle in HDFS e quindi ogni processo di copia ADF può copiare una partizione di cartella alla volta. È possibile eseguire più processi di copia ADF simultaneamente per una migliore velocità effettiva.
-Se uno dei processi di copia ha esito negativo a causa di un problema temporaneo di rete o archivio dati, è possibile rieseguire il processo di copia non riuscito per ricaricare nuovamente la partizione specifica da HDFS. Tutti gli altri processi di copia che caricano altre partizioni non saranno interessati.
+In Data Factory modalità runtime di integrazione nativa, si consiglia la partizione dei dati, specialmente quando si esegue la migrazione di più di 10 TB di dati. Per partizionare i dati, usare i nomi di cartella in HDFS. Ogni processo di copia di Data Factory può quindi copiare una partizione di cartella alla volta. È possibile eseguire più processi di copia Data Factory contemporaneamente per una migliore velocità effettiva.
+
+Se uno dei processi di copia ha esito negativo a causa di problemi temporanei dell'archivio dati o della rete, è possibile rieseguire il processo di copia non riuscito per ricaricare la partizione specifica da HDFS. Non sono interessati altri processi di copia che caricano altre partizioni.
 
 ### <a name="delta-data-migration"></a>Migrazione dei dati Delta 
 
-In modalità DistCp di ADF, è possibile usare i parametri della riga di comando di DistCp "-Update, Write data when source file and Destination file-size" per ottenere la migrazione dei dati Delta.
+In Data Factory modalità DistCp è possibile utilizzare il parametro della riga di comando DistCp `-update`, scrivere dati quando il file di origine e il file di destinazione presentano dimensioni diverse per la migrazione dei dati Delta.
 
-In modalità IR nativa di ADF, il modo più efficiente per identificare i file nuovi o modificati da HDFS consiste nell'usare la convenzione di denominazione partizionata in base al tempo: quando i dati in HDFS sono stati partizionati con le informazioni relative all'intervallo di tempo nel nome del file o della cartella (ad esempio,/yyyy/mm/dd/ file. csv, quindi la pipeline può identificare facilmente i file e le cartelle da copiare in modo incrementale.
-In alternativa, se i dati in HDFS non sono partizionati in base al tempo, ADF è in grado di identificare i file nuovi o modificati dai rispettivi LastModifiedDate. Il modo in cui funziona è che ADF analizzerà tutti i file da HDFS e copierà solo il file nuovo e aggiornato il cui ultimo timestamp modificato è maggiore di un determinato valore. Tenere presente che se si dispone di un numero elevato di file in HDFS, l'analisi dei file iniziale potrebbe richiedere molto tempo indipendentemente dal numero di file che corrispondono alla condizione di filtro. In questo caso è consigliabile partizionare prima i dati, usando la stessa partizione per la migrazione snapshot iniziale, in modo che l'analisi dei file possa essere eseguita in parallelo.
+In Data Factory modalità di integrazione nativa, il modo più efficiente per identificare i file nuovi o modificati da HDFS consiste nell'usare una convenzione di denominazione partizionata in base al tempo. Quando i dati in HDFS sono stati partizionati in tempo con le informazioni relative all'intervallo di tempo nel nome del file o della cartella (ad esempio, */yyyy/mm/DD/file.csv*), la pipeline può identificare facilmente i file e le cartelle da copiare in modo incrementale.
 
-### <a name="estimating-price"></a>Prezzo stimato 
+In alternativa, se i dati in HDFS non sono partizionati in base al tempo, Data Factory possibile identificare i file nuovi o modificati usando il valore **LastModifiedDate** . Data Factory analizza tutti i file da HDFS e copia solo i file nuovi e aggiornati con un timestamp dell'Ultima modifica maggiore di un valore impostato. 
 
-Si consideri la pipeline seguente costruita per la migrazione dei dati da HDFS all'archivio BLOB di Azure: 
+Se si dispone di un numero elevato di file in HDFS, l'analisi dei file iniziale potrebbe richiedere molto tempo, indipendentemente dal numero di file che corrispondono alla condizione di filtro. In questo scenario è consigliabile partizionare prima i dati utilizzando la stessa partizione utilizzata per la migrazione snapshot iniziale. L'analisi dei file può quindi essere eseguita in parallelo.
 
-![prezzi-pipeline](media/data-migration-guidance-hdfs-to-azure-storage/pricing-pipeline.png)
+### <a name="estimate-price"></a>Prezzo stimato 
 
-Si supponga quanto segue: 
+Si consideri la pipeline seguente per la migrazione dei dati da HDFS all'archivio BLOB di Azure: 
 
-- Il volume totale dei dati è di 1 PB
-- Migrazione dei dati tramite la seconda architettura della soluzione (modalità IR nativa di ADF)
-- 1 PB è diviso in 1000 partizioni e ogni copia sposta una partizione
-- Ogni attività di copia è configurata con un runtime di integrazione self-hosted associato a 4 computer e raggiunge la velocità effettiva di 500 MBps.
-- La concorrenza ForEach è impostata su 4 e la velocità effettiva aggregata è di 2 GBps
+![Diagramma che mostra la pipeline dei prezzi](media/data-migration-guidance-hdfs-to-azure-storage/pricing-pipeline.png)
+
+Si supponga le seguenti informazioni: 
+
+- Il volume totale dei dati è di 1 PB.
+- Per eseguire la migrazione dei dati, è possibile usare la modalità runtime di integrazione Data Factory nativa.
+- 1 PB è diviso in 1.000 partizioni e ogni copia sposta una partizione.
+- Ogni attività di copia è configurata con un runtime di integrazione self-hosted associato a quattro computer e che raggiunge la velocità effettiva di 500 MBps.
+- La concorrenza ForEach è impostata su **4** e la velocità effettiva aggregata è di 2 Gbps.
 - Per completare la migrazione, in totale sono necessarie 146 ore.
 
+Ecco il prezzo stimato in base ai presupposti seguenti: 
 
-Ecco il prezzo stimato in base ai presupposti precedenti: 
-
-![prezzi-tabella](media/data-migration-guidance-hdfs-to-azure-storage/pricing-table.png)
+![Tabella che mostra i calcoli dei prezzi](media/data-migration-guidance-hdfs-to-azure-storage/pricing-table.png)
 
 > [!NOTE]
-> Questo è un esempio di prezzo ipotetico.  I prezzi effettivi variano in base alla velocità effettiva dell'ambiente.
-> Il prezzo per la VM Windows di Azure (con il runtime di integrazione self-hosted installato) non è incluso.
+> Questo è un esempio di prezzo ipotetico. I prezzi effettivi variano in base alla velocità effettiva dell'ambiente.
+> Il prezzo di una VM Windows di Azure (con il runtime di integrazione self-hosted installato) non è incluso.
 
-### <a name="additional-references"></a>Altri riferimenti 
+### <a name="additional-references"></a>Altri riferimenti
+
 - [Connettore HDFS](https://docs.microsoft.com/azure/data-factory/connector-hdfs)
-- [Connettore di Archiviazione BLOB di Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
+- [Connettore di archiviazione BLOB di Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
 - [Connettore di Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
 - [Guida all'ottimizzazione delle prestazioni dell'attività di copia](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)
-- [Creazione e configurazione di Integration Runtime indipendenti](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
+- [Creare e configurare un runtime di integrazione self-hosted](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
 - [Disponibilità elevata e scalabilità del runtime di integrazione self-hosted](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)
 - [Considerazioni sulla sicurezza dello spostamento dei dati](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
 - [Archiviare le credenziali in Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
-- [Copiare il file in modo incrementale in base al nome del file partizionato ora](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-partitioned-file-name-copy-data-tool)
+- [Copiare un file in modo incrementale in base a un nome file con partizionamento temporale](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-partitioned-file-name-copy-data-tool)
 - [Copia i file nuovi e modificati in base a LastModifiedDate](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-lastmodified-copy-data-tool)
-- [Pagina dei prezzi di ADF](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
+- [Pagina dei prezzi di Data Factory](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Copia i file da più contenitori con Azure Data Factory](solution-template-copy-files-multiple-containers.md)
+- [Copiare i file da più contenitori usando Azure Data Factory](solution-template-copy-files-multiple-containers.md)

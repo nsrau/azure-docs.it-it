@@ -6,14 +6,17 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2019
 ms.author: dech
-ms.openlocfilehash: 824a562cb5f0562a235d903fbd4e575bc9c22572
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 22bad3b31b8cbe54900b96bd4b327f18916e81a3
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71672742"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677153"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts"></a>Abilitare i notebook per gli account Azure Cosmos DB
+
+> [!IMPORTANT]
+> I notebook predefiniti per Azure Cosmos DB sono attualmente disponibili nelle aree di Azure seguenti: Australia orientale, Stati Uniti orientali, Stati Uniti orientali 2, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, Regno Unito meridionale, Europa occidentale e Stati Uniti occidentali 2. Per usare i notebook, [creare un nuovo account con notebook](#enable-notebooks-in-a-new-cosmos-account) o [abilitare notebook in un account esistente](#enable-notebooks-in-an-existing-cosmos-account) in una di queste aree.
 
 I notebook Jupyter incorporati in Azure Cosmos DB consentono di analizzare e visualizzare i dati dall'portale di Azure. Questo articolo descrive come abilitare questa funzionalità per l'account Azure Cosmos DB.
 
@@ -67,4 +70,3 @@ Per eseguire il notebook:
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Scopri i vantaggi di [Azure Cosmos DB notebook Jupyter](cosmosdb-jupyter-notebooks.md)
-- Informazioni su [come usare le funzionalità e i comandi del notebook](use-notebook-features-and-commands.md)

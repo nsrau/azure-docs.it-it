@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: ecdaec6dcade033bf99842dd384be095dd363a05
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 0c16a60b0ddcde733cfbc7b9c90e07b697526015
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933394"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677381"
 ---
 # <a name="temperature-prebuilt-entity-for-a-luis-app"></a>Entità predefinita temperatura per un'app LUIS
 L'entità temperatura consente di estrarre una vasta gamma di tipi di temperatura. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere all'applicazione espressioni di esempio contenenti la temperatura. L'entità temperatura è supportata in [molte impostazioni cultura](luis-reference-prebuilt-entities.md). 
@@ -26,7 +26,7 @@ La temperatura viene gestita nel repository GitHub [Recognizers-text](https://gi
 
 ## <a name="resolution-for-prebuilt-temperature-entity"></a>Risoluzione per l'entità temperatura predefinita
 
-### <a name="api-version-2x"></a>API versione 2. x
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 risposta endpoint di stima](#tab/V2)
 
 L'esempio seguente illustra la risoluzione dell'entità **builtin.temperature**.
 
@@ -58,9 +58,9 @@ L'esempio seguente illustra la risoluzione dell'entità **builtin.temperature**.
 }
 ```
 
-### <a name="preview-api-version-3x"></a>API di anteprima versione 3. x
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Risposta dell'endpoint di stima V3](#tab/V3)
 
-Il codice JSON seguente è con `verbose` il parametro impostato `false`su:
+Il codice JSON seguente è con il parametro `verbose` impostato su `false`:
 
 ```json
 {
@@ -85,7 +85,7 @@ Il codice JSON seguente è con `verbose` il parametro impostato `false`su:
 }
 ```
 
-Il codice JSON seguente è con `verbose` il parametro impostato `true`su:
+Il codice JSON seguente è con il parametro `verbose` impostato su `true`:
 
 ```json
 {
@@ -122,6 +122,10 @@ Il codice JSON seguente è con `verbose` il parametro impostato `true`su:
 }
 ```
 
+* * * 
+
 ## <a name="next-steps"></a>Passaggi successivi
+
+Altre informazioni sull' [endpoint di stima V3](luis-migration-api-v3.md).
 
 Informazioni sulle entità [percentuale](luis-reference-prebuilt-percentage.md), [numero](luis-reference-prebuilt-number.md) ed [età](luis-reference-prebuilt-age.md). 

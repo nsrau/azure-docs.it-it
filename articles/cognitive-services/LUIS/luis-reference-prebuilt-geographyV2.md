@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: e28b541c1b5aa8f733c9f4ed44fd2ea5296b34d8
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 04bc3019a55920351b0e91c87e63b8309d94e34c
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933534"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677617"
 ---
 # <a name="geographyv2-prebuilt-entity-for-a-luis-app"></a>Entità predefinita geographyV2 per un'app LUIS
 L'entità predefinita geographyV2 rileva le località. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere espressioni di esempio contenenti geographyV2 per le finalità dell'applicazione. L'entità geographyV2 è supportata solo nelle [impostazioni cultura](luis-reference-prebuilt-entities.md) inglese.
@@ -35,7 +35,7 @@ Le località geografiche hanno dei sottotipi:
 
 ## <a name="resolution-for-geographyv2-entity"></a>Risoluzione per l'entità geographyV2
 
-### <a name="api-version-2x"></a>API versione 2. x
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 risposta endpoint di stima](#tab/V2)
 
 L'esempio seguente illustra la risoluzione dell'entità **builtin.geographyV2**.
 
@@ -93,9 +93,9 @@ L'esempio seguente illustra la risoluzione dell'entità **builtin.geographyV2**.
 } 
 ```
 
-### <a name="preview-api-version-3x"></a>API di anteprima versione 3. x
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Risposta dell'endpoint di stima V3](#tab/V3)
 
-Il codice JSON seguente è con `verbose` il parametro impostato `false`su:
+Il codice JSON seguente è con il parametro `verbose` impostato su `false`:
 
 ```json
 {
@@ -121,7 +121,7 @@ Il codice JSON seguente è con `verbose` il parametro impostato `false`su:
 }
 ```
 
-Il codice JSON seguente è con `verbose` il parametro impostato `true`su:
+Il codice JSON seguente è con il parametro `verbose` impostato su `true`:
 
 ```json
 {
@@ -191,6 +191,10 @@ Il codice JSON seguente è con `verbose` il parametro impostato `true`su:
 }
 ```
 
+* * * 
+
 ## <a name="next-steps"></a>Passaggi successivi
+
+Altre informazioni sull' [endpoint di stima V3](luis-migration-api-v3.md).
 
 Informazioni sulle entità [posta elettronica](luis-reference-prebuilt-email.md), [numero](luis-reference-prebuilt-number.md) e [ordinale](luis-reference-prebuilt-ordinal.md). 

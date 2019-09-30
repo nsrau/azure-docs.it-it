@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/14/2019
 ms.author: helohr
-ms.openlocfilehash: 625515223da12751b7765baa795bc68d2a7b46b4
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 07a45f54eb7c00e20abcfb05979e24493e5b9604
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233243"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676664"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Distribuire lo strumento di diagnostica
 
@@ -64,14 +64,14 @@ Ora che l'app è stata registrata, è necessario configurare l'area di lavoro Lo
 
 ## <a name="configure-your-log-analytics-workspace"></a>Configurare l'area di lavoro Log Analytics
 
-Per la migliore esperienza possibile, è consigliabile configurare l'area di lavoro di Log Analytics con i contatori delle prestazioni seguenti che consentono di derivare le istruzioni dell'esperienza utente in una sessione remota. Per un elenco di contatori consigliati con le soglie suggerite, vedere soglie dei [contatori delle prestazioni di Windows](deploy-diagnostics.md#windows-performance-counter-thresholds).
+Per la migliore esperienza possibile, è consigliabile configurare l'area di lavoro di Log Analytics con i contatori delle prestazioni seguenti che consentono di derivare le istruzioni dell'esperienza utente in una sessione remota. Per un elenco di contatori consigliati con le soglie suggerite, vedere [soglie dei contatori delle prestazioni di Windows](deploy-diagnostics.md#windows-performance-counter-thresholds).
 
 ### <a name="create-an-azure-log-analytics-workspace-using-powershell"></a>Creare un'area di lavoro di Azure Log Analytics usando PowerShell
 
 È possibile eseguire uno script di PowerShell per creare un'area di lavoro di Log Analytics e configurare i contatori delle prestazioni di Windows consigliati per monitorare le prestazioni dell'app e dell'esperienza utente.
 
 >[!NOTE]
->Se è già presente un'area di lavoro Log Analytics esistente senza lo script di PowerShell che si vuole usare, andare avanti per convalidare [i risultati dello script nel portale di Azure](#validate-the-script-results-in-the-azure-portal).
+>Se è già presente un'area di lavoro Log Analytics esistente senza lo script di PowerShell che si vuole usare, andare avanti per [convalidare i risultati dello script nel portale di Azure](#validate-the-script-results-in-the-azure-portal).
 
 Per eseguire lo script di PowerShell:
 
@@ -98,13 +98,13 @@ Di seguito viene illustrato come configurare manualmente i contatori delle prest
 1. Aprire il browser Internet e accedere al [portale di Azure](https://portal.azure.com/) con l'account amministrativo.
 2. Passare quindi a **log Analytics aree di lavoro** per esaminare i contatori delle prestazioni di Windows configurati.
 3. Nella sezione **Impostazioni** selezionare **Impostazioni avanzate**.
-4. Passare quindi ai**contatori delle prestazioni di Windows** **Data** > e aggiungere i contatori seguenti:
+4. Passare quindi a **Data** > **Windows Performance Counters** e aggiungere i contatori seguenti:
 
-    -   Disco logico (\*)\|% di spazio disponibile
-    -   Disco logico (C:)\\AVG Lunghezza coda disco
-    -   Memoria (\*)\\MByte disponibili
-    -   Informazioni processore (\*)\\tempo processore
-    -   Ritardo input utente per sessione (\*)\\-ritardo input massimo
+    -   Disco logico (\*) \|% di spazio disponibile
+    -   Disco logico (C:) \\Avg. Lunghezza coda disco
+    -   Memoria (\*) \\Available MByte
+    -   Informazioni sul processore (\*) \\Processor tempo
+    -   Ritardo input utente per sessione (\*) @no__t ritardo input 1Max
 
 Altre informazioni sui contatori delle prestazioni [nelle origini dati delle prestazioni di Windows e Linux in monitoraggio di Azure](/azure/azure-monitor/platform/data-sources-performance-counters).
 
@@ -131,14 +131,14 @@ Per assicurarsi che l'area di lavoro di Log Analytics disponga dei contatori del
 
 1. Nella [portale di Azure](https://portal.azure.com/)passare a **log Analytics aree di lavoro** per esaminare i contatori delle prestazioni di Windows configurati.
 2. In **Impostazioni**selezionare **Impostazioni avanzate**.
-3. Passare quindi ai**contatori delle prestazioni di Windows** **Data** > .
+3. Passare quindi a **Data** > **Windows Performance Counters**.
 4. Verificare che i contatori seguenti siano preconfigurati:
 
-   - Disco logico (\*)\|% di spazio disponibile: Visualizza la quantità di spazio libero disponibile sul disco come percentuale.
-   - Disco logico (C:)\\AVG Lunghezza coda del disco: Lunghezza della richiesta di trasferimento del disco per l'unità C. Il valore non deve superare 2 per più di un breve periodo di tempo.
-   - Memoria (\*)\\MByte disponibili: Memoria disponibile per il sistema in megabyte.
-   - Informazioni processore (\*)\\tempo processore: la percentuale di tempo impiegato dal processore per eseguire un thread non inattivo.
-   - Ritardo input utente per sessione (\*)\\-ritardo input massimo
+   - Disco logico (\*) \|% di spazio disponibile: Visualizza la quantità di spazio libero disponibile sul disco come percentuale.
+   - Disco logico (C:) \\Avg. Lunghezza coda del disco: Lunghezza della richiesta di trasferimento del disco per l'unità C. Il valore non deve superare 2 per più di un breve periodo di tempo.
+   - Memoria (\*) \\Available MByte: Memoria disponibile per il sistema in megabyte.
+   - Informazioni sul processore (\*) \\Processor tempo: la percentuale di tempo impiegato dal processore per eseguire un thread non inattivo.
+   - Ritardo input utente per sessione (\*) @no__t ritardo input 1Max
 
 ### <a name="connect-to-vms-in-your-log-analytics-workspace"></a>Connettersi alle macchine virtuali nell'area di lavoro Log Analytics
 
@@ -181,7 +181,7 @@ Per impostare l'URI di reindirizzamento:
 
    ![Pagina URI di Reindirizzamento](media/redirect-uri-page.png)
 
-8. Passare ora alle risorse di Azure, selezionare la risorsa app Azure Services con il nome specificato nel modello e passare all'URL associato. Se, ad esempio, il nome dell'app usato nel modello era `contosoapp45`, l'URL associato è. <https://contosoapp45.azurewebsites.net>
+8. Passare ora alle risorse di Azure, selezionare la risorsa app Azure Services con il nome specificato nel modello e passare all'URL associato. Se, ad esempio, il nome dell'app usato nel modello è `contosoapp45`, l'URL associato è <https://contosoapp45.azurewebsites.net>).
 9. Accedere usando l'account utente appropriato di Azure Active Directory.
 10.   Selezionare **Accetto**.
 
@@ -189,8 +189,8 @@ Per impostare l'URI di reindirizzamento:
 
 Prima di rendere disponibile lo strumento di diagnostica agli utenti, verificare che dispongano delle autorizzazioni seguenti:
 
-- Gli utenti hanno bisogno dell'accesso in lettura per log Analytics. Per altre informazioni, vedere [Introduzione a ruoli, autorizzazioni e sicurezza con monitoraggio di Azure](/azure/azure-monitor/platform/roles-permissions-security).
--  Per gli utenti è inoltre necessario l'accesso in lettura per il tenant desktop virtuale Windows (ruolo lettura Servizi Desktop remoto). Per ulteriori informazioni, vedere [l'accesso delegato nell'anteprima di desktop virtuale di Windows](delegated-access-virtual-desktop.md).
+- Gli utenti hanno bisogno dell'accesso in lettura per log Analytics. Per altre informazioni, vedere [Introduzione a ruoli, autorizzazioni e sicurezza con monitoraggio di Azure](/articles/azure-monitor/platform/roles-permissions-security.md).
+-  Per gli utenti è inoltre necessario l'accesso in lettura per il tenant desktop virtuale Windows (ruolo lettura Servizi Desktop remoto). Per ulteriori informazioni, vedere [accesso delegato in desktop virtuale di Windows](delegated-access-virtual-desktop.md).
 
 È anche necessario fornire agli utenti le informazioni seguenti:
 
@@ -226,25 +226,25 @@ Nei risultati della ricerca trovare e selezionare l'host sessione per cui si vog
 
 ### <a name="windows-performance-counter-thresholds"></a>Soglie del contatore delle prestazioni di Windows
 
-- Disco logico (\*)\|% di spazio disponibile:
+- Disco logico (\*) \|% di spazio disponibile:
 
     - Visualizza la percentuale dello spazio totale utilizzabile nel disco logico che è disponibile.
     - Soglia: Minore del 20% è contrassegnato come non integro.
 
-- Disco logico (C:)\\AVG Lunghezza coda del disco:
+- Disco logico (C:) \\Avg. Lunghezza coda del disco:
 
     - Rappresenta le condizioni del sistema di archiviazione.
     - Soglia: Maggiore di 5 è contrassegnato come non integro.
 
-- Memoria (\*)\\MByte disponibili:
+- Memoria (\*) \\Available MByte:
 
     - Memoria disponibile per il sistema.
     - Soglia: Inferiore a 500 megabyte contrassegnati come non integri.
 
-- Informazioni processore (\*)\\tempo processore:
+- Informazioni sul processore (\*) \\Processor tempo:
 
     - Soglia: Superiore al 80% è contrassegnato come non integro.
 
-- Ritardo input [utente per sessione (\*)\\: ritardo input massimo](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters):
+- [Ritardo input utente per sessione (\*) @no__t ritardo input 2max](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters):
 
     - Soglia: Superiore a 2000 ms è contrassegnato come non integro.

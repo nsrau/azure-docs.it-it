@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: d72af0c2126ef74f95697755a7ead354214f695c
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 1b2ff6b64661010136d43b8d1f10abb58a88102a
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932548"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677737"
 ---
 # <a name="age-prebuilt-entity-for-a-luis-app"></a>Entità predefinita age per un'app LUIS
 L'entità predefinita età acquisisce il valore dell'età sia numericamente che in termini di giorni, settimane, mesi e anni. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere espressioni di esempio contenenti l'età per le finalità dell'applicazione. L'entità età è supportata in [molte impostazioni cultura](luis-reference-prebuilt-entities.md). 
@@ -26,7 +26,7 @@ L'entità age viene gestita nel repository GitHub [Recognizers-text](https://git
 
 ## <a name="resolution-for-prebuilt-age-entity"></a>Risoluzione per l'entità età predefinita
 
-### <a name="api-version-2x"></a>API versione 2. x
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 risposta endpoint di stima](#tab/V2)
 
 L'esempio seguente illustra la risoluzione dell'entità **builtin.age**.
 
@@ -52,9 +52,9 @@ L'esempio seguente illustra la risoluzione dell'entità **builtin.age**.
 }
 ```
 
-### <a name="preview-api-version-3x"></a>API di anteprima versione 3. x
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Risposta dell'endpoint di stima V3](#tab/V3)
 
-Il codice JSON seguente è con `verbose` il parametro impostato `false`su:
+Il codice JSON seguente è con il parametro `verbose` impostato su `false`:
 
 ```json
 {
@@ -79,7 +79,7 @@ Il codice JSON seguente è con `verbose` il parametro impostato `false`su:
 }
 ```
 
-Il codice JSON seguente è con `verbose` il parametro impostato `true`su:
+Il codice JSON seguente è con il parametro `verbose` impostato su `true`:
 
 ```json
 {
@@ -116,6 +116,10 @@ Il codice JSON seguente è con `verbose` il parametro impostato `true`su:
 }
 ```
 
+* * * 
+
 ## <a name="next-steps"></a>Passaggi successivi
+
+Altre informazioni sull' [endpoint di stima V3](luis-migration-api-v3.md).
 
 Informazioni sulle entità [valuta](luis-reference-prebuilt-currency.md), [datetimeV2](luis-reference-prebuilt-datetimev2.md) e [dimensioni](luis-reference-prebuilt-dimension.md). 

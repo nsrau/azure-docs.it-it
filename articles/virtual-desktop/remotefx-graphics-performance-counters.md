@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: helohr
-ms.openlocfilehash: de849701365438b21244d1e46ae657495d16c307
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: b6a78fbf2fcb12962b42537965deea6c7912315d
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816398"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676537"
 ---
 # <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>Diagnosticare problemi di prestazioni grafica in Desktop remoto
 
@@ -101,6 +101,6 @@ Se le risorse client causano il collo di bottiglia, provare uno degli approcci s
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per creare una macchina virtuale di Azure ottimizzata per la GPU, vedere [configurare l'accelerazione GPU (Graphics Processing Unit) per l'ambiente di anteprima del desktop virtuale di Windows](https://docs.microsoft.com/azure/virtual-desktop/configure-vm-gpu).
+- Per creare una macchina virtuale di Azure ottimizzata per la GPU, vedere [configurare l'accelerazione GPU (Graphics Processing Unit) per l'ambiente desktop virtuale di Windows](https://docs.microsoft.com/azure/virtual-desktop/configure-vm-gpu).
 - Per una panoramica delle tracce di risoluzione dei problemi e di escalation, vedere [panoramica sulla risoluzione dei problemi, commenti e suggerimenti e supporto](https://docs.microsoft.com/azure/virtual-desktop/troubleshoot-set-up-overview).
-- Per ulteriori informazioni sul servizio di anteprima, vedere [ambiente Windows Desktop Preview](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
+- Per ulteriori informazioni sul servizio, vedere [ambiente desktop Windows](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).

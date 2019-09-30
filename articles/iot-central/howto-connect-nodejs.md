@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 75b900ecb37ae8d092d4e37129b7f39f801c470d
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: ccded68cfaa00e6e13e2bb32e114b81108742829
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066426"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71686678"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Connettere un'applicazione client generica all'applicazione Azure IoT Central (Node.js)
 
@@ -38,7 +38,7 @@ Aggiungere i dati di telemetria seguenti nella pagina **misure** :
 
 | Nome visualizzato | Nome campo  | Unità | Min | Max | Posizioni decimali |
 | ------------ | ----------- | ----- | --- | --- | -------------- |
-| Temperatura  | temperatura | F     | 60  | 110 | 0              |
+| Temperatura  | temperatura | V     | 60  | 110 | 0              |
 | Umidità     | umidità    | %     | 0   | 100 | 0              |
 | Pressione     | pressure    | kPa   | 80  | 110 | 0              |
 
@@ -53,7 +53,7 @@ Aggiungere lo stato seguente nella pagina **misure** :
 
 | Nome visualizzato | Nome campo  | Valore 1 | Nome visualizzato | Valore 2 | Nome visualizzato |
 | ------------ | ----------- | --------| ------------ | ------- | ------------ | 
-| Modalità ventola     | fanmode     | 1       | In esecuzione      | 0       | Arrestato      |
+| Modalità ventola     | fanmode     | 1       | In esecuzione      | 0       | Arrestata      |
 
 > [!NOTE]
 > Il tipo di dati della misura dello stato è di tipo stringa.
@@ -98,10 +98,10 @@ Immettere nel modello di dispositivo i nomi dei campi esattamente come sono visu
 
 Aggiungere le seguenti impostazioni di **numero** nella pagina **Impostazioni** :
 
-| Nome visualizzato    | Nome campo     | Unità | Decimali | Min | Max  | Initial |
+| Nome visualizzato    | Nome campo     | Unità | Decimali | Min | Max  | Iniziale |
 | --------------- | -------------- | ----- | -------- | --- | ---- | ------- |
 | Velocità della ventola       | fanSpeed       | rpm   | 0        | 0   | 3000 | 0       |
-| Imposta temperatura | setTemperature | F     | 0        | 20  | 200  | 80      |
+| Imposta temperatura | setTemperature | V     | 0        | 20  | 200  | 80      |
 
 Immettere nel modello di dispositivo il nome del campo esattamente come è visualizzato nella tabella. Se i nomi dei campi non corrispondono ai nomi delle proprietà nel codice del dispositivo corrispondente, il dispositivo non può ricevere il valore dell'impostazione.
 
@@ -111,7 +111,7 @@ Aggiungere il comando seguente nella pagina **comandi** :
 
 | Nome visualizzato    | Nome campo     | Timeout predefinito | Tipo di dati |
 | --------------- | -------------- | --------------- | --------- |
-| Conto alla rovescia       | conto alla rovescia      | 30              | number    |
+| Conto alla rovescia       | Conto alla rovescia      | 30              | number    |
 
 Aggiungere il campo di input seguente al comando Countdown:
 
@@ -164,7 +164,7 @@ I passaggi seguenti illustrano come creare un'applicazione client che implementa
     var provisioningHost = 'global.azure-devices-provisioning.net';
     var idScope = '{your Scope ID}';
     var registrationId = '{your Device ID}';
-    var symmetricKey = '{your Primary Key};
+    var symmetricKey = '{your Primary Key}';
     var provisioningSecurityClient = new SymmetricKeySecurityClient(registrationId, symmetricKey);
     var provisioningClient = ProvisioningDeviceClient.create(provisioningHost, idScope, new ProvisioningTransport(), provisioningSecurityClient);
     var hubClient;

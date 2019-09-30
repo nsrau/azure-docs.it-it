@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 9bc6cfdcbc67761e99150c730adeb23602232632
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 8b2147ead7c1a6226b68588b9d0dab53da954bf2
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70032950"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676955"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Domande frequenti sull'istanza gestita di database SQL
 
@@ -38,12 +38,19 @@ Per i livelli di servizio disponibili e le relative caratteristiche, vedere [dif
 
 Per i bug e i problemi noti, vedere [problemi noti](sql-database-managed-instance-transact-sql-information.md#Issues).
 
+## <a name="where-can-i-find-latest-features-and-the-features-in-public-preview"></a>Dove è possibile trovare le funzionalità più recenti e le funzionalità disponibili in anteprima pubblica?
+
+Per le funzionalità nuove e in anteprima, vedere [Note sulla versione](/azure/sql-database/sql-database-release-notes?tabs=managed-instance).
+
+## <a name="how-much-time-takes-to-create-or-update-instance-or-to-restore-a-database"></a>Quanto tempo è necessario per creare o aggiornare un'istanza o per ripristinare un database?
+
+Il tempo previsto per la creazione di una nuova istanza gestita o la modifica del livello di servizio (VCore, archiviazione) dipendono da diversi fattori. Esaminare le [operazioni di gestione](/azure/sql-database/sql-database-managed-instance#managed-instance-management-operations) 
+
 ## <a name="can-a-managed-instance-have-the-same-name-as-on-premises-sql-server"></a>Un'istanza gestita può avere lo stesso nome di SQL Server locali?
 
 L'istanza gestita deve avere un nome che termina con *database.Windows.NET*. Per usare un'altra zona DNS anziché quella predefinita, ad esempio, **mi-Other-Name**. contoso.com: 
 - Usare CliConfig per definire un alias. Lo strumento è solo un wrapper di impostazioni del registro di sistema, pertanto può essere eseguito anche tramite criteri di gruppo o script.
 - Usare l'opzione *CNAME* con *TrustServerCertificate = true* .
-
 
 ## <a name="how-can-i-move-database-from-managed-instance-back-to-sql-server-or-azure-sql-database"></a>Come è possibile spostare il database da un'istanza gestita a SQL Server o a un database SQL di Azure?
 
@@ -55,7 +62,7 @@ Non `COPY_ONLY` è possibile ripristinare i backup nativi eseguiti dall'istanza 
 
 ## <a name="how-can-i-migrate-my-instance-database-to-a-single-azure-sql-database"></a>Come è possibile eseguire la migrazione del database dell'istanza a un singolo database SQL di Azure?
 
-Un'opzione consiste nell' [esportare il database in un BacPac](sql-database-export.md) e quindi [importare il file BACPAC]( sql-database-import.md). 
+Un'opzione consiste nell' [esportare il database in un BacPac](sql-database-export.md) e quindi [importare il file BACPAC](sql-database-import.md). 
 
 Si tratta dell'approccio consigliato se il database è inferiore a 100 GB. La replica transazionale può essere utilizzata se tutte le tabelle del database includono chiavi primarie.
 
@@ -125,7 +132,8 @@ Per attenuare i rischi di rete, è consigliabile applicare un set di impostazion
 Case study sull'istanza gestita:
 
 - [Komatsu](https://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
-- [powerdetails](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
+- [KMD](https://customers.microsoft.com/en-ca/story/kmd-professional-services-azure-sql-database)
+- [PowerDETAILS](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
 - [Allscripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure)  
 Per comprendere meglio i vantaggi, i costi e i rischi associati alla distribuzione dell'istanza gestita di database SQL di Azure, è disponibile anche uno studio di Forrester: [Effetti economici totali di mi](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
 

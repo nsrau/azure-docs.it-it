@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: c4e83ed15c2b15ccb3339ff775b08c8d2dab4c32
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 4f46efaeddb0bfe789ef752abdd133c14da514da
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932513"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677703"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>Entità predefinita DatetimeV2 per un'app LUIS
 
@@ -82,7 +82,7 @@ Ogni elemento della matrice `values` può contenere i campi seguenti:
 |Nome proprietà|Descrizione proprietà|
 |--|--|
 |timex|Ora, data o intervallo di date espressi nel formato TIMEX che segue lo [standard ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e gli attributi TIMEX3 per l'annotazione con il linguaggio TimeML. Questa annotazione è descritta nelle [linee guida TIMEX](http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf).|
-|type|`datetime`Sottotipo, che può essere uno degli elementi seguenti:, `date`, `time`, `daterange`, `timerange`, `datetimerange`, `duration`, `set`.|
+|type|Sottotipo, che può essere uno degli elementi seguenti: `datetime`, `date`, `time`, `daterange`, `timerange`, `datetimerange`, `duration`, `set`.|
 |value|**Facoltativo.** Un oggetto datetime nel formato yyyy:MM:dd  (date), HH:mm:ss (time) yyyy:MM:dd HH:mm:ss (datetime). Se `type` è `duration`, il valore è il numero di secondi (durata) <br/> Usato solo se `type` è `datetime` oppure `date`, `time` o `duration.|
 
 ## <a name="valid-date-values"></a>Valori di daae validi
@@ -185,6 +185,8 @@ La matrice di valori ha due elementi ora se l'ora o l'intervallo di tempo sono a
 
 L'esempio seguente illustra come LUIS usa **datetimeV2** per risolvere l'espressione con un intervallo di tempo.
 
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 risposta endpoint di stima](#tab/V2)
+
 ```json
   "entities": [
     {
@@ -206,15 +208,15 @@ L'esempio seguente illustra come LUIS usa **datetimeV2** per risolvere l'espress
   ]
 ```
 
-## <a name="preview-api-version-3x"></a>API di anteprima versione 3. x
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Risposta dell'endpoint di stima V3](#tab/V3)
 
 La risposta JSON DatetimeV2 è cambiata nell'API V3. 
 
 Modifiche dall'API v2:
-* `datetimeV2.timex.type`la proprietà non viene più restituita perché viene restituita a livello `datetimev2.type`padre. 
-* La `datetimeV2.timex` proprietà è stata rinominata in `datetimeV2.value`.
+* la proprietà `datetimeV2.timex.type` non viene più restituita perché viene restituita al livello padre, `datetimev2.type`. 
+* La proprietà `datetimeV2.timex` è stata rinominata `datetimeV2.value`.
 
-Per il enunciato `8am on may 2nd 2017`,, la versione V3 di DatetimeV2 è:
+Per l'espressione, `8am on may 2nd 2017`, la versione V3 di DatetimeV2 è:
 
 ```JSON
 {
@@ -244,7 +246,7 @@ Per il enunciato `8am on may 2nd 2017`,, la versione V3 di DatetimeV2 è:
 }
 ```
 
-Il codice JSON seguente è con `verbose` il parametro impostato `false`su:
+Il codice JSON seguente è con il parametro `verbose` impostato su `false`:
 
 ```json
 {
@@ -289,6 +291,9 @@ Il codice JSON seguente è con `verbose` il parametro impostato `false`su:
 }
 ```
 
+
+* * * 
+
 ## <a name="deprecated-prebuilt-datetime"></a>Entità datetime predefinita deprecata
 
 L'entità `datetime` predefinita è deprecata e sostituita da **datetimeV2**. 
@@ -301,6 +306,8 @@ Per sostituire `datetime` con `datetimeV2` nell'app LUIS, completare i passaggi 
 4. Selezionare **datetimeV2** e fare clic su **Salva**.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
+Altre informazioni sull' [endpoint di stima V3](luis-migration-api-v3.md).
 
 Informazioni sulle entità [dimensioni](luis-reference-prebuilt-dimension.md), [posta elettronica](luis-reference-prebuilt-email.md) e [numero](luis-reference-prebuilt-number.md). 
 

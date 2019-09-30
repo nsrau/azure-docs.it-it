@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 69924674fba44595e4f5a9702607579d8c7a8bc8
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 8cb5c82e551ed6299f754f518ebeebca0be4964d
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064477"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679311"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configurare il flusso delle credenziali password del proprietario della risorsa in Azure AD B2C
 
@@ -53,11 +53,7 @@ I flussi seguenti non sono supportati:
 
 ## <a name="register-an-application"></a>Registra un'applicazione
 
-1. Nelle impostazioni di B2C selezionare **Applicazioni** e quindi **Aggiungi**.
-2. Immettere un nome per l'applicazione, ad esempio *ROPC_Auth_app*.
-3. Selezionare **No** per **App Web/API Web** e quindi **Sì** per **Client nativo**.
-4. Lasciare tutti gli altri valori così come sono e quindi selezionare **Crea**.
-5. Selezionare la nuova applicazione e annotare l'ID applicazione per usarlo in seguito.
+[!INCLUDE [active-directory-b2c-appreg-ropc](../../includes/active-directory-b2c-appreg-ropc.md)]
 
 ## <a name="test-the-user-flow"></a>Testare il flusso utente
 

@@ -1,5 +1,5 @@
 ---
-title: Connettersi a desktop virtuale Windows Preview da un Web browser-Azure
+title: Connettersi a desktop virtuale Windows da un Web browser-Azure
 description: Come connettersi al desktop virtuale di Windows tramite il client Web.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: helohr
-ms.openlocfilehash: 961eb98bed712e3dde1b1e7ed2ec997e8992e600
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: e7fa1d2b21bfde6495a63676bc2aa1faa07e6bc5
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338667"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676762"
 ---
 # <a name="connect-with-the-web-client"></a>Connettersi con il client Web
 

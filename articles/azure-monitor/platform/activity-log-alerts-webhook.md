@@ -1,19 +1,19 @@
 ---
 title: Informazioni sullo schema webhook degli avvisi del log attività
 description: Informazioni sullo schema del formato JSON che viene pubblicato in un URL del webhook all'attivazione di un avviso del log attività.
-author: johnkemnetz
+author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/31/2017
-ms.author: johnkem
+ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: c91c1badaa4b1bc055859d700857cfd4d062babd
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: b9ba809baa8fc4adddfad1344d6f36375cb361c4
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491505"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71675209"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhook per gli avvisi del log attività di Azure
 Nella definizione di un gruppo di azione è possibile configurare gli endpoint webhook in modo da ricevere le notifiche per gli avvisi del log attività. Con i webhook è possibile instradare queste notifiche ad altri sistemi per la post-elaborazione o azioni personalizzate. L'articolo illustra anche il modo in cui il payload per il protocollo HTTP POST viene percepito da un webhook.
@@ -23,7 +23,7 @@ Per altre informazioni sugli avvisi del log di attività, vedere come [creare gl
 Per informazioni su gruppi di azioni, vedere come [creare gruppi di azioni](../../azure-monitor/platform/action-groups.md).
 
 > [!NOTE]
-> È anche possibile usare la [common schema avviso](https://aka.ms/commonAlertSchemaDocs), che offre il vantaggio di una singola estendibile e unificato payload avviso tra avviso tutti i servizi in Monitoraggio di Azure, per le integrazioni di webhook. [Scopri le definizioni di avviso dello schema comune.](https://aka.ms/commonAlertSchemaDefinitions)
+> È anche possibile usare lo [schema di avviso comune](https://aka.ms/commonAlertSchemaDocs), che offre il vantaggio di avere un singolo payload di avviso estendibile e unificato per tutti i servizi di avviso in monitoraggio di Azure, per le integrazioni del webhook. [Informazioni sulle definizioni comuni dello schema di avviso.](https://aka.ms/commonAlertSchemaDefinitions)
 
 
 ## <a name="authenticate-the-webhook"></a>Autenticazione del webhook
@@ -61,7 +61,7 @@ Il payload JSON contenuto nell'operazione POST varia a seconda del campo data.co
 }
 ```
 
-### <a name="administrative"></a>Administrative
+### <a name="administrative"></a>Amministrativa
 
 ```json
 {
@@ -132,7 +132,7 @@ Il payload JSON contenuto nell'operazione POST varia a seconda del campo data.co
 }
 ```
 
-### <a name="recommendation"></a>Recommendation
+### <a name="recommendation"></a>Indicazione
 
 ```json
 {
@@ -260,7 +260,7 @@ Per i dettagli su schemi specifici relativi agli avvisi del log attività per le
 
 | Nome dell'elemento | Descrizione |
 | --- | --- |
-| status |Usato per avvisi relativi alle metriche. Sempre impostato su "Activated" per gli avvisi del registro attività. |
+| stato |Usato per avvisi relativi alle metriche. Sempre impostato su "Activated" per gli avvisi del registro attività. |
 | context |Contesto dell'evento. |
 | resourceProviderName |Provider della risorsa interessata. |
 | conditionType |Sempre "Event". |
@@ -269,9 +269,9 @@ Per i dettagli su schemi specifici relativi agli avvisi del log attività per le
 | description |Descrizione dell'avviso impostata al momento della creazione dell'avviso. |
 | subscriptionId |ID sottoscrizione di Azure. |
 | timestamp |Data e ora in cui l'evento è stato generato dal servizio di Azure che ha elaborato la richiesta. |
-| resourceId |ID risorsa della risorsa interessata. |
+| resourceId |ID della risorsa interessata. |
 | resourceGroupName |Nome del gruppo di risorse della risorsa interessata. |
-| properties |Set di coppie `<Key, Value>` (cioè `Dictionary<String, String>`), inclusi dettagli relativi all'evento. |
+| proprietà |Set di coppie `<Key, Value>` (cioè `Dictionary<String, String>`), inclusi dettagli relativi all'evento. |
 | event |Elemento contenente i metadati relativi all'evento. |
 | authorization |Proprietà di controllo degli accessi in base al ruolo per l'evento. Queste proprietà includono in genere action, role e scope. |
 | category |Categoria dell'evento. I valori supportati includono Administrative, Alert, Security, ServiceHealth e Recommendation. |
@@ -281,11 +281,11 @@ Per i dettagli su schemi specifici relativi agli avvisi del log attività per le
 | eventDataId |Identificatore univoco dell'evento. |
 | eventSource |Nome del servizio o dell'infrastruttura di Azure che ha generato l'evento. |
 | httpRequest |La richiesta in genere include clientRequestId, clientIpAddress e method HTTP, ad esempio PUT. |
-| level |Uno dei valori seguenti: Critical, Error, Warning e Informational. |
+| livello |Uno dei valori seguenti: Critical, Error, Warning e Informational. |
 | operationId |In genere un GUID condiviso tra gli eventi corrispondenti a una singola operazione. |
 | operationName |Nome dell'operazione. |
-| properties |Proprietà dell'evento. |
-| status |Stringa. Stato dell'operazione. I valori comuni includono: Started, In Progress, Succeeded, Failed, Active e Resolved. |
+| proprietà |Proprietà dell'evento. |
+| stato |Stringa. Stato dell'operazione. I valori comuni includono: Started, In Progress, Succeeded, Failed, Active e Resolved. |
 | subStatus |In genere include il codice di stato HTTP della chiamata REST corrispondente. Può includere anche altre stringhe che descrivono uno stato secondario. I valori comuni dello stato secondario includono OK (codice di stato HTTP: 200), Created (codice di stato HTTP: 201), Accettata (codice di stato HTTP: 202), Nessun contenuto (codice di stato HTTP: 204), Richiesta non valida (codice di stato HTTP: 400), Non trovata (codice di stato HTTP: 404), Conflitto (codice di stato HTTP: 409), Errore interno del server (codice di stato HTTP: 500), Servizio non disponibile (codice di stato HTTP: 503), Timeout del gateway (codice di stato HTTP: 504). |
 
 Per i dettagli su schemi specifici relativi a tutti gli altri avvisi del log attività, vedere [Panoramica del log attività di Azure](../../azure-monitor/platform/activity-logs-overview.md).

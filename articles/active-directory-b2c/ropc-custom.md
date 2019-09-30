@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 414dc4e69fda8ccd79b5a48b19bccee35bd11a45
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 2f3eb2c0071eecb20bbf5616a01c80e55645207a
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063697"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71678133"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Configurare il flusso delle credenziali password del proprietario della risorsa in Azure Active Directory B2C usando criteri personalizzati
 
@@ -41,14 +41,7 @@ Completare le procedure illustrate in [Introduzione ai criteri personalizzati in
 
 ## <a name="register-an-application"></a>Registra un'applicazione
 
-1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C selezionando il filtro **directory + sottoscrizione** nel menu in alto e scegliendo la directory che contiene il tenant.
-3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
-4. Selezionare **Applicazioni** e quindi **Aggiungi**.
-5. Immettere un nome per l'applicazione, ad esempio *ROPC_Auth_app*.
-6. Selezionare **No** per **App Web/API Web** e quindi **Sì** per **Client nativo**.
-7. Lasciare tutti gli altri valori così come sono e quindi selezionare **Crea**.
-8. Selezionare la nuova applicazione e prendere nota dell'ID applicazione per usarlo in seguito.
+[!INCLUDE [active-directory-b2c-appreg-ropc](../../includes/active-directory-b2c-appreg-ropc.md)]
 
 ##  <a name="create-a-resource-owner-policy"></a>Creare un criterio per il proprietario della risorsa
 
@@ -235,7 +228,7 @@ Completare le procedure illustrate in [Introduzione ai criteri personalizzati in
 
 7. Nella pagina **Criteri personalizzati** del tenant di Azure AD B2C selezionare **Carica il criterio**.
 8. Abilitare **Sovrascrivi il criterio se esistente** e quindi cercare e selezionare il file *TrustFrameworkExtensions.xml*.
-9. Fare clic su **Upload**.
+9. Fare clic su **Carica**.
 
 ## <a name="create-a-relying-party-file"></a>Creare un file relying party
 
@@ -256,7 +249,7 @@ Completare le procedure illustrate in [Introduzione ai criteri personalizzati in
 
 5. Nella pagina **Criteri personalizzati** del tenant di Azure AD B2C selezionare **Carica il criterio**.
 6. Abilitare **Sovrascrivi il criterio se esistente**, quindi individuare e selezionare il file *ROPC_Auth. XML* .
-7. Fare clic su **Upload**.
+7. Fare clic su **Carica**.
 
 ## <a name="test-the-policy"></a>Testare i criteri
 

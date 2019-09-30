@@ -15,67 +15,70 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 02dcb7174dd9cb2926ef2fafda4b521b939ae68a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c56bfda2b4f74bf31ce847f1fdb42f77f43eb372
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70077977"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677989"
 ---
-# <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>Gruppi di selezione host di prossimità di Azure per una latenza di rete ottimale con le applicazioni SAP
-Le applicazioni SAP basate sull'architettura SAP NetWeaver o SAP S/4HANA sono sensibili alla latenza di rete tra il livello applicazione SAP e il livello database SAP. Il motivo di questa distinzione di queste architetture è radicato nel fatto che la maggior parte della logica di business viene eseguita a livello di applicazione. In seguito all'esecuzione della logica di business, il livello dell'applicazione SAP emette query al livello di database con frequenza elevata di migliaia e decine di migliaia al secondo. Nella maggior parte dei casi, la natura delle query è semplice. E spesso possono essere eseguite a livello di database in meno di 500 microsecondi o addirittura inferiori. Il tempo impiegato nella rete per inviare una query di questo tipo dal livello applicazione al livello database e ricevere il set di risultati dal livello database ha un notevole effetto sul tempo richiesto per l'esecuzione dei processi di business. Questa sensibilità alla latenza di rete è il motivo per cui è necessario trascorrere i progetti di distribuzione SAP per ottenere una latenza di rete ottimale. Nella [Nota SAP #1100926-domande frequenti: Prestazioni](https://launchpad.support.sap.com/#/notes/1100926/E)di rete, SAP ha pubblicato alcune linee guida per la classificazione della latenza di rete.
+# <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>Gruppi di posizionamento di prossimità di Azure per la latenza di rete ottimale con le applicazioni SAP
+Le applicazioni SAP basate sull'architettura SAP NetWeaver o SAP S/4HANA sono sensibili alla latenza di rete tra il livello applicazione SAP e il livello database SAP. Questa distinzione è il risultato della maggior parte della logica di business in esecuzione a livello di applicazione. Poiché il livello dell'applicazione SAP esegue la logica di business, emette query al livello del database a una frequenza elevata, a una frequenza di migliaia o decine di migliaia al secondo. Nella maggior parte dei casi, la natura di queste query è semplice. Spesso possono essere eseguite a livello di database in microsecondi di 500 o meno.
 
-Da un lato, in molte aree di Azure è cresciuto il numero di Data Center, attivato anche dall'introduzione del zone di disponibilità. Dall'altro lato, i clienti, specialmente per i sistemi SAP di fascia alta, usavano più SKU di VM speciali per le famiglie della serie M o le istanze large di HANA. Tipi di macchine virtuali di Azure che non sono presenti in tutti i Data Center di una specifica area di Azure. In seguito a queste due tendenze, i clienti hanno riscontrato casi in cui la latenza di rete non era nell'intervallo ottimale e in alcuni casi ha comportato prestazioni non ottimali dei sistemi SAP.
+Il tempo impiegato nella rete per inviare una query di questo tipo dal livello applicazione al livello database e ricevere il set di risultati ha un notevole effetto sul tempo richiesto per l'esecuzione dei processi di business. Questa sensibilità alla latenza di rete è il motivo per cui è necessario ottenere una latenza di rete ottimale nei progetti di distribuzione SAP. Vedere [SAP note #1100926-domande frequenti: Prestazioni di rete @ no__t-0 per le linee guida su come classificare la latenza di rete.
 
-Per evitare questo problema, Azure offre un costrutto denominato gruppo di posizionamento di [prossimità di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/co-location). Questa nuova funzionalità è stata usata per distribuire già diversi sistemi SAP diversi. Vedere l'articolo a cui si fa riferimento per le restrizioni dei gruppi di posizionamento di prossimità. Questo articolo illustra i diversi scenari SAP in cui è possibile usare o usare i gruppi di posizionamento di prossimità di Azure.
+In molte aree di Azure il numero di Data Center è aumentato. Questa crescita è stata inoltre attivata con l'introduzione di zone di disponibilità. Allo stesso tempo, i clienti, specialmente per i sistemi SAP di fascia alta, usano SKU di VM più speciali nella famiglia di serie M o in istanze large di HANA. Questi tipi di macchine virtuali di Azure non sono disponibili in tutti i Data Center di una specifica area di Azure. A causa di queste due tendenze, i clienti hanno riscontrato una latenza di rete non compresa nell'intervallo ottimale. In alcuni casi, questa latenza comporta prestazioni non ottimali dei sistemi SAP.
 
-## <a name="what-are-proximity-placement-groups"></a>Che cosa sono i gruppi di posizionamento di prossimità 
-Un gruppo di posizionamento di prossimità di Azure è un costrutto logico, che alla fase di definizione è associato a un'area di Azure e a un gruppo di risorse di Azure. Durante la distribuzione delle macchine virtuali, viene fatto riferimento a un gruppo di posizionamento di prossimità:
+Per evitare questi problemi, Azure offre [gruppi di posizionamento di prossimità](https://docs.microsoft.com/azure/virtual-machines/linux/co-location). Questa nuova funzionalità è già stata usata per la distribuzione di vari sistemi SAP. Per le restrizioni sui gruppi di posizionamento di prossimità, vedere l'articolo indicato all'inizio di questo paragrafo. Questo articolo descrive gli scenari SAP in cui è possibile o usare i gruppi di posizionamento di prossimità di Azure.
 
-- La prima macchina virtuale di Azure distribuita per stabilirsi nel datacenter. La prima macchina virtuale può essere considerata una VM di ancoraggio che viene distribuita in un Data Center in base agli algoritmi di allocazione di Azure combinati con definizioni utente per una zona di disponibilità di Azure specifica.
-- Da tutte le macchine virtuali successive distribuite che fanno riferimento al gruppo di posizionamento vicino per inserire tutte le macchine virtuali di Azure successive distribuite nello stesso data center in cui è stata inserita la prima macchina virtuale.
+## <a name="what-are-proximity-placement-groups"></a>Che cosa sono i gruppi di posizionamento di prossimità? 
+Un gruppo di posizionamento di prossimità di Azure è un costrutto logico. Quando ne viene definito uno, questo viene associato a un'area di Azure e a un gruppo di risorse di Azure. Quando si distribuiscono macchine virtuali, viene fatto riferimento a un gruppo di posizionamento di prossimità:
+
+- Prima VM di Azure distribuita nel Data Center. La prima macchina virtuale può essere considerata come una "VM di ancoraggio" distribuita in un Data Center in base agli algoritmi di allocazione di Azure che vengono combinati con le definizioni utente per una zona di disponibilità specifica.
+- Tutte le macchine virtuali successive distribuite che fanno riferimento al gruppo di posizionamento di prossimità, per inserire tutte le macchine virtuali di Azure successivamente distribuite nello stesso data center della prima macchina virtuale.
 
 > [!NOTE]
-> Se non è stato distribuito alcun hardware host in grado di eseguire un tipo di macchina virtuale specifico nello stesso data center in cui è stata inserita la prima macchina virtuale, la distribuzione del tipo di VM richiesto avrà esito negativo e terminerà con un messaggio di errore. Questi possono essere casi in cui più macchine virtuali non mainstream, come le macchine virtuali con GPU o i tipi di VM HPC, dovrebbero essere centrate, ad esempio, una VM della serie M distribuita come primo tipo di macchina virtuale
+> Se non è stato distribuito alcun hardware host in grado di eseguire un tipo specifico di VM nel Data Center in cui è stata posizionata la prima macchina virtuale, la distribuzione del tipo di macchina virtuale richiesto non riuscirà. Verrà ricevuto un messaggio di errore.
 
-A un singolo [gruppo di risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/manage-resources-portal) possono essere assegnati più gruppi di posizionamento di prossimità. Tuttavia, un gruppo di posizionamento di prossimità può essere assegnato solo a un gruppo di risorse di Azure.
+A un singolo [gruppo di risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/manage-resources-portal) possono essere assegnati più gruppi di posizionamento di prossimità. Un gruppo di posizionamento di prossimità può tuttavia essere assegnato a un solo gruppo di risorse di Azure.
 
-Utilizzando gruppi di posizionamento prossimità, è necessario tenere presente quanto segue:
+Quando si usano i gruppi di posizionamento prossimità, tenere presenti le considerazioni seguenti:
 
-- Quando si determinano le prestazioni più ottimali per il sistema SAP e si limitano a un singolo Data Center di Azure per questo sistema usando gruppi di posizionamento di prossimità, potrebbe non essere possibile combinare tutti i tipi di famiglie di macchine virtuali in un gruppo di posizionamento di prossimità. Il motivo è che alcuni componenti hardware host necessari per eseguire esclusivamente un determinato tipo di macchina virtuale potrebbero non essere presenti nel Data Center in cui è stata distribuita la macchina virtuale di ancoraggio del gruppo di posizionamento.
-- Nel ciclo di vita di un sistema SAP di questo tipo, è possibile forzare lo spostamento del sistema in un altro Data Center. Questo tipo di spostamento può essere forzato nei casi in cui si è deciso che il livello di sistema DBMS di HANA con scalabilità orizzontale dovrebbe, ad esempio, passare da quattro nodi a 16 nodi. Ma non è più disponibile una capacità sufficiente per ottenere altre 12 macchine virtuali del tipo già usato nello stesso data center.
-- A causa della rimozione delle autorizzazioni per l'hardware, Microsoft potrebbe creare capacità per i tipi di VM usati in un altro Data Center, anziché lo stesso data center. Tale occorrenza può comportare lo spostamento di tutte le macchine virtuali del gruppo di posizionamento vicino in un altro Data Center.
+- Quando si mirano a ottenere prestazioni ottimali per il sistema SAP e si è limitati a un singolo Data Center di Azure per il sistema usando gruppi di posizionamento di prossimità, potrebbe non essere possibile combinare tutti i tipi di famiglie di macchine virtuali all'interno del gruppo di posizionamento. Queste limitazioni si verificano perché l'hardware host necessario per eseguire un determinato tipo di macchina virtuale potrebbe non essere presente nel Data Center in cui è stata distribuita la macchina virtuale di ancoraggio del gruppo di posizionamento.
+- Durante il ciclo di vita di un sistema SAP di questo tipo, è possibile forzare lo spostamento del sistema in un altro Data Center. Questa operazione può essere necessaria se si decide che il livello di scalabilità orizzontale di HANA è necessario, ad esempio, passare da quattro nodi a 16 nodi e non è disponibile una capacità sufficiente per ottenere altre 12 macchine virtuali del tipo usato nel Data Center.
+- A causa della rimozione delle autorizzazioni per l'hardware, Microsoft potrebbe creare capacità per un tipo di macchina virtuale usato in un data center diverso, anziché quello usato inizialmente. In questo scenario, potrebbe essere necessario spostare tutte le macchine virtuali del gruppo di posizionamento vicino in un altro Data Center.
 
+## <a name="proximity-placement-groups-with-sap-systems-that-use-only-azure-vms"></a>Gruppi di posizionamento di prossimità con sistemi SAP che usano solo macchine virtuali di Azure
+La maggior parte delle distribuzioni di sistema SAP NetWeaver e S/4HANA in Azure non usa le [istanze large di Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture). Per le distribuzioni che non usano le istanze large di HANA, è importante fornire prestazioni ottimali tra il livello applicazione SAP e il livello DBMS. A tale scopo, definire un gruppo di posizionamento di prossimità di Azure solo per il sistema.
 
-## <a name="azure-proximity-placement-groups-with-sap-systems-using-azure-vms-exclusively"></a>Gruppi di posizionamento di prossimità di Azure con sistemi SAP che usano esclusivamente macchine virtuali di Azure
-La maggior parte delle distribuzioni di sistemi SAP NetWeaver e S/4HANA in Azure non usa le [istanze large di Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture). Per le distribuzioni di tali sistemi, è importante fornire le prestazioni più ottimali tra il livello applicazione SAP e il livello DBMS. A tale scopo, è necessario definire un gruppo di posizionamento di prossimità di Azure solo per questo sistema. Nella maggior parte delle distribuzioni dei clienti, i clienti hanno scelto di creare un singolo [gruppo di risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/manage-resources-portal) per i sistemi SAP. In tal caso, è presente una relazione 1:1 tra, ad esempio, i gruppi di risorse di sistema ERP di produzione e il relativo gruppo di posizionamento di prossimità. In altri casi di distribuzione, i clienti organizzavano i gruppi di risorse orizzontalmente e raccoglievano tutti i sistemi di produzione in un unico gruppo di risorse. In tal caso, si disporrà di una relazione da 1 a molti tra il gruppo di risorse per i sistemi SAP di produzione e diversi gruppi di posizionamento di prossimità di SAP ERP di produzione, SAP BW e così via. È consigliabile evitare di raggruppare diversi sistemi di produzione SAP o non di produzione in un singolo gruppo di posizionamento di prossimità. In eccezioni, in cui un numero ridotto di sistemi SAP o un sistema SAP e alcune applicazioni circostanti sono necessari per la comunicazione di rete a bassa latenza, è possibile provare a trasferire questi sistemi in un gruppo di posizionamento di prossimità. Il motivo di questa raccomandazione è che il maggior numero di sistemi raggruppati in un gruppo di posizionamento di prossimità è più elevato delle probabilità:
+Nella maggior parte delle distribuzioni dei clienti, i clienti creano un singolo [gruppo di risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/manage-resources-portal) per i sistemi SAP. In tal caso, esiste una relazione uno-a-uno tra, ad esempio, il gruppo di risorse di sistema ERP di produzione e il gruppo di posizionamento di prossimità. In altri casi, i clienti organizzano i gruppi di risorse orizzontalmente e raccolgono tutti i sistemi di produzione in un singolo gruppo di risorse. In questo caso, si avrà una relazione uno-a-molti tra il gruppo di risorse per i sistemi SAP di produzione e diversi gruppi di posizionamento di prossimità per SAP ERP di produzione, SAP BW e così via.
+
+Evitare di aggregare diversi sistemi di produzione SAP o non di produzione in un singolo gruppo di posizionamento di prossimità. Quando un numero ridotto di sistemi SAP o di un sistema SAP e di alcune applicazioni circostanti deve avere una comunicazione di rete a bassa latenza, è possibile prendere in considerazione lo stato di trasferimento di questi sistemi in un gruppo di posizionamento di prossimità. È consigliabile evitare bundle di sistemi perché più sistemi si raggruppano in un gruppo di posizionamento di prossimità, maggiori sono le probabilità:
 
 - È necessario un tipo di macchina virtuale che non può essere eseguito nel data center specifico in cui è stato ancorato il gruppo di posizionamento di prossimità.
-- Le risorse di alcune macchine virtuali non mainstream, come la serie M, potrebbero non essere più soddisfatte quando si richiede più tempo durante l'aggiunta di software aggiuntivo a un gruppo di posizionamento di prossimità esistente nel tempo.
+- Le risorse delle macchine virtuali non mainstream, come le macchine virtuali della serie M, potrebbero non essere soddisfatte quando sono necessarie altre, perché il software viene aggiunto a un gruppo di posizionamento vicino nel tempo.
 
-L'utilizzo ideale come descritto sarà simile al seguente:
+Di seguito è illustrata la configurazione ideale, come descritto in:
 
-![Gruppi di posti di prossimità per tutte le macchine virtuali di Azure](./media/sap-proximity-placement-scenarios/ppg-for-all-azure-vms.png)
+![Gruppi di posizionamento di prossimità con solo macchine virtuali di Azure](./media/sap-proximity-placement-scenarios/ppg-for-all-azure-vms.png)
 
-In questo caso, i singoli sistemi SAP vengono raggruppati in un gruppo di risorse ciascuno con un gruppo di posizionamento di prossimità. Non esiste alcuna dipendenza se si usano le configurazioni con scalabilità orizzontale o DBMS di HANA.
+In questo caso, i singoli sistemi SAP vengono raggruppati in un gruppo di risorse ciascuno, con un gruppo di posizionamento di prossimità. Non esiste alcuna dipendenza se si usano le configurazioni con scalabilità orizzontale o DBMS di HANA.
 
+## <a name="proximity-placement-groups-and-hana-large-instances"></a>Gruppi di posizionamento di prossimità e istanze large di HANA
+Se alcuni dei sistemi SAP si basano su [istanze large di Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) per il livello dell'applicazione, è possibile riscontrare significativi miglioramenti nella latenza di rete tra l'unità di istanze large di Hana e le macchine virtuali di Azure quando si usano unità di istanze large di Hana distribuito in [revisione 4 righe o timbri](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance). Un miglioramento è che le unità di istanze large di HANA, così come sono distribuite, vengono distribuite con un gruppo di posizionamento di prossimità. Per distribuire le macchine virtuali a livello di applicazione, è possibile usare il gruppo di posizionamento di prossimità. Di conseguenza, tali macchine virtuali verranno distribuite nello stesso data center che ospita l'unità HANA in istanze large.
 
-## <a name="azure-proximity-placement-groups-and-hana-large-instances"></a>Gruppi di posizionamento di prossimità di Azure e istanze large di HANA
-Per i casi in cui alcuni dei sistemi SAP si basano su [istanze large di Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) come livello dell'applicazione, è possibile ottenere miglioramenti gravi nella latenza di rete tra l'unità di istanze large di Hana e le macchine virtuali di Azure quando si usano unità di istanze large di Hana che sono state distribuito in [revisione 4 righe o timbri](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance). Uno dei miglioramenti è che le unità di istanze large di HANA, così come sono state distribuite, ottengono già un gruppo di posizionamento vicino distribuito. Per distribuire le macchine virtuali a livello di applicazione, è possibile usare il gruppo di posizionamento di prossimità. Di conseguenza, tali macchine virtuali verranno distribuite nello stesso data center che ospita l'unità di istanze large di HANA.
+Per determinare se l'unità di istanze large di HANA viene distribuita in una riga o in un timbro di revisione 4, vedere l'articolo relativo al [controllo delle istanze large di Azure Hana tramite portale di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal#look-at-attributes-of-single-hli-unit). Nella panoramica degli attributi dell'unità di istanze large di HANA, è anche possibile determinare il nome del gruppo di posizionamento vicino perché è stato creato durante la distribuzione dell'unità di istanze large di HANA. Il nome visualizzato nella panoramica degli attributi è il nome del gruppo di posizionamento di prossimità in cui distribuire le macchine virtuali del livello applicazione.
 
-Per rilevare se l'unità di istanze large di HANA viene distribuita in una riga o un timbro di revisione 4, vedere l'articolo [controllo delle istanze large di Azure Hana tramite portale di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal#look-at-attributes-of-single-hli-unit). Nella panoramica degli attributi dell'unità di istanze large di HANA, è anche possibile trovare il nome del gruppo di posizionamento di prossimità, perché è stato creato in fase di distribuzione per l'unità di istanze large di HANA. Il nome visualizzato nella panoramica degli attributi è il nome del gruppo di posizionamento vicino, che è necessario usare per distribuire le macchine virtuali a livello di applicazione.
+Rispetto ai sistemi SAP che usano solo macchine virtuali di Azure, quando si usano le istanze large di HANA, è possibile decidere il numero di [gruppi di risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/manage-resources-portal) da usare. Tutte le unità di istanze large di HANA di un [tenant di istanze large di Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-know-terms) sono raggruppate in un singolo gruppo di risorse, come descritto in [questo articolo](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal#display-of-hana-large-instance-units-in-the-azure-portal). A meno che non vengano distribuiti in tenant diversi, ad esempio sistemi di produzione e non di produzione o altri sistemi, tutte le unità di istanze large di HANA verranno distribuite in un tenant di istanze large di HANA. Questo tenant ha una relazione uno-a-uno con un gruppo di risorse. Viene tuttavia definito un gruppo di posizionamento di prossimità separato per ognuna delle singole unità.
 
-Contrariamente ai sistemi SAP che usano solo macchine virtuali di Azure, la decisione sul numero di [gruppi di risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/manage-resources-portal) da usare viene sottratta a un certo livello di utilizzo delle istanze large di Hana. Tutte le unità di istanze large di HANA di un [tenant di istanze large di Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-know-terms) sono raggruppate in un singolo gruppo di risorse di Azure, come descritto [qui](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal#display-of-hana-large-instance-units-in-the-azure-portal). A meno che non si desideri una distribuzione in tenant diversi per separare, ad esempio, produzione e non di produzione o alcuni sistemi, tutte le unità di istanze large di HANA verranno distribuite in un tenant di istanze large di HANA, che ha di nuovo una relazione 1:1 con Azure Gruppo di risorse. Mentre per tutte le unità singole sarà definito un gruppo di posizionamento di prossimità separato. 
+Di conseguenza, le relazioni tra i gruppi di risorse di Azure e i gruppi di posizionamento di prossimità per un singolo tenant verranno mostrate di seguito:
 
-Di conseguenza, il raggruppamento tra i gruppi di risorse di Azure e i gruppi di posizionamento di prossimità per un singolo tenant sarà simile al seguente:
+![Gruppi di posizionamento di prossimità e istanze large di HANA](./media/sap-proximity-placement-scenarios/ppg-for-hana-large-instance-units.png)
 
-![Gruppi di posizionamento di prossimità per tutte le macchine virtuali di Azure](./media/sap-proximity-placement-scenarios/ppg-for-hana-large-instance-units.png)
+## <a name="example-of-deployment-with-proximity-placement-groups"></a>Esempio di distribuzione con gruppi di posizionamento vicini
+Di seguito sono riportati alcuni comandi di PowerShell che è possibile usare per distribuire le macchine virtuali con i gruppi di posizionamento di prossimità di Azure.
 
-
-## <a name="short-example-of-deploying-with-azure-proximity-placement-groups"></a>Breve esempio di distribuzione con i gruppi di posizionamento di prossimità di Azure
-Per dimostrare come è possibile usare i gruppi di posizionamento di prossimità di Azure per distribuire la macchina virtuale, ecco un elenco di comandi di PowerShell che ne illustrano l'utilizzo per un primo piccolo esercizio con i gruppi di posizionamento di prossimità di Azure
-
-Il primo passaggio dopo aver eseguito l'accesso con il [Azure cloud Shell](https://azure.microsoft.com/features/cloud-shell/) consiste nel verificare se si è nella sottoscrizione di Azure corretta da usare per la distribuzione con il comando:
+Il primo passaggio, dopo l'accesso a [Azure cloud Shell](https://azure.microsoft.com/features/cloud-shell/), consiste nel verificare se si è nella sottoscrizione di Azure che si vuole usare per la distribuzione:
 
 <pre><code>
 Get-AzureRmContext
@@ -87,77 +90,80 @@ Se è necessario passare a una sottoscrizione diversa, è possibile eseguire que
 Set-AzureRmContext -Subscription "my PPG test subscription"
 </code></pre>
 
-Come terzo passaggio, si vuole creare un nuovo gruppo di risorse di Azure con questo comando:
+Creare un nuovo gruppo di risorse di Azure eseguendo questo comando:
 
 <pre><code>
 New-AzResourceGroup -Name "myfirstppgexercise" -Location "westus2"
 </code></pre>
 
-È ora possibile creare il nuovo gruppo di posizionamento vicino con:
+Creare il nuovo gruppo di posizionamento di prossimità eseguendo questo comando:
 
 <pre><code>
 New-AzProximityPlacementGroup -ResourceGroupName "myfirstppgexercise" -Name "letsgetclose" -Location "westus2"
 </code></pre>
 
-A questo punto è possibile iniziare a distribuire la prima VM in questo gruppo di posizionamento di prossimità con un comando simile al seguente:
+Distribuire la prima VM nel gruppo di posizionamento di prossimità usando un comando simile al seguente:
 
 <pre><code>
 New-AzVm -ResourceGroupName "myfirstppgexercise" -Name "myppganchorvm" -Location "westus2" -OpenPorts 80,3389 -ProximityPlacementGroup "letsgetclose" -Size "Standard_DS11_v2"
 </code></pre>
 
-Con il comando precedente, viene distribuita una macchina virtuale basata su Windows. Al termine della distribuzione della macchina virtuale, l'ambito del data center del gruppo di posizionamento vicino viene definito all'interno dell'area di Azure. Tutte le distribuzioni di macchine virtuali successive che fanno riferimento al gruppo di posizionamento prossimità come nell'ultimo comando verranno distribuite nello stesso data center di Azure, purché sia possibile ospitare il tipo di macchina virtuale nell'hardware posizionato in quel Data Center e/o la capacità per quel tipo di macchina virtuale sia disponibile.
+Il comando precedente distribuisce una macchina virtuale basata su Windows. Al termine della distribuzione della macchina virtuale, l'ambito del data center del gruppo di posizionamento vicino viene definito all'interno dell'area di Azure. Tutte le distribuzioni di macchine virtuali successive che fanno riferimento al gruppo di posizionamento di prossimità, come illustrato nel comando precedente, verranno distribuite nello stesso data center di Azure, purché il tipo di macchina virtuale possa essere ospitato nell'hardware posizionato nel Data Center e la capacità per quel tipo di macchina virtuale sia disponibile.
 
-## <a name="combine-availability-sets-and-availability-zones-with-proximity-placement-groups"></a>Combinare set di disponibilità e zone di disponibilità con gruppi di posizionamento vicini 
-Con zone di disponibilità per le distribuzioni di sistemi SAP, uno degli svantaggi è il fatto che non è possibile controllare il livello dell'applicazione SAP distribuito usando i set di disponibilità all'interno della zona specifica. Poiché si vuole che il livello dell'applicazione SAP venga distribuito nelle stesse zone del livello DBMS e il riferimento a una zona di disponibilità e a un set di disponibilità quando si distribuisce una singola macchina virtuale non è supportato, è necessario distribuire il livello dell'applicazione facendo riferimento a una zona e in questo modo si perde la possibilità di assicurarsi che le macchine virtuali del livello applicazione vengano distribuite in diversi domini di aggiornamento e di errore. Con l'ausilio dei gruppi di posizionamento vicino è possibile superare questa restrizione. La sequenza di distribuzioni avrà un aspetto simile al seguente:
+## <a name="combine-availability-sets-and-availability-zones-with-proximity-placement-groups"></a>Combinare set di disponibilità e zone di disponibilità con gruppi di posizionamento vicini
+Uno degli svantaggi dell'uso di zone di disponibilità per le distribuzioni di sistemi SAP è che non è possibile distribuire il livello dell'applicazione SAP usando i set di disponibilità all'interno di una zona specifica. Si vuole che il livello dell'applicazione SAP venga distribuito nelle stesse zone del livello DBMS. Il riferimento a una zona di disponibilità e un set di disponibilità quando si distribuisce una singola macchina virtuale non è supportato. Quindi, in precedenza era necessario distribuire il livello dell'applicazione facendo riferimento a una zona. Si è persa la possibilità di assicurarsi che le macchine virtuali a livello di applicazione fossero distribuite in domini di aggiornamento e di errore diversi.
 
-- Creare un gruppo di selezione host di prossimità
-- Distribuire la macchina virtuale di ancoraggio, in genere il server DBMS, facendo riferimento a una determinata zona di disponibilità di Azure
-- Creare un set di disponibilità che fa riferimento al gruppo di prossimità di Azure (vedere di seguito)
-- Distribuire le macchine virtuali a livello di applicazione facendo riferimento al set di disponibilità e al gruppo di posizionamento vicino
+Usando i gruppi di posizionamento di prossimità, è possibile ignorare questa restrizione. La sequenza di distribuzione è la seguente:
 
-Invece di distribuire la prima VM, come illustrato in precedenza, si fa riferimento a una zona di disponibilità di Azure e al gruppo di posizionamento prossimità quando si distribuisce la macchina virtuale come:
+- Creare un gruppo di posizionamento di prossimità.
+- Distribuire la VM di ancoraggio, in genere il server DBMS, facendo riferimento a una zona di disponibilità.
+- Creare un set di disponibilità che faccia riferimento al gruppo di prossimità di Azure. Vedere il comando più avanti in questo articolo.
+- Distribuire le macchine virtuali a livello di applicazione facendo riferimento al set di disponibilità e al gruppo di posizionamento di prossimità.
+
+Anziché distribuire la prima macchina virtuale come illustrato nella sezione precedente, si fa riferimento a una zona di disponibilità e al gruppo di posizionamento vicino quando si distribuisce la macchina virtuale:
 
 <pre><code>
 New-AzVm -ResourceGroupName "myfirstppgexercise" -Name "myppganchorvm" -Location "westus2" -OpenPorts 80,3389 -Zone "1" -ProximityPlacementGroup "letsgetclose" -Size "Standard_E16_v3"
 </code></pre>
 
-Una distribuzione corretta della macchina virtuale che ospita l'istanza di database del sistema SAP in una zona di disponibilità di Azure, l'ambito del gruppo di posizionamento vicino è fissato a uno dei data center che rappresentano la zona di disponibilità definita. .
+Una distribuzione corretta di questa macchina virtuale ospita l'istanza di database del sistema SAP in una zona di disponibilità. L'ambito del gruppo di posizionamento vicino è fissato a uno dei data center che rappresentano la zona di disponibilità definita.
 
-Si presuppone che le macchine virtuali dei servizi centrali vengano distribuite in modo analogo alle macchine virtuali DBMs facendo riferimento alle stesse zone di per le macchine virtuali DBMS e agli stessi gruppi di posizionamento di prossimità. Nel passaggio successivo è necessario creare i set di disponibilità che si vuole usare per il livello dell'applicazione del sistema SAP.
-È necessario definire e creare il gruppo di posizionamento di prossimità. Il comando per la creazione del set di disponibilità richiede un riferimento aggiuntivo all'ID del gruppo di posizionamento vicino (non al nome). È possibile ottenere l'ID del gruppo di posizionamento con prossimità:
+Si supponga di distribuire le VM di servizi centrali in modo analogo alle macchine virtuali DBMS, facendo riferimento alla stessa zona o alle stesse zone e agli stessi gruppi di posizionamento di prossimità. Nel passaggio successivo è necessario creare i set di disponibilità che si vuole usare per il livello dell'applicazione del sistema SAP.
 
-
+È necessario definire e creare il gruppo di posizionamento di prossimità. Il comando per la creazione del set di disponibilità richiede un riferimento aggiuntivo all'ID del gruppo di posizionamento vicino (non al nome). È possibile ottenere l'ID del gruppo di posizionamento di prossimità usando questo comando:
 
 <pre><code>
 Get-AzProximityPlacementGroup -ResourceGroupName "myfirstppgexercise" -Name "letsgetclose"
 </code></pre>
 
-Quando si crea il set di disponibilità, è necessario prendere in considerazione parametri aggiuntivi quando si usa Managed Disks (impostazione predefinita, a meno che non sia specificato diversamente) e gruppi di posizionamento di prossimità:
+Quando si crea il set di disponibilità, è necessario prendere in considerazione parametri aggiuntivi quando si usa Managed Disks (impostazione predefinita, a meno che non sia specificato diversamente) e gruppi di posizionamento prossimità:
 
 <pre><code>
 New-AzAvailabilitySet -ResourceGroupName "myfirstppgexercise" -Name "myppgavset" -Location "westus2" -ProximityPlacementGroupId "/subscriptions/my very long ppg id string" -sku "aligned" -PlatformUpdateDomainCount 3 -PlatformFaultDomainCount 2 
 </code></pre>
 
-Idealmente, è consigliabile usare tre domini di errore. Tuttavia, il numero di domini di errore supportati può variare da un'area all'altra. In questo caso, il numero massimo di domini di errore possibili per le aree specifiche è due. Per la distribuzione delle macchine virtuali a livello di applicazione, è necessario aggiungere un riferimento al nome del set di disponibilità e al nome del gruppo di posizionamento vicino, come illustrato di seguito:
+Idealmente, è consigliabile usare tre domini di errore. Tuttavia, il numero di domini di errore supportati può variare da un'area all'altra. In questo caso, il numero massimo di domini di errore possibili per le aree specifiche è due. Per distribuire le macchine virtuali a livello di applicazione, è necessario aggiungere un riferimento al nome del set di disponibilità e al nome del gruppo di posizionamento vicino, come illustrato di seguito:
 
 <pre><code>
 New-AzVm -ResourceGroupName "myfirstppgexercise" -Name "myppgavsetappvm" -Location "westus2" -OpenPorts 80,3389 -AvailabilitySetName "myppgavset" -ProximityPlacementGroup "letsgetclose" -Size "Standard_DS11_v2"
 </code></pre>
 
-Il risultato finale di questa sequenza sarà un livello DBMS e servizi centrali del sistema SAP che si trovano in una zona di disponibilità specifica e un livello applicazione SAP che si trova attraverso i set di disponibilità negli stessi Data Center di Azure delle macchine virtuali DBMS ottenute distribuito.
+Il risultato di questa distribuzione è:
+- Un livello DBMS e servizi centrali per il sistema SAP che si trovano in una zona di disponibilità specifica o in zone di disponibilità.
+- Livello dell'applicazione SAP che si trova attraverso i set di disponibilità negli stessi Data Center di Azure della VM o delle VM DBMS.
 
 > [!NOTE]
-> Quando si distribuisce una macchina virtuale DBMS in una zona e la seconda macchina virtuale DBMS in un'altra zona per creare una configurazione a disponibilità elevata, verranno richiesti gruppi di posizionamento di prossimità diversi per ogni zona. Uguale a true per il set di disponibilità che è possibile usare
+> Poiché si distribuisce una macchina virtuale DBMS in una zona e la seconda macchina virtuale DBMS in un'altra zona per creare una configurazione a disponibilità elevata, è necessario un gruppo di posizionamento di prossimità diverso per ogni zona. Lo stesso vale per qualsiasi set di disponibilità utilizzato.
 
-## <a name="get-an-existing-system-into-azure-proximity-placement-groups"></a>Ottenere un sistema esistente nei gruppi di posizionamento di prossimità di Azure
-Poiché i sistemi SAP sono già stati distribuiti, potrebbe essere necessario ottimizzare la latenza di rete di alcuni dei sistemi critici e individuare il livello dell'applicazione e il livello DBMS nello stesso data center. Nella fase di anteprima pubblica delle funzionalità del gruppo di posizionamento di prossimità, un'eliminazione delle VM e una nuova creazione delle VM è necessaria per eseguire tale spostamento in gruppi di posizionamento di prossimità. In questa fase della funzionalità non è sufficiente arrestare le VM per poter assegnare le macchine virtuali di arresto ai gruppi di posizionamento di prossimità.
+## <a name="move-an-existing-system-into-proximity-placement-groups"></a>Spostare un sistema esistente in gruppi di posizionamento di prossimità
+Se sono già stati distribuiti sistemi SAP, potrebbe essere necessario ottimizzare la latenza di rete di alcuni dei sistemi critici e individuare il livello dell'applicazione e il livello DBMS nello stesso data center. Durante l'anteprima pubblica dei gruppi di posizionamento vicino, è necessario eliminare le macchine virtuali e crearne di nuove per spostare il sistema in gruppi di posizionamento di prossimità. Attualmente non è possibile arrestare le VM e assegnarle ai gruppi di posizionamento di prossimità.
 
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 Consultare la documentazione:
 
-- [Elenco di controllo del carico di lavoro SAP in pianificazione e distribuzione di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist)
+- [Carichi di lavoro SAP in Azure: elenco di controllo di pianificazione e distribuzione](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist)
 - [Anteprima: Distribuire macchine virtuali in gruppi di posizionamento con prossimità usando l'interfaccia della riga di comando](https://docs.microsoft.com/azure/virtual-machines/linux/proximity-placement-groups)
 - [Anteprima: Distribuire macchine virtuali in gruppi di posizionamento di prossimità usando PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups)
-- [Considerazioni sulla distribuzione DBMS di macchine virtuali di Azure per un carico di lavoro SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
+- [Considerazioni sulla distribuzione DBMS di macchine virtuali di Azure per carichi di lavoro SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
 

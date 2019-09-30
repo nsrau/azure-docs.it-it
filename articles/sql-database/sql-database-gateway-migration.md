@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 2e578c6bfdfb25eaba3d0c692ff33aa5b0572669
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: a2064e0012abea237c1b4c0c6f7e35119c1aeff5
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306006"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71686812"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migrazione del traffico del database SQL di Azure ai gateway più recenti
 
@@ -31,7 +31,7 @@ Il primo ciclo di migrazione del traffico ai gateway più recenti è pianificato
 - Europa occidentale
 - East US
 - Stati Uniti centrali
-- Asia sudorientale
+- Asia sud-orientale
 - Stati Uniti centro-meridionali
 - Europa settentrionale
 - Stati Uniti centro-settentrionali
@@ -52,7 +52,7 @@ L'utente non avrà alcun effetto sui seguenti effetti:
 
 ## <a name="what-to-do-you-do-if-youre-affected"></a>Cosa fare se si è interessati
 
-Si consiglia di consentire il traffico in uscita agli indirizzi IP per tutti gli [indirizzi IP del gateway del database SQL di Azure](sql-database-connectivity-architecture.md#azure-sql-database-gateway-ip-addresses) nell'area sulla porta TCP 1433 e l'intervallo di porte 11000-11999 nel dispositivo firewall. Per ulteriori informazioni sugli intervalli di porte, vedere [criteri di connessione](sql-database-connectivity-architecture.md#connection-policy).
+Si consiglia di consentire il traffico in uscita agli indirizzi IP per tutti gli [indirizzi IP del gateway del database SQL di Azure](sql-database-connectivity-architecture.md#azure-sql-database-gateway-ip-addresses) nell'area sulla porta TCP 1433 e l'intervallo di porte 11000-11999. Questa raccomandazione è applicabile ai client che si connettono da locale e anche a quelli che si connettono tramite gli endpoint del servizio. Per ulteriori informazioni sugli intervalli di porte, vedere [criteri di connessione](sql-database-connectivity-architecture.md#connection-policy).
 
 Le connessioni effettuate da applicazioni che utilizzano il driver Microsoft JDBC per la versione 4,0 potrebbero avere esito negativo. Le versioni precedenti di Microsoft JDBC si basano sul nome comune (CN) nel campo oggetto del certificato. La mitigazione consiste nel verificare che la proprietà hostNameInCertificate sia impostata su *. database.windows.net. Per ulteriori informazioni su come impostare la proprietà hostNameInCertificate, vedere [connessione con la crittografia SSL](/sql/connect/jdbc/connecting-with-ssl-encryption).
 

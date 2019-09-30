@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: b05b4f8638eedc0830c887da59c0c22706a1c4ce
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 77e1c9e64081e20ef064fd8341c54c13940f0dd4
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933393"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677306"
 ---
 # <a name="url-prebuilt-entity-for-a-luis-app"></a>Entità predefinita URL per un'app LUIS
 L'entità URL consente di estrarre gli URL con nomi di dominio o indirizzi IP. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere espressioni di esempio contenenti URL per le finalità dell'applicazione. L'entità URL è supportata solo nelle impostazioni cultura `en-us`. 
@@ -26,7 +26,7 @@ L'entità URL viene gestita dal repository GitHub [Recognizers-text](https://git
 
 ## <a name="resolution-for-prebuilt-url-entity"></a>Risoluzione per l'entità URL predefinita
 
-### <a name="api-version-2x"></a>API versione 2. x
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 risposta endpoint di stima](#tab/V2)
 
 L'esempio seguente illustra la risoluzione dell'entità **builtin.url**.
 
@@ -54,9 +54,9 @@ L'esempio seguente illustra la risoluzione dell'entità **builtin.url**.
 }
 ```
 
-### <a name="preview-api-version-3x"></a>API di anteprima versione 3. x
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Risposta dell'endpoint di stima V3](#tab/V3)
 
-Il codice JSON seguente è con `verbose` il parametro impostato `false`su:
+Il codice JSON seguente è con il parametro `verbose` impostato su `false`:
 
 ```json
 {
@@ -78,7 +78,7 @@ Il codice JSON seguente è con `verbose` il parametro impostato `false`su:
 }
 ```
 
-Il codice JSON seguente è con `verbose` il parametro impostato `true`su:
+Il codice JSON seguente è con il parametro `verbose` impostato su `true`:
 
 ```json
 {
@@ -112,6 +112,11 @@ Il codice JSON seguente è con `verbose` il parametro impostato `true`su:
 }
 ```
 
+
+* * * 
+
 ## <a name="next-steps"></a>Passaggi successivi
+
+Altre informazioni sull' [endpoint di stima V3](luis-migration-api-v3.md).
 
 Informazioni sulle entità [ordinali](luis-reference-prebuilt-ordinal.md), [numeri](luis-reference-prebuilt-number.md) e [temperatura](luis-reference-prebuilt-temperature.md).

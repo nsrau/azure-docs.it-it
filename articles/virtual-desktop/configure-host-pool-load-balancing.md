@@ -1,5 +1,5 @@
 ---
-title: Configurare il metodo di bilanciamento del carico anteprima di desktop virtuale di Windows-Azure
+title: Configurare il metodo di bilanciamento del carico per desktop virtuali Windows-Azure
 description: Come configurare il metodo di bilanciamento del carico per un ambiente desktop virtuale di Windows.
 services: virtual-desktop
 author: Heidilohr
@@ -7,16 +7,16 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: e1f1ea10dc68e501cfac7ef0cf0383ce78e8f380
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 3a940dbf592087878cb9dd19f856f1a3d94291c5
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163757"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676769"
 ---
-# <a name="configure-the-windows-virtual-desktop-preview-load-balancing-method"></a>Configurare il metodo di bilanciamento del carico anteprima di desktop virtuale di Windows
+# <a name="configure-the-windows-virtual-desktop-load-balancing-method"></a>Configurare il metodo di bilanciamento del carico di Desktop virtuale Windows
 
-La configurazione del metodo di bilanciamento del carico per un pool host consente di modificare l'ambiente di anteprima del desktop virtuale Windows in modo da soddisfare al meglio le proprie esigenze.
+La configurazione del metodo di bilanciamento del carico per un pool host consente di modificare l'ambiente di desktop virtuale Windows in base alle proprie esigenze.
 
 >[!NOTE]
 > Questa operazione non si applica a un pool host del desktop persistente perché gli utenti hanno sempre un mapping 1:1 a un host sessione nel pool host.

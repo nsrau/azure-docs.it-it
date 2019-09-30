@@ -1,19 +1,19 @@
 ---
 title: Passare dalla API degli avvisi di Log Analytics a nuova API degli avvisi di Azure
 description: Panoramica dell'API di avviso savedSearch basata su Legacy e processo per passare le regole di avviso alla nuova API ScheduledQueryRules, con informazioni dettagliate Log Analytics sulla risoluzione dei problemi comuni dei clienti.
-author: msvijayn
+author: yanivlavi
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.author: vinagara
+ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 8f23d19b06152b633df6688489753498c86aee27
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 7b3a09c9227110d6dba205987903a2c97dccf1b8
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034793"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677796"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Modificare la preferenza della API degli avvisi di Log Alerts
 
@@ -44,7 +44,7 @@ Gli effetti della commutazione delle preferenze API scheduledQueryRules sono i s
 
 - Tutte le interazioni eseguite per la gestione degli avvisi relativi ai log tramite interfacce programmatiche ora devono essere create tramite [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Per altre informazioni, vedere [esempio di uso tramite il modello di risorse di Azure](alerts-log.md#managing-log-alerts-using-azure-resource-template) e uso di [esempio tramite PowerShell](alerts-log.md#managing-log-alerts-using-powershell)
 - Le nuove regole degli avvisi relativi ai log create nel portale di Azure verranno create solo tramite [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) e consentiranno agli utenti di usare [funzionalità aggiuntive della nuova API](#benefits-of-switching-to-new-azure-api) anche tramite il portale di Azure
-- Il livello di gravità per le regole di avviso del log viene spostato da: *Critico, avviso &* informativo, a *valori di gravità pari a 0, 1 & 2*. Oltre all'opzione per creare o aggiornare le regole di avviso con gravità 3 e 4.
+- Il livello di gravità per le regole di avviso del log viene spostato da: *Critico, avviso & informativo*, a *valori di gravità pari a 0, 1 & 2*. Oltre all'opzione per creare o aggiornare le regole di avviso con gravità 3 e 4.
 
 Il processo di estensione degli avvisi da [API legacy degli avvisi di Log Analytics](api-alerts.md) non comporta la modifica della definizione, della query o della configurazione degli avvisi. Le regole di avviso e il monitoraggio non sono interessati e gli avvisi non vengono arrestati o bloccati, durante o dopo l'opzione. L'unica modifica è una modifica nella preferenza API e l'accesso alle regole tramite una nuova API.
 

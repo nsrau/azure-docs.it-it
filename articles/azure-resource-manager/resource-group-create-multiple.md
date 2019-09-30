@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: 3a0761fad32b2cfb0387cca79b6c1c0dc83c8e98
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: f97f9dac76ac29cf295b5cedc08f916e85c4e317
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71345416"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71675092"
 ---
 # <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Iterazione di risorse, proprietà o variabili nei modelli di Azure Resource Manager
 
@@ -57,7 +57,7 @@ I limiti per il conteggio sono gli stessi se usati con una risorsa, una variabil
 
 ## <a name="resource-iteration"></a>Iterazione delle risorse
 
-Quando durante la distribuzione occorre decidere se creare una o più istanze di una risorsa, aggiungere un elemento `copy` al tipo di risorsa. Nell'elemento Copy specificare il numero di iterazioni e un nome per il ciclo.
+Se si desidera creare più di un'istanza di una risorsa in una distribuzione, aggiungere un elemento `copy` al tipo di risorsa. Nell'elemento Copy specificare il numero di iterazioni e un nome per il ciclo.
 
 La risorsa da ricreare più volte assume il formato seguente:
 

@@ -7,18 +7,16 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: fe45adc3eb65631c0b127872240f8d76400f9102
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 5e52275cc7215f6c54c2ff6a11faf82114c414b4
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899670"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676607"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contenitori di profili FSLogix e file di Azure
 
-Il servizio di anteprima desktop virtuale di Windows consiglia i contenitori di profili FSLogix come soluzione di profilo utente. FSLogix è progettato per eseguire il roaming dei profili in ambienti di elaborazione remota, ad esempio desktop virtuale di Windows. Archivia un profilo utente completo in un singolo contenitore. Al momento dell'accesso, questo contenitore viene collegato dinamicamente all'ambiente di elaborazione usando un disco rigido virtuale (VHD) e un disco rigido virtuale Hyper-V supportati in modo nativo (VHDX). Il profilo utente è immediatamente disponibile e viene visualizzato nel sistema esattamente come un profilo utente nativo.
-
-In questo articolo verranno descritti i contenitori di profili FSLogix usati con File di Azure. Le informazioni sono contenute nel contesto di desktop virtuale di Windows, [annunciato il 3/21](https://www.microsoft.com/microsoft-365/blog/2019/03/21/windows-virtual-desktop-public-preview/).
+Il servizio desktop virtuale di Windows consiglia i contenitori del profilo FSLogix come soluzione di profilo utente. FSLogix è progettato per eseguire il roaming dei profili in ambienti di elaborazione remota, ad esempio desktop virtuale di Windows. Archivia un profilo utente completo in un singolo contenitore. Al momento dell'accesso, questo contenitore viene collegato dinamicamente all'ambiente di elaborazione usando un disco rigido virtuale (VHD) e un disco rigido virtuale Hyper-V supportati in modo nativo (VHDX). Il profilo utente è immediatamente disponibile e viene visualizzato nel sistema esattamente come un profilo utente nativo. Questo articolo descrive il modo in cui i contenitori di profili FSLogix usati con File di Azure funzione nel desktop virtuale di Windows.
 
 ## <a name="user-profiles"></a>Profili utente
 
@@ -47,17 +45,17 @@ La tabella seguente illustra i vantaggi e le limitazioni delle tecnologie dei pr
 
 | Tecnologia | Impostazioni moderne | Impostazioni Win32 | Impostazioni del sistema operativo | Dati utente | Supportato nello SKU del server | Archiviazione back-end in Azure | Archiviazione back-end locale | Supporto della versione | Ora di accesso successiva |Note|
 | ---------- | :-------------: | :------------: | :---------: | --------: | :---------------------: | :-----------------------: | :--------------------------: | :-------------: | :---------------------: |-----|
-| **Dischi del profilo utente (UPD)** | Sì | Sì | Sì | Sì | Sì | No | Sì | Win 7 + | Yes | |
-| **Profilo utente mobile (RUP), modalità manutenzione** | No | Yes | Sì | Sì | Sì| No | Sì | Win 7 + | No | |
-| **Enterprise State Roaming (ESR)** | Yes | No | Sì | No | Vedere le note | Sì | No | Windows 10 | No | Funzioni nello SKU del server ma nessuna interfaccia utente di supporto |
-| **Virtualizzazione dell'esperienza utente (UE-V)** | Sì | Sì | Sì | No | Sì | No | Sì | Win 7 + | No |  |
-| **File Cloud OneDrive** | No | No | No | Sì | Vedere le note | Vedere le note  | Vedere le note | Win 10 RS3 | No | Non testato nello SKU del server. L'archiviazione back-end in Azure dipende dal client di sincronizzazione. Per l'archiviazione back-end locale è necessario un client di sincronizzazione. |
+| **Dischi del profilo utente (UPD)** | Yes | Yes | Yes | Yes | Sì | No | Yes | Win 7 + | Yes | |
+| **Profilo utente mobile (RUP), modalità manutenzione** | No | Yes | Yes | Yes | Sì| No | Yes | Win 7 + | No | |
+| **Enterprise State Roaming (ESR)** | Yes | No | Yes | No | Vedere le note | Yes | No | Windows 10 | No | Funzioni nello SKU del server ma nessuna interfaccia utente di supporto |
+| **Virtualizzazione dell'esperienza utente (UE-V)** | Yes | Yes | Sì | No | Yes | No | Yes | Win 7 + | No |  |
+| **File Cloud OneDrive** | No | No | No | Yes | Vedere le note | Vedere le note  | Vedere le note | Win 10 RS3 | No | Non testato nello SKU del server. L'archiviazione back-end in Azure dipende dal client di sincronizzazione. Per l'archiviazione back-end locale è necessario un client di sincronizzazione. |
 
 #### <a name="performance"></a>Prestazioni
 
-UPD richiede [spazi di archiviazione diretta (S2D)](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) per soddisfare i requisiti di prestazioni. UPD usa il protocollo SMB (Server Message Block). Il profilo viene copiato nella macchina virtuale in cui viene registrato l'utente. UPD con S2D è la soluzione consigliata dal team RDS per desktop virtuale Windows durante l'anteprima del servizio.  
+UPD richiede [spazi di archiviazione diretta (S2D)](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) per soddisfare i requisiti di prestazioni. UPD usa il protocollo SMB (Server Message Block). Il profilo viene copiato nella macchina virtuale in cui viene registrato l'utente. UPD con S2D è la soluzione consigliata per desktop virtuale di Windows.  
 
-#### <a name="cost"></a>Costi
+#### <a name="cost"></a>Costo
 
 Sebbene i cluster S2D raggiungano le prestazioni necessarie, il costo è costoso per i clienti aziendali, ma è particolarmente costoso per i clienti di piccole e medie imprese (SMB). Per questa soluzione, le aziende pagano i dischi di archiviazione, insieme al costo delle macchine virtuali che usano i dischi per una condivisione.
 
@@ -81,7 +79,7 @@ Le prestazioni e le funzionalità dei contenitori del profilo FSLogix sfruttano 
 
 ## <a name="best-practices-for-windows-virtual-desktop"></a>Procedure consigliate per desktop virtuale Windows
 
-Desktop virtuale di Windows offre il controllo completo sulle dimensioni, il tipo e il numero di macchine virtuali utilizzate dai clienti. Per ulteriori informazioni, vedere [che cos'è l'anteprima di desktop virtuale Windows?](overview.md).
+Desktop virtuale di Windows offre il controllo completo sulle dimensioni, il tipo e il numero di macchine virtuali utilizzate dai clienti. Per ulteriori informazioni, vedere informazioni sul [desktop virtuale di Windows](overview.md).
 
 Per assicurarsi che l'ambiente desktop virtuale di Windows segua le procedure consigliate:
 

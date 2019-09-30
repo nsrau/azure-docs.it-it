@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: aschhab
-ms.openlocfilehash: a78409a15acb4e60fc4200778d0f33b3fb566e85
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9aaada1ede8912b8b70f37c628ec918eca9be9d2
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60403942"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676272"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Trasferimenti, blocchi e finalizzazione dei messaggi
 
@@ -98,9 +98,13 @@ Con un client AMQP di basso livello, il bus di servizio accetta anche i trasferi
 
 Per le operazioni di ricezione, i client API del bus di servizio consentono due diverse modalità esplicite: *ricezione ed eliminazione* e *blocco di visualizzazione*.
 
+### <a name="receiveanddelete"></a>ReceiveAndDelete
+
 La modalità di [ricezione ed eliminazione](/dotnet/api/microsoft.servicebus.messaging.receivemode) indica al broker di considerare tutti i messaggi inviati al client ricevente come finalizzati quando inviati. Ciò significa che il messaggio è considerato utilizzato non appena il broker lo ha inviato in transito. Se il trasferimento del messaggio non riesce, il messaggio viene perso.
 
 Il vantaggio di questa modalità è il fatto che il ricevitore non deve eseguire altre azioni sul messaggio e non viene rallentato dall'attesa del risultato della finalizzazione. Se i dati contenuti nei singoli messaggi hanno un valore basso e/o sono significativi solo per un tempo molto breve, questa modalità è una scelta ragionevole.
+
+### <a name="peeklock"></a>PeekLock
 
 La modalità [blocco di visualizzazione](/dotnet/api/microsoft.servicebus.messaging.receivemode) indica al broker che il client ricevente richiede la finalizzazione esplicita dei messaggi ricevuti. Il messaggio viene reso disponibile per l'elaborazione da parte del ricevitore, mentre viene applicato un blocco esclusivo nel servizio in modo che altri ricevitori concorrenti non possano visualizzarlo. La durata del blocco viene definita inizialmente a livello di coda o di sottoscrizione e può essere estesa dal client proprietario del blocco, tramite l'operazione [RenewLock](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_).
 
@@ -121,6 +125,14 @@ Le operazioni **Complete** e **Deadletter**, come pure l'operazione **RenewLock*
 Se il metodo **Complete** ha esito negativo, cosa che accade in genere nelle fasi finali di gestione dei messaggi e in alcuni casi dopo alcuni minuti di lavoro di elaborazione, l'applicazione ricevente può decidere se mantenere lo stato del lavoro e ignorare lo stesso messaggio quando viene recapitato una seconda volta oppure se scartare il risultato del lavoro e riprovare quando il messaggio viene recapitato nuovamente.
 
 Il meccanismo tipico per l'identificazione di recapiti di messaggi duplicati consiste nel verificare il valore di message-id, che può e deve essere impostato dal mittente su un valore univoco, possibilmente allineato con un identificatore del processo di origine. Probabilmente, un pianificatore di processi imposta il valore di message-id sull'identificatore del processo che sta cercando di assegnare a un ruolo di lavoro con il ruolo di lavoro specificato e il ruolo di lavoro ignora la seconda occorrenza dell'assegnazione del processo, se tale processo è già stato eseguito.
+
+> [!IMPORTANT]
+> È importante notare che il blocco che PeekLock acquisisce sul messaggio è volatile e può andare perduto nelle condizioni seguenti
+>   * Aggiornamento del servizio
+>   * Aggiornamento del sistema operativo
+>   * Modifica delle proprietà nell'entità (coda, argomento, sottoscrizione) durante la conservazione del blocco.
+>
+> Quando il blocco viene perso, il bus di servizio di Azure genera una LockLostException che verrà rilevata nel codice dell'applicazione client. In questo caso, la logica di ripetizione dei tentativi predefinita del client dovrebbe avviarsi automaticamente, quindi ripetere l'operazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

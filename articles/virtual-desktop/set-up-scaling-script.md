@@ -1,22 +1,22 @@
 ---
-title: Ridimensionare automaticamente gli host della sessione di anteprima di desktop virtuale Windows-Azure
-description: Viene descritto come configurare lo script di ridimensionamento automatico per gli host di sessione di anteprima di desktop virtuale di Windows.
+title: Ridimensionare automaticamente gli host sessione desktop virtuale Windows-Azure
+description: Viene descritto come configurare lo script di ridimensionamento automatico per gli host sessione desktop virtuale di Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 7babfca617ab42da615518726d1b1d4cafe112b5
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: f0d847596ef21af67973b6572737e27e1d015991
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163243"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676495"
 ---
 # <a name="automatically-scale-session-hosts"></a>Ridimensionare automaticamente gli host della sessione
 
-Per molte distribuzioni di anteprima di desktop virtuali Windows in Azure, i costi della macchina virtuale rappresentano una parte significativa del costo totale di distribuzione di desktop virtuali Windows. Per ridurre i costi, è preferibile arrestare e deallocare le macchine virtuali (VM) host della sessione durante le ore di minore utilizzo, quindi riavviarle durante le ore di picco di utilizzo.
+Per molte distribuzioni di desktop virtuali Windows in Azure, i costi della macchina virtuale rappresentano una parte significativa del costo totale per la distribuzione di desktop virtuali Windows. Per ridurre i costi, è preferibile arrestare e deallocare le macchine virtuali (VM) host della sessione durante le ore di minore utilizzo, quindi riavviarle durante le ore di picco di utilizzo.
 
 Questo articolo usa un semplice script di ridimensionamento per ridimensionare automaticamente le macchine virtuali host della sessione nell'ambiente di desktop virtuale Windows. Per ulteriori informazioni sul funzionamento dello script di ridimensionamento, vedere la sezione [come funziona il ridimensionamento dello script](#how-the-scaling-script-works) .
 
@@ -49,10 +49,10 @@ Nelle procedure riportate di seguito viene illustrato come distribuire lo script
 Prima di tutto, preparare l'ambiente per lo script di ridimensionamento:
 
 1. Accedere alla VM (scaler VM) che eseguirà l'attività pianificata con un account amministrativo di dominio.
-2. Creare una cartella nella macchina virtuale scaler per mantenere lo script di ridimensionamento e la relativa configurazione (ad esempio, **C:\\scaling-HostPool1**).
-3. Scaricare i file **basicScale. ps1**, **config. XML**e **Functions-PSStoredCredentials. ps1** e la cartella **PowershellModules** dal repository di [script](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script) di ridimensionamento e copiarli nella cartella creata nel passaggio 2. Esistono due modi principali per ottenere i file prima di copiarli nella macchina virtuale scaler:
+2. Creare una cartella nella macchina virtuale scaler per mantenere lo script di ridimensionamento e la relativa configurazione (ad esempio, **C: \\scaling-HostPool1**).
+3. Scaricare i file **basicScale. ps1**, **config. XML**e **Functions-PSStoredCredentials. ps1** e la cartella **PowershellModules** dal repository di [script di ridimensionamento](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script) e copiarli nella cartella creata nel passaggio 2. Esistono due modi principali per ottenere i file prima di copiarli nella macchina virtuale scaler:
     - Clonare il repository git nel computer locale.
-    - Visualizzare la versione non elaborata di ogni file, copiare e incollare il contenuto di ogni file in un editor di testo, quindi salvare i file con il nome file e il tipo di file corrispondenti. 
+    - Visualizzare la versione non **elaborata** di ogni file, copiare e incollare il contenuto di ogni file in un editor di testo, quindi salvare i file con il nome file e il tipo di file corrispondenti. 
 
 ### <a name="create-securely-stored-credentials"></a>Creazione di credenziali archiviate in modo sicuro
 
@@ -72,9 +72,9 @@ Successivamente, è necessario creare le credenziali archiviate in modo sicuro:
     Set-Variable -Name KeyPath -Scope Global -Value <LocalScalingScriptFolder>
     ```
     
-    Ad esempio, **set-variable-name, percorso-valore globale "c:\\scaling-HostPool1"**
-5. Eseguire il cmdlet **New-StoredCredential- \$** GetPath. Quando richiesto, immettere le credenziali del desktop virtuale Windows con le autorizzazioni per eseguire una query sul pool host (il pool host è specificato nel **file config. XML**).
-    - Se si usano entità servizio o account standard diversi, eseguire una volta il cmdlet **New-StoredCredential- \$** GetPath per ogni account per creare le credenziali archiviate locali.
+    Ad esempio, **set-variable-name, percorso-valore globale "c: \\scaling-HostPool1"**
+5. Eseguire il cmdlet **New-StoredCredential-GetPath \$KeyPath** . Quando richiesto, immettere le credenziali del desktop virtuale Windows con le autorizzazioni per eseguire una query sul pool host (il pool host è specificato nel **file config. XML**).
+    - Se si usano entità servizio o account standard diversi, eseguire il cmdlet **New-StoredCredential-\$KeyPath** una volta per ogni account per creare le credenziali archiviate locali.
 6. Eseguire **Get-StoredCredential-list** per verificare che le credenziali siano state create correttamente.
 
 ### <a name="configure-the-configxml-file"></a>Configurare il file config. XML
@@ -89,7 +89,7 @@ Immettere i valori appropriati nei campi seguenti per aggiornare le impostazioni
 | currentAzureSubscriptionId    | ID della sottoscrizione di Azure in cui vengono eseguite le VM host della sessione                        |
 | tenantName                    | Nome del tenant di desktop virtuale Windows                                                    |
 | hostPoolName                  | Nome pool host per desktop virtuale Windows                                                 |
-| RDBroker                      | URL del servizio Wvd, valore predefinito https:\//rdbroker.Wvd.Microsoft.com             |
+| RDBroker                      | URL per il servizio WVD, valore predefinito https: \//rdbroker. Wvd. Microsoft. com             |
 | Nome utente                      | ID applicazione dell'entità servizio (è possibile avere la stessa entità servizio in AADApplicationId) o utente standard senza autenticazione a più fattori |
 | isServicePrincipal            | I valori accettati sono **true** o **false**. Indica se il secondo set di credenziali utilizzato è un'entità servizio o un account standard. |
 | BeginPeakTime                 | Quando inizia il tempo di utilizzo massimo                                                            |
@@ -111,7 +111,7 @@ Dopo aver configurato il file Configuration. XML, è necessario configurare il U
 4. Passare alla scheda **trigger** , quindi selezionare **nuovo...**
 5. Nella finestra di dialogo **nuovo trigger** , in **Impostazioni avanzate**, selezionare **Ripeti attività ogni** e selezionare il periodo e la durata appropriati (ad esempio, **15 minuti** o a **tempo indefinito**).
 6. Selezionare la scheda **azioni** e **nuovo...**
-7. Nella finestra di dialogo **nuova azione** immettere **PowerShell. exe** nel campo **programma/script** , quindi immettere **C:\\scaling\\basicScale. ps1** nel campo **Aggiungi argomenti (facoltativo)** .
+7. Nella finestra di dialogo **nuova azione** immettere **PowerShell. exe** nel campo **programma/script** , quindi immettere **C: \\Scaling @ no__t-5basicScale. ps1** nel campo **Aggiungi argomenti (facoltativo)** .
 8. Passare alle schede **condizioni** e **Impostazioni** e selezionare **OK** per accettare le impostazioni predefinite per ciascuna.
 9. Immettere la password per l'account amministrativo in cui si prevede di eseguire lo script di ridimensionamento.
 

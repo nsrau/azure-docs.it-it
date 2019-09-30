@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentazione dell'anteprima di Desktop virtuale Windows
+title: Documentazione di Desktop virtuale Windows
 metadata:
-  title: 'Documentazione dell''anteprima di Desktop virtuale Windows - Esercitazioni, guide introduttive, informazioni di riferimento sulle API | Microsoft Docs'
-  description: L'anteprima di Desktop virtuale Windows per Azure è un'esperienza Windows 10 Enterprise multiutente virtualizzata nel cloud.
+  title: 'Documentazione di Desktop virtuale Windows - Esercitazioni, guide introduttive, informazioni di riferimento sulle API | Microsoft Docs'
+  description: Desktop virtuale Windows per Azure è un'esperienza Windows 10 Enterprise multiutente virtualizzata nel cloud.
   author: Heidilohr
   manager: daveba
   ms.service: virtual-desktop
@@ -17,11 +17,11 @@ sections:
   - title: Panoramica
     items:
       - type: paragraph
-        text: 'Informazioni sull''anteprima di Desktop virtuale Windows e su come usarlo. Esercitazioni, procedure, informazioni di riferimento e altro ancora che spiegano come configurare pool di host e tenant, nonché assegnare ruoli agli utenti per l''ambiente Desktop virtuale Windows.'
+        text: 'Informazioni su Desktop virtuale Windows e su come usarlo. Esercitazioni, procedure, informazioni di riferimento e altro ancora che spiegano come configurare pool di host e tenant, nonché assegnare ruoli agli utenti per l''ambiente Desktop virtuale Windows.'
       - type: list
         style: unordered
         items:
-          - html: <a href="/azure/virtual-desktop/overview">Informazioni sull'anteprima di Desktop virtuale Windows</a>
+          - html: <a href="/azure/virtual-desktop/overview">Che cos'è Desktop virtuale Windows?</a>
   - title: Esercitazioni dettagliate
     items:
       - type: paragraph

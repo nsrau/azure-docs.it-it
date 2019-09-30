@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: jeffya
-ms.openlocfilehash: b1aac19885e2b640063e4840f047916ad51e9656
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 2731bbcd6a6b0c8f7d82334c022c017d5eae35f0
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855760"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677011"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Usare il provisioning automatico del servizio Device Provisioning in hub IoT per registrare MXChip IoT DevKit nell'hub IoT
 
-Questo articolo descrive come usare il [provisioning automatico](concepts-auto-provisioning.md) del servizio Device Provisioning in hub IoT per registrare MXChip IoT DevKit nell'hub IoT di Azure. In questa esercitazione si imparerà a:
+Questo articolo descrive come usare il [provisioning automatico](concepts-auto-provisioning.md) del servizio Device Provisioning in hub IoT per registrare MXChip IoT DevKit nell'hub IoT di Azure. In questa esercitazione si apprenderà come:
 
 * Configurare l'endpoint globale del servizio Device Provisioning in un dispositivo.
 * Usare un segreto univoco del dispositivo (Unique Device Secret, UDS) per generare un certificato X.509.
@@ -91,9 +91,6 @@ Nel codice del dispositivo è necessario specificare l'[endpoint di provisioning
 ## <a name="generate-x509-certificate"></a>Generare il certificato X.509
 
 Il [meccanismo di attestazione](/azure/iot-dps/concepts-device#attestation-mechanism) usato da questo esempio è il certificato X.509. È necessario usare un'utilità per generarlo.
-
-> [!NOTE]
-> Attualmente il generatore di certificati X.509 supporta solo Windows.
 
 1. In VS Code fare clic su `F1`, digitare e selezionare **Apri nuovo terminale** per aprire una finestra del terminale.
 

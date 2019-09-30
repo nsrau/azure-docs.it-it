@@ -219,84 +219,6 @@
                   href: scenario-mobile-call-api.md
                 - name: Passare in produzione
                   href: scenario-mobile-production.md
-        - name: Microsoft Authentication Library (MSAL)
-          items:
-            - name: Panoramica
-              href: msal-overview.md
-            - name: Migrazione da ADAL
-              items:
-                - name: Eseguire la migrazione a MSAL.NET
-                  href: msal-net-migration.md
-                - name: Eseguire la migrazione a MSAL.js
-                  href: msal-compare-msal-js-and-adal-js.md
-                - name: Eseguire la migrazione a MSAL per iOS e macOS
-                  href: migrate-objc-adal-msal.md
-                - name: Eseguire la migrazione di app Xamarin tramite broker da ADAL.NET a MSAL.NET
-                  href: msal-net-migration-ios-broker.md
-            - name: Flussi di autenticazione supportati
-              href: msal-authentication-flows.md
-            - name: Acquisire token e memorizzarli nella cache
-              items:
-                - name: Acquisire token e memorizzarli nella cache
-                  href: msal-acquire-cache-tokens.md
-                - name: Ambiti per le app v1.0
-                  href: msal-v1-app-scopes.md
-            - name: Applicazioni client
-              items:
-                - name: Applicazioni client
-                  href: msal-client-applications.md
-                - name: Configurazione dell'applicazione
-                  href: msal-client-application-configuration.md
-                - name: Inizializzare applicazioni (.NET)
-                  href: msal-net-initializing-client-applications.md
-                - name: Asserzioni dei client (.NET)
-                  href: msal-net-client-assertions.md
-                - name: Inizializzare applicazioni (JS)
-                  href: msal-js-initializing-client-applications.md
-            - name: Gestire errori ed eccezioni
-              href: msal-handling-exceptions.md
-            - name: Registrazione
-              href: msal-logging.md
-            - name: Single sign-on
-              items:
-                - name: Single Sign-On con MSAL.js
-                  href: msal-js-sso.md
-                - name: Single Sign-On con MSAL per iOS e macOS
-                  items:
-                    - name: SSO tra app MSAL
-                      href: single-sign-on-macos-ios.md
-                    - name: SSO tra app ADAL e MSAL
-                      href: sso-between-adal-msal-apps-macos-ios.md
-            - name: Integrazione con AD FS
-              items:
-                - name: Supporto di AD FS in MSAL.NET
-                  href: msal-net-adfs-support.md
-            - name: Integrazione con Azure AD B2C
-              items:
-                - name: JavaScript
-                  href: msal-b2c-overview.md
-                - name: .NET
-                  href: msal-net-aad-b2c-considerations.md
-                - name: iOS e macOS
-                  href: 'config-authority.md#b2c'
-            - name: Considerazioni e problemi noti
-              items:
-                - name: MSAL.NET
-                  items:
-                    - name: Web browser
-                      href: msal-net-web-browsers.md
-                - name: MSAL.js
-                  items:
-                    - name: Considerazioni sull'uso di IE
-                      href: msal-js-use-ie-browser.md
-                    - name: Problemi noti- IE e Microsoft Edge
-                      href: msal-js-known-issues-ie-edge-browsers.md
-                    - name: Problemi noti- Safari
-                      href: msal-js-known-issues-safari-browser.md
-                - name: MSAL per iOS e MacOS
-                  items:
-                    - name: Problemi di SSL
-                      href: ssl-issues.md
         - name: Protocollo di autenticazione
           items:
             - name: Tipi di applicazione e OAuth 2.0
@@ -440,6 +362,98 @@
               href: vs-active-directory-webapi-what-happened.md
             - name: Errore durante il rilevamento dell'autenticazione
               href: vs-active-directory-error.md
+    - name: Microsoft Authentication Library (MSAL)
+      items:
+        - name: Panoramica
+          href: msal-overview.md
+        - name: Account e profili tenant (Android)
+          href: accounts-overview.md
+        - name: Agenti di autorizzazione (Android)
+          href: authorization-agents.md
+        - name: Autenticazione negoziata (Android)
+          items:
+            - name: Autenticazione negoziata (Android)
+              href: brokered-auth.md
+        - name: Migrazione
+          items:
+            - name: Eseguire la migrazione a MSAL.NET
+              href: msal-net-migration.md
+            - name: Eseguire la migrazione a MSAL.js
+              href: msal-compare-msal-js-and-adal-js.md
+            - name: Eseguire la migrazione a MSAL.Android
+              href: migrate-android-adal-msal.md
+            - name: Eseguire la migrazione a MSAL.iOS e MacOS
+              href: migrate-objc-adal-msal.md
+            - name: Eseguire la migrazione di app Xamarin tramite broker da ADAL.NET a MSAL.NET
+              href: msal-net-migration-ios-broker.md
+        - name: Flussi di autenticazione supportati
+          href: msal-authentication-flows.md
+        - name: App client pubbliche per uno o più account (Android)
+          href: single-multi-account.md
+        - name: Acquisire token e memorizzarli nella cache
+          items:
+            - name: Acquisire token e memorizzarli nella cache
+              href: msal-acquire-cache-tokens.md
+            - name: Ambiti per le app v1.0
+              href: msal-v1-app-scopes.md
+        - name: Applicazioni client
+          items:
+            - name: Applicazioni client
+              href: msal-client-applications.md
+            - name: Configurazione dell'applicazione (.NET)
+              href: msal-client-application-configuration.md
+            - name: Inizializzare applicazioni (.NET)
+              href: msal-net-initializing-client-applications.md
+            - name: Asserzioni dei client (.NET)
+              href: msal-net-client-assertions.md
+            - name: Inizializzare applicazioni (JS)
+              href: msal-js-initializing-client-applications.md
+        - name: Gestire errori ed eccezioni
+          href: msal-handling-exceptions.md
+        - name: Registrazione
+          href: msal-logging.md
+        - name: Single sign-on
+          items:
+            - name: Single Sign-On con MSAL.js
+              href: msal-js-sso.md
+            - name: Single Sign-On con MSAL per iOS e macOS
+              items:
+                - name: SSO tra app MSAL
+                  href: single-sign-on-macos-ios.md
+                - name: SSO tra app ADAL e MSAL
+                  href: sso-between-adal-msal-apps-macos-ios.md
+        - name: Integrazione con AD FS
+          items:
+            - name: Supporto di AD FS in MSAL.NET
+              href: msal-net-adfs-support.md
+        - name: Integrazione con Azure AD B2C
+          items:
+            - name: Android
+              href: msal-android-b2c.md
+            - name: JavaScript
+              href: msal-b2c-overview.md
+            - name: .NET
+              href: msal-net-aad-b2c-considerations.md
+            - name: iOS e macOS
+              href: 'config-authority.md#b2c'
+        - name: Considerazioni e problemi noti
+          items:
+            - name: MSAL.NET
+              items:
+                - name: Web browser
+                  href: msal-net-web-browsers.md
+            - name: MSAL.js
+              items:
+                - name: Considerazioni sull'uso di IE
+                  href: msal-js-use-ie-browser.md
+                - name: Problemi noti- IE e Microsoft Edge
+                  href: msal-js-known-issues-ie-edge-browsers.md
+                - name: Problemi noti- Safari
+                  href: msal-js-known-issues-safari-browser.md
+            - name: MSAL per iOS e MacOS
+              items:
+                - name: Problemi di SSL
+                  href: ssl-issues.md
     - name: Riferimenti
       items:
         - name: Librerie di autenticazione
@@ -449,6 +463,8 @@
           href: 'https://docs.microsoft.com/graph/api/resources/azure-ad-overview?view=graph-rest-beta'
         - name: Manifesto dell'applicazione
           href: reference-app-manifest.md
+        - name: File di configurazione MSAL per Android
+          href: msal-configuration.md
         - name: Codici di errore di autenticazione e autorizzazione
           href: reference-aadsts-error-codes.md
         - name: Modifiche di rilievo

@@ -13,19 +13,19 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: d7a4a54f979cd4b14e12c5a57792241f1b2388d2
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: b1f963eb804adc0f40749957e9052f2deba08ef6
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68734715"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71687103"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Come avviare e arrestare Azure-SSIS Integration Runtime in base a una pianificazione
 Questo articolo descrive come pianificare l'avvio e l'arresto di Azure-SSIS Integration Runtime (IR) con Azure Data Factory (ADF). Azure-SSIS IR è una risorsa dell'ambiente di calcolo di ADF dedicata all'esecuzione di pacchetti di SQL Server Integration Services (SSIS). All'esecuzione di Azure-SSIS IR è associato un costo. Di conseguenza, è in genere opportuno eseguire il runtime di integrazione solo se si devono eseguire pacchetti SSIS in Azure e arrestarlo quando non è più necessario. Per [avviare o arrestare manualmente il runtime di integrazione](manage-azure-ssis-integration-runtime.md), è possibile usare l'interfaccia utente o l'app di ADF oppure Azure PowerShell.
 
 In alternativa, per avviare o arrestare il runtime di integrazione in base a una pianificazione è possibile creare attività Web nelle pipeline di ADF, ad esempio avviando il runtime di integrazione la mattina prima dell'esecuzione dei carichi di lavoro ETL giornalieri e arrestandolo nel pomeriggio dopo aver completato tale attività.  È anche possibile concatenare un'attività di esecuzione di un pacchetto SSIS tra due attività Web che avviano e arrestano il runtime di integrazione, in modo che l'avvio o l'arresto avvenga su richiesta, in modalità JIT prima o dopo l'esecuzione del pacchetto. Per altre informazioni sull'attività di esecuzione di un pacchetto SSIS, vedere l'articolo [Eseguire un pacchetto SSIS tramite l'attività di esecuzione del pacchetto SSIS in Azure Data Factory](how-to-invoke-ssis-package-ssis-activity.md).
 
-[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 Se non è stato ancora effettuato il provisioning di Azure-SSIS Integration Runtime, eseguire questa operazione seguendo le istruzioni visualizzate nell'[esercitazione](tutorial-create-azure-ssis-runtime-portal.md). 
@@ -114,7 +114,7 @@ Se si crea un terzo trigger programmato per essere eseguito ogni giorno a mezzan
     1. Per **Ruolo**, selezionare **Collaboratore**. 
     2. In **Assegna accesso a** selezionare **Utente, gruppo o entità servizio di Azure AD**. 
     3. In **Seleziona** cercare il nome di ADF e selezionarlo. 
-    4. Fare clic su **Save**.
+    4. Fare clic su **Salva**.
     
    ![Assegnazione del ruolo all'identità gestita di ADF](./media/how-to-schedule-azure-ssis-integration-runtime/adf-managed-identity-role-assignment.png)
 
@@ -241,15 +241,15 @@ Se non si ha già un account di Automazione di Azure, crearne uno seguendo le is
 
 ### <a name="import-adf-modules"></a>Importare moduli di ADF
 
-1. Selezionare **Moduli** nella sezione **RISORSE CONDIVISE** del menu a sinistra e verificare se nell'elenco dei moduli sono presenti **AzureRM.DataFactoryV2** + **AzureRM.Profile**.
+1. Selezionare **moduli** nella sezione **risorse condivise** nel menu a sinistra e verificare se il comando **AZ. DataFactory** + **AZ. profile** è presente nell'elenco dei moduli.
 
    ![Verificare i moduli necessari](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image1.png)
 
-2.  Se **AzureRM.DataFactoryV2** non è presente, passare a PowerShell Gallery per cercare il [modulo AzureRM.DataFactoryV2](https://www.powershellgallery.com/packages/AzureRM.DataFactoryV2/), selezionare **Deploy to Azure Automation** (Distribuisci in Automazione di Azure), selezionare l'account di Automazione di Azure e quindi fare clic su **OK**. Tornare a **Moduli** nella sezione **RISORSE CONDIVISE** del menu a sinistra e attendere fino a quando nel campo **STATO** del modulo **AzureRM.DataFactoryV2** non viene visualizzato il valore **Disponibile**.
+2.  Se non si dispone di **AZ. DataFactory**, passare alla PowerShell Gallery per il [modulo AZ. DataFactory](https://www.powershellgallery.com/packages/Az.DataFactory/), selezionare **Distribuisci in automazione di Azure**, selezionare l'account di automazione di Azure e quindi fare clic su **OK**. Tornare alla sezione visualizzare i **moduli** nella sezione **risorse condivise** nel menu a sinistra e attendere fino a visualizzare **lo stato** del modulo **AZ. DataFactory** modificato in **disponibile**.
 
     ![Verificare il modulo di Data Factory](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image2.png)
 
-3.  Se **AzureRM.Profile** non è presente, passare a PowerShell Gallery per cercare il [modulo AzureRM.Profile](https://www.powershellgallery.com/packages/AzureRM.profile/), selezionare **Deploy to Azure Automation** (Distribuisci in Automazione di Azure), selezionare l'account di Automazione di Azure e quindi fare clic su **OK**. Tornare a **Moduli** nella sezione **RISORSE CONDIVISE** del menu a sinistra e attendere fino a quando nel campo **STATO** del modulo **AzureRM.Profile** non viene visualizzato il valore **Disponibile**.
+3.  Se non si dispone di **AZ. profile**, passare alla PowerShell Gallery per il [modulo AZ. profile](https://www.powershellgallery.com/packages/Az.profile/), selezionare **Distribuisci in automazione di Azure**, selezionare l'account di automazione di Azure e quindi fare clic su **OK**. Tornare a Visualizza **moduli** nella sezione **risorse condivise** nel menu a sinistra e attendere fino a visualizzare **lo stato** del modulo **AZ. profile** modificato in **disponibile**.
 
     ![Verificare il modulo Profilo](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image3.png)
 
@@ -336,7 +336,7 @@ La sezione seguente descrive la procedura per creare un runbook di PowerShell. L
     2. In **DATA FACTORY NAME** immettere il nome di ADF con Azure-SSIS IR. 
     3. In **AZURESSISNAME** immettere il nome di Azure-SSIS IR. 
     4. In **OPERATION** immettere **START**. 
-    5. Selezionare **OK**.  
+    5. Scegliere **OK**.  
 
    ![Finestra Avvia runbook](./media/how-to-schedule-azure-ssis-integration-runtime/start-runbook-window.png)
    
@@ -346,7 +346,7 @@ La sezione seguente descrive la procedura per creare un runbook di PowerShell. L
     
 7. Ripetere i due passaggi precedenti usando **STOP** come valore per **OPERATION**. Avviare nuovamente il runbook facendo clic sul pulsante **Avvia** sulla barra degli strumenti. Immettere i nomi del gruppo di risorse, di ADF e di Azure-SSIS IR. In **OPERATION** immettere **STOP**. Nella finestra di output attendere che venga visualizzato il messaggio **##### Completed #####** dopo il messaggio **##### Stopping #####** . L'arresto di Azure-SSIS IR non richiede tutto il tempo necessario per l'avvio. Chiudere la finestra **Processo** e visualizzare nuovamente la finestra **Runbook**.
 
-8. È anche possibile attivare la runbook tramite un webhook che può essere creato selezionando la voce di menu webhook o in base a una pianificazione che è possibile creare selezionando la voce di menu **pianificazioni** come specificato di seguito.  
+8. È anche possibile attivare la runbook tramite un webhook che può essere creato selezionando la voce di menu **webhook** o in base a una pianificazione che è possibile creare selezionando la voce di menu **pianificazioni** come specificato di seguito.  
 
 ## <a name="create-schedules-for-your-runbook-to-startstop-azure-ssis-ir"></a>Creare pianificazioni per consentire al runbook di avviare o arrestare Azure-SSIS IR
 

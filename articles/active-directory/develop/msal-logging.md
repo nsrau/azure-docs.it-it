@@ -1,5 +1,5 @@
 ---
-title: Registrazione nelle applicazioni MSAL | Piattaforma di identità Microsoft
+title: Registrazione nelle applicazioni Microsoft Authentication Library (MSAL) | Azure
 description: Informazioni sulla registrazione nelle applicazioni Microsoft Authentication Library (MSAL).
 services: active-directory
 documentationcenter: dev-center-name
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/28/2019
+ms.date: 09/05/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4dad8a276cd40b1ff04bbced833b5d70cec4fc87
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: d3235037d2b60322ab3e5c393c0a19b1a42bdc6c
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268591"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71678030"
 ---
 # <a name="logging-in-msal-applications"></a>Registrazione nelle applicazioni MSAL
 
@@ -44,14 +44,14 @@ Per impostazione predefinita, il logger MSAL non acquisisce dati personali o azi
 ## <a name="logging-in-msalnet"></a>Registrazione in MSAL.NET
 
  > [!NOTE]
- > Per altre informazioni su MSAL.NET, vedere il [wiki di MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki). Ottenere esempi di registrazione MSAL.NET e altro ancora.
- 
+ > Vedere il [wiki di MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki) per esempi di registrazione di MSAL.NET e altro ancora.
+
 In MSAL 3.x la registrazione viene impostata per le singole applicazioni durante la creazione dell'app usando il modificatore del generatore `.WithLogging`. Questo metodo accetta parametri facoltativi:
 
-- *Level* consente di decidere il livello di registrazione da applicare. Se lo si imposta su Error, verranno restituiti solo gli errori.
-- *PiiLoggingEnabled* consente di registrare i dati personali e dell'organizzazione se viene impostato su true. Per impostazione predefinita, questo valore è impostato su false, in modo che l'applicazione non registri i dati personali.
-- *LogCallback* è impostato su un delegato che effettua la registrazione. Se *PiiLoggingEnabled* è impostato su true, questo metodo riceverà i messaggi due volte: una volta con il parametro *containsPii* impostato su false e il messaggio senza dati personali e una seconda volta con il parametro *containsPii* impostato su true e il messaggio probabilmente con dati personali. In alcuni casi (quando il messaggio non contiene dati personali), il messaggio sarà lo stesso.
-- *DefaultLoggingEnabled* consente di abilitare la registrazione predefinita per la piattaforma. Per impostazione predefinita, questo parametro è impostato su false. Se viene impostato su true, usa Event Tracing nelle applicazioni desktop/UWP, NSLog in iOS e logcat in Android.
+- `Level` consente di scegliere il livello di registrazione desiderato. Se lo si imposta su Error, verranno restituiti solo gli errori.
+- `PiiLoggingEnabled` consente di registrare dati personali e aziendali se impostati su true. Per impostazione predefinita, questo parametro è impostato su false, in modo che l'applicazione non registri dati personali.
+- `LogCallback` è impostato su un delegato che esegue la registrazione. Se `PiiLoggingEnabled` è true, questo metodo riceverà i messaggi due volte: una volta con il parametro `containsPii` è uguale a false e il messaggio senza dati personali e una seconda volta con il parametro `containsPii` è uguale a true e il messaggio potrebbe contenere dati personali. In alcuni casi, quando il messaggio non contiene dati personali, il messaggio ricevuto è identico.
+- `DefaultLoggingEnabled` Abilita la registrazione predefinita per la piattaforma. Per impostazione predefinita, questo parametro è impostato su false. Se viene impostato su true, usa Event Tracing nelle applicazioni desktop/UWP, NSLog in iOS e logcat in Android.
 
 ```csharp
 class Program
@@ -80,16 +80,54 @@ class Program
  }
  ```
 
- ## <a name="logging-in-msaljs"></a>Registrazione in MSAL.js
+## <a name="logging-in-msal-for-android-using-java"></a>Registrazione in MSAL per Android con Java
 
- È possibile abilitare la registrazione in MSAL.js passando un oggetto logger durante la configurazione per creare un'istanza di `UserAgentApplication`. Questo oggetto logger ha le proprietà seguenti:
+Attivare la registrazione durante la creazione dell'app creando un callback di registrazione. Il callback accetta i parametri seguenti:
+
+- `tag` è una stringa passata al callback dalla libreria. È associato alla voce di log e può essere usato per ordinare i messaggi di registrazione.
+- `logLevel` consente di scegliere il livello di registrazione desiderato. I livelli di registrazione supportati sono: `Error`, `Warning`, `Info` e `Verbose`.
+- `message` è il contenuto della voce di log.
+- `containsPII` specifica se i messaggi contenenti dati personali o i dati aziendali vengono registrati. Per impostazione predefinita, questo valore è impostato su false, in modo che l'applicazione non registri i dati personali. Se `containsPII` è `true`, questo metodo riceverà i messaggi due volte: una volta con il parametro `containsPII` impostato su `false` e il `message` senza dati personali e una seconda volta con il parametro `containsPii` impostato su `true` e il messaggio potrebbe contenere dati personali. In alcuni casi, quando il messaggio non contiene dati personali, il messaggio ricevuto è identico.
+
+```java
+private StringBuilder mLogs;
+
+mLogs = new StringBuilder();
+Logger.getInstance().setExternalLogger(new ILoggerCallback()
+{
+   @Override
+   public void log(String tag, Logger.LogLevel logLevel, String message, boolean containsPII)
+   {
+      mLogs.append(message).append('\n');
+   }
+});
+```
+
+Per impostazione predefinita, il logger MSAL non acquisisce informazioni personali o informazioni identificabili dall'organizzazione.
+Per abilitare la registrazione di informazioni personali o informazioni identificabili dall'organizzazione:
+
+```java
+Logger.getInstance().setEnablePII(true);
+```
+
+Per disabilitare la registrazione dei dati personali e delle organizzazioni:
+
+```java
+Logger.getInstance().setEnablePII(false);
+```
+
+Per impostazione predefinita, la registrazione in logcat è disabilitata. Per abilitare: 
+```java
+Logger.getInstance().setEnableLogcatLog(true);
+```
+
+## <a name="logging-in-msaljs"></a>Registrazione in MSAL.js
+
+ Abilitare la registrazione in MSAL. js passando un oggetto logger durante la configurazione per la creazione di un'istanza `UserAgentApplication`. Questo oggetto logger ha le proprietà seguenti:
 
 - `localCallback`: istanza di callback che può essere fornita dallo sviluppatore per utilizzare e pubblicare i log in modo personalizzato. Implementare il metodo localCallback a seconda del modo in cui si intende reindirizzare i log.
-
-- `level`(facoltativo): livello di registrazione configurabile. I livelli supportati sono i seguenti: Error, Warning, Info e Verbose. Il valore predefinito è Info.
-
-- `piiLoggingEnabled`(facoltativo): consente di registrare dati personali e aziendali se impostati su true. Per impostazione predefinita, questo valore è impostato su false in modo che l'applicazione non registri i dati personali. I log dei dati personali non vengono mai scritti negli output predefiniti come Console, Logcat o NSLog. Il valore predefinito è false.
-
+- `level`(facoltativo): livello di registrazione configurabile. I livelli di registrazione supportati sono: `Error`, `Warning`, `Info` e `Verbose`. Il valore predefinito è `Info`.
+- `piiLoggingEnabled` (facoltativo): se impostato su true, registra i dati personali e aziendali. Per impostazione predefinita, questo valore è false in modo che l'applicazione non registri i dati personali. I log dei dati personali non vengono mai scritti negli output predefiniti come Console, Logcat o NSLog.
 - `correlationId`(facoltativo): identificatore univoco, usato per eseguire il mapping della richiesta con la risposta a scopo di debug. Per impostazione predefinita, viene usato il GUID RFC 4122 versione 4 (128 bit).
 
 ```javascript
@@ -99,7 +137,7 @@ function loggerCallback(logLevel, message, containsPii) {
 
 var msalConfig = {
     auth: {
-        clientId: “abcd-ef12-gh34-ikkl-ashdjhlhsdg”,
+        clientId: “<Enter your client id>”,
     },
      system: {
              logger: new Msal.Logger(

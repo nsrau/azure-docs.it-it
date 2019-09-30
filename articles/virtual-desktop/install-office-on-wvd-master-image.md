@@ -1,18 +1,18 @@
 ---
 title: Installare Office in un'immagine del disco rigido virtuale Master-Azure
-description: Come installare e personalizzare Office in un'immagine master di Windows Virtual Desktop Preview in Azure.
+description: Come installare e personalizzare Office in un'immagine master di un desktop virtuale Windows in Azure.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: helohr
-ms.openlocfilehash: 79fe541d1bb3bea8447cf095673111362cec74d2
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 378be7ebc1cc04433d42b6a05d7eafc73a515568
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816440"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679527"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Installare Office in un'immagine master di disco rigido virtuale
 
@@ -23,7 +23,7 @@ Questo articolo presuppone che sia già stata creata una macchina virtuale (VM).
 Questo articolo presuppone anche che sia stato eseguito l'accesso con privilegi elevati alla macchina virtuale, indipendentemente dal fatto che venga effettuato il provisioning in Azure o nella console di gestione di Hyper In caso contrario, vedere [elevare l'accesso per gestire tutti i gruppi di gestione e la sottoscrizione di Azure](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin).
 
 >[!NOTE]
->Le istruzioni riguardano una configurazione specifica di Desktop virtuale Windows (anteprima) che può essere usata con gli attuali processi dell'organizzazione.
+>Queste istruzioni sono relative a una configurazione specifica di un desktop virtuale di Windows che può essere usata con i processi esistenti dell'organizzazione.
 
 ## <a name="install-office-in-shared-computer-activation-mode"></a>Installare Office in modalità di attivazione computer condiviso
 
@@ -45,7 +45,7 @@ Questo codice XML di configurazione di esempio fornito eseguirà le operazioni s
 - Abilitare l'attivazione di computer condivisi.
 
 >[!NOTE]
->La funzionalità di ricerca dello stencil in Visio non funziona nel desktop virtuale di Windows durante la configurazione di anteprima.
+>La funzionalità di ricerca degli stencil di Visio potrebbe non funzionare come previsto nel desktop virtuale di Windows.
 
 Ecco il codice XML di configurazione di esempio:
 
@@ -53,7 +53,7 @@ Ecco il codice XML di configurazione di esempio:
 - Installare OneDrive in modalità per utente. Per altre informazioni, vedere [installare OneDrive in modalità per computer](#install-onedrive-in-per-machine-mode).
 
 >[!NOTE]
->L'attivazione di computer condivisi può essere configurata tramite oggetti Criteri di gruppo (GPO) o impostazioni del registro di sistema. L'oggetto Criteri di gruppo si trova in **\\criteri\\\\di configurazione del computer modelli amministrativi\\Microsoft Office le impostazioni di licenza 2016 (computer)**
+>L'attivazione di computer condivisi può essere configurata tramite oggetti Criteri di gruppo (GPO) o impostazioni del registro di sistema. L'oggetto Criteri di gruppo si trova in **computer Configuration @ no__t-1Policies @ no__t-2Administrative templates @ no__t-3Microsoft Office 2016 (Machine) \\Licensing Settings**
 
 Lo strumento di distribuzione di Office contiene Setup. exe. Per installare Office, eseguire il comando seguente in una riga di comando:
 
@@ -130,11 +130,11 @@ OneDrive viene in genere installato per utente. In questo ambiente deve essere i
 
 Di seguito viene illustrato come installare OneDrive in modalità per computer:
 
-1. Per prima cosa, creare un percorso per organizzare il programma di installazione di OneDrive. Una cartella del disco locale o\\un percorso [\\UNC] (file://UNC) è un problema.
+1. Per prima cosa, creare un percorso per organizzare il programma di installazione di OneDrive. Una cartella del disco locale o un percorso [\\ @ no__t-1unc] (file://unc) è corretto.
 
-2. Scaricare OneDriveSetup. exe nel percorso di gestione temporanea con il collegamento seguente:<https://aka.ms/OneDriveWVD-Installer>
+2. Scaricare OneDriveSetup. exe nel percorso di gestione temporanea con il collegamento seguente: <https://aka.ms/OneDriveWVD-Installer>
 
-3. Se Office è stato installato con OneDrive omettendo  **\<ExcludeApp ID =\>"OneDrive"/** , disinstallare le installazioni esistenti di OneDrive per utente da un prompt dei comandi con privilegi elevati eseguendo il comando seguente:
+3. Se Office è stato installato con OneDrive omettendo **\<EXCLUDEAPP ID = "OneDrive"/\>** , disinstallare le installazioni esistenti di OneDrive per utente da un prompt dei comandi con privilegi elevati eseguendo il comando seguente:
     
     ```batch
     "[staged location]\OneDriveSetup.exe" /uninstall

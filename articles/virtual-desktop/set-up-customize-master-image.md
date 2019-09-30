@@ -1,22 +1,22 @@
 ---
 title: Preparare e personalizzare un'immagine del disco rigido virtuale Master-Azure
-description: Come preparare, personalizzare e caricare un'immagine master di anteprima di desktop virtuali Windows in Azure.
+description: Come preparare, personalizzare e caricare un'immagine master di un desktop virtuale Windows in Azure.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: 8127c0a42ec42a661af31cc489964cc40cb4937d
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 379664fb7170249b8f21ec9826f8b0b6fbe19892
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981066"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679533"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparare e personalizzare un'immagine master di disco rigido virtuale
 
-Questo articolo illustra come preparare un'immagine del disco rigido virtuale (VHD) master per il caricamento in Azure, tra cui come creare macchine virtuali (VM) e installare software su di essi. Le istruzioni riguardano una configurazione specifica di Desktop virtuale Windows (anteprima) che può essere usata con gli attuali processi dell'organizzazione.
+Questo articolo illustra come preparare un'immagine del disco rigido virtuale (VHD) master per il caricamento in Azure, tra cui come creare macchine virtuali (VM) e installare software su di essi. Queste istruzioni sono relative a una configurazione specifica di un desktop virtuale di Windows che può essere usata con i processi esistenti dell'organizzazione.
 
 ## <a name="create-a-vm"></a>Creare una macchina virtuale
 
@@ -72,7 +72,7 @@ Se gli utenti devono accedere ad alcune applicazioni LOB, è consigliabile insta
 
 Per disabilitare Aggiornamenti automatici tramite Criteri di gruppo locale:
 
-1. Aprire **Editor criteri di gruppo locali\\\\componentidi\\Windows modelli amministrativi Windows Update**.
+1. Aprire **Editor criteri di gruppo locali @ no__t-1Administrative templates @ no__t-2Windows Components @ no__t-3Windows Update**.
 2. Fare clic con il pulsante destro del mouse su **Configura aggiornamento automatico** e impostarlo su **disabilitato**.
 
 È anche possibile eseguire il comando seguente al prompt dei comandi per disabilitare Aggiornamenti automatici.
@@ -99,7 +99,7 @@ Se Windows Defender è configurato nella macchina virtuale, assicurarsi che sia 
 
 Questa configurazione rimuove solo l'analisi dei file VHD e VHDX durante l'allegato, ma non influisce sull'analisi in tempo reale.
 
-Per istruzioni più dettagliate su come configurare Windows Defender in Windows Server, vedere Configurare le esclusioni di [Windows Defender antivirus in Windows Server](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-server-exclusions-windows-defender-antivirus).
+Per istruzioni più dettagliate su come configurare Windows Defender in Windows Server, vedere [configurare le esclusioni di Windows Defender antivirus in Windows Server](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-server-exclusions-windows-defender-antivirus).
 
 Per altre informazioni su come configurare Windows Defender in modo da escludere determinati file dall'analisi, vedere [configurare e convalidare le esclusioni in base all'estensione di file e al percorso della cartella](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus).
 
@@ -109,7 +109,7 @@ I criteri di sessione remota possono essere applicati a livello di Criteri di gr
 
 Per configurare i criteri di sessione remota:
 
-1. Passare a **modelli amministrativi** > **componenti**di Windows Servizi Desktop remoto > host sessione Desktop remotolimiti > di tempo della**sessione.**  > 
+1. Passare a **Modelli amministrativi** > **componenti di Windows**@no__t-**3 Servizi Desktop remoto** > **host sessione Desktop remoto**i limiti di**tempo della sessione** > .
 2. Nel pannello sul lato destro selezionare il criterio **Imposta limite di tempo per le sessioni di Servizi Desktop remoto attive ma inattive** .
 3. Quando viene visualizzata la finestra modale, modificare l'opzione dei criteri da **non configurato** in **abilitato** per attivare il criterio.
 4. Nel menu a discesa sotto l'opzione policy impostare la quantità di tempo su **3 ore**.
@@ -134,7 +134,7 @@ Per reindirizzare i fusi orari:
 1. Nel server Active Directory aprire il **console Gestione criteri di gruppo**.
 2. Espandere il dominio e gli oggetti Criteri di gruppo.
 3. Fare clic con il pulsante destro del mouse sull' **oggetto Criteri di gruppo** creato per le impostazioni di criteri di gruppo e scegliere **modifica**.
-4. Nella **Editor gestione criteri di gruppo**passare a **configurazione** > computer**criteri** > **modelli amministrativi** > componentidiWindows >   **Servizi Desktop remoto** > host sessione Desktop remotoil > **Reindirizzamento delle risorse e del dispositivo**.
+4. Nella **Editor gestione criteri di gruppo**passare a **Configurazione computer** > **criteri** > **modelli amministrativi** > **componenti Windows** > **Servizi Desktop remoto**@no__ t-10**host sessione Desktop remoto**il reindirizzamento di**risorse e dispositivi**2.
 5. Abilitare l'impostazione **Consenti reindirizzamento del fuso orario** .
 
 È anche possibile eseguire questo comando sull'immagine master per reindirizzare i fusi orari:
@@ -157,7 +157,7 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\
 
 ### <a name="include-additional-language-support"></a>Includi supporto per lingue aggiuntive
 
-Questo articolo non illustra come configurare la lingua e il supporto a livello di area. Per altre informazioni, vedere i seguenti articoli:
+Questo articolo non illustra come configurare la lingua e il supporto a livello di area. Per altre informazioni, vedere gli articoli seguenti:
 
 - [Aggiungere lingue alle immagini Windows](https://docs.microsoft.com/windows-hardware/manufacture/desktop/add-language-packs-to-windows)
 - [Funzionalità su richiesta](https://docs.microsoft.com/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities)

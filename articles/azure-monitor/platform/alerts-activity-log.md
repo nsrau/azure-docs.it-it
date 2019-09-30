@@ -1,18 +1,18 @@
 ---
 title: Creare, visualizzare e gestire gli avvisi del log attività in monitoraggio di Azure
 description: Creare avvisi del log attività usando il portale di Azure, un modello di Azure Resource Manager e Azure PowerShell.
-author: msvijayn
+author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.author: vinagara
-ms.openlocfilehash: a7f80698791831b3d4404ea0f687a75c660c2222
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.author: robb
+ms.openlocfilehash: e93b6f9c74bb44cb7341f5763261ecb699432ae2
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67852750"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71675268"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi del log attività tramite monitoraggio di Azure  
 
@@ -59,7 +59,7 @@ Utilizzare la procedura riportata di seguito.
 
      **Visualizzazione di esempio di destinazione di avviso**
 
-     ![Selezionare la destinazione](media/alerts-activity-log/select-target.png)
+     ![Seleziona la destinazione](media/alerts-activity-log/select-target.png)
 
    - In **criteri di destinazione**selezionare **Aggiungi criteri**. Vengono visualizzati tutti i segnali disponibili per la destinazione, inclusi quelli di diverse categorie di **log attività**. Il nome della categoria viene aggiunto al nome del **servizio di monitoraggio** .
 
@@ -108,7 +108,7 @@ Una semplice analogia per comprendere le condizioni in cui è possibile creare r
 
 1. Nella portale di Azure selezionare **monitoraggio** > **avvisi**. Selezionare **Gestisci regole di avviso** nell'angolo superiore sinistro della finestra.
 
-    ![Gestire le regole di avviso](media/alerts-activity-log/manage-alert-rules.png)
+    ![Gestisci regole di avviso](media/alerts-activity-log/manage-alert-rules.png)
 
     Viene visualizzato l'elenco delle regole disponibili.
 
@@ -124,7 +124,7 @@ Una semplice analogia per comprendere le condizioni in cui è possibile creare r
 
 3. Selezionare la regola e fare doppio clic per modificare le opzioni della regola. Apportare le modifiche necessarie e quindi selezionare **Salva**.
 
-   ![Gestire le regole di avviso](media/alerts-activity-log/activity-log-rule-edit-page.png)
+   ![Gestisci regole di avviso](media/alerts-activity-log/activity-log-rule-edit-page.png)
 
 4. È possibile abilitare, disabilitare o eliminare una regola. Selezionare l'opzione appropriata nella parte superiore della finestra dopo aver selezionato la regola come descritto nel passaggio 2.
 

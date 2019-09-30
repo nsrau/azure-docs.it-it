@@ -1,22 +1,22 @@
 ---
-title: Creare un pool di host di anteprima del desktop virtuale Windows con un modello di Azure Resource Manager-Azure
-description: Come creare un pool host nell'anteprima di desktop virtuale di Windows con un modello di Azure Resource Manager.
+title: Creare un pool di host per desktop virtuali Windows con un modello di Azure Resource Manager-Azure
+description: Come creare un pool host in un desktop virtuale Windows con un modello di Azure Resource Manager.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 27fe19c2b1f92b67e02b4e09d5fcd607759d8abd
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: b96ecad93c481a762b81a7888940850ed3a73e5f
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163749"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679602"
 ---
 # <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Creare un pool di host con un modello di Azure Resource Manager
 
-I pool di host sono una raccolta di una o più macchine virtuali identiche all'interno di ambienti tenant dell'anteprima di Desktop virtuale Windows. Ogni pool di host può contenere un gruppo di app con cui gli utenti possono interagire come farebbero in un desktop fisico.
+I pool host sono una raccolta di una o più macchine virtuali identiche all'interno di ambienti tenant di desktop virtuali Windows. Ogni pool di host può contenere un gruppo di app con cui gli utenti possono interagire come farebbero in un desktop fisico.
 
 Seguire le istruzioni di questa sezione per creare un pool di host per un tenant di desktop virtuale Windows con un modello di Azure Resource Manager fornito da Microsoft. Questo articolo illustra come creare un pool host in un desktop virtuale di Windows, creare un gruppo di risorse con macchine virtuali in una sottoscrizione di Azure, aggiungere le VM al dominio di Active Directory e registrare le VM con desktop virtuale di Windows.
 
@@ -36,7 +36,7 @@ Per iniziare, passare a [questo URL di GitHub](https://github.com/Azure/RDS-Temp
 
 ### <a name="deploy-the-template-to-azure"></a>Distribuire il modello in Azure
 
-Se si esegue la distribuzione in una sottoscrizione Enterprise, scorrere verso il basso e selezionare Distribuisci in Azure, quindi passare **a**compilare i parametri in base all'origine dell'immagine.
+Se si esegue la distribuzione in una sottoscrizione Enterprise, scorrere verso il basso e selezionare **Distribuisci in Azure**, quindi passare a compilare i parametri in base all'origine dell'immagine.
 
 Se si esegue la distribuzione in una sottoscrizione Cloud Solution Provider, attenersi alla procedura seguente per eseguire la distribuzione in Azure:
 

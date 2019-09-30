@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 06/25/2019
 ms.author: wesmc
-ms.openlocfilehash: e4379c38d90f444102a9bbddbae64a8018defcf8
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: e8a186fbcb04dc29fcf57a2353adcf89ce46b119
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844559"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677928"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Connettere DevKit di IoT AZ3166 all'hub IoT di Azure
 
@@ -31,7 +31,7 @@ ms.locfileid: "70844559"
 
 Non hai ancora DevKit? Provare il [simulatore di DevKit](https://azure-samples.github.io/iot-devkit-web-simulator/) o [acquistare DevKit](https://aka.ms/iot-devkit-purchase).
 
-Il codice sorgente per tutte le esercitazioni di DevKit è reperibile nel repository [IoTDevEnvExamples](https://github.com/IoTDevEnvExamples) .
+È possibile trovare il codice sorgente per tutte le esercitazioni di DevKit dalla [raccolta di esempi di codice](https://docs.microsoft.com/samples/browse/?term=mxchip).
 
 ## <a name="what-you-need"></a>Elementi necessari
 
@@ -299,7 +299,7 @@ Anziché eseguire il provisioning dell'hub e del dispositivo di Azure dall'porta
 
     ![Stringa di connessione](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/connection-string.png)
 
-1. Premere nuovamente `F1`, digitare e selezionare **Azure IoT Device Workbench: Upload Device Code** (Azure IoT Device Workbench: Carica il codice del dispositivo). Il comando avvia la compilazione e il caricamento del codice nel DevKit.
+1. Premere nuovamente `F1`, digitare e selezionare **Azure IoT Device Workbench: Upload Device Code** (Azure IoT Device Workbench: Carica il codice del dispositivo). Vengono avviati la compilazione e il caricamento nel codice nel DevKit.
 
     ![Caricamento Arduino](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/arduino-upload.png)
 
@@ -355,7 +355,7 @@ L'applicazione di esempio viene eseguita correttamente quando vengono visualizza
 
 Per vedere come vengono inviati i dati di telemetria del dispositivo all'hub Azure `utility.cpp` , aprire il file nella stessa cartella. Vedere informazioni di [riferimento sulle API](https://microsoft.github.io/azure-iot-developer-kit/docs/apis/arduino-language-reference/) per informazioni su come usare i sensori e le periferiche nei devkit.
 
-L' `DevKitMQTTClient` oggetto usato è un wrapper di **iothub_client** da [SDK e librerie di Microsoft Azure Internet per](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client) interagire con l'hub Azure.
+Il `DevKitMQTTClient` usato è un wrapper di **iothub_client** dagli [SDK e dalle librerie Microsoft Azure Internet e per](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client) interagire con l'hub Azure.
 
 ## <a name="problems-and-feedback"></a>Problemi e commenti
 

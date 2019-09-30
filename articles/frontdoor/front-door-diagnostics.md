@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: 5f76df0045fc3939392759ed0edd266380295a85
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 229706ff91b776363d3e9de080e02cee5edf9c77
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260165"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677902"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door-service"></a>Monitoraggio di metriche e log nel servizio front-end di Azure
 
 Con il servizio front door di Azure è possibile monitorare le risorse nei modi seguenti:
 
-- **Metrics** (Metriche). il gateway applicazione dispone attualmente di sette metriche per visualizzare i contatori delle prestazioni.
+- **Metrics** (Metriche). Il front-end di Azure dispone attualmente di sette metriche per visualizzare i contatori delle prestazioni.
 - **Log**. I log attività e di diagnostica consentono di salvare o utilizzare le prestazioni, l'accesso e altri dati da una risorsa a scopo di monitoraggio.
 
 ### <a name="metrics"></a>metrics
