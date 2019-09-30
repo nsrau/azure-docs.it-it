@@ -8,19 +8,19 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.custom: seo-java-july2019, seo-java-august2019
-ms.openlocfilehash: 06f1c0123d6bdf56b5182605016d2feb80adf18b
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: c4e4a984adc0ec6af99667ff36c009ca730acf48
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172974"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172829"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Esercitazione: Eseguire la distribuzione da GitHub in Servizio app di Azure con integrazione continua e distribuzione continua di Jenkins
 
 Questa esercitazione distribuisce un'app Web Java di esempio da GitHub in [Servizio app di Azure in Linux](/azure/app-service/containers/app-service-linux-intro) configurando l'integrazione continua (CI) e la distribuzione continua (CD) in Jenkins. Quando si aggiorna l'app eseguendo il push di commit in GitHub, Jenkins compila automaticamente l'app e la pubblica di nuovo in Servizio app di Azure. L'app di esempio in questa esercitazione è stata sviluppata usando il framework [Spring Boot](https://projects.spring.io/spring-boot/). 
 
-![Panoramica](media/tutorial-jenkins-deploy-web-app-azure-app-service/overview.png)
+![Panoramica della distribuzione da GitHub al Servizio app di Azure](media/tutorial-jenkins-deploy-web-app-azure-app-service/azure-continuous-integration-deployment-overview.png)
 
 In questa esercitazione si completeranno le attività seguenti:
 
@@ -97,19 +97,19 @@ Per fare in modo che Jenkins monitori GitHub e risponda quando viene eseguito il
 
 1. Nella pagina **Manage Jenkins** (Gestisci Jenkins) selezionare **Configure System** (Configura sistema). 
 
-   ![Configurare il sistema](media/tutorial-jenkins-deploy-web-app-azure-app-service/manage-jenkins-configure-system.png)
+   ![Configurare il sistema in Jenkins](media/tutorial-jenkins-deploy-web-app-azure-app-service/manage-jenkins-configure-system.png)
 
 1. Nella sezione **GitHub** specificare i dettagli per il server GitHub. Nell'elenco **Add GitHub Server** (Aggiungi server GitHub) selezionare **GitHub Server** (Server GitHub). 
 
-   ![Aggiungere il server GitHub](media/tutorial-jenkins-deploy-web-app-azure-app-service/add-GitHub-server.png)
+   ![Aggiungere il server GitHub in Jenkins](media/tutorial-jenkins-deploy-web-app-azure-app-service/add-GitHub-server.png)
 
 1. Se la proprietà **Manage hooks** (Gestisci hook) non è selezionata, selezionarla. Selezionare **Advanced** (Avanzate) per specificare altre impostazioni. 
 
-   ![Scegliere "Advanced" (Avanzate) per altre impostazioni](media/tutorial-jenkins-deploy-web-app-azure-app-service/advanced-GitHub-settings.png)
+   ![Specificare le impostazioni avanzate di Jenkins per il server GitHub](media/tutorial-jenkins-deploy-web-app-azure-app-service/advanced-GitHub-settings.png)
 
 1. Nell'elenco **Manage additional GitHub actions** (Gestisci azioni GitHub aggiuntive) selezionare **Convert login and password to token** (Converti account di accesso e password in token).
 
-   ![Scegliere "Manage additional GitHub actions" (Gestisci azioni GitHub aggiuntive)](media/tutorial-jenkins-deploy-web-app-azure-app-service/manage-additional-actions.png)
+   ![Convertire l'account di accesso e la password nel token per GitHub](media/tutorial-jenkins-deploy-web-app-azure-app-service/manage-additional-actions.png)
 
 1. Selezionare **From login and password** (Da account di accesso e password) e immettere il nome utente e la password di GitHub. Al termine, selezionare **Create token credentials** (Crea credenziali token) per creare un [token di accesso personale di GitHub](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).   
 
@@ -181,11 +181,11 @@ In Jenkins creare il processo di pipeline per la compilazione e la distribuzione
 
 1. Tornare alla home page di Jenkins e selezionare **New Item** (Nuovo elemento). 
 
-   ![Selezionare "Nuovo elemento"](media/tutorial-jenkins-deploy-web-app-azure-app-service/jenkins-select-new-item.png)
+   ![Creare una pipeline Jenkins](media/tutorial-jenkins-deploy-web-app-azure-app-service/jenkins-select-new-item.png)
 
 1. Specificare un nome per il processo di pipeline, ad esempio, "My-Java-Web-App" e selezionare **Pipeline**. Nella parte inferiore selezionare **OK**.  
 
-   ![Selezionare "Pipeline"](media/tutorial-jenkins-deploy-web-app-azure-app-service/jenkins-select-pipeline.png)
+   ![Assegnare un nome al processo della pipeline Jenkins](media/tutorial-jenkins-deploy-web-app-azure-app-service/jenkins-select-pipeline.png)
 
 1. Configurare Jenkins con l'entità servizio in modo che Jenkins possa eseguire la distribuzione in Azure senza usare le credenziali dell'utente.
 
@@ -199,7 +199,7 @@ In Jenkins creare il processo di pipeline per la compilazione e la distribuzione
       WEB_APP=yourWebAppName
       ```
 
-      ![Selezionare Prepare an environment for the run (Preparare un ambiente per l'esecuzione) e impostare le variabili di ambiente](media/tutorial-jenkins-deploy-web-app-azure-app-service/prepare-environment-for-run.png)
+      ![Preparare un ambiente per l'esecuzione e impostare le variabili di ambiente](media/tutorial-jenkins-deploy-web-app-azure-app-service/prepare-environment-for-jenkins-run.png)
 
 1. Al termine, selezionare **Salva**.
 
@@ -254,7 +254,7 @@ Specificare ora lo script di compilazione e distribuzione che Jenkins deve usare
 
 1. In Jenkins selezionare il processo di pipeline creato in precedenza. 
 
-   ![Selezionare il processo di pipeline per l'app Web](media/tutorial-jenkins-deploy-web-app-azure-app-service/select-pipeline-job.png)
+   ![Selezionare il processo della pipeline Jenkins per l'app Web](media/tutorial-jenkins-deploy-web-app-azure-app-service/select-pipeline-job.png)
 
 1. Nel menu a sinistra selezionare **Configure** (Configura).
 
@@ -272,7 +272,7 @@ Specificare ora lo script di compilazione e distribuzione che Jenkins deve usare
 
    Al termine, la definizione della pipeline avrà un aspetto simile a questo esempio: 
 
-   ![Puntare la pipeline allo script](media/tutorial-jenkins-deploy-web-app-azure-app-service/set-up-jenkins-github.png)
+   ![Impostare la pipeline Jenkins in modo che punti allo script](media/tutorial-jenkins-deploy-web-app-azure-app-service/set-up-jenkins-github.png)
 
 1. Al termine, selezionare **Salva**.
 

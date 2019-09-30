@@ -1,19 +1,19 @@
 ---
 title: 'Script di Azure PowerShell: aggiornare un account di Azure Cosmos'
-description: 'Esempio di script di Azure PowerShell: aggiornare un account di Azure Cosmos con aree aggiunte'
+description: Esempio di script di Azure PowerShell - Aggiornare un account di Azure Cosmos o modificare le aree
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/06/2019
+ms.date: 09/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: 8fad9b47b4f451f4b77f32038b26d6dc43809a60
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 7d57264daf4036d1823d3da27c248bdca1d7466d
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603959"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154735"
 ---
-# <a name="update-an-azure-cosmos-account-and-add-a-region-using-powershell"></a>Aggiornare un account Azure Cosmos e aggiungere un'area con PowerShell
+# <a name="update-an-azure-cosmos-account-or-add-modify-regions-using-powershell"></a>Aggiornare un account Azure Cosmos o modificare le aree con PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -21,7 +21,12 @@ ms.locfileid: "67603959"
 
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-account-update.ps1 "Update and add regions to an Azure Cosmos account")]
+> [!NOTE]
+> Non è possibile modificare le aree e cambiare altre proprietà dell'account Cosmos nella stessa operazione. Queste modifiche devono essere eseguite con due operazioni separate.
+> [!NOTE]
+> Questo esempio dimostra l'uso di un account API SQL (Core). Per usare questo esempio per altre API, copiare le proprietà correlate e applicarle allo script specifico dell'API.
+
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-update.ps1 "Add a region to an Azure Cosmos account")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
 
@@ -38,8 +43,8 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 | Comando | Note |
 |---|---|
 |**Risorse di Azure**| |
-| [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) | Ottiene una risorsa. |
-| [Set-AzResource](https://docs.microsoft.com/powershell/module/az.resources/set-azresource) | Aggiorna una risorsa. |
+| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Crea una risorsa. |
+| [Set-AzResource](https://docs.microsoft.com/powershell/module/az.resources/set-azresource) | Aggiornare una risorsa. |
 |**Gruppi di risorse di Azure**| |
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |

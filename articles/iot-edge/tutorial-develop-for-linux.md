@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 30b1af29d1a7e3a01659353b27d8c997e739e702
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: a523028fb312f030bc453692daceb0f254f844b6
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030985"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240959"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Esercitazione: Sviluppare moduli IoT Edge per dispositivi Linux
 
@@ -63,6 +63,7 @@ Questa esercitazione illustra i passaggi di sviluppo per Visual Studio Code. Se 
 Un computer di sviluppo:
 
 * È possibile usare il proprio computer o una macchina virtuale, a seconda delle preferenze di sviluppo.
+  * Assicurarsi che il computer di sviluppo supporti la virtualizzazione annidata. Questa funzionalità è necessaria per l'esecuzione di un motore di contenitore, che verrà installato nella sezione successiva.
 * Per lo sviluppo di moduli IoT Edge per dispositivi Linux, è possibile usare la maggior parte dei sistemi operativi in grado di eseguire un motore per i contenitori. Questa esercitazione usa un computer Windows, ma vengono sottolineate le differenze note in MacOS o Linux. 
 * Installare [Git](https://git-scm.com/) per eseguire il pull dei pacchetti di modelli di moduli più avanti in questa esercitazione.  
 * [Estensione C# per Visual Studio Code con tecnologia OmniSharp](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).

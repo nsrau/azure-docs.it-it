@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: 0f1decae5fb3ec4a07f01c5bff7475f3d73a3cbb
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: f059f23031c2cdd74daaa856213d7e06f87dc27c
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67179953"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273900"
 ---
 1. Per creare una cache, accedere al [portale di Azure](https://portal.azure.com). Selezionare quindi **Crea una risorsa** > **Database** > **Azure Cache for Redis** (Cache Redis di Azure).
 
-    ![New cache](media/redis-cache-create/redis-cache-new-cache-menu.png)
+    ![Nuovo menu di Azure Cache for Redis](media/redis-cache-create/redis-cache-new-cache-menu.png)
 
 2. In **New Azure Cache for Redis** (Nuova cache Redis di Azure) configurare le impostazioni per la nuova cache.
 
@@ -30,11 +30,11 @@ ms.locfileid: "67179953"
     | **[Piano tariffario](https://azure.microsoft.com/pricing/details/cache/)** |  C0 Basic (cache da 250 MB) |  Il piano tariffario determina le dimensioni, le prestazioni e le funzionalità disponibili per la cache. Per altre informazioni, vedere la [panoramica su Cache Redis di Azure](../articles/azure-cache-for-redis/cache-overview.md). |
     | **Aggiungi al dashboard** |  Selezionato | Aggiungere la nuova cache al dashboard per renderla più semplice da trovare. |
 
-    ![Create cache](media/redis-cache-create/redis-cache-cache-create.png) 
+    ![Creare un'istanza di Azure Cache for Redis](media/redis-cache-create/redis-cache-cache-create.png) 
 
 3. Dopo aver configurato le impostazioni della nuova cache, selezionare **Crea**. 
 
     La creazione della cache può richiedere alcuni minuti. Per verificare lo stato è possibile monitorare l'avanzamento nel dashboard. Dopo la creazione, lo stato della cache sarà **In esecuzione** e sarà possibile usarla subito.
 
-    ![Cache created](media/redis-cache-create/redis-cache-cache-created.png)
+    ![Istanza di Azure Cache for Redis creata](media/redis-cache-create/redis-cache-cache-created.png)
 

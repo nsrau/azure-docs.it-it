@@ -8,13 +8,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 08/28/2019
-ms.openlocfilehash: 9a80cb7ba44c86d449e4ff4178a2982db302a717
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.date: 09/20/2019
+ms.openlocfilehash: 6feeab9b48715a8fe1f6c6fe11ae90b6be71a57a
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70138355"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173475"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>Usare Terraform per creare un set di scalabilità di macchine virtuali di Azure da un'immagine di Packer personalizzata
 
@@ -42,9 +42,9 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Creare tre nuovi file in una directory vuota con i nomi seguenti:
 
-- ```variables.tf``` Questo file contiene i valori delle variabili usate nel modello.
-- ```output.tf``` Questo file descrive le impostazioni visualizzate dopo la distribuzione.
-- ```vmss.tf``` Questo file contiene il codice dell'infrastruttura da distribuire.
+- `variables.tf` : Questo file contiene i valori delle variabili usate nel modello.
+- `output.tf` : Questo file descrive le impostazioni visualizzate dopo la distribuzione.
+- `vmss.tf` : Questo file contiene il codice dell'infrastruttura da distribuire.
 
 ##  <a name="create-the-variables"></a>Creare le variabili 
 
@@ -52,7 +52,7 @@ In questo passaggio vengono definite le variabili che consentono di personalizza
 
 Modificare il file `variables.tf`, copiare il codice seguente e quindi salvare le modifiche.
 
-```tf 
+```hcl
 variable "location" {
   description = "The location where resources are created"
   default     = "East US"
@@ -70,7 +70,7 @@ variable "resource_group_name" {
 
 Salvare il file.
 
-Quando si distribuisce il modello di Terraform, è importante ottenere il nome di dominio completo usato per accedere all'applicazione. Usare il tipo di risorsa ```output``` di Terraform e ottenere la proprietà ```fqdn``` della risorsa. 
+Quando si distribuisce il modello di Terraform, è importante ottenere il nome di dominio completo usato per accedere all'applicazione. Usare il tipo di risorsa `output` di Terraform e ottenere la proprietà `fqdn` della risorsa. 
 
 Modificare il file `output.tf` e copiare il codice seguente per esporre il nome di dominio completo per le macchine virtuali. 
 
@@ -89,9 +89,9 @@ In questo passaggio viene creata l'infrastruttura di rete seguente in un nuovo g
 
 È anche necessario un gruppo di risorse in cui tutte le risorse vengono create. 
 
-Modificare e copiare il codice seguente nel file ```vmss.tf```: 
+Modificare e copiare il codice seguente nel file `vmss.tf`: 
 
-```tf 
+```hcl
 
 resource "azurerm_resource_group" "vmss" {
   name     = "${var.resource_group_name}"
@@ -145,7 +145,7 @@ Inizializzare l'ambiente Terraform eseguendo il comando seguente nella directory
 terraform init 
 ```
  
-Il provider avvia il download dal registro di Terraform alla cartella ```.terraform``` nella directory in cui si è eseguito il comando.
+Il provider avvia il download dal registro di Terraform alla cartella `.terraform` nella directory in cui si è eseguito il comando.
 
 Eseguire il comando seguente per distribuire l'infrastruttura in Azure.
 
@@ -185,8 +185,7 @@ In questo passaggio si creano le risorse seguenti nella rete distribuita prima:
 
 Aggiungere il codice seguente alla fine del file `vmss.tf`.
 
-```tf
-
+```hcl
 
 resource "azurerm_lb" "vmss" {
   name                = "vmss-lb"
@@ -303,7 +302,7 @@ resource "azurerm_virtual_machine_scale_set" "vmss" {
 
 Personalizzare la distribuzione aggiungendo il codice seguente a `variables.tf`:
 
-```tf 
+```hcl
 variable "application_port" {
     description = "The port that you want to expose to the external load balancer"
     default     = 80

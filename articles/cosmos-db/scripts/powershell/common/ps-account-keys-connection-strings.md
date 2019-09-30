@@ -4,14 +4,14 @@ description: Esempio di script di Azure PowerShell - Operazioni relative alla ch
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/20/2019
+ms.date: 09/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: 55f28ef6c6ff82f0b82b10ac1dd7931ac46aa2fc
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 1eb9cc4c35584b94d3d16654b1bec253e21a91ff
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67602499"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154753"
 ---
 # <a name="connection-string-and-account-key-operations-for-an-azure-cosmos-account-using-powershell"></a>Operazioni relative alla chiave dell'account e alla stringa di connessione per un account di Azure Cosmos con PowerShell
 
@@ -21,7 +21,8 @@ ms.locfileid: "67602499"
 
 ## <a name="sample-script"></a>Script di esempio
 
-Per riprodurre questo esempio è necessaria l'esistenza del gruppo di risorse e dell'account. Prima di iniziare, usare un esempio di creazione esistente di PowerShell per effettuare il provisioning di un account.
+> [!NOTE]
+> Questo esempio dimostra l'uso di un account API SQL (Core). Per usare questo esempio per altre API, copiare le proprietà correlate e applicarle allo script specifico dell'API
 
 [!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-keys-connection-strings.ps1 "Connection strings and account keys for Azure Cosmos account")]
 

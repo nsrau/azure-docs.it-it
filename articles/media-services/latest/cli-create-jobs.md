@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: e4f2d4f0e7dd9380ba708d84dfe7588043fd4a68
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 08caf4b78b1042d5753dba2bc73e93fa3a250a17
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236694"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122382"
 ---
 # <a name="cli-example-create-and-submit-a-job"></a>Esempio di interfaccia della riga di comando: Creare e inviare un processo
 
@@ -87,4 +87,4 @@ La risposta visualizzata sarà simile alla seguente:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Panoramica di Servizi multimediali](media-services-overview.md)
+[az ams job (interfaccia della riga di comando)](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)

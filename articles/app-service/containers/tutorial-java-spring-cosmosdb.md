@@ -8,19 +8,19 @@ ms.service: app-service-web
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
-ms.custom: seodec18, seo-java-july2019, seo-java-august2019
-ms.openlocfilehash: 27b30bae80e2959698d71279efbfa2531498d8de
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.custom: seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: 582ed374e7895d0b99f25ac033d0d4b1ec99104c
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70171199"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71171485"
 ---
 # <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>Esercitazione: Creare un'app Web Java Spring Boot con il Servizio app di Azure in Linux e Azure Cosmos DB
 
 Questa esercitazione illustra il processo di creazione, configurazione, distribuzione e ridimensionamento di app Web Java in Azure. Al termine, si avrà un'applicazione [Spring Boot](https://projects.spring.io/spring-boot/) che memorizza i dati in [Azure Cosmos DB](/azure/cosmos-db) in esecuzione nel [servizio app di Azure in Linux](/azure/app-service/containers).
 
-![App Java in esecuzione nel Servizio app di Azure](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
+![Applicazione Spring Boot che archivia i dati in Azure Cosmos DB](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 
 In questa esercitazione si apprenderà come:
 
@@ -169,7 +169,7 @@ bash-3.2$ mvn package spring-boot:run
 
 È possibile accedere all'app TODO di Spring nell'ambiente locale usando questo collegamento dopo aver avviato l'app: [http://localhost:8080/](http://localhost:8080/).
 
- ![App Java in esecuzione nel Servizio app di Azure](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
+ ![Accedere all'app TODO di Spring nell'ambiente locale](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 
 Se vengono visualizzate eccezioni al posto del messaggio "Started TodoApplication", verificare che lo script `bash` nel passaggio precedente abbia esportato correttamente le variabili di ambiente e che i valori siano corretti per il database di Azure Cosmos DB creato.
 
@@ -263,7 +263,7 @@ open https://spring-todo-app.azurewebsites.net
 
 Verrà visualizzata l'app in esecuzione con l'URL remoto nella barra degli indirizzi:
 
- ![App Java in esecuzione nel Servizio app di Azure](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-in-app-service.jpg)
+ ![Applicazione Spring Boot in esecuzione con un URL remoto](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-in-app-service.jpg)
 
 ## <a name="stream-diagnostic-logs"></a>Eseguire lo streaming dei log di diagnostica
 

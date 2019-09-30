@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 07/09/2019
-ms.openlocfilehash: e5666a64e4160964e2c1b35707a0f064edb72460
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.date: 09/22/2019
+ms.openlocfilehash: 619c36257f9166492e98d88335d767f358e3feca
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706898"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71179116"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-online-using-dms"></a>Esercitazione: Eseguire la migrazione online di SQL Server a un database singolo o in pool in Database SQL di Azure con Servizio Migrazione del database
 
@@ -78,16 +78,16 @@ Per completare questa esercitazione, è necessario:
 - Se una o più tabelle non dispongono di una chiave primaria, abilitare Change Data Capture (CDC) nel database e nelle tabelle specifiche.
     > [!NOTE]
     > È possibile usare lo script seguente per trovare tutte le tabelle che non dispongono di chiavi primarie.
-
+    
     ```sql
     USE <DBName>;
     go
     SELECT is_tracked_by_cdc, name AS TableName
     FROM sys.tables WHERE type = 'U' and is_ms_shipped = 0 AND
     OBJECTPROPERTY(OBJECT_ID, 'TableHasPrimaryKey') = 0;
-     ```
+    ```
 
-    >Se i risultati mostrano una o più tabelle con 'is_tracked_by_cdc' a '0', abilitare l'acquisizione delle modifiche per il database e per le tabelle specifiche tramite la procedura descritta nell'articolo [Abilitare e disabilitare Change Data Capture (SQL Server)](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?view=sql-server-2017).
+    Se i risultati mostrano una o più tabelle con 'is_tracked_by_cdc' a '0', abilitare l'acquisizione delle modifiche per il database e per le tabelle specifiche tramite la procedura descritta nell'articolo [Abilitare e disabilitare Change Data Capture (SQL Server)](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?view=sql-server-2017).
 
 - Configurare il ruolo del database di distribuzione per SQL Server di origine.
 
@@ -127,17 +127,17 @@ Per completare questa esercitazione, è necessario:
 
 Prima di eseguire la migrazione dei dati da un'istanza locale di SQL Server a un database singolo o in pool in Database SQL di Azure, è necessario valutare il database di SQL Server per rilevare eventuali problemi che potrebbero causare un blocco e impedire la migrazione. Usando Data Migration Assistant v3.3 o versione successiva, seguire la procedura descritta nell'articolo [Eseguire una valutazione della migrazione a SQL Server](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) per completare la valutazione del database locale.
 
-Per valutare un database locale, seguire i passaggi seguenti:
+Per valutare un database locale, seguire questa procedura:
 
 1. In DMA selezionare l'icona Nuovo (+) e quindi selezionare il tipo di progetto **Valutazione**.
 2. Specificare il nome del progetto, nella casella di testo **Tipo del server di origine** selezionare **SQL Server**, nella casella di testo **Tipo del server di destinazione** selezionare **Database SQL di Azure** e quindi selezionare **Crea** per creare il progetto.
 
-    Quando si valuta il database di SQL Server di origine per la migrazione a un database singolo o in pool in Database SQL di Azure, si può scegliere uno o entrambi i tipi di report di valutazione seguenti:
+   Quando si valuta il database di SQL Server di origine per la migrazione a un database singolo o in pool in Database SQL di Azure, si può scegliere uno o entrambi i tipi di report di valutazione seguenti:
 
    - Check database compatibility (Verificare la compatibilità del database)
    - Check feature parity (Verificare la parità di funzionalità)
 
-     Entrambi i tipi di report sono selezionati per impostazione predefinita.
+   Entrambi i tipi di report sono selezionati per impostazione predefinita.
 
 3. In DMA, nella schermata **Opzioni**, selezionare **Avanti**.
 4. Nella schermata **Seleziona origini** della finestra di dialogo **Connetti a un server** indicare i dettagli della connessione a SQL Server e quindi selezionare **Connetti**.

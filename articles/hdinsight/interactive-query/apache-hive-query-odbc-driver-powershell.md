@@ -3,17 +3,17 @@ title: Eseguire query in Apache Hive con ODBC Driver e PowerShell - Azure HDInsi
 description: Usare Microsoft Hive ODBC Driver e PowerShell per eseguire query su cluster Apache Hive in Azure HDInsight.
 keywords: hive, odbc hive, powershell
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 06/27/2019
-ms.author: hrasheed
-ms.openlocfilehash: b02c865e953861b5ac396538fdd0f0623b0e5428
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 04771ddc633c210ce8c7b3c42a9e46cb2f1ed349
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67486064"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122164"
 ---
 # <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>Esercitazione: Eseguire query in Apache Hive con ODBC e PowerShell
 
@@ -70,13 +70,13 @@ I passaggi seguenti descrivono come creare un'origine dati ODBC Apache Hive.
    |  Rows fetched per block |Quando si recupera un numero elevato di record, potrebbe essere necessario ottimizzare questo parametro per assicurare prestazioni ottimali. |
    |  Default string column length, Binary column length, Decimal column scale |Le lunghezze e le precisioni del tipo di dati potrebbero avere effetto sulla visualizzazione dei dati. In questo caso verranno restituite informazioni non corrette a causa della perdita di precisione e dei troncamenti. |
 
-    ![Opzioni avanzate](./media/apache-hive-query-odbc-driver-powershell/odbc-data-source-advanced-options.png "Opzioni di configurazione DSN avanzate")
+    ![Opzioni di configurazione DNS avanzate](./media/apache-hive-query-odbc-driver-powershell/odbc-data-source-advanced-options.png "Opzioni di configurazione DSN avanzate")
 
 1. Selezionare **Test** per testare l'origine dati. Se l'origine dati è configurata correttamente, come risultato del test è indicato **OPERAZIONE RIUSCITA**.  
 
 1. Selezionare **OK** per chiudere la finestra Test.  
 
-1. Selezionare **OK** per chiudere la finestra di configurazione del DSN per Microsoft Hive ODBC Driver.  
+1. Selezionare **OK** per chiudere la finestra di configurazione del **** DSN per Microsoft Hive ODBC Driver.  
 
 1. Selezionare **OK** per chiudere la finestra **Amministratore origine dati ODBC**.  
 

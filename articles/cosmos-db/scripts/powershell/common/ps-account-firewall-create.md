@@ -1,20 +1,19 @@
 ---
-title: Script di Azure PowerShell - Creare un database e un contenitore per Azure Cosmos DB - API SQL (Core)
-description: Script di Azure PowerShell - Creare un database e un contenitore per Azure Cosmos DB - API SQL (Core)
+title: Script di Azure PowerShell - Creare un account Azure Cosmos con il firewall IP
+description: Esempio di script di Azure PowerShell - Creare un account Azure Cosmos con il firewall IP
 author: markjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 09/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: eee1e31808412dc5e4308dee92f3685507e771f3
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: c0e7d2b4fe1e63b468a4ef8c88310c5d7e115ebe
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178800"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71156516"
 ---
-# <a name="create-a-database-and-container-for-azure-cosmos-db---sql-core-api"></a>Creare un database e un contenitore per Azure Cosmos DB - API SQL (Core)
+# <a name="create-an-azure-cosmos-account-with-ip-firewall"></a>Creare un account Azure Cosmos con il firewall IP
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -22,9 +21,10 @@ ms.locfileid: "71178800"
 
 ## <a name="sample-script"></a>Script di esempio
 
-Questo script crea un account Cosmos per l'API SQL (Core) in due aree con coerenza a livello di sessione, un database con unità elaborate condivise e un contenitore con una chiave di partizione, criteri di indicizzazione personalizzati, criteri di chiave univoci, durata TTL, unità elaborate dedicate e criteri di risoluzione dei conflitti basati sulla priorità dell'ultima scrittura con un percorso di risoluzione dei conflitti personalizzato che verrà usato quando `multipleWriteLocations=true`.
+> [!NOTE]
+> Questo esempio dimostra l'uso di un account API SQL (Core). Per usare questo esempio per altre API, copiare le proprietà correlate e applicarle allo script specifico dell'API
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-sql-create.ps1 "Create an account, database, and container for SQL (Core) API")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-firewall-create.ps1 "Create an Azure Cosmos account with IP Firewall")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
 
@@ -43,6 +43,7 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 |**Risorse di Azure**| |
 | [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Crea una risorsa. |
 |**Gruppi di risorse di Azure**| |
+| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 |||
 

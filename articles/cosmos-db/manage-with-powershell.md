@@ -7,12 +7,12 @@ ms.topic: sample
 ms.date: 08/05/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: e8f943ebaa5dfc06e0bfb04dc1097d6794ec6d05
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 5b041fecfaa5a84ed5a04a3a8c53de10b9efd65b
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616821"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155363"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>Gestire le risorse dell'API SQL di Azure Cosmos DB tramite PowerShell
 
@@ -43,6 +43,7 @@ Le sezioni seguenti illustrano come gestire l'account Azure Cosmos:
 * [Rigenerare le chiavi per un account Azure Cosmos](#regenerate-keys)
 * [Elencare le stringhe di connessione per un account Azure Cosmos](#list-connection-strings)
 * [Modificare la priorità di failover di un account Azure Cosmos](#modify-failover-priority)
+* [Attivare un failover manuale per un account Azure Cosmos](#trigger-manual-failover)
 
 ### <a id="create-account"></a> Creare un account Azure Cosmos
 
@@ -121,7 +122,9 @@ Questo comando consente di aggiornare le proprietà di un account del database A
 * Abilitazione del multimaster
 
 > [!NOTE]
-> Il comando consente di aggiungere e rimuovere aree, ma non di modificare le priorità di failover o modificare l'area con `failoverPriority=0`. Per modificare la priorità di failover, vedere [Modificare la priorità di failover di un account Azure Cosmos](#modify-failover-priority).
+> Non è possibile aggiungere o rimuovere simultaneamente aree `locations` e cambiare l'ordine delle proprietà per un account Azure Cosmos. La modifica delle aree deve essere eseguita come operazione distinta rispetto a qualsiasi altra modifica apportata alla risorsa dell'account.
+> [!NOTE]
+> Questo comando consente di aggiungere e rimuovere aree, ma non di modificare le priorità di failover o attivare un failover manuale. Vedere [Modificare la priorità di failover](#modify-failover-priority) e [Attivare un failover manuale](#trigger-manual-failover).
 
 ```azurepowershell-interactive
 # Get an Azure Cosmos Account (assume it has two regions currently West US 2 and East US 2) and add a third region
@@ -238,7 +241,38 @@ Select-Object $keys
 
 ### <a id="modify-failover-priority"></a> Modificare la priorità di failover
 
-Per gli account di database in più aree, è possibile cambiare l'ordine in cui un account Cosmos promuove le repliche in lettura secondarie in caso di failover locale della replica in scrittura primaria. La modifica di `failoverPriority=0` può anche essere usata per avviare un'esercitazione sul ripristino di emergenza per testarne la pianificazione.
+Per gli account configurati con failover automatico, è possibile cambiare l'ordine in cui Cosmos alzerà di livello le repliche secondarie a primarie nel caso quelle primarie diventassero indisponibili.
+
+Per l'esempio, si supponga la priorità di failover corrente, `West US 2 = 0`, `East US 2 = 1`, `South Central US = 2`.
+
+> [!CAUTION]
+> Se si cambia `locationName` per `failoverPriority=0`, verrà attivato un failover manuale per un account Azure Cosmos. Qualsiasi altra modifica della priorità non attiverà un failover.
+
+```azurepowershell-interactive
+# Change the failover priority for an Azure Cosmos Account
+# Assume existing priority is "West US 2" = 0, "East US 2" = 1, "South Central US" = 2
+
+$resourceGroupName = "myResourceGroup"
+$accountName = "mycosmosaccount"
+
+$failoverRegions = @(
+    @{ "locationName"="West US 2"; "failoverPriority"=0 },
+    @{ "locationName"="South Central US"; "failoverPriority"=1 },
+    @{ "locationName"="East US 2"; "failoverPriority"=2 }
+)
+
+$failoverPolicies = @{
+    "failoverPolicies"= $failoverRegions
+}
+
+Invoke-AzResourceAction -Action failoverPriorityChange `
+    -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" `
+    -ResourceGroupName $resourceGroupName -Name $accountName -Parameters $failoverPolicies
+```
+
+### <a id="trigger-manual-failover"></a> Attivare un failover manuale
+
+Per gli account configurati con failover manuale, è possibile eseguire il failover e alzare di livello qualsiasi replica secondaria a primaria modificando `failoverPriority=0`. Questa operazione può essere usata per avviare un'esercitazione sul ripristino di emergenza per testarne la pianificazione.
 
 Per l'esempio seguente, si presuppone che l'account abbia la priorità di failover corrente impostata su `West US 2 = 0` e `East US 2 = 1` e che le aree vengano invertite.
 
@@ -247,14 +281,15 @@ Per l'esempio seguente, si presuppone che l'account abbia la priorità di failov
 
 ```azurepowershell-interactive
 # Change the failover priority for an Azure Cosmos Account
-# Assume existing priority is "West US 2" = 0 and "East US 2" = 1
+# Assume existing priority is "West US 2" = 0, "East US 2" = 1, "South Central US" = 2
 
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"
 
 $failoverRegions = @(
-    @{ "locationName"="East US 2"; "failoverPriority"=0 },
-    @{ "locationName"="West US 2"; "failoverPriority"=1 }
+    @{ "locationName"="South Central US"; "failoverPriority"=0 },
+    @{ "locationName"="East US 2"; "failoverPriority"=1 },
+    @{ "locationName"="West US 2"; "failoverPriority"=2 }
 )
 
 $failoverPolicies = @{

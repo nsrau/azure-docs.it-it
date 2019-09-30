@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91c8a2fb278515306848f46206db67b7f37ea2ac
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: bfe426a6b3d087683e615d3212e0693b185c40f0
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034254"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212373"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-jamf-pro"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Jamf Pro
 
@@ -57,7 +57,7 @@ Per configurare l'integrazione di Jamf Pro in Azure AD, è necessario aggiungere
 
 ## <a name="configure-and-test-sso-in-azure-ad-for-jamf-pro"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per Jamf Pro
 
-Configurare e testare l'accesso Single Sign-On di Azure AD con Jamf Pro usando un utente di test di nome B.Simon. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Jamf Pro.
+Configurare e testare l'accesso SSO di Azure AD con Jamf Pro usando un utente di test di nome B.Simon. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Jamf Pro.
 
 In questa sezione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD con Jamf Pro.
 
@@ -93,7 +93,7 @@ In questa sezione si abilita l'accesso Single Sign-On di Azure AD nel portale di
 
     ![Collegamento al download del certificato di firma SAML](common/copy-metadataurl.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione viene creato un utente di test di nome B.Simon nel portale di Azure.
 
@@ -105,7 +105,7 @@ In questa sezione viene creato un utente di test di nome B.Simon nel portale di 
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
    1. Selezionare **Create** (Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si concede a B.Simon l'accesso a Jamf Pro.
 

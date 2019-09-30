@@ -7,12 +7,12 @@ ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: d5702576b3353bbc779601c7a5fe91417d73c7a1
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 44a2b0feab19d042de58359a7ea13814415e6c9e
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624345"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129559"
 ---
 # <a name="back-up-and-restore-azure-file-shares"></a>Eseguire il backup e il ripristino di condivisioni file di Azure
 Questo articolo illustra come usare il portale di Azure per eseguire il backup e il ripristino delle [condivisioni file di Azure](../storage/files/storage-files-introduction.md).
@@ -86,13 +86,15 @@ A volte si vuole generare uno snapshot di backup, o punto di ripristino, fuori d
 
    ![Fare clic su Backup per associare la condivisione file di Azure all'insieme di credenziali](./media/backup-file-shares/list-of-azure-files-backup-items.png)
 
-3. Dall'elenco delle condivisioni file di Azure selezionare la condivisione file desiderata. Verrà visualizzato il menu Elemento di backup per la condivisione file selezionata.
+3. Dall'elenco delle condivisioni file di Azure selezionare la condivisione file desiderata. Verranno visualizzati i dettagli di **Elemento di backup**. Nel menu **Elemento di backup** fare clic su **Esegui backup ora**. Trattandosi di un processo di backup su richiesta, non sono presenti criteri di conservazione associati al punto di ripristino.
 
    ![Fare clic su Backup per associare la condivisione file di Azure all'insieme di credenziali](./media/backup-file-shares/backup-item-menu.png)
 
-4. Dal menu Elemento di backup fare clic su **Esegui backup ora**. Trattandosi di un processo di backup su richiesta, non sono presenti criteri di conservazione associati al punto di ripristino. Verrà visualizzata la finestra di dialogo **Esegui backup ora**. Specificare l'ultimo giorno di conservazione del punto di ripristino.
+4. Verrà visualizzata la finestra di dialogo **Esegui backup ora**. Specificare l'ultimo giorno di conservazione del punto di ripristino.
 
    ![Fare clic su Backup per associare la condivisione file di Azure all'insieme di credenziali](./media/backup-file-shares/backup-now-menu.png)
+
+5. Fare clic su **OK** per confermare il processo di backup su richiesta.
 
 ## <a name="restore-from-backup-of-azure-file-share"></a>Eseguire il ripristino da un backup di condivisioni file di Azure
 Se è necessario ripristinare un'intera condivisione file oppure singoli file o cartelle da un punto di ripristino, passare all'elemento di backup come descritto dettagliatamente nella sezione precedente. Scegliere **Ripristina condivisione** per ripristinare un'intera condivisione file da un punto di ripristino. Dall'elenco dei punti di ripristino visualizzati, selezionarne uno per sovrascrivere la condivisione file corrente oppure ripristinarlo in un'altra condivisione file della stessa area.

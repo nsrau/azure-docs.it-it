@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/20/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 5a3ffcc75ac37dac1284d0ffb5af234fd2f376cd
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: ac4d78147820c2cf56549abbec7e1fbc873ea260
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310470"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146917"
 ---
 # <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Esercitazione: Distribuire un'app Web da un Registro Azure Container con replica geografica
 
@@ -55,7 +55,11 @@ In **App Web per contenitori** che viene visualizzata dopo aver selezionato "Dis
 | **Nome del sito** | Un nome univoco globale per l'app Web. In questo esempio viene usato il formato `<acrName>-westus` per identificare facilmente il registro e l'area da cui viene distribuita l'app Web. |
 | **Gruppo di risorse** | **Usare il**  > `myResourceGroup` esistente |
 | **Percorso o piano del servizio App** | Creare un nuovo piano denominato `plan-westus` nell'area degli **Stati Uniti occidentali**. |
-| **Immagine** | `acr-helloworld:v1`
+| **Immagine** | `acr-helloworld:v1` |
+| **Sistema operativo** | Linux |
+
+> [!NOTE]
+> Quando si crea un nuovo piano di servizio app per distribuire l'app in contenitori, viene selezionato automaticamente un piano predefinito per ospitare l'applicazione. Il piano predefinito dipende dall'impostazione del sistema operativo.
 
 Selezionare **Crea** per eseguire il provisioning dell'app Web per l'area degli *Stati Uniti occidentali*.
 
@@ -84,7 +88,8 @@ Usare la procedura descritta nella sezione precedente per distribuire una second
 | **Nome del sito** | Un nome univoco globale per l'app Web. In questo esempio viene usato il formato `<acrName>-eastus` per identificare facilmente il registro e l'area da cui viene distribuita l'app Web. |
 | **Gruppo di risorse** | **Usare il**  > `myResourceGroup` esistente |
 | **Percorso o piano del servizio App** | Creare un nuovo piano denominato `plan-eastus` nell'area degli **Stati Uniti orientali**. |
-| **Immagine** | `acr-helloworld:v1`
+| **Immagine** | `acr-helloworld:v1` |
+| **Sistema operativo** | Linux |
 
 Selezionare **Crea** per eseguire il provisioning dell'app Web per l'area degli *Stati Uniti orientali*.
 
