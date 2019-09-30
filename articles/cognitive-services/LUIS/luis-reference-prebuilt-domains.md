@@ -11,23 +11,23 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: f5810a813b6c54f190d95061e79914457f51d19c
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 7e2b5c5c5d2ca4c0d6ab820866341c5f30082c5f
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067606"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672780"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Informazioni di riferimento sui domini predefiniti per l'app LUIS
 Queste informazioni di riferimento descrivono i [domini predefiniti](luis-how-to-use-prebuilt-domains.md) che sono raccolte predefinite delle finalità ed delle entità offerte da LUIS.
 
 I [domini personalizzati](luis-how-to-start-new-app.md), al contrario, vengono avviati senza finalità e modelli. È possibile aggiungere le finalità e le entità dei domini predefiniti a un modello personalizzato.
 
-# <a name="supported-domains-across-cultures"></a>Domini supportati tra le diverse impostazioni cultura
+## <a name="supported-domains-across-cultures"></a>Domini supportati tra le diverse impostazioni cultura
 
 La tabella seguente riepiloga i domini attualmente supportati. Il supporto per l'inglese è in genere più completo rispetto ad altri. 
 
-| Tipo di entità       | IT-IT      | ZH-CN   | DE    | VF     | ES    | IT      | PT-BR |  JP  |      KO |        NL |    TR |
+| Tipo di persona giuridica       | IT-IT      | ZH-CN   | DE    | VF     | ES    | IT      | PT-BR |  JP  |      KO |        NL |    TR |
 |:-----------------:|:-------:|:-------:|:-----:|:------:|:-----:|:-------:| :-------:| :-------:| :-------:| :-------:|  :-------:| 
 | [Calendario](#calendar)    | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
 | [Comunicazione](#communication)   | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
@@ -47,7 +47,7 @@ I domini predefiniti **non sono supportati** in:
 * Hindi
 * Messicano spagnolo
 
-# <a name="description-for-luis-prebuilt-domains"></a>Descrizione per i domini predefiniti LUIS
+## <a name="description-for-luis-prebuilt-domains"></a>Descrizione per i domini predefiniti LUIS
 ## <a name="calendar"></a>**Calendario**
 Il calendario riguarda riunioni e appuntamenti personali, non eventi pubblici (ad esempio, pianificazioni di Coppa del mondo, calendario degli eventi di Seattle) o calendario generico (ad esempio, il giorno attuale, che cosa inizia, quando è il giorno del lavoro).
 ### <a name="intents"></a>**Intent**
@@ -76,11 +76,11 @@ ShowNext | Controllare l'evento successivo. <br> _**Avviso**: Per ulteriori espr
  TimeRemaining | Controllare l'ora rimanente fino all'evento successivo. | Visualizza la quantità di tempo che ho prima delle riunioni. <br> Visualizza l'intervallo di tempo che ho prima che inizi la riunione successiva.
  
 ### <a name="entities"></a>**Entità**
-Nome entità | Tipo di entità | DESCRIZIONE | Esempi | Slot
+Entity Name | Tipo di persona giuridica | Descrizione | Esempi | Slot
 -------|-----------------------|-------------|---------|--------
 ContactName | personName | Nome di un contatto o un partecipante alla riunione. | Incontro con **Betsy**. <br>  Incontro con **Aubrey** il 3 luglio alle 19.00 | Betsy <br> Aubrey <br> Amy 
 DestinationCalendar | Semplice | Nome del calendario di destinazione. | pranzo con MOM Martedi 12 **personale** <br> USA **Google** Calendar come calendario predefinito. <br> Aggiornare la classe yoga a lun Wed alle 15.00 elenco nel calendario **personale** . | Google <br> Personale <br> business <br> Principale
-Duration | Datetime | Durata di una riunione, un appuntamento o un tempo rimanente. | Aggiungi alla riunione di calendario di lavoro con Gary per discutere i dettagli della borsa di lavoro domani alle 11.00 per **20 minuti**. <br> Aggiungi al calendario un evento alla metropolitana il venerdì sarò a mangiare con Thomas per **un'ora** alle 21.00 | un'ora <br> 2 giorni <br> 20 minuti 
+Durata | Datetime | Durata di una riunione, un appuntamento o un tempo rimanente. | Aggiungi alla riunione di calendario di lavoro con Gary per discutere i dettagli della borsa di lavoro domani alle 11.00 per **20 minuti**. <br> Aggiungi al calendario un evento alla metropolitana il venerdì sarò a mangiare con Thomas per **un'ora** alle 21.00 | un'ora <br> 2 giorni <br> 20 minuti 
 EndDate | Datetime | Data di fine per una riunione o un appuntamento. | Concerto di aggiunta al calendario presso il Bass Hall Mary da 3 a **Mary 5th** | Mary 5  
 EndTime | Datetime | Ora di fine per una riunione o un appuntamento. | è possibile impostarlo 2 30 su **tre** | tre 
 Location | Semplice | Località dell'elemento del calendario, della riunione o dell'appuntamento.  Indirizzi, città e regioni sono un ottimo esempio di località. | inserire una riunione in **Fremont** per inserire il tablet in Birmania <br> riunione di Pro Bono in **Edina** | 209 Nashville Gym <br> 897 Pancake house <br> Garage 
@@ -93,7 +93,7 @@ OriginalEndTime | Datetime | Ora di fine originale di una riunione o un appuntam
 OriginalStartDate | Datetime | Data di inizio originale di una riunione o un appuntamento. | Modificare l'appuntamento di **domani**dalle 10.00 a mercoledì alle 9.00  | domani 
 OriginalStartTime | Datetime | Ora di inizio originale di una riunione o un appuntamento. | Modificare l'appuntamento di domani dalle **10.00** a mercoledì alle 9.00 | 10:00
 PositionReference | ordinal | Posizione assoluta in un elenco, che identifica un elemento da recuperare. | Il **secondo** | secondo <br> No. 3 <br> numero 5
-RelationshipName | list | Nome della relazione di un contatto. | Aggiungi pranzo alle ore 1:00 con la mia **moglie** | moglie <br> marito <br> sorella 
+RelationshipName | elenco | Nome della relazione di un contatto. | Aggiungi pranzo alle ore 1:00 con la mia **moglie** | moglie <br> marito <br> sorella 
 SlotAttribute | Semplice | L'attributo utente desidera eseguire una query o modificare. | modifica **percorso** evento <br> modificarla a **sette ore** | location <br> time 
 StartDate | Datetime | Data di inizio di una riunione o un appuntamento. | Crea una riunione il **mercoledì** alle 16.00 | Mercoledì 
 StartTime | Datetime | Ora di inizio di una riunione o un appuntamento. | Crea una riunione il mercoledì alle **16.00** | 16.00
@@ -129,7 +129,7 @@ Ignora | Ignorare una chiamata in arrivo. | Non rispondere <br>   Ignora la chia
 IgnoreWithMessage | Ignorare una chiamata in arrivo e rispondere invece con un messaggio di testo. | Non rispondere alla chiamata ma inviare un messaggio di testo. <br>   Ignora e invia un messaggio di testo.
 Dial | Effettuare una chiamata telefonica. | Chiama Jim <br>   Digitare 311.
 FindSpeedDial | Trovare il numero rapido impostato per un numero telefonico e viceversa. | A quale numero corrisponde il numero 5? <br>   È impostato il numero rapido? <br>   Qual è il numero rapido per 941-5555-333?
-Inoltra | Inoltra un messaggio di posta elettronica | Inviare questo messaggio di posta elettronica a Greg.
+Inoltra | Invia un messaggio di posta elettronica | Inviare questo messaggio di posta elettronica a Greg.
 ReadAloud | Leggere un messaggio o un messaggio di posta elettronica all'utente. | Leggi testo. <br>   Cosa ha detto nel messaggio?
 PressKey | Premere un pulsante o un numero sul tastierino numerico. | Componi asterisco. <br>   Premi 1 2 3.
 QueryLastText | Eseguire una query sull'ultimo testo o messaggio. | Chi ha scritto un SMS? <br>   Chi ha recentemente un messaggio?
@@ -147,14 +147,14 @@ TurnSpeakerOff | Disattivare l'altoparlante. | Escludi altoparlante. <br>   Disa
 TurnSpeakerOn | Attivare l'altoparlante. | Modalità viva voce. <br>   Attiva viva voce.
 
 ### <a name="entities"></a>**Entità**
-Nome entità | Tipo di entità | Descrizione | Esempi | Slot
+Entity Name | Tipo di persona giuridica | Descrizione | Esempi | Slot
 ------|-------|----------|--------------|---------------
-Attachment | Semplice | Allegato che l'utente desidera inviare tramite testo o messaggio di posta elettronica. | Invia tramite posta elettronica un **file** da OneNote. <br> Invia il mio **documento** di pulizie a Katie. | file <br> doc
+Allegato | Semplice | Allegato che l'utente desidera inviare tramite testo o messaggio di posta elettronica. | Invia tramite posta elettronica un **file** da OneNote. <br> Invia il mio **documento** di pulizie a Katie. | file <br> doc
 AudioDeviceType | Semplice | Tipo di dispositivo audio (altoparlante, auricolare, microfono e così via). | Risposta tramite **Hands-Free**. <br> Ricomporre il **telefono del altoparlante**. | Madrelingua <br> Hands-Free <br> Bluetooth
 Category | Semplice | La categoria di un messaggio o di un messaggio di posta elettronica, la categoria deve avere una definizione chiara nel sistema di posta elettronica, ad esempio "non letto", "flag". La descrizione con definizione chiara, ad esempio, "New" e "recenti" non sono categorie. | Contrassegna tutti i messaggi di posta elettronica come **letti**  <br> Nuovo indirizzo di posta elettronica con **priorità alta** per Paul | importante <br> priorità alta <br> lettura
-ContactAttribute | Semplice | Attributo del contatto a cui si rivolge la richiesta dell'utente.| A tutti i **compleanni** successivi il mese di conoscenza? | compleanni <br> Address <br> Numero di telefono
+ContactAttribute | Semplice | Attributo del contatto a cui si rivolge la richiesta dell'utente.| A tutti i **compleanni** successivi il mese di conoscenza? | compleanni <br> indirizzo <br> Numero di telefono
 ContactName | personName  | Nome di un contatto o del destinatario del messaggio. | Invia il messaggio a **Stevens** | Stevens
-Data/ora | Datetime | DateTime di un messaggio di posta elettronica ricevuto. | Leggi la posta **odierna** <br> Chi ha inviato un messaggio di posta elettronica **oggi**? <br> Chi ha telefonato alle **19.00**? | oggi <br> domani
+Date/Time | Datetime | DateTime di un messaggio di posta elettronica ricevuto. | Leggi la posta **odierna** <br> Chi ha inviato un messaggio di posta elettronica **oggi**? <br> Chi ha telefonato alle **19.00**? | oggi <br> domani
 DestinationPhone | Semplice | L'utente di destinazione desidera chiamare o inviare un testo a. | effettuare una chiamata a **House** <br> Invia un messaggio di testo a **Home** | internamente <br> home
 EmailAddress | email | L'utente dell'indirizzo di posta elettronica desidera inviare o eseguire una query. | Invia messaggio di posta elettronica aMegan.Flynn@MKF.com<br> abc@outlook.com 
 EmailSubject | semplice, modello. Qualsiasi | Testo usato come oggetto del messaggio di posta elettronica. | Comporre un messaggio di posta elettronica a David con l'oggetto **Hey**  | Re: storia interessante
@@ -163,7 +163,7 @@ Riga | Semplice | L'utente della riga vuole usare per inviare un messaggio di po
 SenderName | personName | Nome del mittente. | Leggi il messaggio di posta elettronica da **David** <br> Messaggi di posta elettronica da Coppola | David <br> Conti
 FromRelationshipName | Semplice | Nome della relazione del mittente. | Leggere il messaggio da **Dad**. <br> È possibile leggere tutti i messaggi di testo da **MOM**? | Dad <br> Mamma 
 Messaggio | semplice, modello. Qualsiasi |  Messaggio da inviare come messaggio di posta elettronica o messaggio di testo.  | Invia un messaggio di posta elettronica**che informa che sono occupato**. | Sono occupato
-OrderReference | Semplice | Posizione ordinale o relativa in un elenco che identifica un elemento da recuperare. | Qual è stato l' **ultimo** messaggio inviato? <br> Leggi la posta elettronica **più recente** di Nokia. <br> Leggere **nuovi** messaggi di testo. | last <br> latest <br> Recente <br> più recente
+OrderReference | Semplice | Posizione ordinale o relativa in un elenco che identifica un elemento da recuperare. | Qual è stato l' **ultimo** messaggio inviato? <br> Leggi la posta elettronica **più recente** di Nokia. <br> Leggere **nuovi** messaggi di testo. | last <br> più recente <br> Recente <br> più recente
 PositionReference | semplice, ordinale | Posizione ordinale o relativa in un elenco che identifica un elemento da recuperare.| Qual è il **primo** messaggio inviato? <br> Il **terzo** .| Primo <br> terze
 phoneNumber | phoneNumber | L'utente del numero di telefono vuole chiamare o inviare un SMS a. | Invia un testo a **4 1 5 6 8 4 5 2 8 4** | 3525214446
 RelationshipName | Semplice | Nome della relazione di un destinatario del contatto o del messaggio. | Invia un messaggio di posta elettronica a mia **moglie** | moglie
@@ -179,7 +179,7 @@ AddMore | Aggiungere altri dati a un messaggio di posta elettronica o a un messa
 Annulla | Annulla un'operazione. <br> ***Avviso**: Per ulteriori informazioni su come annullare le espressioni generali, fare riferimento al dominio **Utilities** . * | Annulla. Non inviarlo. <br> Termina.
 CheckMessages | Verificare la presenza di nuovi messaggi/messaggi di posta elettronica senza richiesta condizionale. Se si verifica una condizione, le espressioni appartengono alla finalità *SearchMessage* . | Controllare la posta in arrivo. <br> Sono presenti nuovi messaggi di posta elettronica? 
 Confirm | Confermare un'azione continua relativa all'elaborazione di messaggi di posta elettronica. <br> ***Avviso**: Per ulteriori informazioni, vedere l'articolo relativo al dominio **Utilities** . * | Sì, inviarlo. <br> Confermo di voler inviare questo messaggio di posta elettronica.
-Eliminare | Eliminare un messaggio di posta elettronica o i messaggi filtrati in base ad alcune condizioni. | Inserire il messaggio di posta elettronica nel cestino <br> Svuota la posta in arrivo. <br> Rimuovere la posta elettronica di Mary.
+Eliminazione | Eliminare un messaggio di posta elettronica o i messaggi filtrati in base ad alcune condizioni. | Inserire il messaggio di posta elettronica nel cestino <br> Svuota la posta in arrivo. <br> Rimuovere la posta elettronica di Mary.
 ReadAloud | Leggere un messaggio o un messaggio di posta elettronica all'utente. <br> ***Avviso**: Per ulteriori espressioni generali ReadAloud, fare riferimento al dominio **Utilities** . *  | Leggere il messaggio di posta elettronica inviato da Mary.
 Rispondi | Rispondere al messaggio di posta elettronica corrente. | Creare una risposta al messaggio di posta elettronica. <br> Rispondi digitando "Grazie molto, i migliori saluti, Giorgio".
 SearchMessages | Cercare i messaggi in base ad alcune condizioni, tra cui il nome del mittente, l'ora e il soggetto. | Mostra i messaggi di Nisheen. <br> È possibile cercare i messaggi di posta elettronica con il titolo "ABC"?
@@ -192,9 +192,9 @@ QueryLastText | Eseguire una query sull'ultimo messaggio di posta elettronica. |
 
 
 ### <a name="entities"></a>**Entità**
-Nome entità | Tipo di entità | Descrizione | Esempi | Slot
+Entity Name | Tipo di persona giuridica | Descrizione | Esempi | Slot
 ------|-------|----------|--------------|---------------
-Attachment | Semplice | Allegato che l'utente desidera inviare tramite testo o messaggio di posta elettronica. | Invia tramite posta elettronica un **file** da OneNote. <br> Invia il mio **documento** di pulizie a Katie. | file <br> doc
+Allegato | Semplice | Allegato che l'utente desidera inviare tramite testo o messaggio di posta elettronica. | Invia tramite posta elettronica un **file** da OneNote. <br> Invia il mio **documento** di pulizie a Katie. | file <br> doc
 ContactName | personName  | Nome di un contatto o del destinatario del messaggio. | Invia il messaggio a **Stevens** | Stevens
 Date | Datetime | Data di ricezione di un messaggio di posta elettronica. | Leggi la posta **odierna** <br> Chi ha inviato un messaggio di posta elettronica **oggi**? | oggi
 EmailAddress | email | L'utente dell'indirizzo di posta elettronica desidera inviare o eseguire una query. | Invia messaggio di posta elettronica aMegan.Flynn@MKF.com<br> abc@outlook.com 
@@ -203,7 +203,7 @@ SenderName | personName | Nome del mittente. | Leggi il messaggio di posta elett
 FromRelationshipName | Semplice | Nome della relazione del mittente. | Leggere il messaggio da **Dad**. <br> È possibile leggere tutti i messaggi di testo da **MOM**? | Dad <br> Mamma 
 Messaggio | semplice, modello. Qualsiasi |  Messaggio da inviare come messaggio di posta elettronica o messaggio di testo.  | Invia un messaggio di posta elettronica**che informa che sono occupato**. | Sono occupato
 Category | Semplice | La categoria di un messaggio o di un messaggio di posta elettronica, la categoria deve avere una definizione chiara nel sistema di posta elettronica, ad esempio "non letto", "flag". La descrizione con definizione chiara, ad esempio, "New" e "recenti" non sono categorie. | Contrassegna tutti i messaggi di posta elettronica come **letti**  <br> Nuovo indirizzo di posta elettronica con **priorità alta** per Paul | importante <br> priorità alta <br> lettura
-OrderReference | Semplice | Posizione ordinale o relativa in un elenco che identifica un elemento da recuperare. | Qual è stato l' **ultimo** messaggio inviato? <br> Leggi la posta elettronica **più recente** di Nokia. <br> Leggere **nuovi** messaggi di testo. | last <br> latest <br> Recente <br> più recente
+OrderReference | Semplice | Posizione ordinale o relativa in un elenco che identifica un elemento da recuperare. | Qual è stato l' **ultimo** messaggio inviato? <br> Leggi la posta elettronica **più recente** di Nokia. <br> Leggere **nuovi** messaggi di testo. | last <br> più recente <br> Recente <br> più recente
 PositionReference | semplice, ordinale | Posizione ordinale o relativa in un elenco che identifica un elemento da recuperare.| Qual è il **primo** messaggio inviato? <br> Il **terzo** .| Primo <br> terze
 RelationshipName | Semplice | Nome della relazione di un destinatario del contatto o del messaggio. | Invia un messaggio di posta elettronica a mia **moglie** | moglie
 Time | Datetime | Time | Invia un messaggio **di posta elettronica**. | cena
@@ -232,7 +232,7 @@ Nome finalità | Descrizione | Esempi
  TurnUp | Attivare le impostazioni o la luminosità dei dispositivi. | Illumina le luci del 75%. <br> Per il 10 percento.  <br> Renderlo più caldo in salotto.
  Basso | Disattivazione ma non disattivazione di un dispositivo, tramite attenuazione, temperatura o luminosità delle luci. | Abbassare la libreria del 44%. <br> Attenua le luci. <br> Fai raffreddare lo spazio.
 ### <a name="entities"></a>**Entità**
-Nome entità | Tipo di entità | Descrizione | Esempi
+Entity Name | Tipo di persona giuridica | Descrizione | Esempi
 -------|----------|--------------|---------------
 DeviceName | List | Testo definito dall'utente per i dispositivi. | Blu<br> Christmas <br> Reception
 DeviceType | List | Dispositivi supportati. | Luci <br> Condizionatore aria <br> Nightlight
@@ -254,8 +254,8 @@ Nome finalità | Descrizione | Esempi
 AddToNote | Consente di aggiungere informazioni a una nota aperta. | Aggiungi alla nota sulla pianificazione per contattare il mio capo sul progetto.
 Cancella | Cancellare tutte le voci da una nota preesistente. | Rimuovere tutti gli elementi dalla nota di ferie. <br>Cancella tutto dalla nota di lettura.
 Confirm | Confermare un'azione relativa a una nota. <br> ***Avviso**: Questa finalità include principalmente l'azione "conferma" per lo scenario di nota. Se sono necessarie più espressioni generali su "conferma", usare l'intento "conferma" nel dominio **Utilities** . * | Questa nota è accettabile. <br>Sto confermando la conservazione di tutti gli elementi negli elenchi.
-Create | Creare una nuova nota. | Creare una nota. <br>Nota per ricordare che Jason è in città la prima settimana del maggio. 
-Eliminare | Eliminare un'intera nota. | Elimina la nota di ferie. <br>Elimina la nota relativa alle drogherie.
+Crea | Creare una nuova nota. | Creare una nota. <br>Nota per ricordare che Jason è in città la prima settimana del maggio. 
+Eliminazione | Eliminare un'intera nota. | Elimina la nota di ferie. <br>Elimina la nota relativa alle drogherie.
 ReadAloud | Leggere una nota. | Leggi la prima nota. <br>Leggi i dettagli.
 Chiudi | Chiude la nota corrente. | Chiudere la nota. <br>Chiude la nota corrente.
 Aperte | Apre una nota preesistente. | Aprire la nota di chiamata. <br>Aprire la nota "Planning".
@@ -263,9 +263,9 @@ RemoveSentence | Rimuovere una frase per una nota. | Rimuovere l'ultima frase. <
 ChangeTitle | Modificare il titolo della nota. | Questa nota è denominata "Planning".
 
 ### <a name="entities"></a>**Entità**
-Nome entità | Tipo di entità | Descrizione | Esempi 
+Entity Name | Tipo di persona giuridica | Descrizione | Esempi 
 ------- | ------- | ------- | -------
-Text | semplice, modello. Qualsiasi | Testo di una nota o un promemoria. | stretching prima della camminata <br> corsa lunga domani
+Testo | semplice, modello. Qualsiasi | Testo di una nota o un promemoria. | stretching prima della camminata <br> corsa lunga domani
 Titolo | semplice, modello. Qualsiasi | Titolo di una nota. | spesa <br> persone da chiamare <br> attività
 CreationDate | datetimeV2 | Questo slot si verifica quando l'utente chiede le note create in un determinato intervallo di data/ora. | 
 Quantificatore | List | Quando un utente chiede di eseguire un'azione sugli elementi "tutti", "ogni" o "any" o tutto il testo in una nota. | tutti <br> qualsiasi <br> Ogni
@@ -291,7 +291,7 @@ RatePlace | Valutare una posizione. | classificazione a 4 stelle per la pizza di
 AddFavoritePlace | L'utente desidera aggiungere un percorso ai Preferiti o all'elenco MVP. | Salvare questo percorso nei Preferiti. <br> Aggiungi l'acquisto migliore ai Preferiti.
 
 ### <a name="entities"></a>**Entità**
-Entità LUIS | Tipo di entità | Descrizione | Esempi | Esempi di espressioni
+Entità LUIS | Tipo di persona giuridica | Descrizione | Esempi | Esempi di espressioni
 --------------|-------------|-------------|----------|-------------------
 AbsoluteLocation | Semplice | Posizione o indirizzo di un luogo. | Palo Alto <br> 300 112th Ave SE <br> Seattle | **1020 Middlefield Rd.** in **palo alto** <br> archivi di inizializzazione Bird a **Seattle** <br> Ottenere la distanza da qui a **300 112O Ave se**.
 Amenities | Semplice | Caratteristiche e vantaggi dell'obiettivo di una posizione pubblica. | fronte mare <br> parcheggio gratuito | Ristoranti di Kirkland **Waterfront** Seafood. <br> Ci sono **parcheggi gratuiti** nelle vicinanze?
@@ -300,12 +300,12 @@ Date | Datetime | DateTime o Duration per la data del percorso di destinazione. 
 Distanza | dimensione | Distanza da una posizione pubblica dalla posizione currenct dell'utente. | 15 miglia <br> 10 chilometri | un negozio di abbigliamento entro **15 chilometri** <br> Un ristorante per bambini A soli **10 chilometri** di distanza
 MealType | List | Tipo di pasto come colazione o pranzo. | colazione <br> pasto principale | Search **Breakfast** Greenwood Seattle <br> Trova un posto in cui **pranzare**.
 Vicino | List | Descrivere un luogo vicino senza posizione o indirizzo assoluto. | vicino <br> in quest'area <br> per me | Trova il ristorante indiano **più vicino** . <br> Dove si trova il Wetherspoon **locale** ? <br> Tutti **i ristoranti più**interessanti?
-OpenStatus | List | Indica se un luogo è aperto o chiuso. | apri <br> closed | Qual è la durata della **chiusura** di yogurt Land? <br> Quali sono le ore di **apertura** per Costco?
+OpenStatus | List | Indica se un luogo è aperto o chiuso. | apri <br> Chiusa | Qual è la durata della **chiusura** di yogurt Land? <br> Quali sono le ore di **apertura** per Costco?
 PlaceName | Semplice | Nome di una destinazione (ufficio, ristorante, luogo pubblico o istituzione). Il nome del posto potrebbe contenere un PlaceType se è comunemente usato. | Central Park <br> Safeway <br> Walmart| Ora di apertura di **Safeway** Pharmacy <br> **Walmart** è aperto?
 PlaceType | Semplice | Tipo di una destinazione (ufficio locale, ristorante, luogo pubblico o istituzione). | restaurant <br> opera <br> cinema | **cinema** a Cambridge <br> C'è un **ristorante** vicino a me?
 PriceRange | Semplice | Intervallo di prezzi dei prodotti o servizi del luogo. | economici <br> economicamente conveniente <br> costoso | Trova la riparazione **conveniente** dell'appliance <br> Che cos'è una pizzeria **a basso costo** aperta adesso?
 Prodotto | Semplice | Prodotto offerto da un luogo. | vestiti <br> televisori | Dove si trova il posto migliore per ottenere **cibo**? <br> Trova me East Kilbride alla ricerca di **televisori**.
-Classificazione | Semplice | Classificazione di un luogo. | 5 stelle <br> top <br> buona | Ci sono posti **interessanti** da mangiare domani <br> **migliore** Ristoranti di Amsterdam <br> Elenca i **primi** tre pizzerie.
+Rating | Semplice | Classificazione di un luogo. | 5 stelle <br> top <br> buona | Ci sono posti **interessanti** da mangiare domani <br> **migliore** Ristoranti di Amsterdam <br> Elenca i **primi** tre pizzerie.
 
 
 ## <a name="restaurantreservation"></a>**RestaurantReservation**
@@ -323,14 +323,14 @@ FindReservationWhen | Controllare l'ora esatta della prenotazione | Quando è la
 Rifiuta | L'utente rifiuta il assistente virtuale proposto per la gestione di una prenotazione. <br> *Si **noti**che:P lease si riferiscono al dominio **Utilities** per altri rifiuti di espressioni generali. * | Non è necessario impostare l'evento. | No, non voglio modificare la prenotazione. <br> No, non è stato prenotato, ho commesso un errore.
 
 ### <a name="entities"></a>**Entità**
-Entità LUIS | Tipo di entità | DESCRIZIONE | Esempi
+Entità LUIS | Tipo di persona giuridica | Descrizione | Esempi
 -------|------|---------|-------------------
 Indirizzo | Semplice | Posizione o indirizzo di un evento per una prenotazione. | Palo Alto<br>300 112th Ave SE<br>Seattle
 Atmosphere | List | Descrizione dell'atmosfera di un ristorante. | romantico<br>informale<br>adatto ai gruppi<br>interessante
 Cuisine | Semplice | Tipo di alimenti, cucina o nazionalità della cucina. | Cinese<br>Italiano<br>Messicana<br>Sushi<br>Noodle<br>bistecca
 MealType | List | Tipo di pasto associato a una prenotazione. | colazione<br>pasto principale<br>pranzo<br>cena
 PlaceName | Semplice | Nome di un ristorante | Zucca<br>Cheesecake Factory<br>aragosta rossa
-Classificazione | Semplice | Classificazione di un luogo o un ristorante. | 5 stelle<br>3 stelle<br>4 stelle
+Rating | Semplice | Classificazione di un luogo o un ristorante. | 5 stelle<br>3 stelle<br>4 stelle
 NumberPeople | Semplice | Numero di persone per la prenotazione | 3<br>sei
 Time | Datetime| Tempo per la prenotazione del ristorante | domani<br>cena<br>7:00<br>Vigilia di Natale
 
@@ -345,12 +345,12 @@ Confirm | L'utente desidera confermare un'azione in corso. L'espressione contien
 Annulla | L'utente desidera annullare l'azione in corso.  <br> <br> ***Avviso**: Questa finalità include principalmente l'azione "conferma" per lo scenario di prenotazione del ristorante. Se sono necessarie più espressioni generali su "conferma", usare l'intento "conferma" nel dominio **Utilities** . * | No, dimenticarlo. <br> è sufficiente annullare l'attività. <br> No, non aggiungerlo.
 DeleteToDo | Per eliminare un elemento nell'elenco attività, fare riferimento all'ordine o eliminare tutti gli elementi attività. | Rimuovere tutte le attività. <br> Consente di eliminare la seconda.
 MarkToDo | Contrassegnare un'attività come completata o eseguita facendo riferimento al contenuto dell'ordine o dell'attività. | Contrassegnare l'attività "acquista latte" come completata. <br> Completare la lettura dell'attività. <br> Completa tutto.
-ShowNextPage | Un elenco verrà suddiviso in diverse pagine per essere visualizzato. Mostra gli elementi elenco nella pagina successiva per l'utente. | È possibile visualizzare la pagina successiva nell'elenco degli acquisti? <br> Quali sono i passaggi successivi? <br> Argomenti successivi
+ShowNextPage | Un elenco verrà suddiviso in diverse pagine per essere visualizzato. Mostra gli elementi elenco nella pagina successiva per l'utente. | È possibile visualizzare la pagina successiva nell'elenco degli acquisti? <br> Quali sono i passaggi successivi? <br> Passaggi successivi
 ShowPreviousPage | Mostra gli elementi elenco nella pagina precedente dell'utente. | Mostra indietro. <br> È necessario controllare le attività precedenti.
 ShowToDo | Mostra tutti gli elementi nell'elenco attività. | Mostra l'elenco degli acquisti. <br> Mostra l'elenco drogheria.
 
 ### <a name="entities"></a>**Entità**
-Entità LUIS | Tipo di entità | Descrizione | Esempi
+Entità LUIS | Tipo di persona giuridica | Descrizione | Esempi
 -------|------|---------|-------------------
 ContainsAll | Semplice | Rappresenta tutti gli elementi o qualsiasi elemento nell'elenco attività | consente di rimuovere **tutte le** attività. <br> Completa **tutto**.
 ordinal | ordinal | Riferimento ordinale o numerico a un elemento. | Contrassegnare la **terza** come completata. <br> Eliminare la **prima** attività.
@@ -369,12 +369,12 @@ Nome finalità | Descrizione | Esempi
  Rifiuta | L'utente rifiuta il assistente virtuale proposto. | No
  FinishTask | Completare un'attività iniziata dall'utente. | L'operazione è terminata. <br> Questo è tutto. <br> Fine.
  GoBack | Tornare indietro di un passaggio o tornare al passaggio precedente. | Tornare indietro di un passaggio. <br> Indietro.
- ? | Richiedere aiuto. | Per assistenza. <br> Aprire la guida.
+ Help | Richiedere aiuto. | Per assistenza. <br> Aprire la guida.
  Repeat | Ripetere un'azione. | Ripetere l'operazione.
  ShowNext | Mostra o indica gli elementi successivi. | Visualizza successivo.
  ShowPrevious | Visualizzare l'elemento precedente di una serie. | Mostra quello precedente.
  StartOver | Riavviare l'app o avviare una nuova sessione. | Riavviare.
- Arresto | Informare il Virtual Assistant per interrompere la comunicazione.  | Interrompi questa operazione.
+ Interrompi | Informare il Virtual Assistant per interrompere la comunicazione.  | Interrompi questa operazione.
  SelectAny | L'utente chiede di selezionare gli elementi o i risultati visualizzati sullo schermo. | Qualsiasi. <br> Selezionarne uno.
  SelectNone | L'utente seleziona Nessuno degli elementi esistenti e richiede ulteriori opzioni. | Fornire altri suggerimenti. <br> Nessuno di essi.
   SelectItem | L'utente chiede di selezionare un elemento o i risultati visualizzati sullo schermo. | Selezionare la terza. <br> Selezionare l'angolo in alto a destra.
@@ -382,7 +382,7 @@ Nome finalità | Descrizione | Esempi
  ReadAloud | Consente di leggere un elemento ad alta voce all'utente. | Leggere questa pagina. <br> Leggilo ad alta voce.
 
 ### <a name="entities"></a>**Entità**
-Entità LUIS | Tipo di entità | Descrizione | Esempi
+Entità LUIS | Tipo di persona giuridica | Descrizione | Esempi
 ------------|-------------|-------------|---------
 ordinal | ordinal | Riferimento ordinale o numerico a un elemento. | **Secondo** oggetto. <br> Quello **successivo** .
 number | number | Quantità di elementi desiderati dall'utente | **3** elementi successivi
@@ -400,18 +400,18 @@ Nome finalità | Descrizione | Esempi
  GetWeatherAdvisory | Ottenere avvisi meteorologici o avvisi da una località specifica. | Sono presenti avvisi meteorologici a Memphis? <br> Sono presenti avvisi meteorologici per la mia area?
 
 ### <a name="entities"></a>**Entità**
-Entità LUIS | Tipo di entità | DESCRIZIONE | Esempi
+Entità LUIS | Tipo di persona giuridica | Descrizione | Esempi
 ------------|-------------|-------------|---------
 Location | geography | Percorso assoluto o implicito per una richiesta Meteo. | Palo Alto<br>Shanghai<br>Seattle<br>Delvina<br>
-Data/ora   | Datetime | DateTime o Duration per l'esecuzione di una query sul tempo. | Novembre<br>Ogni ora<br>mattina<br>Questo fine settimana<br>10 giorni<br>
-AdditionalWeatherCondition | list | Descrizione aggiuntiva parola per il meteo, ad esempio la velocità o la direzione del vento. | direction<br>Veloce<br>velocità
+Date/Time   | Datetime | DateTime o Duration per l'esecuzione di una query sul tempo. | novembre<br>su base oraria<br>mattina<br>Questo fine settimana<br>10 giorni<br>
+AdditionalWeatherCondition | elenco | Descrizione aggiuntiva parola per il meteo, ad esempio la velocità o la direzione del vento. | direzione<br>Veloce<br>velocità
 Storico | Semplice | Descrizione delle parole della condizione meteorologica cronologica, inclusa la media dei case con bordi nel periodo di tempo precedente. | passato<br>cronologia/cronologia<br>stagionale<br>tempo migliore<br>mai registrato
 PrecipitationUnit | dimensione | Precipitazione per neve o pioggia. | 5 pollici<br>6 cm
 SuitableFor | Semplice | Descrizione di un'attività umana in una condizione meteo, che è comune quando gli utenti eseguono query su consigli attività che dipendono dalla condizione meteo. | giacca<br>ombrello<br>swimming
 TemperatureUnit |temperatura | temperatura | 18 gradi Celsius<br>7 gradi Kelvin
-WeatherRange | Semplice | Condizione specifica di temperatura, vento e altre condizioni meteorologiche tra un periodo di tempo | maximum<br>elevata<br>bassa<br>media alta<br>Massima
+WeatherRange | Semplice | Condizione specifica di temperatura, vento e altre condizioni meteorologiche tra un periodo di tempo | massimo<br>elevata<br>bassa<br>media alta<br>Massima
 WeatherCondition | Semplice | Descrizione della condizione meteo | sole<br>pioggia<br>piovere<br>temperatura<br>neve<br>hot
-WindDirectionUnit | list | Parole di direzione del vento | nord<br>Sud<br>est<br>occidentale<br>nord-orientale
+WindDirectionUnit | elenco | Parole di direzione del vento | nord<br>Sud<br>est<br>occidentale<br>nord-orientale
 
 
 ## <a name="web"></a>**Web**
@@ -422,7 +422,7 @@ Nome finalità | Descrizione | Esempi
  WebSearch | Richiesta di navigazione a un sito Web specificato o di ricerca in un motore di ricerca. | Area di ricerca in google.com. <br> Trova la canzone Happy Birthday sul Web <br> Passare a www.twitter.com.
 
 ### <a name="entities"></a>**Entità**
-Entità LUIS | Tipo di entità | DESCRIZIONE | Esempi
+Entità LUIS | Tipo di persona giuridica | Descrizione | Esempi
 ------------|-------------|-------------|---------
 SearchEngine | List | L'utente del motore di ricerca vuole usare. | Bing <br> Google
 SearchText | semplice, modello. Qualsiasi | L'utente di testo desidera eseguire la ricerca. <br> _Contrassegna "Friends in Facebook" come SearchText se il sito Web dopo "in" non è un motore di ricerca. L'URL deve anche essere contrassegnata come SearchText._ | Film <br> Apprendimento avanzato <br> Tom Cruise
