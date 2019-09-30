@@ -1,88 +1,65 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentazione del Centro sicurezza di Azure
+summary: Il Centro sicurezza di Azure fornisce la gestione unificata della sicurezza e la protezione avanzata dalle minacce per carichi di lavoro cloud ibridi.
 metadata:
-  title: Documentazione del Centro sicurezza di Azure - Esercitazioni e informazioni di riferimento sulle API | Microsoft Doc
-  meta.description: 'Azure Security Center provides unified security management and advanced threat protection across hybrid cloud workloads. Learn how to get started with Security Center, apply security policies across your workloads, limit your exposure to threats, and detect and respond to attacks with our quickstarts and tutorials..'
+  title: Documentazione del Centro sicurezza di Azure
+  description: Guide di avvio rapido ed esercitazioni su come iniziare a usare il Centro sicurezza, proteggere i carichi di lavoro, limitare i rischi, rilevare e rispondere agli attacchi.
   services: security-center
-  author: cmcclister
-  manager: carolz
   ms.service: security-center
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: subservice
   ms.topic: landing-page
-  ms.date: 07/26/18
-  ms.author: cmcclister
-abstract:
-  description: 'Il Centro sicurezza di Azure fornisce la gestione unificata della sicurezza e la protezione avanzata dalle minacce per carichi di lavoro cloud ibridi. Informazioni su come iniziare a usare il Centro sicurezza, applicare i criteri di sicurezza sui carichi di lavoro, limitare l''esposizione alle minacce, rilevare e rispondere agli attacchi tramite le guide introduttive e le esercitazioni.'
-sections:
-  - title: Guide introduttive di 5 minuti
-    items:
-      - type: paragraph
-        text: Informazioni su come eseguire l'onboarding delle macchine virtuali e dei computer nel Centro sicurezza e come connettere le soluzioni di sicurezza.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /media/common/i_subscription.svg
-            text: Eseguire l'onboarding di sottoscrizioni di Azure
-            href: /azure/security-center/security-center-get-started
-          - image:
-              src: /media/logos/logo_Windows.svg
-            text: Eseguire l'onboarding di computer Windows
-            href: /azure/security-center/quick-onboard-windows-computer
-          - image:
-              src: /media/logos/logo_linux.svg
-            text: Eseguire l'onboarding di computer Linux
-            href: /azure/security-center/quick-onboard-linux-computer
-          - image:
-              src: /media/common/i_multi-connect.svg
-            text: Connettere soluzioni di sicurezza
-            href: /azure/security-center/quick-security-solutions
-  - title: Esercitazioni dettagliate
-    items:
-      - type: paragraph
-        text: 'Informazioni su come definire criteri di sicurezza, proteggere le risorse da attività dannose e rispondere ad avvisi ed eventi imprevisti relativi alla sicurezza.'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/security-center/tutorial-security-policy">Definire e valutare i criteri di sicurezza</a>
-          - html: <a href="/azure/security-center/tutorial-protect-resources">Proteggere le risorse</a>
-          - html: <a href="/azure/security-center/tutorial-security-incident">Rispondere agli eventi imprevisti relativi alla sicurezza</a>
-  - title: Sviluppare le proprie competenze con Microsoft Learn
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: "\_\_Introduzione alla sicurezza in Azure"
-            href: /learn/modules/intro-to-security-in-azure/
-            image:
-              src: /learn/achievements/intro-to-security-in-azure.svg
-              href: /learn/modules/intro-to-security-in-azure/
-      - type: paragraph
-        text: <a href="/learn/browse/?term=security">Altre risorse di apprendimento interattivo</a>
-  - title: Video di formazione gratuito
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Semplificare la protezione delle risorse cloud con Centro sicurezza di Azure - Ignite 2018
-            href: 'https://youtu.be/0txX1Y0GXDc'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_azure.svg'
-              href: 'https://youtu.be/0txX1Y0GXDc'
-          - title: Proteggere i carichi di lavoro server con Centro sicurezza di Azure - Ignite 2018
-            href: 'https://youtu.be/Kb_xeIJVROo'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_azure.svg'
-              href: 'https://youtu.be/Kb_xeIJVROo'
-  - title: riferimento
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - html: '<a href="https://docs.microsoft.com/rest/api/securitycenter/">Informazioni di riferimento sulle API REST</a>'
-          - html: '<a href="https://azure.microsoft.com/updates/?product=security-center">Aggiornamenti del servizio</a>'
+  ms.collection: collection
+  author: memildin
+  ms.author: memildin
+  ms.date: 09/26/2019
+  ms.openlocfilehash: 8574c69221d1f0f0528a0ab9b8d27df4ca9a0ef0
+  ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 09/27/2019
+  ms.locfileid: "71327595"
+landingContent:
+- title: Informazioni sul Centro sicurezza
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Quali sono le funzionalità chiave del Centro sicurezza?
+      url: security-center-intro.md
+    - text: Quali versioni di Windows Server e Linux sono supportate?
+      url: security-center-os-coverage.md
+- title: Attività iniziali
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Configurare i criteri di sicurezza
+      url: tutorial-security-policy.md
+    - text: Modificare le impostazioni del Centro sicurezza
+      url: security-center-policies-overview.md
+    - text: Valutare il comportamento di sicurezza
+      url: security-center-secure-score.md
+    - text: Eseguire l'aggiornamento alla sicurezza avanzata
+      url: security-center-onboarding.md
+    - text: Eseguire l'integrazione con altri prodotti di sicurezza di Azure
+      url: security-center-alerts-integration.md
+- title: Migliorare il punteggio di sicurezza
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Che cos'è un punteggio di sicurezza?
+      url: security-center-secure-score.md
+    - text: Correggere le raccomandazioni sulla sicurezza
+      url: security-center-remediate-recommendations.md
+    - text: Personalizzare le raccomandazioni sulla sicurezza
+      url: tutorial-security-policy.md
+    - text: Usare le raccomandazioni per migliorare la sicurezza
+      url: security-center-using-recommendations.md
+- title: Attenuazione delle minacce
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Gestire l'accesso JIT
+      url: security-center-just-in-time.md
+    - text: Configurare i controlli applicazioni adattivi
+      url: security-center-adaptive-application.md
+    - text: Implementare Protezione avanzata adattiva per la rete
+      url: security-center-adaptive-network-hardening.md

@@ -165,6 +165,8 @@
       href: billing-use-existing-azure-account-for-office-365-subscription.md
 - name: Gestire la sottoscrizione
   items:
+    - name: Stati della sottoscrizione
+      href: billing-azure-subscription-states.md
     - name: Riattivare la sottoscrizione
       href: billing-subscription-become-disable.md
     - name: Trasferire la proprietà
