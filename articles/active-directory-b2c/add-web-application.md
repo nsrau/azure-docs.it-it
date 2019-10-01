@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 3114f082a402fd005797b270cfdcd7527784dbe1
 ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/30/2019
 ms.locfileid: "71679229"
