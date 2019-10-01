@@ -16,12 +16,12 @@ ms.date: 09/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 467fbc421cdd681d0aab52faf75a4987ee849b15
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: e7555dc44e533945d360a3d2e4120f71f953a6d2
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71345514"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709365"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Cronologia delle versioni
 Il team di Azure Active Directory (Azure AD) aggiorna regolarmente Azure AD Connect con nuove funzionalità. Le nuove funzionalità potrebbero non essere disponibili in tutti i paesi.
@@ -84,9 +84,7 @@ Non tutte le versioni di Azure AD Connect saranno disponibili per l'aggiornament
 - Diagnostica migliorata e risoluzione dei problemi relativi a criteri di gruppo che non consentono l'avvio del servizio ADSync al momento dell'installazione iniziale.
 - Correzione di un bug per cui il nome visualizzato per un computer Windows non è stato scritto correttamente.
 - Correzione di un bug in cui il tipo di sistema operativo per un computer Windows non è stato scritto correttamente.
-- Correzione di un bug per cui i computer non Windows 10 venivano sincronizzati in modo imprevisto. Si noti che l'effetto di questa modifica è che i computer non Windows 10 sincronizzati in precedenza verranno ora eliminati. Questa operazione non influisce sulle funzionalità perché la sincronizzazione dei computer Windows viene utilizzata solo per Azure AD ibrido aggiunta a un dominio, che funziona solo per i dispositivi Windows 10. 
-- Correzione di un bug in cui il nome visualizzato per un computer Windows non è stato scritto correttamente.
-- Correzione di un bug in cui il tipo di sistema operativo per un computer Windows non è stato scritto correttamente.
+- Correzione di un bug per cui i computer non Windows 10 venivano sincronizzati in modo imprevisto. Si noti che l'effetto di questa modifica è che i computer non Windows 10 sincronizzati in precedenza verranno ora eliminati. Questa operazione non influisce sulle funzionalità perché la sincronizzazione dei computer Windows viene utilizzata solo per Azure AD ibrido aggiunta a un dominio, che funziona solo per i dispositivi Windows 10.
 - Sono stati aggiunti diversi nuovi cmdlet (interni) al modulo PowerShell ADSync.
 
 

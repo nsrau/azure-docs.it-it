@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 299799566f0d54cc3fa017b032e15b387fe8cdd5
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 876fef2b597e9a7dfd896f2b9697378e745a07f3
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467932"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709824"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Architetture basate su eventi senza server con Azure Cosmos DB e funzioni di Azure
 
@@ -37,7 +37,7 @@ Per implementare un flusso basato su eventi senza server, è necessario:
 La creazione della funzione di Azure con un trigger di funzioni di Azure per Cosmos DB è ora supportata in tutte le integrazioni dell'IDE e dell'interfaccia della riga di comando di Azure
 
 * [Estensione di Visual Studio](../azure-functions/functions-develop-vs.md) per gli utenti di Visual Studio.
-* [Estensione di base di Visual Studio](https://code.visualstudio.com/tutorials/functions-extension/create-function) per gli utenti Visual Studio Code.
+* [Estensione di base di Visual Studio](/azure/javascript/tutorial-vscode-serverless-node-01) per gli utenti Visual Studio Code.
 * E infine gli [strumenti dell'interfaccia](../azure-functions/functions-run-local.md#create-func) della riga di comando di base per un'esperienza IDE multipiattaforma.
 
 ## <a name="run-your-trigger-locally"></a>Eseguire il trigger in locale

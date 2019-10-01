@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: magoedte
-ms.openlocfilehash: 2b601825a58fe5739a43df607067acc8d629c5f4
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 7cd915c47fa0661a9da66d7ca3315480ce7d6b98
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558885"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709437"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Configurare la raccolta dei dati dell'agente per il monitoraggio di Azure per i contenitori
 
@@ -41,14 +41,14 @@ Viene fornito un file ConfigMap modello che consente di modificarlo facilmente c
 
 Di seguito sono riportate le impostazioni che possono essere configurate per controllare la raccolta dei dati.
 
-|Chiave |Tipo di dati |Valore |DESCRIZIONE |
+|Chiave |Tipo di dati |Value |Descrizione |
 |----|----------|------|------------|
 |`schema-version` |Stringa (maiuscole/minuscole) |v1 |Si tratta della versione dello schema utilizzata dall'agente durante l'analisi di questo ConfigMap. La versione dello schema attualmente supportata è V1. La modifica di questo valore non è supportata e verrà rifiutata quando ConfigMap viene valutato.|
-|`config-version` |String | | Supporta la possibilità di tenere traccia della versione del file di configurazione nel sistema/repository del controllo del codice sorgente. I caratteri massimi consentiti sono 10 e tutti gli altri caratteri vengono troncati. |
+|`config-version` |Stringa | | Supporta la possibilità di tenere traccia della versione del file di configurazione nel sistema/repository del controllo del codice sorgente. I caratteri massimi consentiti sono 10 e tutti gli altri caratteri vengono troncati. |
 |`[log_collection_settings.stdout] enabled =` |Boolean | true o false | Controlla se è abilitata la raccolta di log del contenitore stdout. Se è impostato `true` su e non viene escluso alcuno spazio dei nomi per`log_collection_settings.stdout.exclude_namespaces` la raccolta di log stdout (impostazione seguente), i log stdout verranno raccolti da tutti i contenitori in tutti i pod/nodi del cluster. Se non è specificato in ConfigMaps, il valore predefinito `enabled = true`è. |
-|`[log_collection_settings.stdout] exclude_namespaces =`|String | Matrice con valori delimitati da virgole |Matrice di spazi dei nomi Kubernetes per cui non verranno raccolti i log stdout. Questa impostazione è valida solo se `log_collection_settings.stdout.enabled` è impostato su `true`. Se non è specificato in ConfigMap, il valore predefinito `exclude_namespaces = ["kube-system"]`è.|
+|`[log_collection_settings.stdout] exclude_namespaces =`|Stringa | Matrice con valori delimitati da virgole |Matrice di spazi dei nomi Kubernetes per cui non verranno raccolti i log stdout. Questa impostazione è valida solo se `log_collection_settings.stdout.enabled` è impostato su `true`. Se non è specificato in ConfigMap, il valore predefinito `exclude_namespaces = ["kube-system"]`è.|
 |`[log_collection_settings.stderr] enabled =` |Boolean | true o false |Questo controlla se è abilitata la raccolta di log del contenitore stderr. Se è impostato `true` su e non viene escluso alcuno spazio dei nomi per`log_collection_settings.stderr.exclude_namespaces` la raccolta di log di stdout (impostazione), i log stderr verranno raccolti da tutti i contenitori in tutti i pod/nodi del cluster. Se non è specificato in ConfigMaps, il valore predefinito `enabled = true`è. |
-|`[log_collection_settings.stderr] exclude_namespaces =` |String |Matrice con valori delimitati da virgole |Matrice di spazi dei nomi Kubernetes per cui non verranno raccolti i log stderr. Questa impostazione è valida solo se `log_collection_settings.stdout.enabled` è impostato su `true`. Se non è specificato in ConfigMap, il valore predefinito `exclude_namespaces = ["kube-system"]`è. |
+|`[log_collection_settings.stderr] exclude_namespaces =` |Stringa |Matrice con valori delimitati da virgole |Matrice di spazi dei nomi Kubernetes per cui non verranno raccolti i log stderr. Questa impostazione è valida solo se `log_collection_settings.stdout.enabled` è impostato su `true`. Se non è specificato in ConfigMap, il valore predefinito `exclude_namespaces = ["kube-system"]`è. |
 | `[log_collection_settings.env_var] enabled =` |Boolean | true o false | Controlla se la raccolta di variabili di ambiente è abilitata. Quando è impostato `false`su, non viene raccolta alcuna variabile di ambiente per tutti i contenitori in esecuzione in tutti i pod/nodi del cluster. Se non è specificato in ConfigMap, il valore predefinito `enabled = true`è. |
 
 ### <a name="prometheus-scraping-settings"></a>Impostazioni di scraping Prometeo
@@ -62,7 +62,7 @@ Il frammento attivo delle metriche da Prometheus viene eseguito da una delle due
 * URL HTTP a livello di cluster e individuare destinazioni dagli endpoint elencati di un servizio, servizi K8S come Kube-DNS e Kube-state-Metrics e annotazioni Pod specifiche di un'applicazione. Le metriche raccolte in questo contesto verranno definite nella sezione ConfigMap *[Prometheus data_collection_settings. cluster]* .
 * URL HTTP a livello di nodo e individua destinazioni dagli endpoint elencati di un servizio. Le metriche raccolte in questo contesto verranno definite nella sezione ConfigMap *[Prometheus_data_collection_settings. Node]* .
 
-| Endpoint | Ambito | Esempio |
+| Endpoint | `Scope` | Esempio |
 |----------|-------|---------|
 | Annotazione Pod | A livello di cluster | annotazioni <br>`prometheus.io/scrape: "true"` <br>`prometheus.io/path: "/mymetrics"` <br>`prometheus.io/port: "8000" <br>prometheus.io/scheme: "http"` |
 | Servizio Kubernetes | A livello di cluster | `http://my-service-dns.my-namespace:9100/metrics` <br>`https://metrics-server.kube-system.svc.cluster.local/metrics` |
@@ -70,19 +70,19 @@ Il frammento attivo delle metriche da Prometheus viene eseguito da una delle due
 
 Quando si specifica un URL, monitoraggio di Azure per i contenitori esegue solo il frammento dell'endpoint. Quando si specifica il servizio Kubernetes, il nome del servizio viene risolto con il server DNS del cluster per ottenere l'indirizzo IP e quindi il servizio risolto viene frammentato.
 
-|Ambito | Chiave | Tipo di dati | Value | Descrizione |
+|`Scope` | Chiave | Tipo di dati | Value | Descrizione |
 |------|-----|-----------|-------|-------------|
 | A livello di cluster | | | | Specificare uno dei tre metodi seguenti per rimuovere gli endpoint per le metriche. |
-| | `urls` | String | Matrice con valori delimitati da virgole | Endpoint HTTP (indirizzo IP o percorso URL valido specificato). Ad esempio: `urls=[$NODE_IP/metrics]`. ($NODE _IP è uno specifico parametro di monitoraggio di Azure per contenitori e può essere usato al posto dell'indirizzo IP del nodo. Deve essere tutti in maiuscolo.) |
-| | `kubernetes_services` | String | Matrice con valori delimitati da virgole | Una matrice di servizi Kubernetes per rimuovere le metriche da Kube-state-Metrics. Ad esempio,`kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics", http://my-service-dns.my-namespace:9100/metrics]`.|
+| | `urls` | Stringa | Matrice con valori delimitati da virgole | Endpoint HTTP (indirizzo IP o percorso URL valido specificato). Ad esempio: `urls=[$NODE_IP/metrics]`. ($NODE _IP è uno specifico parametro di monitoraggio di Azure per contenitori e può essere usato al posto dell'indirizzo IP del nodo. Deve essere tutti in maiuscolo.) |
+| | `kubernetes_services` | Stringa | Matrice con valori delimitati da virgole | Una matrice di servizi Kubernetes per rimuovere le metriche da Kube-state-Metrics. Ad esempio,`kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics", http://my-service-dns.my-namespace:9100/metrics]`.|
 | | `monitor_kubernetes_pods` | Boolean | true o false | Quando è impostato `true` su nelle impostazioni a livello di cluster, monitoraggio di Azure per l'agente dei contenitori Kubernetes i pod nell'intero cluster per le annotazioni Prometeo seguenti:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
 | | `prometheus.io/scrape` | Boolean | true o false | Consente di rimuovere il pod. `monitor_kubernetes_pods` deve essere impostato su `true`. |
-| | `prometheus.io/scheme` | String | http o https | Il valore predefinito è la rottamazione su HTTP. Se necessario, impostare su `https`. | 
-| | `prometheus.io/path` | String | Matrice con valori delimitati da virgole | Percorso della risorsa HTTP da cui recuperare le metriche. Se il percorso delle metriche non `/metrics`è, definirlo con questa annotazione. |
-| | `prometheus.io/port` | String | 9102 | Specificare una porta su cui restare in ascolto. Se la porta non è impostata, il valore predefinito è 9102. |
-| A livello di nodo | `urls` | String | Matrice con valori delimitati da virgole | Endpoint HTTP (indirizzo IP o percorso URL valido specificato). Ad esempio: `urls=[$NODE_IP/metrics]`. ($NODE _IP è uno specifico parametro di monitoraggio di Azure per contenitori e può essere usato al posto dell'indirizzo IP del nodo. Deve essere tutti in maiuscolo.) |
-| A livello di nodo o a livello di cluster | `interval` | String | 60 s | Il valore predefinito per l'intervallo di raccolta è di un minuto (60 secondi). È possibile modificare la raccolta per *[prometheus_data_collection_settings. Node]* e/o *[prometheus_data_collection_settings. cluster]* in unità di tempo, ad esempio NS, US (o Âμs), MS, s, m, h. |
-| A livello di nodo o a livello di cluster | `fieldpass`<br> `fielddrop`| String | Matrice con valori delimitati da virgole | È possibile specificare determinate metriche da raccogliere o meno dall'endpoint impostando l'elenco Consenti (`fieldpass`) e non consentire (`fielddrop`). È necessario impostare prima l'elenco Consenti. |
+| | `prometheus.io/scheme` | Stringa | http o https | Il valore predefinito è la rottamazione su HTTP. Se necessario, impostare su `https`. | 
+| | `prometheus.io/path` | Stringa | Matrice con valori delimitati da virgole | Percorso della risorsa HTTP da cui recuperare le metriche. Se il percorso delle metriche non `/metrics`è, definirlo con questa annotazione. |
+| | `prometheus.io/port` | Stringa | 9102 | Specificare una porta su cui restare in ascolto. Se la porta non è impostata, il valore predefinito è 9102. |
+| A livello di nodo | `urls` | Stringa | Matrice con valori delimitati da virgole | Endpoint HTTP (indirizzo IP o percorso URL valido specificato). Ad esempio: `urls=[$NODE_IP/metrics]`. ($NODE _IP è uno specifico parametro di monitoraggio di Azure per contenitori e può essere usato al posto dell'indirizzo IP del nodo. Deve essere tutti in maiuscolo.) |
+| A livello di nodo o a livello di cluster | `interval` | Stringa | 60 s | Il valore predefinito per l'intervallo di raccolta è di un minuto (60 secondi). È possibile modificare la raccolta per *[prometheus_data_collection_settings. Node]* e/o *[prometheus_data_collection_settings. cluster]* in unità di tempo, ad esempio NS, US (o Âμs), MS, s, m, h. |
+| A livello di nodo o a livello di cluster | `fieldpass`<br> `fielddrop`| Stringa | Matrice con valori delimitati da virgole | È possibile specificare determinate metriche da raccogliere o meno dall'endpoint impostando l'elenco Consenti (`fieldpass`) e non consentire (`fielddrop`). È necessario impostare prima l'elenco Consenti. |
 
 ConfigMap è un elenco globale e può essere applicato un solo ConfigMap all'agente. Non è possibile avere un altro ConfigMap che esegue la sovradecisione delle raccolte.
 
@@ -187,6 +187,22 @@ L'output sarà simile al seguente con le versioni dello schema di annotazione:
 ```
 
 ## <a name="review-prometheus-data-usage"></a>Esaminare l'utilizzo dei dati di Prometeo
+
+Per visualizzare le metriche Prometeo ricavate da monitoraggio di Azure, specificare "Prometeo" come spazio dei nomi. Ecco una query di esempio per visualizzare le metriche Prometheus dallo spazio dei nomi `default` kubernetes.
+
+```
+InsightsMetrics 
+| where Namespace contains "prometheus"
+| extend tags=parse_json(Tags)
+| where tostring(tags.namespace) == "default" 
+```
+
+I dati Prometheus possono anche essere sottoposti a query direttamente in base al nome.
+
+```
+InsightsMetrics 
+| where Name contains "some_prometheus_metric"
+```
 
 Per identificare il volume di inserimento di ogni dimensione di metrica in GB al giorno per comprendere se è elevato, viene fornita la query seguente.
 

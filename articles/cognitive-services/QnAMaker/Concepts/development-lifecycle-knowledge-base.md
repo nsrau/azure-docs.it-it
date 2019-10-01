@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 09/25/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 97a4673be2a611149806855e792c5bf1f7a0942a
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 530869928f7a25e779cb01f0fe392efdbb54c5ba
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955162"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695106"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>Ciclo di vita della knowledge base in QnA Maker
 QnA Maker apprende meglio in un ciclo iterativo di modifiche ai modelli, esempi di espressioni, pubblicazione e raccolta dei dati dalle query degli endpoint. 
@@ -35,7 +35,7 @@ La knowledge base è pronta per i test dopo essere stata popolata con il contenu
 
 Questo ciclo serrato di test-aggiornamento continua finché non si è soddisfatti dei risultati. Leggere le informazioni su come [testare la knowledge base](../How-To/test-knowledge-base.md).
 
-Per la KBS di grandi dimensioni, utilizzare test automatizzati con l' `isTest` [API generateAnswer](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) e la proprietà `test` Body che esegue una query sulla Knowledge base invece che sulla Knowledge base pubblicata. 
+Per i dati di grandi dimensioni, utilizzare test automatizzati con l' [API generateAnswer](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) e la proprietà del corpo `isTest` che esegue una query sulla knowledge base `test` invece che sulla Knowledge base pubblicata. 
 
 ```json
 {
@@ -51,7 +51,7 @@ Una volta testata la knowledge base, è possibile pubblicarla. La pubblicazione 
 
 In questo modo, eventuali modifiche apportate alla versione di test della knowledge base non influiscono sulla versione pubblicata, che potrebbe essere in uso in un'applicazione di produzione.
 
-Ognuna di queste knowledge base può essere scelta come destinazione per i test separatamente. Utilizzando le API, è possibile specificare come destinazione la versione di prova della Knowledge `isTest` base con la proprietà Body nella chiamata generateAnswer.
+Ognuna di queste knowledge base può essere scelta come destinazione per i test separatamente. Utilizzando le API, è possibile specificare come destinazione la versione di prova della Knowledge base con la proprietà del corpo `isTest` nella chiamata generateAnswer.
 
 Leggere le informazioni su come [pubblicare la knowledge base](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 
@@ -61,6 +61,14 @@ Per poter registrare i log di chat del servizio, è necessario abilitare Applica
 È possibile ottenere diverse analisi relative all'utilizzo del servizio. Leggere altre informazioni su come usare Application Insights per ottenere [analisi per il servizio QnA Maker](../How-To/get-analytics-knowledge-base.md).
 
 In base alle informazioni ottenute dall'analisi, apportare [aggiornamenti alla knowledge base](../How-To/edit-knowledge-base.md) come appropriato.
+
+## <a name="version-control-of-a-knowledge-base"></a>Controllo della versione di una Knowledge base
+
+Il controllo della versione non viene fornito dal QnA Maker. È necessario esportare la Knowledge base dalla pagina **Impostazioni** e utilizzare la metodologia e gli strumenti personalizzati.
+
+L'esportazione della Knowledge base nel formato TSV o XLS viene completata dalla pagina **Impostazioni** . 
+
+Quando è necessario tornare a una versione specifica, è necessario importare il file dal sistema locale. Dalla pagina **Impostazioni** importare il file TSV o xls. In questo articolo vengono sostituite le domande e le risposte attualmente presenti nella Knowledge base con il contenuto del file importato.   
 
 ## <a name="next-steps"></a>Passaggi successivi
 

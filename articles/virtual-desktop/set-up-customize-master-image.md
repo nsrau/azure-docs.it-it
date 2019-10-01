@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: 379664fb7170249b8f21ec9826f8b0b6fbe19892
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 57070b297446badb92ae1df4c435dd54cfe26823
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679533"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71710189"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparare e personalizzare un'immagine master di disco rigido virtuale
 
@@ -204,7 +204,7 @@ Dopo aver preparato l'immagine per il caricamento, assicurarsi che la macchina v
 
 Questa sezione si applica solo quando l'immagine master è stata creata localmente.
 
-Le istruzioni seguenti illustrano come caricare l'immagine master in un account di archiviazione di Azure. Se non si ha già un account di archiviazione di Azure, seguire le istruzioni riportate in [questo articolo](https://code.visualstudio.com/tutorials/static-website/create-storage) per crearne uno.
+Le istruzioni seguenti illustrano come caricare l'immagine master in un account di archiviazione di Azure. Se non si ha già un account di archiviazione di Azure, seguire le istruzioni riportate in [questo articolo](/azure/javascript/tutorial-vscode-static-website-node-03) per crearne uno.
 
 1. Convertire l'immagine di macchina virtuale (VHD) in corretta, se non è già stata eseguita. Se l'immagine non viene convertita in fixed, non è possibile crearla correttamente.
 

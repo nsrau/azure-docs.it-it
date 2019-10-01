@@ -8,12 +8,12 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/29/2019
 ms.subservice: blobs
-ms.openlocfilehash: 9a751956f73ca4a88545e034a32d699c0766dd1d
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 85f7ea11638278a010b2a94d9c6472857f51b687
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855369"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71710163"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hosting di siti Web statici in Archiviazione di Azure
 
@@ -44,23 +44,23 @@ I file nel contenitore di **$Web** fanno distinzione tra maiuscole e minuscole, 
 > * [AzCopy](../common/storage-use-azcopy-v10.md)
 > * [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 > * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
-> * [Estensione di Visual Studio Code](https://code.visualstudio.com/tutorials/static-website/getting-started)
+> * [Estensione di Visual Studio Code](/azure/javascript/tutorial-vscode-static-website-node-01)
 
 ## <a name="viewing-content"></a>Visualizzazione del contenuto
 
 Gli utenti possono visualizzare il contenuto del sito da un browser usando l'URL pubblico del sito Web. È possibile trovare l'URL usando il portale di Azure, l'interfaccia della riga di comando di Azure o PowerShell. Usare questa tabella come riferimento.
 
-|Strumento| Materiale sussidiario |
+|Tool| Materiale sussidiario |
 |----|----|
 |**Portale di Azure** | [Trovare l'URL del sito Web usando il portale di Azure](storage-blob-static-website-how-to.md#portal-find-url) |
 |**Interfaccia della riga di comando di Azure** | [Trovare l'URL del sito Web usando l'interfaccia della riga di comando di Azure](storage-blob-static-website-how-to.md#cli-find-url) |
 |**Modulo di Azure PowerShell** | [Trovare l'URL del sito Web usando PowerShell](storage-blob-static-website-how-to.md#powershell-find-url) |
 
-L'URL del sito contiene un codice regionale. Ad esempio, l' `https://contosoblobaccount.z22.web.core.windows.net/` URL contiene codice `z22`regionale.
+L'URL del sito contiene un codice regionale. Ad esempio, l'URL `https://contosoblobaccount.z22.web.core.windows.net/` contiene il codice regionale `z22`.
 
 Sebbene tale codice debba rimanere l'URL, è solo per uso interno e non sarà necessario usare tale codice in altro modo.
 
-Il documento di indice specificato quando si Abilita l'hosting di siti web statici viene visualizzato quando gli utenti aprono il sito e non specificano un file `https://contosoblobaccount.z22.web.core.windows.net`specifico (ad esempio:).  
+Il documento di indice specificato quando si Abilita l'hosting di siti web statici viene visualizzato quando gli utenti aprono il sito e non specificano un file specifico (ad esempio: `https://contosoblobaccount.z22.web.core.windows.net`).  
 
 Se il server restituisce un errore 404 e non è stato specificato un documento di errore quando è stato abilitato il sito Web, all'utente viene restituita una pagina predefinita di 404.
 
@@ -74,9 +74,9 @@ Lo screenshot seguente mostra l'impostazione del livello di accesso pubblico nel
 
 Sebbene l'endpoint del sito Web statico primario non sia interessato, una modifica al livello di accesso pubblico influisce sull'endpoint del servizio BLOB primario.
 
-Ad esempio, se si modifica il livello di accesso pubblico del contenitore **$Web** da **privato (nessun accesso anonimo)** a **BLOB (accesso in lettura anonimo solo per BLOB)** , il livello di accesso pubblico all'endpoint `https://contosoblobaccount.z22.web.core.windows.net/index.html`delsitoWebstaticoprimarionon cambia.
+Ad esempio, se si modifica il livello di accesso pubblico del contenitore **$Web** da **privato (nessun accesso anonimo)** a **BLOB (accesso in lettura anonimo solo per BLOB)** , il livello di accesso pubblico all'endpoint del sito Web statico primario `https://contosoblobaccount.z22.web.core.windows.net/index.html` non cambia.
 
-Tuttavia, l'accesso pubblico all'endpoint `https://contosoblobaccount.blob.core.windows.net/$web/index.html` di servizio BLOB primario passa da privato a pubblico. Ora gli utenti possono aprire il file usando uno di questi due endpoint.
+Tuttavia, l'accesso pubblico all'endpoint di servizio BLOB primario `https://contosoblobaccount.blob.core.windows.net/$web/index.html` passa da privato a pubblico. Ora gli utenti possono aprire il file usando uno di questi due endpoint.
 
 ## <a name="content-delivery-network-cdn-and-secure-socket-layer-ssl-support"></a>Rete per la distribuzione di contenuti (CDN) e supporto Secure Socket Layer (SSL)
 

@@ -1,19 +1,19 @@
 ---
 title: Guida alla risoluzione dei problemi di Azure Storage Explorer | Microsoft Docs
 description: Cenni preliminari sulle tecniche di debug per Azure Storage Explorer
-services: virtual-machines
+services: storage
 author: Deland-Han
 manager: dcscontentpm
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: ad73520c99dd5418fd4444b3f41d7d1e22f8d52f
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: ca9b4b337eed54f02f42cad53d22387eace6b76c
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090837"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694707"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Azure Storage Explorer
 
@@ -370,4 +370,4 @@ Se il pulsante **Apri in Esplora** sul portale di Azure non funziona, assicurars
 
 Se nessuna di queste soluzioni funziona, [aprire un problema in GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues). Questa operazione può essere eseguita anche selezionando il pulsante **Segnala problema in GitHub** nell'angolo in basso a sinistra.
 
-![Commenti e suggerimenti](./media/storage-explorer-troubleshooting/feedback-button.PNG)
+![Commenti](./media/storage-explorer-troubleshooting/feedback-button.PNG)

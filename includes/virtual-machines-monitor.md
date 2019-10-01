@@ -2,16 +2,18 @@
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 01/27/2019
+ms.date: 09/30/2019
 ms.author: cynthn
-ms.openlocfilehash: 11c9b2ea3ea054415f25f864651df28288aa0025
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 93a2554b5d3cc24e1b5fc1e3d0f18ed1bfe0579c
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266841"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71692037"
 ---
-È possibile sfruttare molte opportunità per il monitoraggio delle macchine virtuali tramite la raccolta, la visualizzazione e l'analisi dei dati di diagnostica e di log. Per eseguire semplici attività di [monitoraggio](../articles/azure-monitor/overview.md) della macchina virtuale, è possibile usare la schermata Panoramica per la macchina virtuale nel portale di Azure. È possibile usare [estensioni](../articles/virtual-machines/windows/extensions-features.md) per configurare la diagnostica nelle macchine virtuali e raccogliere metriche aggiuntive. È anche possibile usare opzioni di monitoraggio più avanzate, come [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) e [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
+Con la crescita significativa delle macchine virtuali ospitate in Azure, è importante identificare i problemi di prestazioni e integrità che influiscano sulle applicazioni e sui servizi di infrastruttura supportati. Il monitoraggio di base viene fornito per impostazione predefinita con Azure grazie ai tipi di metrica utilizzo CPU, utilizzo dischi, utilizzo memoria e traffico di rete raccolto dall'hypervisor host. È possibile raccogliere dati aggiuntivi relativi a metriche e log usando le [estensioni](../articles/virtual-machines/windows/extensions-features.md) per configurare la diagnostica nelle macchine virtuali dal sistema operativo guest.
+
+Per rilevare e diagnosticare problemi di prestazioni e integrità con il sistema operativo guest, i componenti delle applicazioni Web Java o basati su .NET in esecuzione all'interno della VM, monitoraggio di Azure fornisce il monitoraggio centralizzato con funzionalità complete, ad esempio Monitoraggio di Azure per le macchine virtuali e Application Insights.
 
 ## <a name="diagnostics-and-metrics"></a>Diagnostica e metriche 
 
@@ -27,11 +29,11 @@ ms.locfileid: "71266841"
 
 - **Abilitare la raccolta dei dati di diagnostica del sistema operativo guest.** Quando si crea una macchina virtuale, nella schermata delle impostazioni è possibile abilitare la diagnostica del sistema operativo guest. Quando si abilita la raccolta dei dati di diagnostica, alla macchina virtuale viene aggiunta l'[estensione IaaSDiagnostics per Linux](../articles/virtual-machines/linux/diagnostic-extension.md) o l'[estensione IaaSDiagnostics per Windows](../articles/virtual-machines/windows/ps-extensions-diagnostics.md), che permette di raccogliere dati aggiuntivi su disco, CPU e memoria.
 
-    Usando i dati di diagnostica raccolti, è possibile configurare la scalabilità automatica per le macchine virtuali. È anche possibile configurare log per archiviare i dati e impostare avvisi per essere informati quando le prestazioni sono inadeguate.
+    Usando i dati di diagnostica raccolti, è possibile configurare la scalabilità automatica per le macchine virtuali. È anche possibile configurare i [log di monitoraggio di Azure](../articles/azure-monitor/platform/data-platform-logs.md) per archiviare i dati e configurare gli avvisi per indicare quando le prestazioni non sono corrette.
 
 ## <a name="alerts"></a>Avvisi
 
-È possibile creare [avvisi](../articles/azure-monitor/platform/alerts-overview.md) in base a metriche di prestazioni specifiche. I problemi che possono essere segnalati tramite avvisi, ad esempio, sono il superamento di una determinata soglia di utilizzo medio della CPU o la presenza di spazio su disco inferiore rispetto a una quantità specifica. Gli avvisi possono essere configurati nel [portale di Azure](../articles/azure-monitor/platform/alerts-classic-portal.md), tramite [Azure PowerShell](../articles/azure-monitor/platform/alerts-classic-portal.md#with-powershell) o nell'[interfaccia della riga di comando di Azure](../articles/azure-monitor/platform/alerts-classic-portal.md#with-azure-cli).
+È possibile creare [avvisi](../articles/azure-monitor/platform/alerts-overview.md) in base a metriche di prestazioni specifiche. I problemi che possono essere segnalati tramite avvisi, ad esempio, sono il superamento di una determinata soglia di utilizzo medio della CPU o la presenza di spazio su disco inferiore rispetto a una quantità specifica. Gli avvisi possono essere configurati nella [portale di Azure](../articles/azure-monitor/platform/alerts-metric.md#create-with-azure-portal), usando [Azure Resource Manager modelli](../articles/azure-monitor/platform/alerts-metric-create-templates.md)o l'interfaccia della riga di comando di [Azure](../articles/azure-monitor/platform/alerts-metric.md#with-azure-cli).
 
 ## <a name="azure-service-health"></a>Integrità dei servizi di Azure
 
@@ -48,8 +50,8 @@ Il [log attività di Azure](../articles/azure-monitor/platform/activity-logs-ove
 Ecco alcune delle attività che è possibile eseguire con il log attività:
 
 - Creare un [avviso per un evento del log attività](../articles/azure-monitor/platform/activity-logs-overview.md).
-- [Trasmetterlo a un hub eventi](../articles/azure-monitor/platform/activity-logs-stream-event-hubs.md) per l'inserimento da parte di un servizio di terze parti o di una soluzione di analisi personalizzata come Power BI.
-- Analizzarlo in Power BI usando il [pacchetto di contenuto di Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
+- [Eseguire lo streaming in un hub eventi per l'](../articles/azure-monitor/platform/activity-logs-stream-event-hubs.md) inserimento da parte di un servizio di terze parti o di una soluzione di analisi personalizzata, ad esempio Power bi.
+- Analizzarlo in Power BI usando il [pacchetto di contenuto Power bi](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 - [Salvarlo in un account di archiviazione](../articles/azure-monitor/platform/archive-activity-log.md) per l'archiviazione o l'ispezione manuale. È possibile specificare il tempo di conservazione (in giorni) tramite il profilo di log.
 
 È anche possibile accedere a dati del log attività usando [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/), l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/monitor) o le [API REST di monitoraggio](https://docs.microsoft.com/rest/api/monitor/).
@@ -59,19 +61,17 @@ I [log delle risorse di Azure](../articles/azure-monitor/platform/resource-logs-
 Ecco alcune delle attività che è possibile eseguire con i log di diagnostica:
 
 - [Salvarli in un account di archiviazione](../articles/azure-monitor/platform/archive-diagnostic-logs.md) per il controllo o l'ispezione manuale. È possibile specificare il tempo di conservazione (in giorni) tramite le impostazioni di diagnostica delle risorse.
-- [Trasmettere i log a Hub eventi](../articles/azure-monitor/platform/resource-logs-stream-event-hubs.md) per l'inserimento tramite un servizio di terze parti o una soluzione di analisi personalizzata come Power BI.
+- [Inviarli a hub eventi](../articles/azure-monitor/platform/resource-logs-stream-event-hubs.md) per l'inserimento da parte di un servizio di terze parti o di una soluzione di analisi personalizzata, ad esempio Power bi.
 - Analizzarli con [Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md).
 
 ## <a name="advanced-monitoring"></a>Monitoraggio avanzato
 
-- [Monitoraggio di Azure](../articles/azure-monitor/overview.md) è un servizio che effettua il monitoraggio degli ambienti cloud e locali per consentire la gestione della disponibilità e delle prestazioni. Offre una soluzione completa per la raccolta, l'analisi e l'esecuzione di operazioni sui dati di telemetria dal cloud e dagli ambienti locali. È utile per ottenere informazioni sulle prestazioni delle applicazioni e identificare in modo proattivo i problemi delle applicazioni e delle risorse da cui dipendono. In una [macchina virtuale Linux](../articles/virtual-machines/linux/extensions-oms.md) o in una [macchina virtuale Windows](../articles/virtual-machines/windows/extensions-oms.md) è possibile installare un'estensione che include l'agente di Log Analytics per raccogliere i dati di log e archiviarli in un'area di lavoro Log Analytics.
+Per la visibilità dell'applicazione o del servizio supportato dalla VM di Azure e dai set di scalabilità di macchine virtuali, identificazione di problemi con il sistema operativo guest o il carico di lavoro in esecuzione nella macchina virtuale per comprendere se influisca sulla disponibilità o sulle prestazioni dell'applicazione o è un in caso di problemi con l'applicazione, abilitare sia [monitoraggio di Azure per le macchine virtuali](../articles/azure-monitor/insights/vminsights-overview.md) sia [Application Insights](../articles/azure-monitor/app/app-insights-overview.md).
 
-    Per le macchine virtuali Windows e Linux, il metodo consigliato per la raccolta di log consiste nell'installazione dell'agente di Log Analytics. Il modo più semplice per installare l'agente di Log Analytics in una macchina virtuale è tramite l'[estensione macchina virtuale di Log Analytics](../articles/log-analytics/log-analytics-azure-vm-extension.md). L'uso dell'estensione macchina virtuale consente di semplificare il processo di installazione e di configurare automaticamente l'agente per l'invio di dati all'area di lavoro Log Analytics specificata. L'agente viene anche aggiornato automaticamente in modo da garantire la presenza delle funzionalità e delle correzioni più recenti.
-
-- [Network Watcher](../articles/network-watcher/network-watcher-monitoring-overview.md) permette di monitorare la macchina virtuale e le risorse associate in relazione alla rete in cui si trovano. È possibile installare l'estensione dell'agente Network Watcher in una [macchina virtuale Linux](../articles/virtual-machines/linux/extensions-nwa.md) o una [macchina virtuale Windows](../articles/virtual-machines/windows/extensions-nwa.md).
-
-- [Monitoraggio di Azure per le macchine virtuali](../articles/azure-monitor/insights/vminsights-overview.md) monitora le macchine virtuali di Azure su larga scala analizzando le prestazioni e l'integrità delle macchine virtuali Windows e Linux, inclusi i relativi processi e le dipendenze interconnesse ad altre risorse e processi esterni. 
+Monitoraggio di Azure per le macchine virtuali monitora le macchine virtuali (VM) di Azure su larga scala analizzando le prestazioni e l'integrità delle VM Windows e Linux, inclusi i diversi processi e le dipendenze interconnesse su altre risorse e i processi esterni it scopre. Include diversi grafici delle prestazioni di tendenza che consentono di analizzare i problemi e valutare la capacità delle macchine virtuali. La mappa delle dipendenze Mostra i computer monitorati e non monitorati, le connessioni di rete non riuscite e attive tra i processi e questi computer e Mostra i grafici di tendenza con metriche della connessione di rete standard. In combinazione con Application Insights è possibile monitorare l'applicazione e acquisire i dati di telemetria, ad esempio richieste HTTP, eccezioni e così via, in modo da poter correlare i problemi tra le macchine virtuali e l'applicazione. Configurare gli [avvisi di monitoraggio di Azure](../articles/azure-monitor/platform/alerts-overview.md) per avvisare l'utente di condizioni importanti rilevate dal monitoraggio dei dati raccolti da monitoraggio di Azure per le macchine virtuali.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 - Eseguire i passaggi inclusi in [Monitorare una macchina virtuale Windows con Azure PowerShell](../articles/virtual-machines/windows/tutorial-monitoring.md) o [Monitorare una macchina virtuale Linux con l'interfaccia della riga di comando di Azure](../articles/virtual-machines/linux/tutorial-monitoring.md).
+
 - Leggere le procedure consigliate per [monitoraggio e diagnostica](https://docs.microsoft.com/azure/architecture/best-practices/monitoring).

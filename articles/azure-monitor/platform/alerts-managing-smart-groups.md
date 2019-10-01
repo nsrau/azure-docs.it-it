@@ -6,14 +6,14 @@ services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: anantr
+ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: a9434bebe82687b14f45b3c375572717d71d0e55
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 42b4bd7427191bcec531ff883efa0d3297a9fd1f
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60713375"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71702851"
 ---
 # <a name="manage-smart-groups"></a>Gestire i gruppi intelligenti
 [I gruppi intelligenti](https://aka.ms/smart-groups) usano algoritmi di machine learning per raggruppare gli avvisi in base alla co-occorrenza o somiglianza, in modo da consentire all'utente di gestire gruppi intelligenti anziché dover gestire singolarmente ogni avviso. Questo articolo illustrerà come accedere e usare i gruppi intelligenti in Monitoraggio di Azure.

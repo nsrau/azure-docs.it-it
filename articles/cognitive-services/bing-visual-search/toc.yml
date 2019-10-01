@@ -33,6 +33,8 @@
           href: visual-search-sdk-node.md
         - name: Uso di Python
           href: visual-search-sdk-python.md
+        - name: Uso di Java
+          href: visual-search-sdk-java.md
 - name: Esercitazioni
   items:
     - name: Caricamento di un'immagine

@@ -5,21 +5,21 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2019
+ms.date: 09/30/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 332ec3930a7654fd5aecf1fc71ccb55c16df127f
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: f9db07f648956130bb5bdebb23321b0eb14679c7
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105128"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695403"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Assegnare l’accesso ai dati di Gestione costi
 
-Per gli utenti con contratti Enterprise di Azure, una combinazione di autorizzazioni concesse nel portale di Azure e nel portale Enterprise (EA) definisce il livello di accesso di un utente ai dati di Gestione costi di Azure. Per gli utenti con altri tipi di account di Azure, il livello di accesso ai dati di Gestione costi è più semplice. Questo articolo illustra l'assegnazione dell'accesso ai dati di Gestione costi. Dopo l'assegnazione della combinazione di autorizzazioni, l’utente può visualizzare i dati in Gestione costi in base al tipo di accesso di cui dispone e all’ambito che ha selezionato nel portale di Azure.
+Per gli utenti con contratti Enterprise di Azure, una combinazione di autorizzazioni concesse nel portale di Azure e nel portale Enterprise (EA) definisce il livello di accesso di un utente ai dati di Gestione costi di Azure. Per gli utenti con altri tipi di account Azure, definire il livello di accesso di un utente ai dati di gestione costi è più semplice usando il controllo degli accessi in base al ruolo di Azure. Questo articolo illustra l'assegnazione dell'accesso ai dati di Gestione costi. Dopo l'assegnazione della combinazione di autorizzazioni, l’utente può visualizzare i dati in Gestione costi in base al tipo di accesso di cui dispone e all’ambito che ha selezionato nel portale di Azure.
 
 L'ambito selezionato dall’utente viene usato in Gestione costi per fornire il consolidamento dei dati e per controllare l'accesso alle informazioni sui costi. Quando si usano gli ambiti, gli utenti non possono selezionarne più di uno. Possono tuttavia selezionare un ambito più ampio al quale si riferiscono ambiti secondari e quindi filtrare i contenuti che desiderano visualizzare. È importante comprendere il consolidamento dei dati perché alcuni utenti non devono avere accesso a un ambito padre a cui appartengono ambiti figlio.
 
@@ -140,7 +140,7 @@ L'accesso per visualizzare l'ambito del gruppo di gestione richiede almeno l'aut
 7. Sotto **Ruolo**, selezionare **Lettore Gestione costi**.
 8. Per **Assegna l’accesso a**, selezionare **Applicazione, gruppo o utente di Azure AD**.
 9. Per assegnare l'accesso, cercare e quindi selezionare l'utente.
-10. Fare clic su **Save**.  
+10. Fare clic su **Salva**.  
     ![Informazioni di esempio nella casella Aggiungi autorizzazioni per un gruppo di gestione](./media/assign-access-acm-data/add-permissions.png)
 
 ## <a name="assign-subscription-scope-access"></a>Assegnare l'accesso all'ambito di sottoscrizione
@@ -155,7 +155,7 @@ Per accedere a una sottoscrizione è richiesta almeno l'autorizzazione Lettore G
 6. Sotto **Ruolo**, selezionare **Lettore Gestione costi**.
 7. Per **Assegna l’accesso a**, selezionare **Applicazione, gruppo o utente di Azure AD**.
 8. Per assegnare l'accesso, cercare e quindi selezionare l'utente.
-9. Fare clic su **Save**.
+9. Fare clic su **Salva**.
 
 ## <a name="assign-resource-group-scope-access"></a>Assegnare l'accesso all’ambito Gruppo di risorse
 
@@ -169,7 +169,7 @@ Per accedere a un gruppo di risorse è richiesta almeno l'autorizzazione Lettore
 6. Sotto **Ruolo**, selezionare **Lettore Gestione costi**.
 7. Per **Assegna l’accesso a**, selezionare **Applicazione, gruppo o utente di Azure AD**.
 8. Per assegnare l'accesso, cercare e quindi selezionare l'utente.
-9. Fare clic su **Save**.
+9. Fare clic su **Salva**.
 
 ## <a name="cross-tenant-authentication-issues"></a>Problemi di autenticazione tra tenant
 

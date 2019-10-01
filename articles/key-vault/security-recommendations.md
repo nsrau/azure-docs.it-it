@@ -6,15 +6,15 @@ author: barclayn
 manager: rkarlin
 ms.service: key-vault
 ms.topic: article
-ms.date: 09/23/2019
+ms.date: 09/30/2019
 ms.author: barclayn
 ms.custom: security-recommendations
-ms.openlocfilehash: 90965618b1d2cb126d56453d46a5bebc85319c0f
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: deefbf049d5f8daa004db942f60ff5e31bda0fe8
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219638"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695406"
 ---
 # <a name="security-recommendations-for-azure-key-vault"></a>Raccomandazioni sulla sicurezza per Azure Key Vault
 
@@ -25,16 +25,31 @@ Alcuni consigli inclusi in questo articolo possono essere monitorati automaticam
 - Per altre informazioni sulle raccomandazioni del Centro sicurezza di Azure, vedere [raccomandazioni per la sicurezza nel centro sicurezza di Azure](../security-center/security-center-recommendations.md).
 - Per informazioni sul centro sicurezza di Azure, vedere [che cos'è il Centro sicurezza di Azure?](../security-center/security-center-intro.md)
 
-## <a name="recommendations"></a>Consigli
+## <a name="data-protection"></a>Protezione dei dati
 
-| Category | Indicazione | Commenti | Centro sicurezza |
-|-|-|----|--|
-| Protezione dei dati |Abilita eliminazione temporanea | L' [eliminazione](key-vault-ovw-soft-delete.md) temporanea consente di ripristinare gli insiemi di credenziali eliminati e gli oggetti dell'insieme di credenziali |  - |
-| Protezione dei dati | Limitare l'accesso ai dati dell'insieme di credenziali  | Seguire il principio dei privilegi minimi e limitare i membri dell'organizzazione che hanno accesso ai dati dell'insieme di credenziali |  - |
-| Gestione delle identità e dell'accesso | Limitare il numero di utenti con accesso collaboratore | Se un utente ha le autorizzazioni di collaboratore per un piano di gestione dell'insieme di credenziali delle chiavi, l'utente può concedere l'accesso al piano dati impostando un criterio di accesso Key Vault. È necessario controllare strettamente chi ha accesso al ruolo Collaboratore agli insiemi di credenziali delle chiavi. Assicurarsi che solo gli utenti che hanno la necessità di accedere alle persone autorizzate possano accedere e gestire gli insiemi di credenziali. È possibile leggere [l'accesso sicuro a un insieme di](key-vault-secure-your-key-vault.md) credenziali delle chiavi | - |
-| Monitoraggio | I log di diagnostica in Key Vault devono essere abilitati | Abilitare i log e conservarli per un periodo massimo di un anno. Ciò consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. | [Sì](../security-center/security-center-identity-access.md) |
-| Monitoraggio | Limitare gli utenti che possono accedere ai log di Azure Key Vault | I [log di Key Vault](key-vault-logging.md) salvano le informazioni sulle attività eseguite nell'insieme di credenziali, ad esempio la creazione o l'eliminazione di insiemi di credenziali, chiavi, segreti e possono essere usate durante un'indagine |  - |
-| Rete |Limita l'esposizione alla rete | L'accesso alla rete deve essere limitato alle reti virtuali usate dalle soluzioni che richiedono l'accesso all'insieme di credenziali. Esaminare le informazioni sugli [endpoint del servizio rete virtuale per Azure Key Vault](key-vault-overview-vnet-service-endpoints.md) | - |
+| Indicazione | Commenti | Centro sicurezza |
+|-|----|--|
+|Abilita eliminazione temporanea | L' [eliminazione](key-vault-ovw-soft-delete.md) temporanea consente di ripristinare gli insiemi di credenziali eliminati e gli oggetti dell'insieme di credenziali |  - |
+| Limitare l'accesso ai dati dell'insieme di credenziali  | Seguire il principio dei privilegi minimi e limitare i membri dell'organizzazione che hanno accesso ai dati dell'insieme di credenziali |  - |
+
+## <a name="identity-and-access-management"></a>Gestione delle identità e dell'accesso
+
+| Indicazione | Commenti | Centro sicurezza |
+|-|----|--|
+| Limitare il numero di utenti con accesso collaboratore | Se un utente ha le autorizzazioni di collaboratore per un piano di gestione dell'insieme di credenziali delle chiavi, l'utente può concedere l'accesso al piano dati impostando un criterio di accesso Key Vault. È necessario controllare strettamente chi ha accesso al ruolo Collaboratore agli insiemi di credenziali delle chiavi. Assicurarsi che solo gli utenti che hanno la necessità di accedere alle persone autorizzate possano accedere e gestire gli insiemi di credenziali. È possibile leggere [l'accesso sicuro a un insieme di](key-vault-secure-your-key-vault.md) credenziali delle chiavi | - |
+
+## <a name="monitoring"></a>Monitoraggio
+
+| Indicazione | Commenti | Centro sicurezza |
+|-|----|--|
+ I log di diagnostica in Key Vault devono essere abilitati | Abilitare i log e conservarli per un periodo massimo di un anno. Ciò consente di ricreare la traccia delle attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o la rete viene compromessa. | [Sì](../security-center/security-center-identity-access.md) |
+| Limitare gli utenti che possono accedere ai log di Azure Key Vault | I [log di Key Vault](key-vault-logging.md) salvano le informazioni sulle attività eseguite nell'insieme di credenziali, ad esempio la creazione o l'eliminazione di insiemi di credenziali, chiavi, segreti e possono essere usate durante un'indagine |  - |
+
+## <a name="networking"></a>Rete
+
+| Indicazione | Commenti | Centro sicurezza |
+|-|----|--|
+|Limita l'esposizione alla rete | L'accesso alla rete deve essere limitato alle reti virtuali usate dalle soluzioni che richiedono l'accesso all'insieme di credenziali. Esaminare le informazioni sugli [endpoint del servizio rete virtuale per Azure Key Vault](key-vault-overview-vnet-service-endpoints.md) | - |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

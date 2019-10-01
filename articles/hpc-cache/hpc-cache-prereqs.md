@@ -4,14 +4,14 @@ description: Prerequisiti per l'uso della cache HPC di Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/24/2019
-ms.author: v-erkell
-ms.openlocfilehash: fab85785ea183736b4012c349af143ef3a8c784a
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.date: 10/01/2019
+ms.author: rohogue
+ms.openlocfilehash: cfaa8f94dbb836a61b7f024c9426625d874dc524
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299922"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709969"
 ---
 # <a name="prerequisites-for-azure-hpc-cache-preview"></a>Prerequisiti per cache HPC di Azure (anteprima)
 
@@ -57,15 +57,14 @@ Per altre informazioni sulle reti virtuali di Azure e sulle configurazioni del s
 Verificare questi prerequisiti relativi alle autorizzazioni prima di iniziare a creare la cache.
 
 * L'istanza della cache deve essere in grado di creare interfacce di rete virtuali (NIC). Per creare schede di interfaccia di rete, l'utente che crea la cache deve disporre di privilegi sufficienti nella sottoscrizione.
-<!-- There are several ways to authorize this access; read [Additional prerequisites](media/preview-prereqs.md) to learn more. -->
 
 * Se si usa l'archiviazione BLOB, la cache HPC di Azure deve disporre dell'autorizzazione per accedere all'account di archiviazione. È possibile usare il controllo degli accessi in base al ruolo (RBAC) per concedere all'archivio BLOB l'accesso alla cache. Sono necessari due ruoli: Collaboratore account di archiviazione e collaboratore dati BLOB di archiviazione. Per aggiungere i ruoli, seguire le istruzioni riportate in [aggiungere destinazioni di archiviazione](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) .
 
 ## <a name="storage-infrastructure"></a>Infrastruttura di archiviazione
 
-La cache supporta i contenitori BLOB di Azure o le esportazioni di archiviazione hardware NFS. È possibile definire le destinazioni di archiviazione quando si crea la cache, ma è anche possibile aggiungere l'archiviazione in un secondo momento.
+La cache supporta i contenitori BLOB di Azure o le esportazioni di archiviazione hardware NFS. Aggiungere le destinazioni di archiviazione dopo la creazione della cache.
 
-Ogni tipo di archiviazione ha prerequisiti specifici. 
+Ogni tipo di archiviazione ha prerequisiti specifici.
 
 ### <a name="nfs-storage-requirements"></a>Requisiti di archiviazione NFS
 

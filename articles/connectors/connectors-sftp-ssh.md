@@ -1,5 +1,5 @@
 ---
-title: Connettersi al server SFTP con SSH - App per la logica di Azure
+title: Connettersi al server SFTP con SSH-app per la logica di Azure
 description: Automatizzare le attività che monitorano, creano, gestiscono, inviano e ricevono file per un server SFTP usando SSH e App per la logica di Azure
 services: logic-apps
 ms.service: logic-apps
@@ -10,12 +10,12 @@ ms.reviewer: divswa, klam, LADocs
 ms.topic: article
 ms.date: 06/18/2019
 tags: connectors
-ms.openlocfilehash: 7479be6a14c7d1ace5d60defad0eda51d2aa814b
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 33c6007ebc429bb0d95d702ae9b90f9ac411a88c
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296573"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695200"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorare, creare e gestire i file SFTP usando SSH e App per la logica di Azure
 
@@ -29,17 +29,17 @@ Per automatizzare le attività che monitorano, creano, inviano e ricevono file i
 
 È possibile usare trigger che monitorano eventi sul server SFTP e rendere disponibile l'output per altre azioni. È possibile usare azioni che eseguono varie attività sul server SFTP. Si può anche fare in modo che altre azioni dell'app per la logica usino l'output delle azioni SFTP. Se ad esempio si recuperano regolarmente file dal server SFTP, è possibile inviare avvisi su tali file e sul relativo contenuto tramite posta elettronica usando il connettore Outlook di Office 365 o Outlook.com. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
 
-Le differenze tra il connettore SFTP-SSH e il connettore SFTP, rivedere le [confrontare SFTP-SSH e SFTP](#comparison) sezione più avanti in questo argomento.
+Per le differenze tra il connettore SFTP-SSH e il connettore SFTP, vedere la sezione [confrontare SFTP-SSH rispetto a SFTP](#comparison) più avanti in questo argomento.
 
 ## <a name="limits"></a>Limiti
 
-* Per impostazione predefinita, le azioni SFTP-SSH possano leggere o scrivere i file che sono *almeno 1 GB o più piccolo* , ma solo in *15 MB* blocchi in un momento. Per gestire file di dimensioni superiori a 15 MB, supporto per le azioni SFTP-SSH [chunking messaggio](../logic-apps/logic-apps-handle-large-messages.md), fatta eccezione per l'azione di copia File, che può gestire solo i file di 15 MB. Il **Ottieni contenuto file** azione utilizza in modo implicito la suddivisione in blocchi di messaggio. 
+* Per impostazione predefinita, le azioni SFTP-SSH possono leggere o scrivere file di *1 GB o di dimensioni inferiori* , ma solo in blocchi di *15 MB* alla volta. Per gestire file di dimensioni superiori a 15 MB, le azioni SFTP-SSH supportano la [suddivisione in blocchi dei messaggi](../logic-apps/logic-apps-handle-large-messages.md), ad eccezione dell'azione copia file, che può gestire solo 15 MB di file. L'azione **Ottieni contenuto file** USA in modo implicito la suddivisione in blocchi dei messaggi.
 
-* I trigger SFTP-SSH non supportano la suddivisione in blocchi. La richiesta di contenuto del file, i trigger selezionare solo i file che sono 15 MB o inferiore. Per ottenere i file di dimensioni superiori a 15 MB, è invece seguono questo modello:
+* I trigger SFTP-SSH non supportano la suddivisione in blocchi. Quando si richiede il contenuto del file, i trigger selezionano solo i file di 15 MB o inferiori. Per ottenere file di dimensioni superiori a 15 MB, seguire invece questo modello:
 
-  * Usare un SFTP-SSH trigger che restituisce le proprietà del file, ad esempio **quando un file viene aggiunto o modificato (solo proprietà)** .
+  * Usare un trigger SFTP-SSH che restituisce le proprietà del file, ad esempio **quando un file viene aggiunto o modificato (solo proprietà)** .
 
-  * Seguire il trigger con il SFTP-SSH **Ottieni contenuto file** azione, che legge il file completo e utilizza in modo implicito la suddivisione in blocchi di messaggio.
+  * Seguire il trigger con l'azione SFTP-SSH **get file content** , che legge il file completo e USA in modo implicito la suddivisione in blocchi dei messaggi.
 
 <a name="comparison"></a>
 
@@ -47,17 +47,9 @@ Le differenze tra il connettore SFTP-SSH e il connettore SFTP, rivedere le [conf
 
 Questa sezione illustra altre differenze importanti tra il connettore SFTP-SSH e il connettore SFTP. SFTP-SSH offre queste funzionalità:
 
-* Usa il [libreria SSH.NET](https://github.com/sshnet/SSH.NET), che è una libreria di Secure Shell (SSH) open source che supporta .NET.
+* Usa la [libreria SSH.NET](https://github.com/sshnet/SSH.NET), una libreria SSH (open source Secure Shell) che supporta .NET.
 
-  > [!NOTE]
-  >
-  > Il connettore SFTP-SSH supporta *solo* questi formati di chiave privata, algoritmi e impronte digitali:
-  >
-  > * **Formati di chiave privata**: chiavi RSA (Rivest Shamir Adleman) e DSA (Digital Signature Algorithm) in entrambi i formati OpenSSH e ssh.com
-  > * **Algoritmi di crittografia**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC e AES-256-CBC
-  > * **Impronta digitale**: MD5
-
-* Per impostazione predefinita, le azioni SFTP-SSH possano leggere o scrivere i file che sono *almeno 1 GB o più piccolo* , ma solo in *15 MB* blocchi in un momento. Per gestire file di dimensioni superiori a 15 MB, possono usare le azioni SFTP-SSH [chunking messaggio](../logic-apps/logic-apps-handle-large-messages.md). Tuttavia, l'azione di copia File supporta solo i file di 15 MB poiché tale azione non supporta la suddivisione in blocchi di messaggio. I trigger SFTP-SSH non supportano la suddivisione in blocchi.
+* Per impostazione predefinita, le azioni SFTP-SSH possono leggere o scrivere file di *1 GB o di dimensioni inferiori* , ma solo in blocchi di *15 MB* alla volta. Per gestire file di dimensioni superiori a 15 MB, le azioni SFTP-SSH possono usare la [suddivisione in blocchi dei messaggi](../logic-apps/logic-apps-handle-large-messages.md). Tuttavia, l'azione copia file supporta solo file da 15 MB perché tale azione non supporta la suddivisione in blocchi dei messaggi. I trigger SFTP-SSH non supportano la suddivisione in blocchi.
 
 * Fornisce l'azione **Crea cartella** che crea una cartella nel percorso specificato nel server SFTP.
 
@@ -75,21 +67,22 @@ Questa sezione illustra altre differenze importanti tra il connettore SFTP-SSH e
   >
   > Il connettore SFTP-SSH supporta *solo* questi formati di chiave privata, algoritmi e impronte digitali:
   >
-  > * **Formati di chiave privata**: chiavi RSA (Rivest Shamir Adleman) e DSA (Digital Signature Algorithm) in entrambi i formati OpenSSH e ssh.com
+  > * **Formati di chiave privata**: Chiavi RSA (Rivet Shamir Adleman) e DSA (Digital Signature Algorithm) nei formati OpenSSH e ssh.com. Se la chiave privata è in formato di file PuTTy (con estensione PPK), [convertire prima la chiave nel formato di file OpenSSH (con estensione PEM)](#convert-to-openssh).
+  >
   > * **Algoritmi di crittografia**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC e AES-256-CBC
+  >
   > * **Impronta digitale**: MD5
   >
-  > Quando si crea l'app per la logica, dopo avere aggiunto l'azione o il trigger SFTP-SSH, è necessario specificare le informazioni di connessione per il server SFTP. 
-  > Se si usa una chiave privata SSH, assicurarsi di ***copiare*** la chiave dal file della chiave privata SSH e ***incollare*** tale chiave nelle informazioni per la connessione. ***Non immettere o modificare la chiave manualmente***, in quanto ciò può causare un errore di connessione. 
-  > Per altre informazioni, vedere i passaggi successivi in questo articolo.
+  > Dopo aver aggiunto il trigger SFTP-SSH o l'azione desiderata per l'app per la logica, è necessario fornire le informazioni di connessione per il server SFTP. Quando si specifica la chiave privata SSH per questa connessione, ***non immettere o modificare manualmente la chiave***, il che potrebbe causare l'esito negativo della connessione. Al contrario, assicurarsi di ***copiare la chiave*** dal file di chiave privata SSH e ***incollare*** la chiave nei dettagli della connessione. 
+  > Per altre informazioni, vedere la sezione [connettersi a SFTP con SSH](#connect) più avanti in questo articolo.
 
 * Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * L'app per la logica in cui si vuole accedere all'account SFPT. Per iniziare con un trigger SFTP-SSH, [creare un'app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per usare un'azione SFTP-SSH, avviare l'app per la logica con un altro trigger, ad esempio il trigger **Ricorrenza**.
 
-## <a name="how-sftp-ssh-triggers-work"></a>Funzionamento di trigger SFTP-SSH
+## <a name="how-sftp-ssh-triggers-work"></a>Funzionamento del trigger SFTP-SSH
 
-I trigger SFTP-SSH usare il polling del sistema di file SFTP e cercando tutti i file che è stato modificato dall'ultimo polling. Alcuni strumenti consentono di mantenere il timestamp quando i file vengono modificati. In questi casi è necessario disabilitare questa funzionalità per consentire il funzionamento del trigger. Ecco alcune delle impostazioni comuni:
+I trigger SFTP-SSH funzionano eseguendo il polling del file system SFTP e cercando eventuali file modificati dopo l'ultimo polling. Alcuni strumenti consentono di mantenere il timestamp quando i file vengono modificati. In questi casi è necessario disabilitare questa funzionalità per consentire il funzionamento del trigger. Ecco alcune delle impostazioni comuni:
 
 | Client SFTP | Azione |
 |-------------|--------|
@@ -98,6 +91,44 @@ I trigger SFTP-SSH usare il polling del sistema di file SFTP e cercando tutti i 
 |||
 
 Quando un trigger rileva un nuovo file, controlla che sia completo e non parzialmente scritto. Ad esempio, un file potrebbe avere delle modifiche in corso nel momento in cui il trigger controlla il file server. Per evitare la restituzione di un file scritto parzialmente, il trigger prende nota del timestamp del file che contiene le modifiche recenti ma non restituisce immediatamente il file. Il trigger restituisce il file solo durante il nuovo polling del server. In alcuni casi, questo comportamento potrebbe causare un ritardo fino a un massimo del doppio dell'intervallo di polling del trigger.
+
+<a name="convert-to-openssh"></a>
+
+## <a name="convert-putty-based-key-to-openssh"></a>Convertire la chiave basata su PuTTy in OpenSSH
+
+Se la chiave privata è in formato PuTTy, che usa l'estensione del nome di file. PPK (PuTTy Private Key), convertire prima la chiave nel formato OpenSSH, che usa l'estensione di file PEM (Privacy Enhanced Mail).
+
+### <a name="unix-based-os"></a>Sistema operativo basato su UNIX
+
+1. Se gli strumenti PuTTy non sono già installati nel sistema, procedere ora, ad esempio:
+
+   `sudo apt-get install -y putty`
+
+1. Eseguire questo comando, che crea un file che è possibile usare con il connettore SFTP-SSH:
+
+   `puttygen <path-to-private-key-file-in-PuTTY-format> -O private-openssh -o <path-to-private-key-file-in-OpenSSH-format>`
+
+   Esempio:
+
+   `puttygen /tmp/sftp/my-private-key-putty.ppk -O private-openssh -o /tmp/sftp/my-private-key-openssh.pem`
+
+### <a name="windows-os"></a>Sistema operativo Windows
+
+1. Se non è già stato fatto, [scaricare lo strumento più recente del generatore PuTTY (puttygen. exe)](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html), quindi avviare lo strumento.
+
+1. In questa schermata selezionare **carica**.
+
+   ![Selezionare "carica"](./media/connectors-sftp-ssh/puttygen-load.png)
+
+1. Passare al file di chiave privata in formato PuTTy e selezionare **Apri**.
+
+1. Nel menu **conversioni** selezionare **Esporta chiave OpenSSH**.
+
+   ![Selezionare "Esporta chiave OpenSSH"](./media/connectors-sftp-ssh/export-openssh-key.png)
+
+1. Salvare il file di chiave privata con l'estensione del nome di file `.pem`.
+
+<a name="connect"></a>
 
 ## <a name="connect-to-sftp-with-ssh"></a>Connettersi a SFTP con SSH
 
@@ -117,14 +148,13 @@ Quando un trigger rileva un nuovo file, controlla che sia completo e non parzial
 
    > [!IMPORTANT]
    >
-   > Quando si immette la chiave privata SSH nella proprietà **Chiave privata SSH**, seguire questi passaggi aggiuntivi che consentono di assicurarsi di specificare il valore completo e corretto per questa proprietà. 
-   > Una chiave non valida provoca un errore di connessione.
+   > Quando si immette la chiave privata SSH nella proprietà **Chiave privata SSH**, seguire questi passaggi aggiuntivi che consentono di assicurarsi di specificare il valore completo e corretto per questa proprietà. Una chiave non valida provoca un errore di connessione.
 
    Anche se è possibile usare qualsiasi editor di testo, ecco i passaggi esemplificativi che mostrano come copiare e incollare la chiave usando Notepad.exe.
 
    1. Aprire il file della chiave privata SSH in un editor di testo. In questi passaggi viene usato il Blocco note come esempio.
 
-   1. Nel blocco note **Edit** dal menu **Seleziona tutto**.
+   1. Scegliere **Seleziona tutto**dal menu **modifica** del blocco note.
 
    1. Selezionare **Modifica** > **Copia**.
 

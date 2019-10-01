@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 3114f082a402fd005797b270cfdcd7527784dbe1
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
-ms.translationtype: HT
+ms.openlocfilehash: 88ce3931d9f47b8c16251a45e54fa96b97f038e2
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679229"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71693281"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>Aggiungere un'applicazione API Web al tenant di Azure Active Directory B2C
 
@@ -42,10 +42,6 @@ Gli ambiti consentono di regolamentare l'accesso alle risorse protette. Vengono 
 
 Per chiamare un'API Web protetta da un'applicazione, è necessario concedere all'applicazione le autorizzazioni per l'API. Ad esempio, in [Esercitazione: Registrare un'applicazione in Azure Active Directory B2C](tutorial-register-applications.md), viene creata un'applicazione Web in Azure AD B2C denominata *webapp1*. Questa applicazione può essere usata per chiamare l'API Web.
 
-1. Selezionare **Applicazioni** e quindi l'applicazione Web.
-1. Selezionare **Accesso all'API** e quindi **Aggiungi**.
-1. Nell'elenco a discesa **Seleziona API** selezionare *webapi1*.
-1. Nell'elenco a discesa **Seleziona ambiti** selezionare gli ambiti definiti in precedenza. Ad esempio, *demo. Read* e *demo. Write*.
-1. Scegliere **OK**.
+[!INCLUDE [active-directory-b2c-permissions-api](../../includes/active-directory-b2c-permissions-api.md)]
 
 L'applicazione verrà registrata per la chiamata dell'API Web protetta. Un utente esegue l'autenticazione con Azure AD B2C per usare l'applicazione. L'applicazione ottiene una concessione di autorizzazione da Azure AD B2C per l'accesso all'API Web protetta.

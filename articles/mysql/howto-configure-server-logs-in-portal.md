@@ -1,21 +1,21 @@
 ---
-title: Configurare e accedere ai log query lente per il Database di Azure per MySQL nel portale di Azure
-description: Questo articolo descrive come configurare e accedere ai log lento nel Database di Azure per MySQL dal portale di Azure.
-author: rachel-msft
-ms.author: raagyema
+title: Configurare e accedere ai log di query lente per database di Azure per MySQL in portale di Azure
+description: Questo articolo descrive come configurare e accedere ai log lenti in database di Azure per MySQL dalla portale di Azure.
+author: ajlam
+ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 05/29/2019
-ms.openlocfilehash: b16ac525d41eb2423828a647fdb75fd3f4a80a31
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 09/30/2019
+ms.openlocfilehash: b3986c19ec008437f3230b3674ce60d1dfba2024
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052727"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703434"
 ---
-# <a name="configure-and-access-slow-query-logs-in-the-azure-portal"></a>Configurare e log query lente di accesso nel portale di Azure
+# <a name="configure-and-access-slow-query-logs-in-the-azure-portal"></a>Configurare e accedere ai log di query lente nel portale di Azure
 
-È possibile configurare, elencare e scaricare il [Database di Azure per i log query lente MySQL](concepts-server-logs.md) dal portale di Azure.
+È possibile configurare, elencare e scaricare i [log di query lente di database di Azure per MySQL](concepts-server-logs.md) dalla portale di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per proseguire con questa guida, si richiedono:
@@ -42,7 +42,7 @@ Configurare l'accesso al log di query lente MySQL.
 6. Tornare all'elenco di log facendo clic sul **pulsante di chiusura** (icona X) nella pagina **Parametri del server**.
 
 ## <a name="view-list-and-download-logs"></a>Visualizzare l'elenco e scaricare i log
-Quando inizia la registrazione, è possibile visualizzare un elenco di log query lente disponibili e scaricare singoli file di log nel riquadro dei log del Server.
+Una volta avviata la registrazione, è possibile visualizzare un elenco di log di query lente disponibili e scaricare i singoli file di log nel riquadro log del server.
 
 1. Aprire il Portale di Azure.
 
@@ -61,7 +61,25 @@ Quando inizia la registrazione, è possibile visualizzare un elenco di log query
 
    ![Fare clic sull'icona per scaricare](./media/howto-configure-server-logs-in-portal/5-download.png)
 
+## <a name="set-up-diagnostic-logs"></a>Configurare i log di diagnostica
+
+1. Nella sezione **monitoraggio** della barra laterale selezionare impostazioni di **diagnostica**.
+
+1. Fare clic su "+ Aggiungi impostazione di diagnostica" @no__t-impostazione di diagnostica 0Add @ no__t-1
+
+1. Specificare un nome per l'impostazione di diagnostica.
+
+1. Specificare i sink di dati per l'invio dei log delle query lente (account di archiviazione, Hub eventi e/o area di lavoro Log Analytics).
+
+1. Selezionare "MySqlSlowLogs" come tipo di log.
+impostazione di diagnostica ![Configure @ no__t-1
+
+1. Dopo aver configurato i sink di dati per inviare tramite pipe i log delle query lente a, è possibile fare clic su **Salva**.
+impostazione di diagnostica ![Save @ no__t-1
+
+1. Per accedere ai log di query lente, esplorarli nei sink di dati configurati. Potrebbero essere necessari fino a 10 minuti per la visualizzazione dei log.
+
 ## <a name="next-steps"></a>Passaggi successivi
-- Visualizzare [log di query lente di accesso nell'infrastruttura CLI](howto-configure-server-logs-in-cli.md) per informazioni su come scaricare i log query lente a livello di codice.
-- Altre informazioni sulle [rallentare i log di query](concepts-server-logs.md) nel Database di Azure per MySQL.
+- Vedere [accedere ai log di query lente nell'interfaccia della](howto-configure-server-logs-in-cli.md) riga di comando per informazioni su come scaricare i log di query lente a livello di codice
+- Altre informazioni sui [log di query lente](concepts-server-logs.md) nel database di Azure per MySQL.
 - Per altre informazioni sulle definizioni di parametri e la registrazione MySQL, vedere la documentazione di MySQL sui [log](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html).

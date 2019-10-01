@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 07/24/2019
+ms.date: 09/29/2019
 ms.author: diberry
-ms.openlocfilehash: 82cce359f2161800c53ccce7cdb0342bba759d43
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ae46df875d588186cd083134820f349158d7e307
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559945"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695209"
 ---
 # <a name="regular-expression-entity"></a>Entità di espressione regolare 
 
@@ -32,13 +32,13 @@ Un'espressione regolare è ideale per il testo di un'espressione non elaborata. 
 
 ## <a name="usage-considerations"></a>Considerazioni sull'utilizzo
 
-Le espressioni regolari possono corrispondere a più di quanto previsto. Un esempio è la corrispondenza numerica di parole, `one` ad `two`esempio e. Un esempio è l'espressione regolare seguente, che corrisponde al `one` numero insieme ad altri numeri:
+Le espressioni regolari possono corrispondere a più di quanto previsto. Un esempio è la corrispondenza di parole numeriche, ad esempio `one` e `two`. Un esempio è l'espressione regolare seguente, che corrisponde al numero `one` insieme ad altri numeri:
 
 ```javascript
 (plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*
 ``` 
 
-Questa espressione Regex corrisponde anche a tutte le parole che terminano con questi numeri `phone`, ad esempio. Per risolvere problemi di questo tipo, assicurarsi che le corrispondenze Regex prendano in considerazione i limiti di parola. L'espressione regolare per utilizzare i limiti di parola per questo esempio viene utilizzata nell'espressione regolare seguente:
+Questa espressione Regex corrisponde anche a tutte le parole che terminano con questi numeri, ad esempio `phone`. Per risolvere problemi di questo tipo, assicurarsi che le corrispondenze Regex prendano in considerazione i limiti di parola. L'espressione regolare per utilizzare i limiti di parola per questo esempio viene utilizzata nell'espressione regolare seguente:
 
 ```javascript
 \b(plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*\b
@@ -46,35 +46,63 @@ Questa espressione Regex corrisponde anche a tutte le parole che terminano con q
 
 ### <a name="example-json"></a>JSON di esempio
 
-Quando si `kb[0-9]{6}`USA, come definizione di entità di espressioni regolari, la risposta JSON seguente è un enunciato di esempio con le entità di espressioni `When was kb123456 published?`regolari restituite per la query:
+Quando si usa `kb[0-9]{6}`, come definizione di entità di espressioni regolari, la risposta JSON seguente è un enunciato di esempio con le entità di espressione regolare restituite per la query:
+
+`When was kb123456 published?`:
+
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 risposta endpoint di stima](#tab/V2)
 
 ```JSON
-{
-  "query": "when was kb123456 published?",
-  "topScoringIntent": {
-    "intent": "FindKBArticle",
-    "score": 0.933641255
-  },
-  "intents": [
-    {
-      "intent": "FindKBArticle",
-      "score": 0.933641255
-    },
-    {
-      "intent": "None",
-      "score": 0.04397359
-    }
-  ],
-  "entities": [
-    {
-      "entity": "kb123456",
-      "type": "KB number",
-      "startIndex": 9,
-      "endIndex": 16
-    }
-  ]
+"entities": [
+  {
+    "entity": "kb123456",
+    "type": "KB number",
+    "startIndex": 9,
+    "endIndex": 16
+  }
+]
+```
+
+
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Risposta dell'endpoint di stima V3](#tab/V3)
+
+
+Si tratta del codice JSON se `verbose=false` è impostato nella stringa di query:
+
+```json
+"entities": {
+    "KB number": [
+        "kb123456"
+    ]
 }
 ```
+
+Si tratta del codice JSON se `verbose=true` è impostato nella stringa di query:
+
+```json
+"entities": {
+    "KB number": [
+        "kb123456"
+    ],
+    "$instance": {
+        "KB number": [
+            {
+                "type": "KB number",
+                "text": "kb123456",
+                "startIndex": 9,
+                "length": 8,
+                "modelTypeId": 8,
+                "modelType": "Regex Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+
+* * * 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

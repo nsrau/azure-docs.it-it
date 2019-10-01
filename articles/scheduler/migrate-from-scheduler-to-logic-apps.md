@@ -9,17 +9,17 @@ ms.author: deli
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/23/2019
-ms.openlocfilehash: 6b80cbd16ac78f7f347bef9ab8e22c4d67d31058
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 73aa641fc4bb01ef3d06820ecd18b61197ab81e7
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71301035"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695491"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Eseguire la migrazione da Utilità di pianificazione ad App per la logica di Azure
 
 > [!IMPORTANT]
-> [App](../logic-apps/logic-apps-overview.md) per la logica di Azure sostituisce l'utilità di pianificazione di Azure, che sta per [essere ritirata](#retire-date). Per continuare a usare i processi configurati nell'utilità di pianificazione, passare ad app per la logica di Azure il prima possibile seguendo questo articolo.
+> [App](../logic-apps/logic-apps-overview.md) per la logica di Azure sostituisce l'utilità di pianificazione di Azure, che sta per [essere ritirata](#retire-date). Per continuare a usare i processi configurati nell'utilità di pianificazione, passare ad app per la logica di Azure il prima possibile seguendo questo articolo. 
 
 Questo articolo illustra come pianificare processi unici e ricorrenti mediante la creazione di flussi di lavoro automatizzati con App per la logica di Azure anziché con l'Utilità di pianificazione di Microsoft Azure. Quando si creano processi pianificati con App per la logica, si ottengono questi vantaggi:
 
@@ -38,6 +38,10 @@ Per altre informazioni, vedere [che cos'è app per la logica di Azure?](../logic
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
 * Per attivare l'app per la logica inviando richieste HTTP, usare uno strumento come l'[app desktop Postman](https://www.getpostman.com/apps).
+
+## <a name="migrate-by-using-a-script"></a>Eseguire la migrazione tramite uno script
+
+Ogni processo dell'utilità di pianificazione è univoco, quindi non esiste alcuno strumento per la migrazione dei processi dell'utilità di pianificazione alle app per la logica di Azure. Tuttavia, è possibile [modificare lo script](https://github.com/Azure/logicapps/tree/master/scripts/scheduler-migration) in base alle esigenze.
 
 ## <a name="schedule-one-time-jobs"></a>Pianificare processi unici
 
@@ -203,7 +207,7 @@ Per altre informazioni sulla gestione delle eccezioni, vedere [Rilevare e gestir
 **R**: Come procedura consigliata, eseguire sempre il backup del proprio lavoro. Prima di eliminare o disabilitare i processi dell'Utilità di pianificazione, verificare che le app per la logica create funzionino come previsto. 
 
 **D**: È disponibile uno strumento che consente di eseguire la migrazione dei processi dall'utilità di pianificazione alle app per la logica? <br>
-**R**: Ogni processo dell'utilità di pianificazione è univoco, pertanto non esiste uno strumento per tutti i formati. Tuttavia, saranno disponibili vari script modificabili in base alle proprie esigenze. Per la disponibilità di script, tornare a controllare più avanti.
+**R**: Ogni processo dell'utilità di pianificazione è univoco, pertanto non esiste uno strumento per tutti i formati. Tuttavia, in base alle esigenze, è possibile [modificare questo script per eseguire la migrazione dei processi dell'utilità di pianificazione di Azure alle app per la logica di Azure](https://github.com/Azure/logicapps/tree/master/scripts/scheduler-migration).
 
 **D**: Dove è possibile ottenere supporto per la migrazione dei processi dell'utilità di pianificazione? <br>
 **R**: Ecco alcuni modi per ottenere supporto: 

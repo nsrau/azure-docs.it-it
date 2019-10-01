@@ -11,12 +11,12 @@ ms.date: 09/14/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c216512aef117a332d3aabfc83ec5615b70b202c
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: a8e35254a79ac43b35f45d1a20f3d1f6815f32be
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033821"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71702813"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Accesso ai log di controllo di Azure AD B2C
 
@@ -37,7 +37,7 @@ La categoria **B2C** nei log di controllo contiene i tipi di attività seguenti:
 |Directory |Attività relative agli attributi di directory recuperate quando un amministratore accede utilizzando il portale di Azure. |
 |Applicazione | Operazioni di creazione, lettura, aggiornamento ed eliminazione (CRUD) sulle applicazioni B2C. |
 |Chiave |Operazioni CRUD sulle chiavi archiviate in un contenitore di chiavi B2C. |
-|Risorsa |Operazioni CRUD sulle risorse B2C. Ad esempio, i criteri e i provider di identità.
+|Resource |Operazioni CRUD sulle risorse B2C. Ad esempio, i criteri e i provider di identità.
 |Authentication |Convalida delle credenziali utente e del rilascio dei token.|
 
 Per le attività CRUD sugli oggetti utente, vedere la categoria **Directory principale**.
@@ -50,9 +50,9 @@ Questa immagine di esempio dalla portale di Azure Mostra i dati acquisiti quando
 
 Il pannello Dettagli attività contiene le informazioni rilevanti seguenti:
 
-|`Section`|Campo|DESCRIZIONE|
+|`Section`|Campo|Descrizione|
 |-------|-----|-----------|
-| Attività | NOME | Quale attività ha avuto luogo. Ad esempio, *emettere un token ID per l'applicazione*, che conclude l'effettivo accesso dell'utente. |
+| Nome | Attività | Quale attività ha avuto luogo. Ad esempio, *emettere un token ID per l'applicazione*, che conclude l'effettivo accesso dell'utente. |
 | Azione avviata da (attore) | ObjectId | **ID oggetto** dell'applicazione B2C a cui l'utente sta eseguendo l'accesso. Questo identificatore non è visibile nel portale di Azure, ma è accessibile tramite l'API Microsoft Graph. |
 | Azione avviata da (attore) | SPN | **ID applicazione** dell'applicazione B2C a cui l'utente sta eseguendo l'accesso. |
 | Destinazioni | ObjectId | **ID oggetto** dell'utente che sta effettuando l'accesso. |
@@ -94,30 +94,28 @@ Per consentire l'accesso basato su script o applicazione all'API di creazione di
 
 È possibile abilitare queste autorizzazioni per una registrazione Azure Active Directory applicazione esistente all'interno del tenant B2C o crearne una nuova in modo specifico per l'uso con l'automazione dei log di controllo.
 
-Per creare una nuova applicazione, assegnare le autorizzazioni API necessarie e creare un segreto client, seguire questa procedura:
+Eseguire la procedura seguente per registrare un'applicazione, concedere al Microsoft Graph le autorizzazioni necessarie per l'API e quindi creare un segreto client.
 
-1. Registrare l'applicazione in Azure Active Directory
-    1. Accedere al [portale di Azure](https://portal.azure.com) e passare alla directory che contiene il tenant del Azure ad B2C.
-    1. Selezionare **Azure Active Directory** (*non* Azure ad B2C) dal menu a sinistra. In alternativa, selezionare **tutti i servizi**, quindi cercare e selezionare **Azure Active Directory**.
-    1. In **Gestisci** nel menu a sinistra selezionare **registrazioni app (legacy)** .
-    1. Selezionare **registrazione nuova applicazione**
-    1. Immettere un nome per l'applicazione. Ad esempio, *audit log app*.
-    1. Immettere un URL valido nell' **URL di accesso**. Ad esempio, *https://localhost* . Non è necessario che l'endpoint sia raggiungibile, ma deve essere un URL valido.
-    1. Selezionare **Create**.
-    1. Registrare l' **ID applicazione** visualizzato nella pagina dell' **app registrata** . Questo valore è necessario per l'autenticazione negli script di automazione come lo script PowerShell di esempio illustrato in una sezione successiva.
-1. Assegnare le autorizzazioni di accesso all'API
-    1. Nella pagina Panoramica dell' **app registrata** selezionare **Impostazioni**.
-    1. In **accesso all'API**selezionare **autorizzazioni necessarie**.
-    1. Selezionare **Aggiungi**, quindi **selezionare un'API**.
-    1. Selezionare **Microsoft Graph**, quindi **selezionare**.
-    1. In **Autorizzazioni applicazione**selezionare **Leggi tutti i dati del registro di controllo**.
-    1. Selezionare il pulsante **Seleziona** e quindi fare clic su **fine**.
-    1. Selezionare **Concedi autorizzazioni** e quindi selezionare **Sì**.
-1. Crea segreto client
-    1. In **accesso all'API**selezionare **chiavi**.
-    1. Immettere una descrizione per la chiave nella casella **Descrizione chiave** . Ad esempio, la *chiave del registro di controllo*.
-    1. Selezionare una **durata**di validità, quindi selezionare **Salva**.
-    1. Registrare il **valore**della chiave. Questo valore è necessario per l'autenticazione negli script di automazione come lo script PowerShell di esempio illustrato in una sezione successiva.
+### <a name="register-application-in-azure-active-directory"></a>Registrare l'applicazione in Azure Active Directory
+
+[!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
+
+### <a name="assign-api-access-permissions"></a>Assegnare le autorizzazioni di accesso all'API
+
+1. Nella pagina Panoramica dell' **app registrata** selezionare **Impostazioni**.
+1. In **accesso all'API**selezionare **autorizzazioni necessarie**.
+1. Selezionare **Aggiungi**, quindi **selezionare un'API**.
+1. Selezionare **Microsoft Graph**, quindi **selezionare**.
+1. In **Autorizzazioni applicazione**selezionare **Leggi tutti i dati del registro di controllo**.
+1. Selezionare il pulsante **Seleziona** e quindi fare clic su **fine**.
+1. Selezionare **Concedi autorizzazioni** e quindi selezionare **Sì**.
+
+### <a name="create-client-secret"></a>Crea segreto client
+
+1. In **accesso all'API**selezionare **chiavi**.
+1. Immettere una descrizione per la chiave nella casella **Descrizione chiave** . Ad esempio, la *chiave del registro di controllo*.
+1. Selezionare una **durata**di validità, quindi selezionare **Salva**.
+1. Registrare il **valore**della chiave. Questo valore è necessario per l'autenticazione negli script di automazione come lo script PowerShell di esempio illustrato in una sezione successiva.
 
 A questo punto si dispone di un'applicazione con l'accesso all'API richiesto, un ID applicazione e una chiave che è possibile usare negli script di automazione. Vedere la sezione script di PowerShell più avanti in questo articolo per un esempio di come è possibile ottenere gli eventi di attività con uno script.
 

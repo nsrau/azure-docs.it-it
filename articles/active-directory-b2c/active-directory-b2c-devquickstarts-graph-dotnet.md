@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 903492d790cdde93dfe84763de139fe85e26b234
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 02765538ce8a351db539438837b6426c0896d2d4
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71218277"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71701884"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Usare l'API Graph di Azure AD
 
@@ -43,16 +43,9 @@ Quando si dispone di un tenant di Azure AD B2C, è necessario registrare l'appli
 
 ### <a name="register-application-in-azure-active-directory"></a>Registrare l'applicazione in Azure Active Directory
 
-Per usare la Azure AD API Graph con il tenant B2C, è necessario registrare un'applicazione usando il flusso di lavoro di **Registrazioni app** Azure Active Directory.
+Per usare la Azure AD API Graph con il tenant B2C, è necessario registrare un'applicazione usando il flusso di lavoro di registrazione dell'applicazione Azure Active Directory.
 
-1. Accedere al [portale di Azure](https://portal.azure.com) e passare alla directory che contiene il tenant del Azure ad B2C.
-1. Selezionare **Azure Active Directory** (*non* Azure ad B2C) nel menu a sinistra. In alternativa, selezionare **tutti i servizi** e quindi cercare e selezionare **Azure Active Directory**.
-1. In **Gestisci** nel menu a sinistra selezionare **registrazioni app (legacy)** .
-1. Selezionare **registrazione nuova applicazione**
-1. Immettere un nome per l'applicazione. Ad esempio, l' *app di gestione*.
-1. Immettere un URL valido nell' **URL di accesso**. Ad esempio, *https://localhost* . Non è necessario che l'endpoint sia raggiungibile, ma deve essere un URL valido.
-1. Selezionare **Create**.
-1. Registrare l' **ID applicazione** visualizzato nella pagina Panoramica dell' **app registrata** . Usare questo valore per la configurazione in un passaggio successivo.
+[!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
 
 ### <a name="assign-api-access-permissions"></a>Assegnare le autorizzazioni di accesso all'API
 
@@ -83,7 +76,7 @@ Se si desidera consentire all'applicazione di eliminare gli utenti o aggiornare 
 1. In **Gestisci**selezionare **ruoli e amministratori**.
 1. Selezionare il ruolo di **amministratore utente** .
 1. Selezionare **Aggiungi assegnazione**.
-1. Nella casella di testo **Seleziona** immettere il nome dell'applicazione registrata in precedenza, ad esempio, app di *gestione*. Selezionare l'applicazione quando viene visualizzata nei risultati della ricerca.
+1. Nella casella di testo **Seleziona** immettere il nome dell'applicazione registrata in precedenza, ad esempio *managementapp1*. Selezionare l'applicazione quando viene visualizzata nei risultati della ricerca.
 1. Selezionare **Aggiungi**. Potrebbero essere necessari alcuni minuti per la propagazione completa delle autorizzazioni.
 
 L'applicazione Azure AD B2C dispone ora delle autorizzazioni aggiuntive necessarie per eliminare gli utenti o aggiornare le password nel tenant B2C.

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/23/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand global transit network architecture as it relates to Virtual WAN.
-ms.openlocfilehash: 2376c77ecc328788c842e045aafb618cbad39b0e
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 0a5059382c26afd6120dc14a1ab2c7e5d281e7a1
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68421420"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695260"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Architettura di rete di transito globale e rete WAN virtuale
 
@@ -21,7 +21,7 @@ L'architettura di rete di transito globale è stata adottata dalle aziende per c
 
 ![architettura](./media/virtual-wan-global-transit-network-architecture/architecture2.png)
 
-**Figura 1: Rete di transito globale con rete WAN virtuale**
+**Figura 1: Rete di transito globale con WAN virtuale @ no__t-0
 
 Le aziende moderne richiedono una connettività onnipresente tra le applicazioni, i dati e gli utenti Hyper-distribuiti nel cloud e in locale. La rete WAN virtuale di Azure consente un'architettura di rete di transito globale abilitando connettività universale, any-to-any tra set distribuiti a livello globale di reti virtuali, siti, applicazioni e utenti. La rete WAN virtuale di Azure è un servizio gestito da Microsoft. Tutti i componenti di rete di cui questo servizio è composto sono ospitati e gestiti da Microsoft. Per altre informazioni sulla rete WAN virtuale, vedere l'articolo [Panoramica della rete WAN virtuale](virtual-wan-about.md) .
 
@@ -42,9 +42,9 @@ In questo modello, un spoke può essere:
 
 ![diagramma di transito globale Hub e spoke](./media/virtual-wan-global-transit-network-architecture/architecture.png)
 
-**Figura 2: Hub e spoke**
+**Figura 2: Hub-and-spoke @ no__t-0
 
-Nella figura 2 è illustrata la visualizzazione logica della rete globale in cui utenti distribuiti geograficamente, siti fisici e reti virtuali vengono interconnessi tramite un hub di rete ospitato nel cloud. Questa architettura consente la connettività di transito a un hop logico tra gli endpoint di rete. I spoke sono connessi all'hub da vari servizi di rete di Azure, ad esempio ExpressRoute o VPN da sito a sito, per i rami fisici, il peering VNet per reti virtuali e la VPN da punto a sito per gli utenti remoti.
+Nella figura 2 è illustrata la visualizzazione logica della rete globale in cui utenti distribuiti geograficamente, siti fisici e reti virtuali vengono interconnessi tramite un hub di rete ospitato nel cloud. Questa architettura consente la connettività di transito a un hop logico tra gli endpoint di rete. I spoke sono connessi all'hub da vari servizi di rete di Azure, ad esempio ExpressRoute o VPN da sito a sito, per i rami fisici, le connessioni VNet per reti virtuali e la VPN da punto a sito per gli utenti remoti.
 
 ## <a name="crossregion"></a>Connettività tra aree
 
@@ -58,7 +58,7 @@ La connettività any-to-any, nel contesto di un'architettura globale, consente a
 
 ![percorsi di traffico](./media/virtual-wan-global-transit-network-architecture/trafficpath.png)
 
-**Figura 3: Percorsi di traffico WAN virtuale**
+**Figura 3: Percorsi di traffico della rete WAN virtuale @ no__t-0
 
 La rete WAN virtuale di Azure supporta i seguenti percorsi di connettività di transito globali. Le lettere tra parentesi vengono mappate alla figura 3.
 
@@ -67,11 +67,11 @@ La rete WAN virtuale di Azure supporta i seguenti percorsi di connettività di t
 * Utente remoto-VNet (c)
 * Remote User-to-Branch (d)
 * Da VNet a VNet mediante il peering VNet (e)
-* Copertura globale ExpressRoute 
+* Copertura globale di ExpressRoute 
 
 ### <a name="branchvnet"></a>Da ramo a VNet
 
-Branch-to-VNet è il percorso primario supportato dalla rete WAN virtuale di Azure. Questo percorso consente di connettere i rami ai carichi di lavoro aziendali di Azure IAAS distribuiti in Azure reti virtuali. È possibile connettere i rami alla rete WAN virtuale tramite ExpressRoute o VPN da sito a sito. Il traffico viene transitato verso reti virtuali connesse agli hub WAN virtuali tramite connessioni VNet.
+Branch-to-VNet è il percorso primario supportato dalla rete WAN virtuale di Azure. Questo percorso consente di connettere i rami ai carichi di lavoro aziendali di Azure IAAS distribuiti in Azure reti virtuali. È possibile connettere i rami alla rete WAN virtuale tramite ExpressRoute o VPN da sito a sito. Il traffico viene transitato verso reti virtuali connesse agli hub WAN virtuali tramite connessioni VNet. Il [transito del gateway](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) non è necessario per la rete WAN virtuale perché la rete WAN virtuale Abilita automaticamente il transito dei gateway nei siti dei rami.
 
 ### <a name="branchbranch"></a>Da ramo a ramo
 
@@ -89,7 +89,7 @@ Il percorso remoto da utente a ramo consente agli utenti remoti che usano una co
 
 ### <a name="vnetvnet"></a>Transito da VNet a VNet con peering VNet
 
-Per connettere reti virtuali l'uno all'altro per supportare applicazioni multilivello implementate in più reti virtuali, usare il peering VNet. Uno scenario di transito da VNet a VNet tramite la rete WAN virtuale di Azure non è attualmente supportato, ma si trova nella roadmap di Azure. La connessione di reti virtuali tramite il peering VNet è la soluzione consigliata per reti virtuali che devono essere connesse tra loro. [Transito gateway](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) (nel contesto del peering VNet) non è necessario per la rete WAN virtuale perché la rete WAN virtuale Abilita automaticamente il transito del gateway.
+Per connettere reti virtuali l'uno all'altro per supportare applicazioni multilivello implementate in più reti virtuali, usare il peering VNet. Uno scenario di transito da VNet a VNet tramite la rete WAN virtuale di Azure non è attualmente supportato, ma si trova nella roadmap di Azure. La connessione di reti virtuali tramite il peering VNet è la soluzione consigliata per reti virtuali che devono essere connesse tra loro. 
 
 ### <a name="globalreach"></a>Copertura globale ExpressRoute
 

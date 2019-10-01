@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: 2d7cc217ff8ae45491c0f9d6b54ea8afea19cd2e
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: b2c1f01e53cfe41b72e3e079059c66e4e2409012
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981246"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703265"
 ---
 # <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Controlli di accesso alla rete del database SQL di Azure e data warehouse
 
@@ -72,7 +72,9 @@ Il firewall basato su IP è una funzionalità di SQL Server di Azure che impedis
 ## <a name="virtual-network-firewall-rules"></a>Regole del firewall della rete virtuale
 
 Oltre alle regole IP, Azure SQL Server Firewall consente di definire *le regole della rete virtuale*.  
-Per altre informazioni, vedere [Endpoint servizio di rete virtuale e regole per il database SQL di Azure](sql-database-vnet-service-endpoint-rule-overview.md).
+Per altre informazioni, vedere [endpoint del servizio di rete virtuale e regole per il database SQL di Azure](sql-database-vnet-service-endpoint-rule-overview.md) o guardare questo video:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Data-Exposed--Demo--Vnet-Firewall-Rules-for-SQL-Database/player?WT.mc_id=dataexposed-c9-niner]
 
  ### <a name="azure-networking-terminology"></a>Terminologia di rete di Azure  
 Quando si esplorano le regole del firewall di rete virtuale, tenere presenti le condizioni di rete di Azure seguenti:
@@ -81,7 +83,7 @@ Quando si esplorano le regole del firewall di rete virtuale, tenere presenti le 
 
 **Subnet:** una rete virtuale contiene una o più **subnet**. Le macchine virtuali (VM) di Azure esistenti vengono assegnate a subnet. Una subnet può contenere varie VM o altri nodi di calcolo. I nodi di calcolo esterni alla rete virtuale non possono accedervi, a meno che non si configuri la sicurezza in modo da consentirne l'accesso.
 
-**Endpoint del servizio di rete virtuale:** Un [endpoint servizio rete virtuale] [VM-Virtual-Network-Service-Endpoints-Overview-649D] è una subnet i cui valori di proprietà includono uno o più nomi formali di tipi di servizi di Azure. Questo articolo è incentrato sul nome del tipo **Microsoft.Sql**, che fa riferimento al servizio Azure denominato Database SQL.
+**Endpoint servizio di rete virtuale:** Un [endpoint servizio rete virtuale] [VM-Virtual-Network-Service-Endpoints-Overview-649D] è una subnet i cui valori di proprietà includono uno o più nomi formali di tipi di servizi di Azure. Questo articolo è incentrato sul nome del tipo **Microsoft.Sql**, che fa riferimento al servizio Azure denominato Database SQL.
 
 **Regola di rete virtuale:** una regola di rete virtuale per il server di database SQL è una subnet presente nell'elenco di controllo di accesso (ACL) del server di database SQL. Per essere nell'elenco ACL del database SQL, la subnet deve contenere il nome del tipo **Microsoft.Sql**. Una regola di rete virtuale indica al server di database SQL di accettare le comunicazioni da ogni nodo che si trova nella subnet.
 

@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 144b63131be68c9209835a1b8b3a01062245cfdd
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 78429001b855e3347e72fbb0f0d4d3171731a8e2
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326588"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703043"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Ridurre i costi del servizio con Azure Advisor
 
@@ -21,7 +21,7 @@ Advisor aiuta a ottimizzare e ridurre la spesa complessiva legata ad Azure ident
 
 ## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>Ottimizzare la spesa correlata alle macchine virtuali ridimensionando o arrestando le istanze sottoutilizzate 
 
-Sebbene in alcuni scenari applicativi possa verificarsi un utilizzo ridotto legato alla progettazione, è comunque possibile risparmiare denaro mediante la gestione delle dimensioni e del numero delle macchine virtuali. Advisor monitora l'utilizzo della macchina virtuale per 7 giorni e quindi identifica le macchine virtuali con utilizzo ridotto.  Le macchine virtuali sono considerate con scarso utilizzo se l'utilizzo della CPU è pari al 5% o inferiore e l'utilizzo della rete è inferiore al 2% e hanno un numero di richieste di memoria soglia o se il carico di lavoro corrente può essere adattato da una dimensione di macchina virtuale inferiore.
+Sebbene in alcuni scenari applicativi possa verificarsi un utilizzo ridotto legato alla progettazione, è comunque possibile risparmiare denaro mediante la gestione delle dimensioni e del numero delle macchine virtuali. I modelli di valutazione avanzata di Advisor considerano le macchine virtuali per l'arresto quando P95th del valore massimo del valore massimo di utilizzo della CPU è inferiore al 3% e l'utilizzo della rete è inferiore al 2% per un periodo di 7 giorni. Le macchine virtuali vengono considerate a destra quando è possibile adattare il carico corrente in uno SKU più piccolo (all'interno della stessa famiglia di SKU) o un numero minore di istanze, in modo che il carico corrente non superi l'utilizzo del 80% quando i carichi di lavoro non sono destinati agli utenti e non superiore al 40% in caso di carico di lavoro per l'utente. In questo caso, il tipo di carico di lavoro viene determinato analizzando le caratteristiche di utilizzo della CPU del carico di lavoro.
 
 Le azioni consigliate sono arrestate o ridimensionate, specifiche della risorsa consigliata per. Advisor Mostra il risparmio sui costi stimato per le azioni consigliate, ovvero ridimensionare o arrestare. Inoltre, per l'azione di ridimensionamento consigliata, Advisor fornisce informazioni sugli SKU correnti e di destinazione. 
 

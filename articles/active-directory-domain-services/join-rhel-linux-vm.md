@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/15/2019
 ms.author: iainfou
-ms.openlocfilehash: 9c9b4cdfb77f1605a6730d0735541eeb78dcd323
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: b90650fa2cd343c81b7bbb2fcea24c3a95f537b6
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71075536"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71702044"
 ---
 # <a name="join-a-red-hat-enterprise-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Aggiungere una macchina virtuale Red Hat Enterprise Linux a un dominio gestito Azure AD Domain Services
 
@@ -78,14 +78,24 @@ Al termine, salvare e chiudere il file *host* usando il `:wq` comando dell'edito
 
 La VM necessita di alcuni pacchetti aggiuntivi per aggiungere la macchina virtuale al dominio gestito di Azure AD DS. Per installare e configurare questi pacchetti, aggiornare e installare gli strumenti di aggiunta al dominio `yum`usando:
 
+ **RHEL 7** 
+
 ```console
 sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
+```
+
+ **RHEL 6** 
+
+```console
+sudo yum install adcli sssd authconfig krb5-workstation
 ```
 
 ## <a name="join-vm-to-the-managed-domain"></a>Aggiungere una macchina virtuale al dominio gestito
 
 Ora che i pacchetti necessari sono installati nella macchina virtuale, aggiungere la macchina virtuale al dominio gestito di Azure AD DS.
-
+ 
+  **RHEL 7**
+     
 1. Usare il `realm discover` comando per individuare il dominio gestito di Azure AD DS. Nell'esempio seguente viene individuato il *contoso.com*dell'area di autenticazione. Specificare il proprio nome di dominio gestito di Azure AD DS in tutte le lettere maiuscole:
 
     ```console
@@ -93,7 +103,7 @@ Ora che i pacchetti necessari sono installati nella macchina virtuale, aggiunger
     ```
 
    Se il `realm discover` comando non riesce a trovare il dominio gestito di Azure AD DS, esaminare i passaggi per la risoluzione dei problemi seguenti:
-
+   
     * Verificare che il dominio sia raggiungibile dalla macchina virtuale. Provare `ping contoso.com` a verificare se viene restituita una risposta positiva.
     * Verificare che la macchina virtuale sia distribuita nello stesso o in una rete virtuale con peering in cui è disponibile il dominio gestito di Azure AD DS.
     * Verificare che le impostazioni del server DNS per la rete virtuale siano state aggiornate in modo che puntino ai controller di dominio del dominio gestito Azure AD DS.
@@ -101,10 +111,10 @@ Ora che i pacchetti necessari sono installati nella macchina virtuale, aggiunger
 1. A questo punto, inizializzare Kerberos usando il `kinit` comando. Specificare un utente appartenente al gruppo di *amministratori di AAD DC* . Se necessario, [aggiungere un account utente a un gruppo in Azure ad](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
 
     Anche in questo caso, è necessario immettere il nome di dominio gestito Azure AD DS in tutti i caratteri maiuscoli. Nell'esempio seguente viene usato l'account denominato `contosoadmin@contoso.com` per inizializzare Kerberos. Immettere il proprio account utente membro del gruppo di amministratori di *AAD DC* :
-
+    
     ```console
     kinit contosoadmin@CONTOSO.COM
-    ```
+    ``` 
 
 1. Aggiungere infine il computer al dominio gestito di Azure AD DS usando il `realm join` comando. Usare lo stesso account utente membro del gruppo *AAD DC Administrators* specificato nel `kinit` `contosoadmin@CONTOSO.COM`comando precedente, ad esempio:
 
@@ -118,7 +128,108 @@ Per aggiungere la macchina virtuale al dominio gestito di Azure AD DS sono neces
 Successfully enrolled machine in realm
 ```
 
+  **RHEL 6** 
+
+1. Usare il `adcli info` comando per individuare il dominio gestito di Azure AD DS. Nell'esempio seguente viene individuato il *contoso.com*dell'area di autenticazione. Specificare il proprio nome di dominio gestito di Azure AD DS in tutte le lettere maiuscole:
+
+    ```console
+    sudo adcli info contoso.com
+    ```
+    
+   Se il `adcli info` comando non riesce a trovare il dominio gestito di Azure AD DS, esaminare i passaggi per la risoluzione dei problemi seguenti:
+   
+    * Verificare che il dominio sia raggiungibile dalla macchina virtuale. Provare `ping contoso.com` a verificare se viene restituita una risposta positiva.
+    * Verificare che la macchina virtuale sia distribuita nello stesso o in una rete virtuale con peering in cui è disponibile il dominio gestito di Azure AD DS.
+    * Verificare che le impostazioni del server DNS per la rete virtuale siano state aggiornate in modo che puntino ai controller di dominio del dominio gestito Azure AD DS.
+
+1. Per prima cosa, aggiungere il dominio usando il comando `adcli join`. questo comando creerà anche il keytab per autenticare il computer. Usare un account utente membro del gruppo di amministratori di *AAD DC* . 
+
+    ```console
+    sudo adcli join contoso.com -U contosoadmin
+    ```
+
+1. Configurare ora `/ect/krb5.conf` e creare i file `/etc/sssd/sssd.conf` per usare il dominio di Active Directory di `contoso.com`. 
+   Assicurarsi che `CONTOSO.COM` venga sostituito dal nome di dominio:
+
+    Aprire il file `/ect/krb5.conf` con un editor:
+
+    ```console
+    sudo vi /etc/krb5.conf
+    ```
+
+    Aggiornare il file `krb5.conf` in modo che corrisponda all'esempio seguente:
+
+    ```console
+    [logging]
+     default = FILE:/var/log/krb5libs.log
+     kdc = FILE:/var/log/krb5kdc.log
+     admin_server = FILE:/var/log/kadmind.log
+    
+    [libdefaults]
+     default_realm = CONTOSO.COM
+     dns_lookup_realm = true
+     dns_lookup_kdc = true
+     ticket_lifetime = 24h
+     renew_lifetime = 7d
+     forwardable = true
+    
+    [realms]
+     CONTOSO.COM = {
+     kdc = CONTOSO.COM
+     admin_server = CONTOSO.COM
+     }
+    
+    [domain_realm]
+     .CONTOSO.COM = CONTOSO.COM
+     CONTOSO.COM = CONTOSO.COM
+    ```
+    
+   Creare il file `/etc/sssd/sssd.conf`:
+    
+    ```console
+    sudo vi /etc/sssd/sssd.conf
+    ```
+
+    Aggiornare il file `sssd.conf` in modo che corrisponda all'esempio seguente:
+
+    ```console
+    [sssd]
+     services = nss, pam, ssh, autofs
+     config_file_version = 2
+     domains = CONTOSO.COM
+    
+    [domain/CONTOSO.COM]
+    
+     id_provider = ad
+    ```
+
+1. Verificare che le autorizzazioni `/etc/sssd/sssd.conf` siano 600 ed è di proprietà dell'utente root:
+
+    ```console
+    sudo chmod 600 /etc/sssd/sssd.conf
+    sudo chown root:root /etc/sssd/sssd.conf
+    ```
+
+1. Usare `authconfig` per indicare alla macchina virtuale l'integrazione di AD Linux:
+
+    ```console
+    sudo authconfig --enablesssd --enablesssdauth --update
+    ```
+    
+1. Avviare e abilitare il servizio SSSD:
+
+    ```console
+    sudo service sssd start
+    sudo chkconfig sssd on
+    ```
+
 Se la macchina virtuale non riesce a completare il processo di aggiunta al dominio, verificare che il gruppo di sicurezza di rete della macchina virtuale consenta il traffico Kerberos in uscita sulla porta TCP + UDP 464 alla subnet della rete virtuale per il dominio gestito di Azure AD DS.
+
+A questo punto, verificare se è possibile eseguire query sulle informazioni relative AD utenti con `getent`
+
+```console
+sudo getent passwd contosoadmin
+```
 
 ## <a name="allow-password-authentication-for-ssh"></a>Consenti l'autenticazione tramite password per SSH
 
@@ -136,12 +247,20 @@ Per impostazione predefinita, gli utenti possono accedere a una VM solo usando l
     PasswordAuthentication yes
     ```
 
-    Al termine, salvare e chiudere il file *sshd_conf* usando il `:wq` comando dell'editor.
+    Al termine, salvare e chiudere il file *sshd_conf* usando il comando `:wq` dell'editor.
 
 1. Per applicare le modifiche e consentire agli utenti di accedere con una password, riavviare il servizio SSH:
 
+   **RHEL 7** 
+    
     ```console
     sudo systemctl restart sshd
+    ```
+
+   **RHEL 6** 
+    
+    ```console
+    sudo service sshd restart
     ```
 
 ## <a name="grant-the-aad-dc-administrators-group-sudo-privileges"></a>Concedere i privilegi sudo al gruppo "Amministratori di AAD DC"
