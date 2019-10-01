@@ -147,7 +147,7 @@ In questa sezione si crea un contenitore BLOB denominato **adftutorial** nell'ar
 
 1. In **Nuovo Servizio collegato** cercare **SQL Server** e quindi selezionare **Continua**. 
 
-1. In **Nome** per il **** nuovo servizio collegato (SQL Server) immettere **SqlServerLinkedService**. Selezionare **+Nuovo** in **Connect via integration runtime** (Connetti tramite runtime di integrazione). È necessario creare un runtime di integrazione self-hosted, scaricarlo nel computer e registrarlo in Data Factory. Il runtime di integrazione self-hosted copia i dati tra l'ambiente locale e il cloud.
+1. In **Nome** per il **nuovo servizio collegato (SQL Server)** immettere **SqlServerLinkedService**. Selezionare **+Nuovo** in **Connect via integration runtime** (Connetti tramite runtime di integrazione). È necessario creare un runtime di integrazione self-hosted, scaricarlo nel computer e registrarlo in Data Factory. Il runtime di integrazione self-hosted copia i dati tra l'ambiente locale e il cloud.
 
 
 1. Nella finestra **Integration Runtime Setup** (Installazione runtime di integrazione) selezionare **Self-Hosted**. Quindi selezionare **Avanti**. 

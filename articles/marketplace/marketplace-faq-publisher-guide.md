@@ -60,7 +60,7 @@ In Azure Marketplace i clienti possono trovare applicazioni tecniche create per 
 Le offerte di Azure Marketplace possono essere acquistate tramite:
 
 * [Vetrina basata sul Web](https://azuremarketplace.microsoft.com/marketplace/apps)
-* [Portale di Azure] [Portale di Azure]
+* [Portale di Azure][Portale di Azure]
 * [Interfaccia della riga di comando di Azure (CLI)](/cli/azure/?view=azure-cli-latest)
 
 >[!Note]

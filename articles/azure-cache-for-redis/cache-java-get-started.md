@@ -14,13 +14,13 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 05/23/2018
 ms.author: yegu
-ms.custom: mvc, seo-java-august2019
-ms.openlocfilehash: 230bd4c0d53404ca5ac8d7e1385e8b0533880ca7
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.custom: mvc, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: 019defe782f8258acfd508745d36a0a6599d2e61
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881141"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273912"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-java"></a>Guida introduttiva: Usare Azure Cache for Redis con Java
 
@@ -135,7 +135,7 @@ mvn exec:java -D exec.mainClass=example.demo.App
 
 Nell'esempio seguente è possibile notare che la chiave `Message` in precedenza aveva un valore nella cache che era stato impostato usando la Console Redis nel portale di Azure. L'app ha aggiornato questo valore memorizzato nella cache. L'app ha anche eseguito i comandi `PING` e `CLIENT LIST`.
 
-![App cache completata](./media/cache-java-get-started/cache-app-complete.png)
+![App Azure Cache for Redis completata](./media/cache-java-get-started/azure-cache-redis-complete.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -151,7 +151,7 @@ In caso contrario, se si è terminato il lavoro con l'applicazione di esempio di
 
 1. Nella casella di testo **Filtra per nome** digitare il nome del gruppo di risorse. Le istruzioni di questo articolo usano un gruppo di risorse denominato *TestResources*. Nel gruppo di risorse nell'elenco dei risultati selezionare **...** e quindi **Elimina gruppo di risorse**.
 
-   ![Delete](./media/cache-java-get-started/cache-delete-resource-group.png)
+   ![Gruppo di risorse di Azure eliminato](./media/cache-java-get-started/azure-cache-redis-delete-resource-group.png)
 
 1. Verrà chiesto di confermare l'eliminazione del gruppo di risorse. Digitare il nome del gruppo di risorse per confermare e selezionare **Elimina**.
 

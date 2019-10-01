@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/17/2019
 ms.author: jgao
-ms.openlocfilehash: 5a1e0329f8d0227c05924137d5eaddd9658d5b3c
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 1e993ec50694d8672fbe05f982d5dbc45a815abb
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076892"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71161480"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault tramite un modello di Resource Manager
 
@@ -58,6 +58,11 @@ Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di
 
 [!code-json[<Azure Resource Manager template create key vault>](~/quickstart-templates/101-key-vault-create/azuredeploy.json)]
 
+Nel modello sono definite due risorse di Azure:
+
+* **Microsoft.KeyVault/vaults**: consente di creare un insieme di credenziali delle chiavi di Azure.
+* **Microsoft.KeyVault/vaults/secrets**: consente di creare un segreto dell'insieme di credenziali delle chiavi.
+
 Altri esempi di modelli di Azure Key Vault sono disponibili [qui](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault).
 
 1. Selezionare l'immagine seguente per accedere ad Azure e aprire un modello. Il modello crea un insieme di credenziali delle chiavi e un segreto.
@@ -82,6 +87,8 @@ Altri esempi di modelli di Azure Key Vault sono disponibili [qui](https://azure.
 3. Selezionare **Acquisto**. Al termine della distribuzione dell'insieme di credenziali delle chiavi, si riceverà una notifica:
 
     ![Modello di Resource Manager: integrazione di Key Vault e notifica nel portale per la distribuzione](./media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
+
+Per distribuire il modello, si usa il portale di Azure. Oltre al portale di Azure, è anche possibile usare Azure PowerShell, l'interfaccia della riga di comando di Azure e l'API REST. Per informazioni sugli altri metodi di distribuzione, vedere [Distribuire modelli](../azure-resource-manager/resource-group-template-deploy.md).
 
 ## <a name="validate-the-deployment"></a>Convalidare la distribuzione
 

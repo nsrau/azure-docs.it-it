@@ -60,7 +60,7 @@ Per creare trasformazioni JSON più complesse, vedere [Eseguire trasformazioni J
 
 * L'app per la logica in cui è necessaria l'operazione per l'utilizzo dei dati
 
-  Se non si ha familiarità con le app per la logica, vedere informazioni sulle [app per [la logica di Azure](../logic-apps/logic-apps-overview.md) e Guida introduttiva: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+  Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Avvio rapido: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 * Un [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) come primo passo nell'app per la logica 
 
