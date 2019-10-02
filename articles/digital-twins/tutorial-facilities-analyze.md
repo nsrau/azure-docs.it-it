@@ -6,14 +6,14 @@ author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 08/05/2019
+ms.date: 09/23/2019
 ms.author: alinast
-ms.openlocfilehash: 0244d6ac51b7cad6b74139c39914223928e2b627
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: db62d2209207a807570e971ef4af5f9b10b06cb8
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827841"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300072"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>Esercitazione: Visualizzare e analizzare gli eventi dagli spazi di Gemelli digitali di Azure usando Time Series Insights
 
@@ -38,6 +38,9 @@ Questa esercitazione presuppone che siano già state effettuate le attività di 
 - Gli [esempi C# di Gemelli digitali](https://github.com/Azure-Samples/digital-twins-samples-csharp) scaricati ed estratti nel computer di lavoro.
 - [.NET Core SDK versione 2.1.403 o successiva](https://www.microsoft.com/net/download) nel computer di sviluppo per eseguire l'esempio. Eseguire `dotnet --version` per verificare se è installata la versione corretta.
 
+> [!TIP]
+> Se si esegue il provisioning di una nuova istanza, usare un nome istanza di Gemelli digitali univoco.
+
 ## <a name="stream-data-by-using-event-hubs"></a>Trasmettere dati con Hub eventi
 
 Usare il servizio [Hub eventi](../event-hubs/event-hubs-about.md) per creare una pipeline per lo streaming dei dati. Questa sezione illustra come creare l'hub eventi da usare come connettore tra Gemelli digitali di Azure e le istanze di Time Series Insights.
@@ -54,10 +57,10 @@ Usare il servizio [Hub eventi](../event-hubs/event-hubs-about.md) per creare una
 
 1. Nella distribuzione dello spazio dei nomi di Hub eventi, selezionare il riquadro **Panoramica**, quindi selezionare **Vai alla risorsa**.
 
-    ![Spazio dei nomi di Hub eventi dopo la distribuzione](./media/tutorial-facilities-analyze/open-event-hub-ns.png)
+    [![Spazio dei nomi di Hub eventi dopo la distribuzione](./media/tutorial-facilities-analyze/open-event-hub-ns.png)](./media/tutorial-facilities-analyze/open-event-hub-ns.png#lightbox)
 
 1. Nel riquadro **Panoramica** dello spazio dei nomi di Hub eventi selezionare il pulsante **Hub eventi** nella parte superiore.
-    ![Pulsante Hub eventi](./media/tutorial-facilities-analyze/create-event-hub.png)
+    [![Pulsante Hub eventi](./media/tutorial-facilities-analyze/create-event-hub.png)](./media/tutorial-facilities-analyze/create-event-hub.png#lightbox)
 
 1. In **Nome** immettere un nome per l'hub eventi e selezionare **Crea**.
 
@@ -65,13 +68,13 @@ Usare il servizio [Hub eventi](../event-hubs/event-hubs-about.md) per creare una
 
 1. Selezionare il pulsante **Gruppo di consumer** nella parte superiore e immettere un nome, ad esempio **tsievents** per il gruppo di consumer. Selezionare **Create** (Crea).
 
-    ![Gruppo di consumer dell'hub eventi](./media/tutorial-facilities-analyze/event-hub-consumer-group.png)
+    [![Gruppo di consumer dell'hub eventi](./media/tutorial-facilities-analyze/event-hub-consumer-group.png)](./media/tutorial-facilities-analyze/event-hub-consumer-group.png#lightbox)
 
    Una volta creato, il gruppo di consumer verrà visualizzato nell'elenco nella parte inferiore del riquadro **Panoramica** dell'hub eventi.
 
 1. Aprire il riquadro **Criteri di accesso condivisi** per l'hub eventi e selezionare il pulsante **Aggiungi**. Immettere **ManageSend** come nome del criterio, assicurarsi che tutte le caselle di controllo siano selezionate e selezionare **Crea**.
 
-    ![Stringhe di connessione dell'hub eventi](./media/tutorial-facilities-analyze/event-hub-connection-strings.png)
+    [![Stringhe di connessione dell'hub eventi](./media/tutorial-facilities-analyze/event-hub-connection-strings.png)](./media/tutorial-facilities-analyze/event-hub-connection-strings.png#lightbox)
 
 1. Aprire i criteri ManageSend creati e copiare i valori di **Stringa di connessione - chiave primaria** e **Stringa di connessione - chiave secondaria** in un file temporaneo. Questi valori saranno necessari per creare un endpoint per l'hub eventi nella sezione successiva.
 
@@ -124,21 +127,21 @@ Usare il servizio [Hub eventi](../event-hubs/event-hubs-about.md) per creare una
 
    Vengono creati due endpoint per l'hub eventi.
 
-   ![Endpoint per Hub eventi](./media/tutorial-facilities-analyze/dotnet-create-endpoints.png)
+   [![Endpoint per Hub eventi](./media/tutorial-facilities-analyze/dotnet-create-endpoints.png)](./media/tutorial-facilities-analyze/dotnet-create-endpoints.png#lightbox)
 
 ## <a name="analyze-with-time-series-insights"></a>Eseguire analisi con Time Series Insights
 
 1. Nel riquadro sinistro del [portale di Azure](https://portal.azure.com) selezionare **Crea una risorsa**. 
 
-1. Cercare una nuova risorsa **Time Series Insights** e selezionarla. Selezionare **Create** (Crea).
+1. Cercare e selezionare una risorsa **Time Series Insights** con disponibilità generale (GA). Selezionare **Create** (Crea).
 
 1. In **Nome** immettere un nome per l'istanza di Time Series Insights e quindi selezionare un'opzione in **Sottoscrizione**. In **Gruppo di risorse** selezionare il gruppo di risorse usato per l'istanza di Gemelli digitali e quindi selezionare un'opzione in **Località**. Selezionare **Avanti: Origine evento** o la scheda **Origine evento**.
 
-    ![Selezioni per la creazione di un'istanza Time Series Insights](./media/tutorial-facilities-analyze/create-tsi.png)
+    [![Selezioni per la creazione di un'istanza Time Series Insights](./media/tutorial-facilities-analyze/create-tsi.png)](./media/tutorial-facilities-analyze/create-tsi.png#lightbox)
 
 1. Nella scheda **Origine evento** immettere un **Nome**, selezionare **Hub eventi** come il **Tipo di origine** e assicurarsi che gli altri valori siano selezionati in modo corretto. Selezionare **ManageSend** per **Nome criterio di accesso Hub eventi** e quindi selezionare il gruppo di consumer creato nella sezione precedente per **Gruppo di consumer dell'Hub eventi**. Selezionare **Rivedi e crea**.
 
-    ![Selezioni per la creazione di un'origine evento](./media/tutorial-facilities-analyze/tsi-event-source.png)
+    [![Selezioni per la creazione di un'origine evento](./media/tutorial-facilities-analyze/tsi-event-source.png)](./media/tutorial-facilities-analyze/tsi-event-source.png#lightbox)
 
 1. Nel riquadro **Rivedi e crea** riquadro, esaminare le informazioni immesse e selezionare **Crea**.
 
@@ -150,13 +153,13 @@ Usare il servizio [Hub eventi](../event-hubs/event-hubs-about.md) per creare una
 
 1. Dopo che alcuni eventi simulati sono stati generati, tornare allo strumento di esplorazione di Time Series Insights e selezionare il pulsante di aggiornamento nella parte superiore. Verranno creati grafici analitici per i dati dei sensori simulati. 
 
-    ![Grafico nello strumento di esplorazione di Time Series Insights](./media/tutorial-facilities-analyze/tsi-explorer.png)
+    [![Grafico nello strumento di esplorazione di Time Series Insights](./media/tutorial-facilities-analyze/tsi-explorer.png)](./media/tutorial-facilities-analyze/tsi-explorer.png#lightbox)
 
 1. Nello strumento di esplorazione di Time Series Insights è quindi possibile generare grafici e mappe termiche per diversi eventi e dati relativi a stanze, sensori e altre risorse. A sinistra, usare le caselle di riepilogo a discesa **MISURA** e **DIVIDI PER** in modo da creare le visualizzazioni personalizzate. 
 
    Selezionare, ad esempio, **Eventi** per **MISURA** e **DigitalTwins-SensorHardwareId** per **DIVIDI PER** in modo da generare una mappa termica per ognuno dei sensori. La mappa termica sarà simile all'immagine seguente:
 
-   ![Mappa termica nello strumento di esplorazione di Time Series Insights](./media/tutorial-facilities-analyze/tsi-explorer-heatmap.png)
+   [![Mappa termica nello strumento di esplorazione di Time Series Insights](./media/tutorial-facilities-analyze/tsi-explorer-heatmap.png)](./media/tutorial-facilities-analyze/tsi-explorer-heatmap.png#lightbox)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

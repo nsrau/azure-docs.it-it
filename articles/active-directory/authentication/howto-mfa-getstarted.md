@@ -242,7 +242,7 @@ Per pianificare la strategia di criteri di accesso condizionale, che determina q
 ### <a name="create-conditional-access-policy"></a>Creare criteri di accesso condizionale
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account amministratore globale.
-1. Passare ad **Azure Active Directory **, **Accesso condizionale**.
+1. Passare ad **Azure Active Directory**, **Accesso condizionale**.
 1. Selezionare **Nuovi criteri**.
 1. Immettere un nome significativo per i criteri.
 1. In **Utenti e gruppi**:

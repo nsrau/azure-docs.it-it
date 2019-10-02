@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 5/31/2019
 ms.author: victorh
-ms.openlocfilehash: 5f7fd47a096ddd57150a466f85fabcfc2f7045d9
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 725b284fa58296aea310f618c000e77d9a0fb4c9
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564867"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146616"
 ---
 # <a name="what-is-azure-application-gateway"></a>Cos'è il gateway applicazione di Azure?
 
@@ -35,7 +35,7 @@ Il gateway applicazione supporta la terminazione SSL/TLS nel gateway, dopo la qu
 
 ## <a name="autoscaling"></a>Scalabilità automatica
 
-Le distribuzioni del gateway applicazione o WAF nello SKU Standard_v2 o WAF_v2 supportano la scalabilità automatica e l'aumento o la riduzione delle prestazioni in base alle variazioni dei modelli di carico del traffico. La scalabilità automatica elimina anche la necessità di scegliere un numero di istanze o le dimensioni della distribuzione durante il provisioning. Per altre informazioni sulle funzionalità del gateway applicazione Standard_v2 e WAF_v2, vedere [SKU di scalabilità automatica v2](application-gateway-autoscaling-zone-redundant.md).
+Le distribuzioni del gateway applicazione o WAF nello SKU Standard_v2 o WAF_v2 supportano la scalabilità automatica e l'aumento o la riduzione delle prestazioni in base alle variazioni dei modelli di carico del traffico. La scalabilità automatica elimina anche la necessità di scegliere un numero di istanze o le dimensioni della distribuzione durante il provisioning. Per altre informazioni sulle funzionalità del gateway applicazione Standard_v2 e WAF_v2, vedere [Ridimensionamento automatico nello SKU v2](application-gateway-autoscaling-zone-redundant.md).
 
 ## <a name="zone-redundancy"></a>Ridondanza della zona
 
@@ -47,7 +47,7 @@ L'indirizzo VIP del gateway applicazione nello SKU Standard_v2 o WAF_v2 supporta
 
 ## <a name="web-application-firewall"></a>Web application firewall
 
-Web application firewall (WAF) è una funzionalità del gateway applicazione che offre una protezione centralizzata delle applicazioni Web da exploit e vulnerabilità comuni. WAF si basa su regole di set di regole principali [OWASP (Open Web Application Security Project)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 o 2.2.9. 
+Web application firewall (WAF) è una funzionalità del gateway applicazione che offre una protezione centralizzata delle applicazioni Web da exploit e vulnerabilità comuni. WAF si basa su regole dei [set di regole principali OWASP (Open Web Application Security Project)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.1 (solo WAF_v2), 3.0 e 2.2.9. 
 
 Le applicazioni Web sono sempre più vittime di attacchi che sfruttano le più comuni vulnerabilità note. Per citarne alcuni, tra i più comuni troviamo gli attacchi SQL injection e gli attacchi di scripting intersito. Impedire questo tipo di attacchi nel codice dell'applicazione può essere un'operazione complessa e potrebbe richiedere una manutenzione rigorosa, l'applicazione di patch e il monitoraggio a più livelli della topologia dell'applicazione. Un Web application firewall centralizzato semplifica notevolmente la gestione della sicurezza e offre agli amministratori delle applicazioni migliori garanzie contro le minacce o le intrusioni. Una soluzione WAF è anche in grado di reagire più velocemente a una minaccia alla sicurezza tramite l'applicazione di patch su una vulnerabilità nota in una posizione centrale, anziché proteggere ogni singola applicazione Web. È possibile convertire facilmente i gateway applicazione esistenti in un gateway applicazione con Web application firewall.
 
@@ -63,7 +63,7 @@ Per altre informazioni, vedere [Routing basato su percorso URL nel gateway appli
 
 ## <a name="multiple-site-hosting"></a>Hosting di più siti
 
-L'hosting di più siti consente di configurare più siti Web nella stessa istanza del gateway applicazione. Questa funzionalità permette di configurare una topologia più efficiente per le distribuzioni aggiungendo fino a 100 siti Web a un unico gateway applicazione. Ogni sito Web può essere indirizzato al proprio pool. Ad esempio, il gateway applicazione può servire il traffico per `contoso.com` e `fabrikam.com` da due pool di server denominati ContosoServerPool e FabrikamServerPool.
+L'hosting di più siti consente di configurare più siti Web nella stessa istanza del gateway applicazione. Questa funzionalità permette di configurare una topologia più efficiente per le distribuzioni aggiungendo fino a 100 siti Web a un unico gateway applicazione o 40 per WAF (per prestazioni ottimali). Ogni sito Web può essere indirizzato al proprio pool. Ad esempio, il gateway applicazione può servire il traffico per `contoso.com` e `fabrikam.com` da due pool di server denominati ContosoServerPool e FabrikamServerPool.
 
 Per le richieste `http://contoso.com` viene eseguito il routing verso ContosoServerPool mentre per le richieste `http://fabrikam.com` viene eseguito il routing verso FabrikamServerPool.
 
@@ -107,6 +107,8 @@ Per altre informazioni, vedere [Azure Application Gateway Ingress Controller](ht
 
 Lo svuotamento delle connessioni aiuta a rimuovere in modo controllato i membri del pool back-end durante gli aggiornamenti pianificati del servizio. Questa modalità viene abilitata tramite l'impostazione http back-end e può essere applicata a tutti i membri di un pool back-end durante la creazione delle regole. Quando è abilitata, il gateway applicazione assicura che tutte le istanze di un pool back-end in fase di annullamento della registrazione non ricevano nuove richieste e che le richieste esistenti vengano completate entro un limite di tempo configurato. Questo vale sia per le istanze back-end che vengono rimosse dal pool back-end in modo esplicito mediante una chiamata API, sia per le istanze back-end che vengono segnalate come non integre, come determinato dai probe di integrità.
 
+Per altre informazioni, vedere la sezione Svuotamento delle connessioni in [Panoramica della configurazione del gateway applicazione](https://docs.microsoft.com/azure/application-gateway/configuration-overview#connection-draining).
+
 ## <a name="custom-error-pages"></a>Pagine di errore personalizzate
 
 Il gateway applicazione consente di creare pagine di errore personalizzate da visualizzare al posto delle pagine di errore predefinite. Se si usa una pagina di errore personalizzata, è possibile usare il proprio layout e marchio aziendali.
@@ -127,13 +129,13 @@ Per altre informazioni, vedere [Riscrivere le intestazioni HTTP](rewrite-http-he
 
 ## <a name="sizing"></a>Ridimensionamento
 
-Gli SKU Standard_v2 e WAF_v2 del gateway applicazione possono essere configurati per la scalabilità automatica o per le distribuzioni con dimensioni fisse. Questi SKU non offrono dimensioni diverse per le istanze.
+Gli SKU Standard_v2 e WAF_v2 del gateway applicazione possono essere configurati per la scalabilità automatica o per le distribuzioni con dimensioni fisse. Questi SKU non offrono dimensioni diverse per le istanze. Per altre informazioni sulle prestazioni e sui prezzi di v2, vedere [Ridimensionamento automatico nello SKU v2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#pricing).
 
 Lo SKU Standard e WAF del gateway applicazione è attualmente offerto in tre dimensioni: **Small**, **Medium** e **Large**. Le dimensioni delle istanze piccole sono destinate a scenari di sviluppo e test.
 
 Per un elenco completo dei limiti del gateway applicazione, vedere i [limiti del servizio Gateway applicazione](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 
-La tabella seguente illustra una velocità effettiva media delle prestazioni per ogni istanza del gateway applicazione con offload SSL abilitato:
+La tabella seguente illustra una velocità effettiva media delle prestazioni per ogni istanza del gateway applicazione v1 con offload SSL abilitato:
 
 | Dimensioni medie risposta della pagina di back-end | Piccolo | Media | Grande |
 | --- | --- | --- | --- |

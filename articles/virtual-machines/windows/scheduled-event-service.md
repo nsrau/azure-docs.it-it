@@ -164,7 +164,7 @@ Una volta effettuato il push degli eventi in Log Analytics, è possibile eseguir
 1. In **azioni**selezionare **Crea gruppo di azioni**. Viene visualizzata la pagina **Aggiungi gruppo di azioni** .
 1. Digitare *myActionGroup*in **nome gruppo di azioni**.
 1. In **nome breve**digitare **myActionGroup**.
-1. In **gruppo di risorse**selezionare * myResourceGroupAvailability * *.
+1. In **gruppo di risorse**selezionare *myResourceGroupAvailability* *.
 1. In azioni, in **nome azione** digitare **posta elettronica**, quindi selezionare **posta elettronica/SMS/push/voce**. Viene visualizzata la pagina **posta elettronica/SMS/push/Voice** .
 1. Selezionare **e-mail**, digitare l'indirizzo di posta elettronica, quindi fare clic su **OK**.
 1. Nella pagina **Aggiungi gruppo di azione** fare clic su **OK**. 

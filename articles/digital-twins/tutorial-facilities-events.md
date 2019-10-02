@@ -6,14 +6,14 @@ author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 08/05/2019
+ms.date: 09/23/2019
 ms.author: alinast
-ms.openlocfilehash: 30d43831b73edc52b461512faecac369f6bf00b0
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: fe2eb357ef89d70512e85db24d22f95cac1bd0ac
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827822"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300082"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Esercitazione: Ricevere notifiche dagli spazi di Gemelli digitali di Azure usando App per la logica
 
@@ -39,6 +39,9 @@ Questa esercitazione presuppone che siano già state effettuate le attività di 
 - [.NET Core SDK versione 2.1.403 o successiva](https://www.microsoft.com/net/download) nel computer di sviluppo per eseguire l'esempio. Eseguire `dotnet --version` per verificare se è installata la versione corretta.
 - Un account Office 365 per inviare notifiche tramite messaggi di posta elettronica.
 
+> [!TIP]
+> Se si esegue il provisioning di una nuova istanza, usare un nome istanza di Gemelli digitali univoco.
+
 ## <a name="integrate-events-with-event-grid"></a>Integrare eventi con Griglia di eventi
 
 In questa sezione si configura [Griglia di eventi](../event-grid/overview.md) per raccogliere gli eventi dell'istanza di Gemelli digitali di Azure e reindirizzarli a un [gestore eventi](../event-grid/event-handlers.md) come App per la logica.
@@ -55,13 +58,13 @@ Un [argomento di Griglia di eventi](../event-grid/concepts.md#topics) forniscono
 
 1. In **Nome** immettere un nome per l'argomento di Griglia di eventi e scegliere un valore per **Sottoscrizione**. In **Gruppo di risorse** selezionare il gruppo di risorse usato o creato per l'istanza di Gemelli digitali e quindi selezionare un'opzione in **Località**. Selezionare **Create** (Crea). 
 
-    ![Creare un argomento di Griglia di eventi](./media/tutorial-facilities-events/create-event-grid-topic.png)
+    [![Creare un argomento di Griglia di eventi](./media/tutorial-facilities-events/create-event-grid-topic.png)](./media/tutorial-facilities-events/create-event-grid-topic.png#lightbox)
 
 1. Passare all'argomento di Griglia di eventi dal gruppo di risorse, selezionare **Panoramica** e copiare il valore di **Endpoint argomento** in un file temporaneo. Questo URL servirà nella sezione successiva. 
 
 1. Selezionare **Chiavi di accesso** e copiare i valori di **YOUR_KEY_1** e **YOUR_KEY_2** in un file temporaneo. Questi valori saranno necessari per creare l'endpoint nella sezione successiva.
 
-    ![Chiavi di Griglia di eventi](./media/tutorial-facilities-events/event-grid-keys.png)
+    [![Chiavi di Griglia di eventi](./media/tutorial-facilities-events/event-grid-keys.png)](./media/tutorial-facilities-events/event-grid-keys.png#lightbox)
 
 ### <a name="create-an-endpoint-for-the-event-grid-topic"></a>Creare un endpoint per l'argomento di Griglia di eventi
 
@@ -98,7 +101,7 @@ Un [argomento di Griglia di eventi](../event-grid/concepts.md#topics) forniscono
 
    Questo comando consente di creare l'endpoint per Griglia di eventi. 
 
-   ![Endpoint per Griglia di eventi](./media/tutorial-facilities-events/dotnet-create-endpoints.png)
+   [![Endpoint per Griglia di eventi](./media/tutorial-facilities-events/dotnet-create-endpoints.png)](./media/tutorial-facilities-events/dotnet-create-endpoints.png#lightbox)
 
 ## <a name="notify-events-with-logic-apps"></a>Inviare notifiche per gli eventi con l'app per la logica
 
@@ -110,7 +113,7 @@ Un [argomento di Griglia di eventi](../event-grid/concepts.md#topics) forniscono
 
 1. In **Nome** immettere un nome per la risorsa dell'app per la logica e quindi selezionare le opzioni per **Sottoscrizione**, **Gruppo di risorse** e **Località**. Selezionare **Create** (Crea).
 
-    ![Creare una risorsa di App per la logica](./media/tutorial-facilities-events/create-logic-app.png)
+    [![Creare una risorsa di App per la logica](./media/tutorial-facilities-events/create-logic-app.png)](./media/tutorial-facilities-events/create-logic-app.png#lightbox)
 
 1. Aprire la risorsa dell'app per la logica dopo averla distribuita e quindi aprire il riquadro **Progettazione app per la logica**. 
 
@@ -124,7 +127,7 @@ Un [argomento di Griglia di eventi](../event-grid/concepts.md#topics) forniscono
 
    c. Selezionare la risorsa di Griglia di eventi nella casella di riepilogo a discesa per **Nome risorsa**.
 
-   ![Riquadro di progettazione di app per la logica](./media/tutorial-facilities-events/logic-app-resource-event.png)
+   [![Riquadro di progettazione di app per la logica](./media/tutorial-facilities-events/logic-app-resource-event.png)](./media/tutorial-facilities-events/logic-app-resource-event.png#lightbox)
 
 1. Selezionare il pulsante **Nuovo passaggio**.
 
@@ -156,7 +159,7 @@ Un [argomento di Griglia di eventi](../event-grid/concepts.md#topics) forniscono
 
     Il payload ha valori fittizi. L'app per la logica usa il payload di esempio per generare uno *schema*.
 
-    ![Finestra Analisi JSON nell'app per la logica per Griglia di eventi](./media/tutorial-facilities-events/logic-app-parse-json.png)
+    [![Finestra Analisi JSON nell'app per la logica per Griglia di eventi](./media/tutorial-facilities-events/logic-app-parse-json.png)](./media/tutorial-facilities-events/logic-app-parse-json.png#lightbox)
 
 1. Selezionare il pulsante **Nuovo passaggio**.
 
@@ -168,7 +171,7 @@ Un [argomento di Griglia di eventi](../event-grid/concepts.md#topics) forniscono
 
    c. Nella seconda casella di testo **Scegliere un valore** immettere `UdfCustom`.
 
-   ![Condizioni selezionate](./media/tutorial-facilities-events/logic-app-condition.png)
+   [![Condizioni selezionate](./media/tutorial-facilities-events/logic-app-condition.png)](./media/tutorial-facilities-events/logic-app-condition.png#lightbox)
 
 1. Nella finestra **È true**:
 
@@ -180,7 +183,7 @@ Un [argomento di Griglia di eventi](../event-grid/concepts.md#topics) forniscono
 
    d. In **Corpo**, nella stessa finestra, immettere un testo simile al seguente: **In una stanza è stata rilevata una qualità scadente dell'aria ed è necessario regolare la temperatura**. Elaborare a piacimento il messaggio usando gli elementi dell'elenco **Contenuto dinamico**.
 
-   ![Selezioni "Invia un messaggio di posta elettronica" App per la logica](./media/tutorial-facilities-events/logic-app-send-email.png)
+   [![Selezioni "Invia un messaggio di posta elettronica" App per la logica](./media/tutorial-facilities-events/logic-app-send-email.png)](./media/tutorial-facilities-events/logic-app-send-email.png#lightbox)
 
 1. Selezionare il pulsante **Salva** nella parte superiore del riquadro **Progettazione app per la logica**.
 
@@ -188,7 +191,7 @@ Un [argomento di Griglia di eventi](../event-grid/concepts.md#topics) forniscono
 
 In pochi minuti, si dovrebbe iniziare a ricevere notifiche di posta elettronica da questa risorsa di App per la logica. 
 
-   ![Notifica tramite posta elettronica](./media/tutorial-facilities-events/logic-app-notification.png)
+   [![Notifica tramite posta elettronica](./media/tutorial-facilities-events/logic-app-notification.png)](./media/tutorial-facilities-events/logic-app-notification.png#lightbox)
 
 Per smettere di ricevere questi messaggi, passare alla risorsa di App per la logica nel portale e selezionare il riquadro **Panoramica**. Selezionare **Disabilita**.
 

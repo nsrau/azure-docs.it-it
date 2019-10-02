@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4d03e5ee5faf39425e1bf927a3c0557b0ad01b82
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: e629cbdce55f236e095f606f56adec453b0b17c7
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840117"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299856"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Esercitazione: Creare e distribuire moduli IoT Edge personalizzati
 
@@ -56,7 +56,7 @@ I passaggi di questo articolo vengono in genere eseguiti da sviluppatori cloud.
 
 ## <a name="create-a-new-iot-edge-solution"></a>Creare una nuova soluzione IoT Edge
 
-Durante l'esecuzione del secondo dei due notebook di Azure, è stata creata e pubblicata un'immagine del contenitore contenente il modello di vita utile rimanente. Azure Machine Learning, parte del processo di creazione dell'immagine, ha creato i componenti per rendere l'immagine distribuibile come modulo Azure IoT Edge. In questo passaggio verrà creata una soluzione Azure IoT Edge usando il modulo "Azure Machine Learning" e puntandolo all'immagine pubblicata con Azure Notebooks.
+Durante l'esecuzione del secondo dei due notebook di Azure, è stata creata e pubblicata un'immagine del contenitore contenente il modello di vita utile rimanente. Azure Machine Learning, come parte del processo di creazione dell'immagine, ha creato un pacchetto di tale modello in modo che l'immagine sia distribuibile come modulo Azure IoT Edge. In questo passaggio verrà creata una soluzione Azure IoT Edge usando il modulo "Azure Machine Learning" e puntandolo all'immagine pubblicata con Azure Notebooks.
 
 1. Aprire una sessione Desktop remoto nel computer di sviluppo.
 

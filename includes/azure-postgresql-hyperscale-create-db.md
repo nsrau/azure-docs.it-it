@@ -5,15 +5,15 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: include
-ms.date: 05/14/2019
+ms.date: 09/12/2019
 ms.author: jonels
 ms.custom: include file
-ms.openlocfilehash: c07e352288d7dc1d0bf198fd74c8baaded3a2d23
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: fadbcf04f1cd474cf2d23963e88016d240272263
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180390"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71279888"
 ---
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -38,27 +38,20 @@ Seguire questa procedura per creare un database di Azure per il server PostgreSQ
    > La password dell'amministratore del server qui specificata è necessaria per accedere al server e ai relativi database. Prendere nota di queste informazioni per usarle in seguito.
 
 5. Fare clic su **Configura gruppo di server**. Lasciare invariate le impostazioni di tale sezione e fare clic su **Salva**.
-6. Fare clic su **Rivedi e crea** e quindi su **Crea** per effettuare il provisioning del server. Il provisioning richiede alcuni minuti.
-7. La pagina verrà reindirizzata per monitorare la distribuzione. Quando lo stato attivo passa da **La distribuzione è in corso** a **La distribuzione è stata completata**, fare clic sulla voce di menu **Output** nella parte sinistra della pagina.
-8. La pagina degli output conterrà un nome host di coordinatore con accanto un pulsante per copiare il valore negli Appunti. Prendere nota di queste informazioni per un uso successivo.
+6. Fare clic su **Avanti: Rete >** nella parte inferiore della schermata.
 
-## <a name="configure-a-server-level-firewall-rule"></a>Configurare una regola del firewall a livello di server
-
-Il servizio Database di Azure per PostgreSQL – Hyperscale (Citus) usa un firewall a livello di server. Per impostazione predefinita, il firewall impedisce a tutte le applicazioni e a tutti gli strumenti esterni di connettersi al nodo coordinatore e ai database al suo interno. È necessario aggiungere una regola per aprire il firewall per un intervallo specifico di indirizzi IP.
-
-1. Dalla sezione **Output** dove prima si è copiato il nome host del nodo coordinatore, fare clic per tornare alla voce di menu **Panoramica**.
-
-2. Trovare il nome del gruppo di server della distribuzione e selezionarlo. Il nome del gruppo di server *non* avrà un suffisso. Gli elementi con nomi che terminano, ad esempio, in "-c", "-w0" o "-w1", non indicano il gruppo di server.
-
-3. Fare clic su **Firewall** in **Sicurezza** nel menu a sinistra.
-
-4. Fare clic sul collegamento **+ Aggiungi regola del firewall per l'indirizzo IP del client corrente**.
-
-5. Fare infine clic sul pulsante **Salva**.
+7. Nella scheda **Rete** fare clic sul pulsante di opzione **Endpoint pubblico**.
+   ![Endpoint pubblico selezionato](./media/azure-postgresql-hyperscale-create-db/network-public-endpoint.png)
+8. Fare clic sul collegamento **+ Aggiungere l'indirizzo IP client corrente**.
+   ![IP client aggiunto](./media/azure-postgresql-hyperscale-create-db/network-add-client-ip.png)
 
    > [!NOTE]
    > Il server PostgreSQL Azure comunica sulla porta 5432. Se si sta cercando di connettersi da una rete aziendale, il traffico in uscita sulla porta 5432 potrebbe non essere consentito dal firewall della rete. In questo caso, non è possibile connettersi al server di database SQL di Azure, a meno che il reparto IT non apra la porta 5432.
    >
+
+9. Fare clic su **Rivedi e crea** e quindi su **Crea** per effettuare il provisioning del server. Il provisioning richiede alcuni minuti.
+10. La pagina verrà reindirizzata per monitorare la distribuzione. Quando lo stato attivo passa da **La distribuzione è in corso** a **La distribuzione è stata completata**, fare clic sulla voce di menu **Output** nella parte sinistra della pagina.
+11. La pagina degli output conterrà un nome host di coordinatore con accanto un pulsante per copiare il valore negli Appunti. Prendere nota di queste informazioni per un uso successivo.
 
 ## <a name="connect-to-the-database-using-psql"></a>Connettersi al database usando psql
 

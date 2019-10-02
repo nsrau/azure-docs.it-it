@@ -1,135 +1,133 @@
 ---
-title: Informazioni su Azure Active Directory B2C | Microsoft Docs
-description: Informazioni su come creare e gestire le esperienze di gestione delle identità, come iscrizione/accesso e gestione dei profili, in un'applicazione con Azure Active Directory B2C.
+title: Informazioni su Azure Active Directory B2C
+description: Informazioni su come usare Azure Active Directory B2C per supportare le identità esterne nelle applicazioni, incluso l'accesso con un provider di identità di social network come Facebook, Google e altri.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 09/19/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ca636079439f811a887d16b627473e7d73930799
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 007b23f07afec6163c2158feb3f17ba71e44bdb5
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065699"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71120600"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Informazioni su Azure Active Directory B2C
 
-Azure Active Directory B2C (Azure AD B2C) è un servizio di gestione delle identità Business to Consumer. Questo servizio consente di personalizzare e controllare l'interazione sicura degli utenti con applicazioni Web, desktop, per dispositivi mobili o a pagina singola. Con Azure AD B2C, gli utenti possono eseguire l'iscrizione, l'accesso, la reimpostazione delle password e la modifica dei profili. Azure AD B2C implementa una forma dei protocolli OAuth 2.0 e OpenID Connect. Il fattore chiave nell'implementazione di questi protocolli sono i token di sicurezza e le relative attestazioni, che consentono di offrire un accesso sicuro alle risorse.
+Azure Active Directory B2C fornisce identità Business-to-Customer (B2C) come servizio. I clienti usano le identità di account di social network, aziendali o locali che preferiscono per ottenere l'accesso Single Sign-On alle applicazioni e alle API.
 
-Un *percorso utente* è una richiesta che specifica i criteri che controllano il comportamento dell'interazione dell'utente e dell'applicazione con Azure AD B2C. Per definire i percorsi utente in Azure AD B2C sono disponibili due modi.
+![Infografica dei provider di identità di Azure AD B2C e delle applicazioni downstream](media/active-directory-b2c-overview/azureadb2c-overview.png)
 
-Gli sviluppatori di applicazioni, con o senza competenze nella gestione delle identità, possono scegliere di definire comuni flussi utente di gestione delle identità con il portale di Azure. Gli integratori di sistemi, i consulenti, i professionisti o i team interni addetti alla gestione delle identità che hanno familiarità con i flussi di OpenID Connect e conoscono i provider di identità e l'autenticazione basata sulle attestazioni possono scegliere di usare criteri personalizzati basati su XML.
+Azure Active Directory B2C (Azure AD B2C) è una soluzione di gestione delle identità e degli accessi degli utenti in grado di supportare milioni di utenti e miliardi di autenticazioni al giorno. Si occupa degli aspetti di scalabilità e sicurezza della piattaforma di autenticazione, monitorando e gestendo automaticamente le minacce, ad esempio gli attacchi di tipo Denial of Service, password spraying o di forza bruta.
 
-Prima di iniziare a definire un percorso utente, è necessario creare un tenant di Azure AD B2C e registrare l'applicazione e l'API nel tenant. Dopo aver completato queste attività, è possibile iniziare a definire un percorso utente con flussi utente o criteri personalizzati. Facoltativamente, è anche possibile aggiungere o modificare i provider di identità o personalizzare l'esperienza utente correlata al percorso.
+## <a name="custom-branded-identity-solution"></a>Soluzione di gestione delle identità personalizzata
 
-## <a name="protocols-and-tokens"></a>Protocolli e token
+Azure AD B2C è una soluzione di autenticazione white-label. È possibile personalizzare l'intera esperienza utente con il proprio marchio, in modo che sia completamente uniforme con le applicazioni Web e per dispositivi mobili.
 
-Per i percorsi utente, Azure AD B2C supporta i [protocolli OpenID Connect e OAuth 2.0](active-directory-b2c-reference-protocols.md). Nell'implementazione di OpenID Connect in Azure AD B2C, l'applicazione avvia il percorso utente inviando richieste di autenticazione ad Azure AD B2C.
+È possibile personalizzare ogni pagina visualizzata da Azure AD B2C quando gli utenti si iscrivono, effettuano l'accesso e modificano le informazioni sul profilo, oltre a personalizzare il codice HTML, CSS e JavaScript nei percorsi utente, in modo che l'esperienza di Azure AD B2C appaia come una parte nativa dell'applicazione.
 
-Il risultato di una richiesta ad Azure AD B2C è un token di sicurezza, ad esempio [un token ID o un token di accesso](active-directory-b2c-reference-tokens.md). Questo token di sicurezza definisce l'identità dell'utente. I token vengono ricevuti da endpoint di Azure AD B2C, ad esempio da un endpoint `/token` o `/authorize`. Da questi token è possibile accedere alle attestazioni utilizzabili per convalidare un'identità e consentire l'accesso a risorse sicure.
+![Pagine di iscrizione e accesso personalizzate e immagine di sfondo](media/active-directory-b2c-overview/sign-in-small.png)
 
-## <a name="tenants-and-applications"></a>Tenant e applicazioni
+## <a name="single-sign-on-access-with-a-user-provided-identity"></a>Accesso Single Sign-On con un'identità fornita dall'utente
 
-In Azure AD B2C, un *tenant* rappresenta l'organizzazione ed è una directory di utenti. Ogni tenant di Azure AD B2C è distinto e separato dagli altri tenant di Azure AD B2C. Potrebbe essere già disponibile un tenant di Azure Active Directory, ma il tenant di Azure AD B2C è un tenant diverso. Un tenant contiene informazioni sugli utenti che hanno effettuato l'iscrizione per usare l'applicazione, ad esempio le password, i dati di profilo e le autorizzazioni. Per altre informazioni, vedere [Esercitazione: Creare un tenant di Azure Active Directory B2C](tutorial-create-tenant.md).
+Azure AD B2C usa protocolli di autenticazione standard, tra cui OpenID Connect, OAuth 2.0 e SAML. Si integra con la maggior parte delle applicazioni moderne e del software COTS.
 
-Prima di configurare l'applicazione per l'uso di Azure AD B2C, è necessario registrarla nel tenant con il portale di Azure. Il processo di registrazione raccoglie e assegna all'applicazione alcuni valori. Questi valori includono un ID applicazione che identifica in modo univoco l'applicazione e un URI di reindirizzamento usato per indirizzare le risposte all'applicazione.
+![Diagramma di identità di terze parti federate con Azure AD B2C](media/active-directory-b2c-overview/scenario-singlesignon.png)
 
-Ogni interazione di un'applicazione segue un modello generale simile al seguente:
+Fungendo da autorità di autenticazione centrale per le applicazioni Web, le app per dispositivi mobili e le API, Azure AD B2C consente di creare una soluzione di Single Sign-On (SSO) per tutte, centralizzando la raccolta di informazioni sul profilo utente e sulle preferenze e acquisendo analisi dettagliate sul comportamento di accesso e la conversione dell'iscrizione.
 
-1. L'applicazione indirizza l'utente per l'esecuzione dei criteri.
-2. L'utente completa i criteri in base alla relativa definizione.
-3. L'applicazione riceve un token.
-4. L'applicazione usa il token per provare ad accedere a una risorsa.
-5. Il server delle risorse convalida il token per verificare che sia possibile concedere l'accesso.
-6. L'applicazione aggiorna periodicamente il token.
+## <a name="integrate-with-external-user-stores"></a>Integrazione con archivi utente esterni
 
-Per registrare un'applicazione Web, completare la procedura descritta in [Esercitazione: Registrare un'applicazione per consentire l'iscrizione e l'accesso tramite Azure AD B2C](tutorial-register-applications.md). È anche possibile [aggiungere un'applicazione per le API Web al tenant di Azure Active Directory B2C](add-web-application.md) oppure [aggiungere un'applicazione client nativa al tenant di Azure Active Directory B2C](add-native-application.md).
+Azure AD B2C fornisce una directory che può contenere 100 attributi personalizzati per utente. Tuttavia, è anche possibile integrarla con sistemi esterni. Ad esempio, si può usare Azure AD B2C per l'autenticazione, ma delegare a un database CRM (Customer Relationship Management) o di gestione della fedeltà dei clienti esterno come origine attendibile dei dati dei clienti.
 
-## <a name="user-journeys"></a>Percorsi utente
+Un altro scenario di archivio utenti esterno consiste nell'affidare ad Azure AD B2C la gestione dell'autenticazione per l'applicazione, integrandolo però con un sistema esterno che archivia il profilo utente o i dati personali. Lo scopo può essere ad esempio quello di soddisfare i requisiti di residenza dei dati come i criteri di archiviazione di dati locali o di singole aree geografiche.
 
-I criteri in un percorso utente possono essere definiti come [flusso utente](active-directory-b2c-reference-policies.md) o come [criteri personalizzati](active-directory-b2c-overview-custom.md). Nel portale di Azure sono disponibili flussi utente predefiniti per le attività di gestione delle identità più comuni, come iscrizione, accesso e modifica dei profili.
+![Diagramma logico della comunicazione di Azure AD B2C con un archivio utenti esterno](media/active-directory-b2c-overview/scenario-remoteprofile.png)
 
-I percorsi utente consentono di controllare i comportamenti configurando le impostazioni seguenti:
+Azure AD B2C può semplificare la raccolta delle informazioni dell'utente durante la registrazione o la modifica del profilo e il successivo trasferimento dei dati al sistema esterno. Quindi, durante le autenticazioni future, Azure AD B2C può recuperare i dati dal sistema esterno e, se necessario, includerli come parte della risposta del token di autenticazione inviato all'applicazione.
 
-- Account di social networking usati dall'utente per l'iscrizione all'applicazione
-- Dati raccolti dall'utente, come nome o CAP
-- Autenticazione a più fattori
-- Aspetto delle pagine
-- Informazioni restituite all'applicazione
+## <a name="progressive-profiling"></a>Profilatura progressiva
 
-I criteri personalizzati sono file di configurazione che definiscono il comportamento di [Identity Experience Framework](trustframeworkpolicy.md) nel tenant di Azure AD B2C. Identity Experience Framework è la piattaforma sottostante che stabilisce una relazione di trust tra più parti e completa i passaggi in un percorso utente.
+Un'altra opzione per il percorso utente include la profilatura progressiva. Questa opzione consente ai clienti di completare rapidamente la prima transazione raccogliendo una quantità minima di informazioni, per poi raccogliere gradualmente altri dati del profilo dal cliente durante gli accessi futuri.
 
-I criteri personalizzati possono essere modificati per completare numerose attività. Un criterio personalizzato è costituito da uno o più file in formato XML che fanno riferimento l'uno all'altro in una catena gerarchica. È disponibile uno [starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) per i criteri personalizzati per supportare attività comuni di gestione delle identità.
+![Rappresentazione grafica della profilatura progressiva](media/active-directory-b2c-overview/scenario-progressive.png)
 
-Criteri personalizzati o flussi utente di diversi tipi possono essere usati nel tenant di Azure AD B2C in base alle esigenze ed essere riutilizzati in più applicazioni. Questa flessibilità consente di definire e modificare le esperienze di gestione delle identità utente senza modificare il codice o con modifiche minime. I criteri vengono usati aggiungendo uno speciale parametro di query alle richieste di autenticazione HTTP. Per creare criteri personalizzati, vedere [Introduzione ai criteri personalizzati in Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
+## <a name="third-party-identity-verification-and-proofing"></a>Verifica e correzione di identità di terze parti
 
-## <a name="identity-providers"></a>Provider di identità
+Usare Azure AD B2C per facilitare la verifica e la correzione delle identità raccogliendo i dati degli utenti, quindi passandoli a un sistema di terze parti per eseguire la convalida, il punteggio di attendibilità e l'approvazione per la creazione di account utente.
 
-È possibile consentire agli utenti di accedere alle applicazioni con provider di identità diversi. Un *provider di identità* crea, mantiene e gestisce le informazioni sulle identità fornendo al contempo servizi di autenticazione alle applicazioni. È possibile aggiungere provider di identità supportati da Azure AD B2C con il portale di Azure.
+![Diagramma che mostra il flusso utente per la verifica di identità di terze parti](media/active-directory-b2c-overview/scenario-idproofing.png)
 
-In genere si usa un solo provider di identità in un'applicazione, ma è possibile aggiungerne altri. Per configurare un provider di identità nel tenant di Azure AD B2C, per prima cosa si crea un'applicazione nel sito per sviluppatori del provider di identità, quindi si registrano l'ID applicazione o client e la password o il segreto client dell'applicazione del provider di identità che è stata creata. Questo identificatore e la password vengono quindi usati per configurare l'applicazione.
+Queste sono solo alcune delle operazioni che è possibile eseguire con Azure AD B2C come piattaforma di gestione delle identità Business-to-Customer. Le sezioni seguenti di questa panoramica illustrano in dettaglio un'applicazione demo che usa Azure AD B2C. È anche possibile passare direttamente a una [panoramica tecnica di Azure AD B2C](technical-overview.md) più approfondita.
 
-Gli articoli seguenti descrivono i passaggi per aggiungere alcuni provider di identità comuni ai flussi utente:
+## <a name="example-woodgrove-groceries"></a>Esempio: WoodGrove Groceries
 
-- [Amazon](active-directory-b2c-setup-amzn-app.md)
-- [Facebook](active-directory-b2c-setup-fb-app.md)
-- [Account Microsoft](active-directory-b2c-setup-msa-app.md)
+[WoodGrove Groceries][woodgrove] è un'applicazione Web live creata da Microsoft per illustrare diverse funzionalità di Azure AD B2C. Le sezioni seguenti descrivono alcune delle opzioni di autenticazione fornite da Azure AD B2C al sito Web WoodGrove.
 
-Gli articoli seguenti descrivono i passaggi per aggiungere alcuni provider di identità comuni ai criteri personalizzati:
-- [Amazon](setup-amazon-custom.md)
-- [Google](active-directory-b2c-custom-setup-goog-idp.md)
-- [Account Microsoft](active-directory-b2c-custom-setup-msa-idp.md)
+### <a name="business-overview"></a>Panoramica dell'azienda
 
-Per altre informazioni, vedere [Esercitazione: Aggiungere provider di identità alle applicazioni in Azure Active Directory B2C](tutorial-add-identity-providers.md).
+WoodGrove è un negozio di alimentari online che vende sia a clienti privati che ad aziende. I clienti aziendali acquistano generi alimentari per conto della propria società o delle aziende che gestiscono.
 
+### <a name="sign-in-options"></a>Opzioni di accesso
 
-## <a name="page-customization"></a>Personalizzazione delle pagine
+WoodGrove Groceries offre diverse opzioni di accesso in base al rapporto che i clienti hanno con il negozio:
 
-È possibile controllare la maggior parte del contenuto HTML e CSS che viene presentato ai clienti in un percorso utente. Con la personalizzazione delle pagine, si può personalizzare l'aspetto di qualsiasi criterio personalizzato o flusso utente. Questa funzionalità di personalizzazione consente di mantenere la coerenza visiva e del marchio tra l'applicazione e Azure AD B2C.
+* I clienti **privati** possono iscriversi o accedere con account personali, ad esempio con un provider di identità di social network o un indirizzo di posta elettronica e una password.
+* I clienti **aziendali** possono iscriversi o accedere con le proprie credenziali aziendali.
+* I **partner** e i fornitori sono singole persone che forniscono al negozio di alimentari i prodotti da vendere. L'identità del partner viene fornita da [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md).
 
-Azure AD B2C esegue il codice nel browser dell'utente e usa un approccio moderno denominato condivisione di risorse tra le origini (CORS). In primo luogo, specificare un URL nel criterio con contenuto HTML personalizzato. Azure AD B2C unisce elementi dell'interfaccia utente con il contenuto HTML caricato dall'URL e quindi mostra la pagina all'utente.
+![Pagine di accesso per clienti privati (B2C), aziende (B2C) e partner (B2B)](media/active-directory-b2c-overview/woodgrove-overview.png)
 
-I parametri vengono inviati ad Azure AD B2C in una stringa di query. Passando il parametro all'endpoint HTML, il contenuto della pagina viene modificato in modo dinamico. Ad esempio, si modifica l'immagine di sfondo della pagina di iscrizione o di accesso in base a un parametro passato dall'applicazione Web o per dispositivi mobili.
+### <a name="authenticate-individual-customers"></a>Autenticare i clienti privati
 
-Per personalizzare le pagine in un flusso utente, vedere [Esercitazione: Personalizzare l'interfaccia delle esperienze utente in Azure Active Directory B2C](tutorial-customize-ui.md). Per personalizzare le pagine nei criteri personalizzati, vedere [Personalizzare l'interfaccia utente dell'applicazione usando un criterio personalizzato in Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md) o [Configurare l'interfaccia utente con contenuto dinamico usando criteri personalizzati in Azure Active Directory B2C](active-directory-b2c-ui-customization-custom-dynamic.md).
+Quando un cliente seleziona **Sign in with your personal account** (Accedi con l'account personale), viene reindirizzato a una pagina di accesso personalizzata ospitata da Azure AD B2C. Nell'immagine seguente è possibile vedere che l'interfaccia utente è stata personalizzata in modo da ottenere un aspetto analogo al sito Web di WoodGrove Groceries. Ai clienti di WoodGrove non dovrebbe essere trasparente che l'esperienza di autenticazione è ospitata e protetta da Azure AD B2C.
 
-## <a name="developer-resources"></a>Risorse per sviluppatori
+![Pagina di accesso al sito WoodGrove personalizzata ospitata da Azure AD B2C](media/active-directory-b2c-overview/sign-in.png)
 
-### <a name="client-applications"></a>Applicazioni client
+WoodGrove consente ai clienti di iscriversi e accedere usando i propri account Google, Facebook o Microsoft come provider di identità. I clienti possono anche iscriversi usando il proprio indirizzo di posta elettronica e una password per creare un *account locale*.
 
-È possibile scegliere applicazioni per [iOS](active-directory-b2c-devquickstarts-ios.md), [Android](active-directory-b2c-devquickstarts-android.md) e .NET, ad esempio. Azure AD B2C consente queste azioni proteggendo al tempo stesso le identità utente.
+Quando un cliente seleziona **Sign in with your personal account** (Accedi con l'account personale) e quindi **Sign up now** (Iscriviti ora), viene visualizzata una pagina di iscrizione personalizzata.
 
-Gli sviluppatori di applicazioni Web ASP.NET possono configurare l'applicazione per l'autenticazione degli account con la procedura descritta in [Esercitazione: Abilitare un'applicazione Web per l'autenticazione con gli account usando Azure AD B2C](active-directory-b2c-tutorials-web-app.md).
+![Pagina di iscrizione al sito WoodGrove personalizzata ospitata da Azure AD B2C](media/active-directory-b2c-overview/sign-up.png)
 
-Gli sviluppatori di applicazioni desktop possono configurare l'applicazione per l'autenticazione degli account con la procedura descritta in [Esercitazione: Abilitare un'applicazione desktop per l'autenticazione con gli account tramite Azure AD B2C](active-directory-b2c-tutorials-desktop-app.md).
+Dopo che il cliente ha immesso un indirizzo di posta elettronica e ha selezionato **Send verification code** (Invia codice di verifica), Azure AD B2C gli invia il codice. Dopo aver immesso il codice, occorre selezionare **Verify code** (Verifica codice), quindi immettere le altre informazioni nel modulo, oltre ad accettare le condizioni per l'utilizzo.
 
-Gli sviluppatori di applicazioni a pagina singola che usano Node.js possono configurare l'applicazione per l'autenticazione degli account con la procedura descritta in [Esercitazione: Abilitare un'applicazione a pagina singola per l'autenticazione con gli account tramite Azure AD B2C](active-directory-b2c-tutorials-spa.md).
+Facendo clic sul pulsante **Create** (Crea), Azure AD B2C reindirizza l'utente al sito Web di WoodGrove Groceries. Al momento del reindirizzamento, Azure AD B2C passa un token di autenticazione OpenID Connect all'applicazione Web WoodGrove. L'utente è ora connesso e pronto per usare l'applicazione, con il nome visualizzato nell'angolo in alto a destra per indicare che ha eseguito l'accesso.
 
-### <a name="apis"></a>API
-Se le applicazioni client o Web devono chiamare API, è possibile configurare l'accesso sicuro a tali risorse in Azure AD B2C.
+![Intestazione del sito Web di WoodGrove Groceries che mostra che l'utente ha eseguito l'accesso](media/active-directory-b2c-overview/signed-in-individual.png)
 
-Gli sviluppatori di applicazioni Web ASP.NET possono configurare l'applicazione per la chiamata di un'API protetta con la procedura descritta in [Esercitazione: Concedere l'accesso a un'API Web ASP.NET con Azure Active Directory B2C](active-directory-b2c-tutorials-web-api.md).
+### <a name="authenticate-business-customers"></a>Autenticare i clienti aziendali
 
-Gli sviluppatori di applicazioni desktop possono configurare l'applicazione per la chiamata di un'API protetta con la procedura descritta in [Esercitazione: Concedere l'accesso a un'API Web Node.js da un'app desktop usando Azure Active Directory B2C](active-directory-b2c-tutorials-desktop-app-webapi.md).
+Quando un cliente seleziona una delle opzioni in **Business Customers** (Clienti aziendali), il sito Web di WoodGrove Groceries richiama un criterio di Azure AD B2C diverso rispetto a quello per i clienti privati.
 
-Gli sviluppatori di applicazioni a pagina singola che usano Node.js possono impostare l'applicazione per l'autenticazione degli account con la procedura descritta in [Esercitazione: Concedere l'accesso a un'API Web ASP.NET Core da un'applicazione a pagina singola con Azure Active Directory B2C](active-directory-b2c-tutorials-spa-webapi.md).
+Questo criterio offre all'utente la possibilità di usare le proprie credenziali aziendali per l'iscrizione e l'accesso. Nell'esempio dell'app WoodGrove viene chiesto agli utenti di accedere con un account Office 365 o Azure AD. Questo criterio usa un'[applicazione di Azure AD multi-tenant](../active-directory/develop/howto-convert-app-to-be-multi-tenant.md) e l'endpoint di Azure AD `/common` per federare Azure AD B2C con qualsiasi cliente di Office 365 nel mondo.
 
-### <a name="javascript"></a>JavaScript
+### <a name="authenticate-partners"></a>Autenticare i partner
 
-È possibile aggiungere codice lato client JavaScript alle applicazioni in Azure AD B2C. Per configurare JavaScript nell'applicazione, si definisce un [layout di pagina](page-layout.md) e si abilita [JavaScript](javascript-samples.md) nei flussi utente o nei criteri personalizzati.
+Il collegamento **Sign in with your supplier account** (Accedi con l'account fornitore) usa la funzionalità di collaborazione di Azure Active Directory B2B. Azure AD B2B è un set di funzionalità di Azure Active Directory per la gestione delle identità dei partner. Queste identità possono essere federate da Azure Active Directory per l'accesso alle applicazioni protette da Azure AD B2C.
 
-### <a name="user-accounts"></a>Account utente
+Per altre informazioni su Azure AD B2B, vedere [Che cos'è l'accesso utente guest in Azure Active Directory B2B?](../active-directory/b2b/what-is-b2b.md).
 
-Molte attività comuni di gestione dei tenant devono essere eseguite a livello di codice, ad esempio la gestione degli utenti. Potrebbe essere necessario eseguire la migrazione di un archivio utenti esistente a un tenant di Azure AD B2C. Potrebbe essere necessario ospitare la registrazione degli utenti nella propria pagina e creare gli account utente nella directory Azure AD B2C in background. Questi tipi di attività richiedono la possibilità di creare, leggere, aggiornare ed eliminare gli account utente. È possibile eseguire queste attività usando l'[API Graph di Azure AD](active-directory-b2c-devquickstarts-graph-dotnet.md).
+<!-- UNCOMMENT WHEN REPO IS UPDATED WITH LATEST DEMO CODE
+### Sample code
+
+If you'd like to jump right into the code to see how the WoodGrove Groceries application is built, you can find the repository on GitHub:
+
+[Azure-Samples/active-directory-external-identities-woodgrove-demo][woodgrove-repo] (GitHub)
+-->
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Avviare la configurazione dell'applicazione per l'esperienza di iscrizione e accesso passando all'esercitazione.
+Dopo aver acquisito una panoramica di Azure AD B2C e di alcuni degli scenari in cui può essere utile, è il momento di approfondirne le funzionalità e gli aspetti tecnici.
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Creare un tenant di Azure Active Directory B2C](tutorial-create-tenant.md)
+> [Panoramica tecnica di Azure AD B2C >](technical-overview.md)
+
+<!-- LINKS - External -->
+[woodgrove]: https://aka.ms/ciamdemo
+[woodgrove-repo]: https://github.com/Azure-Samples/active-directory-external-identities-woodgrove-demo

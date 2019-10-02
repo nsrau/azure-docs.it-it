@@ -8,13 +8,13 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: lbosq
-ms.custom: seo-java-july2019, seo-java-august2019
-ms.openlocfilehash: 8689cb74e35d5b87c300f5fce239993691652ee2
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: 1b37475cfa8df38a00ea6017d47e90677ed457d2
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172536"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212634"
 ---
 # <a name="quickstart-build-a-graph-database-with-the-java-sdk-and-the-azure-cosmos-db-table-api"></a>Guida introduttiva: Creare un database a grafo con Java SDK e l'API Tabella di Azure Cosmos DB
 
@@ -110,7 +110,7 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
 
     Copiare la prima parte del valore dell'URI.
 
-    ![Visualizzare e copiare una chiave di accesso nella pagina Chiavi del portale di Azure](./media/create-graph-java/keys.png)
+    ![Visualizzare e copiare una chiave di accesso nella pagina Chiavi del portale di Azure](./media/create-graph-java/copy-access-key-azure-portal.png)
 2. Aprire il file src/remote.yaml e incollare il valore di ID univoco sopra `$name$` in `hosts: [$name$.graphs.azure.com]`.
 
     La riga 1 del file remote.yaml si presenta ora nel modo seguente: 
@@ -219,15 +219,15 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
 
 12. È ora possibile connettere rakesh e ashley. Assicurarsi che nell'elenco **Risultati** sia selezionato il valore **ashley** e quindi selezionare ![Modificare la destinazione di un vertice in un grafo](./media/create-graph-java/edit-pencil-button.png) accanto a **Destinazioni** in basso a destra. Per visualizzare il pulsante potrebbe essere necessario allargare la finestra.
 
-    ![Cambiare la destinazione di un vertice in un grafo](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
+    ![Cambiare la destinazione di un vertice in un grafo - Azure CosmosDB](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
 
 13. Nella casella **Destinazione** immettere *rakesh* e nella casella **Etichetta arco** immettere *knows* e quindi selezionare la casella di controllo.
 
-    ![Aggiungere una connessione tra ashley e rakesh in Esplora dati](./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png)
+    ![Aggiungere una connessione in Esplora dati - Azure CosmosDB](./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png)
 
 14. Selezionare ora **rakesh** dall'elenco Risultati. Come si può notare ashley e rakesh sono connessi. 
 
-    ![Due vertici connessi in Esplora dati](./media/create-graph-java/azure-cosmosdb-graph-explorer.png)
+    ![Due vertici connessi in Esplora dati - Azure CosmosDB](./media/create-graph-java/azure-cosmosdb-graph-explorer.png)
 
     È stata completata la parte relativa alla creazione delle risorse di questa esercitazione. È possibile continuare ad aggiungere vertici al grafo, modificare quelli esistenti o modificare le query. Vengono ora esaminate le metriche di Azure Cosmos DB e quindi pulite le risorse. 
 

@@ -58,8 +58,8 @@ Quindi, concatenare i due file insieme:
 
 Il set di dati include diversi tipi di statistiche per ogni messaggio di posta elettronica:
 
-* Le colonne **come\_Word\_freq * Word*** indicano la percentuale di parole nel messaggio di posta elettronica che corrispondono a *Word*. Se, ad esempio **,\_Word\_freq make** è **1**, è stato *creato*l'1% di tutte le parole nel messaggio di posta elettronica.
-* Le colonne **come\_char\_freq * char*** indicano la percentuale di tutti i caratteri nel messaggio di posta elettronica che sono di tipo *char*.
+* Le colonne **come\_Word\_freq *Word*** indicano la percentuale di parole nel messaggio di posta elettronica che corrispondono a *Word*. Se, ad esempio **,\_Word\_freq make** è **1**, è stato *creato*l'1% di tutte le parole nel messaggio di posta elettronica.
+* Le colonne **come\_char\_freq *char*** indicano la percentuale di tutti i caratteri nel messaggio di posta elettronica che sono di tipo *char*.
 * **capital\_run\_length\_longest** è la lunghezza massima di una sequenza di lettere maiuscole.
 * **capital\_run\_length\_average** è la lunghezza media di tutte le sequenze di lettere maiuscole.
 * **capital\_run\_length\_total** è la lunghezza totale di tutte le sequenze di lettere maiuscole.

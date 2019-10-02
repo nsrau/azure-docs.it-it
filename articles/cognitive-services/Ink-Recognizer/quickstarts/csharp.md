@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 09/23/2019
 ms.author: aahi
-ms.openlocfilehash: 6a1b4ab43a7d87ac1162a7f0a3556d6bc3bfbfab
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 86e69d75c067159a4daa637984a392a393dc46fa
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721254"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71211796"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>Guida introduttiva: Riconoscere l'input penna con l'API REST Riconoscimento input penna e C#
 
@@ -60,7 +60,7 @@ Il codice sorgente per questo avvio rapido è disponibile su [GitHub](https://go
     using Newtonsoft.Json.Linq;
     ```
 
-2. Creare variabili per la chiave di sottoscrizione e per l'endpoint. Di seguito è riportato l'URI che è possibile usare per il riconoscimento input penna. Questo URI verrà aggiunto all'endpoint di servizio in un secondo momento per creare l'URI della richiesta API.
+2. Creare variabili per la chiave di sottoscrizione e per l'endpoint. Sostituire l'endpoint seguente con quello generato per la risorsa riconoscimento input penna. Accodarlo all'URI di riconoscimento input penna per connettersi all'API.
 
     ```csharp
     // Replace the subscriptionKey string with your valid subscription key.
@@ -70,7 +70,7 @@ Il codice sorgente per questo avvio rapido è disponibile su [GitHub](https://go
     const string dataPath = @"PATH-TO-INK-STROKE-DATA"; 
 
     // URI information for ink recognition:
-    const string endpoint = "https://api.cognitive.microsoft.com";
+    const string endpoint = "https://<your-custom-subdomain>.cognitiveservices.azure.com";
     const string inkRecognitionUrl = "/inkrecognizer/v1.0-preview/recognize";
     ```
 

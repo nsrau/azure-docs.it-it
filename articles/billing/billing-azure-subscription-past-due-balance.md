@@ -15,14 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: banders
-ms.openlocfilehash: 8f2dbc84fe09c825d8ef25aabafba7a672220192
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: cd3c29c4b65f45863647599ae2447584845f27c8
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121719"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300293"
 ---
 # <a name="resolve-past-due-balance-for-your-azure-subscription"></a>Risolvere problemi relativi a un saldo dovuto non pagato per la sottoscrizione di Azure
+
+Questo articolo si applica ai clienti con account del programma Microsoft Online Services.
 
 Se il pagamento non viene ricevuto o non può essere elaborato, è possibile che si riceva un messaggio di posta elettronica oppure che si visualizzi un avviso nel portale di Azure o nel Centro account.
 L'[amministratore account](billing-subscription-transfer.md#whoisaa) può pagare gli addebiti in sospeso nel [portale di Azure](https://portal.azure.com). Se si usa un metodo di pagamento con fattura, inviare il pagamento al destinatario elencato nella parte inferiore della fattura.
@@ -43,6 +45,13 @@ L'[amministratore account](billing-subscription-transfer.md#whoisaa) può pagare
 1. Se sono presenti addebiti in sospeso per i servizi Microsoft anche con il metodo di pagamento selezionato, questa situazione si rifletterà anche nel saldo scoperto totale. È necessario pagare anche questi addebiti in sospeso.
 1. Fare clic su **Pagamento**.
 
+## <a name="troubleshoot-declined-credit-card"></a>Risolvere i problemi relativi a una carta di credito rifiutata
+
+Se l'addebito sulla carta di credito viene rifiutato dall'istituto finanziario, contattare tale istituto per risolvere il problema. Rivolgersi alla banca per verificare se:
+- Le transazioni internazionali sono abilitate per la carta.
+- Il limite di credito o i fondi presenti sulla carta sono sufficienti per pagare il saldo.
+- I pagamenti ricorrenti sono abilitati per la carta.
+
 ## <a name="not-getting-billing-email-notifications"></a>Non si ricevono notifiche di posta elettronica relative alla fatturazione?
 
 Se si è un amministratore account, [verificare l'indirizzo e-mail usato per le notifiche](billing-how-to-change-azure-account-profile.md). È consigliabile usare un indirizzo di posta elettronica che viene controllato regolarmente. Se l'indirizzo è corretto, controllare la cartella di posta indesiderata.
@@ -52,6 +61,7 @@ Se si è un amministratore account, [verificare l'indirizzo e-mail usato per le 
 Il servizio viene annullato e le risorse non saranno più disponibili. I dati di Azure verranno eliminati 90 giorni dopo il termine del servizio. Per altre informazioni, vedere [Microsoft Trust Center - Come vengono gestiti i dati](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
 
 Se si è certi che il pagamento è stato elaborato, ma la sottoscrizione è ancora disabilitata, contattare il [supporto di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 

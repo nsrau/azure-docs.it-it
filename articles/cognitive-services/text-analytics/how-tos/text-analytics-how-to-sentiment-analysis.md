@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 07/30/2019
+ms.date: 09/23/2019
 ms.author: aahi
-ms.openlocfilehash: 60ae2136c3fa934c178de95f51d490e570f45faa
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: ea145239d38a4030423a4517fe02c62b8eefa08a
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845353"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71211779"
 ---
 # <a name="example-detect-sentiment-with-text-analytics"></a>Esempio: Rilevare il sentiment con Analisi del testo
 
@@ -139,7 +139,7 @@ La [prossima versione di Analisi del sentiment](https://westcentralus.dev.cognit
 > [!NOTE]
 > * Il formato della richiesta e i [limiti dei dati](../overview.md#data-limits) di Analisi del sentiment versione 3 sono gli stessi della versione precedente.
 > * Attualmente, Analisi del sentiment versione 3:
->    * Supporta al momento le lingue inglese, cinese semplificato e giapponese.
+>    * Attualmente supporta le lingue inglese, francese, italiano, giapponese, cinese semplificato e cinese tradizionale.
 >    * È disponibile nelle aree seguenti: `Australia East`, `Central Canada`, `Central US`, `East Asia`, `East US`, `East US 2`, `North Europe`, `Southeast Asia`, `South Central US`, `UK South`, `West Europe` e `West US 2`.
 
 |Funzionalità |DESCRIZIONE  |

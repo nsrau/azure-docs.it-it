@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 3da22d11dce1e535763476d906ac45f3da22bc8d
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 01e932caf5edc91d5556b60d33e4d100574f93f5
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141280"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170041"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>Esempio: Esplorare un'app di elaborazione delle immagini con C#
 
@@ -80,7 +80,7 @@ Prima di poter eseguire o esplorare l'app di esempio, è necessario compilarla i
    ![Pagina di gestione delle chiavi di sottoscrizione](../Images/Vision_UI_Subscription.PNG)  
 1. Immettere la chiave di sottoscrizione in **Subscription Key** (Chiave di sottoscrizione).
 1. Immettere l'URL dell'endpoint in **Endpoint**.  
-   Se ad esempio si usa la chiave di sottoscrizione della versione di valutazione gratuita di Visione artificiale, immettere l'URL dell'endpoint seguente: `https://westcentralus.api.cognitive.microsoft.com`
+   Se ad esempio si usa la chiave di sottoscrizione della versione di valutazione gratuita di Visione artificiale, immettere l'URL dell'endpoint seguente: `https://westcentralus.api.cognitive.microsoft.com`  
    [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 1. Per evitare di immettere nuovamente la chiave di sottoscrizione e l'URL dell'endpoint alla successiva esecuzione dell'app di esempio, scegliere **Save Setting** (Salva impostazione) per salvare la chiave di sottoscrizione e l'URL dell'endpoint nel computer. Se si vuole eliminare la chiave di sottoscrizione e l'URL dell'endpoint salvati in precedenza, scegliere **Delete Setting** (Elimina impostazione).
 

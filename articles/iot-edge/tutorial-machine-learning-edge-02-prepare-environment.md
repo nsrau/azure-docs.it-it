@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: fd3b5766ec2bd8d1babf847598f1fbe5b6511ce7
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 1db94e683a0dfb3b60b12bc5ac205c766d405d0a
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67432838"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299834"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Esercitazione: Configurare un ambiente di Machine Learning in IoT Edge
 
@@ -26,7 +26,7 @@ Questo articolo dell'esercitazione completa su Azure Machine Learning in IoT Edg
 
 Questo passaggio viene in genere eseguito da sviluppatori cloud. Parte del software può risultare utile anche ai data scientist.
 
-Nel corso dell'articolo vengono eseguite varie attività di sviluppo, tra cui scrittura di codice, compilazione, configurazione e distribuzione di moduli IoT Edge e dispositivi IoT. Per semplicità, è stato creato uno script di PowerShell che crea una macchina virtuale di Azure con molti prerequisiti già configurati. La VM da creare deve essere in grado di gestire la [virtualizzazione annidata](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization), per cui sono state scelte le dimensioni della macchina DS8V3.
+Nel corso dell'articolo vengono eseguite varie attività di sviluppo, tra cui scrittura di codice, compilazione, configurazione e distribuzione di moduli IoT Edge e dispositivi IoT. Per semplicità, è stato creato uno script di PowerShell che crea una macchina virtuale di Azure con molti prerequisiti già configurati. La VM da creare deve essere in grado di gestire la [virtualizzazione annidata](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization), per cui sono state scelte le dimensioni della macchina [Standard_D8s_v3](../virtual-machines/windows/sizes-general.md#dsv3-series-1).
 
 La VM di sviluppo verrà configurata con:
 

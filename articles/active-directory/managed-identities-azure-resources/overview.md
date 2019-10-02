@@ -12,15 +12,15 @@ ms.subservice: msi
 ms.devlang: ''
 ms.topic: overview
 ms.custom: mvc
-ms.date: 06/19/2019
+ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c4f670f3bb14610e7f29a9201b357e73dacf09b
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 596da9cfe0e914183bd3b2603ffa1047f1d9352b
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67293226"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71310016"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>Informazioni sulle identità gestite per le risorse di Azure
 
@@ -68,28 +68,29 @@ Il diagramma seguente illustra il funzionamento delle identità del servizio ges
 ### <a name="how-a-system-assigned-managed-identity-works-with-an-azure-vm"></a>Funzionamento di un'identità gestita assegnata dal sistema con una macchina virtuale di Azure
 
 1. Azure Resource Manager riceve una richiesta per abilitare l'identità gestita assegnata dal sistema in una macchina virtuale.
+
 2. Azure Resource Manager crea un'entità servizio in Azure AD per l'identità della macchina virtuale. L'entità servizio viene creata nel tenant di Azure AD considerata attendibile dalla sottoscrizione.
-3. Azure Resource Manager configura l'identità nella macchina virtuale:
-    1. Aggiorna l'endpoint dell'identità del servizio metadati dell'istanza di Azure con l'ID client e il certificato dell'entità servizio.
-    1. Effettua il provisioning dell'estensione della macchina virtuale (deprecazione pianificata per il gennaio 2019) e aggiunge l'ID client e il certificato dell'entità servizio. È stata pianificata la deprecazione di questo passaggio.
+
+3. Azure Resource Manager configura l'identità nella macchina virtuale aggiornando l'endpoint dell'identità del servizio metadati dell'istanza di Azure con l'ID client e il certificato dell'entità servizio.
+
 4. Quando la VM ha un'identità, è possibile usare le informazioni dell'entità servizio per concedere alla VM l'accesso alle risorse di Azure. Per chiamare Azure Resource Manager, usare il controllo degli accessi in base al ruolo in Azure AD per assegnare il ruolo appropriato all'entità servizio della VM. Per chiamare Key Vault, concedere al codice l'accesso a un segreto specifico o a una chiave specifica in Key Vault.
+
 5. Il codice in esecuzione nella macchina virtuale può richiedere un token all'endpoint servizio metadati dell'istanza di Azure, accessibile solo dall'interno della macchina virtuale: `http://169.254.169.254/metadata/identity/oauth2/token`
     - Il parametro della risorsa specifica il servizio a cui viene inviato il token. Per l'autenticazione in Azure Resource Manager, usare `resource=https://management.azure.com/`.
     - Il parametro della versione API specifica la versione del servizio metadati dell'istanza. Usare api-version=2018-02-01 o una versione successiva.
 
-> [!NOTE]
-> Il codice può anche richiedere un token all'endpoint dell'estensione della macchina virtuale, ma questo endpoint verrà deprecato a breve. Per altre informazioni sull'estensione della macchina virtuale, vedere l'articolo su come [eseguire la migrazione dall'estensione della macchina virtuale al servizio metadati dell'istanza di Azure per l'autenticazione](howto-migrate-vm-extension.md).
-
 6. Viene effettuata una chiamata ad Azure AD per richiedere un token di accesso come specificato nel Passaggio 5, usando l'ID client e il certificato di cui è stata eseguita la configurazione nel Passaggio 3. Azure AD restituisce un token di accesso JSON Web.
+
 7. Il codice invia il token di accesso in una chiamata a un servizio che supporta l'autenticazione di Azure AD.
 
 ### <a name="how-a-user-assigned-managed-identity-works-with-an-azure-vm"></a>Funzionamento di un'identità gestita assegnata dall'utente con una macchina virtuale di Azure
 
 1. Azure Resource Manager riceve una richiesta per creare un'identità gestita assegnata dall'utente.
+
 2. Azure Resource Manager crea un'entità servizio in Azure AD per l'identità gestita assegnata dall'utente. L'entità servizio viene creata nel tenant di Azure AD considerata attendibile dalla sottoscrizione.
-3. Azure Resource Manager riceve una richiesta per configurare l'identità gestita assegnata dall'utente in una macchina virtuale:
-    1. Aggiorna l'endpoint dell'identità del servizio metadati dell'istanza di Azure con l'ID client e il certificato dell'entità servizio dell'identità gestita assegnata dall'utente.
-    1. Effettua il provisioning dell'estensione della macchina virtuale e aggiunge l'ID client e il certificato dell'entità servizio dell'identità gestita assegnata dall'utente. È stata pianificata la deprecazione di questo passaggio.
+
+3. Azure Resource Manager riceve una richiesta di configurazione dell'identità gestita assegnata dall'utente in una macchina virtuale e aggiorna l'endpoint dell'identità del servizio metadati dell'istanza di Azure con l'ID client e il certificato dell'entità servizio dell'identità gestita assegnata dall'utente.
+
 4. Dopo la creazione dell'identità gestita assegnata dall'utente, usare le informazioni dell'entità servizio per concedere all'identità l'accesso alle risorse di Azure. Per chiamare Azure Resource Manager, usare il controllo degli accessi in base al ruolo in Azure AD per assegnare il ruolo appropriato all'entità servizio dell'identità assegnata dall'utente. Per chiamare Key Vault, concedere al codice l'accesso a un segreto specifico o a una chiave specifica in Key Vault.
 
    > [!Note]
@@ -99,9 +100,6 @@ Il diagramma seguente illustra il funzionamento delle identità del servizio ges
     - Il parametro della risorsa specifica il servizio a cui viene inviato il token. Per l'autenticazione in Azure Resource Manager, usare `resource=https://management.azure.com/`.
     - Il parametro dell'ID client specifica l'identità per cui viene richiesto il token. Questo valore è necessario per evitare ambiguità quando in una singola macchina virtuale sono presenti più identità assegnate dall'utente.
     - Il parametro relativo alla versione dell'API specifica la versione del servizio metadati dell'istanza di Azure. Usare `api-version=2018-02-01` o versione successiva.
-
-> [!NOTE]
-> Il codice può anche richiedere un token all'endpoint dell'estensione della macchina virtuale, ma questo endpoint verrà deprecato a breve. Per altre informazioni sull'estensione della macchina virtuale, vedere l'articolo su come [eseguire la migrazione dall'estensione della macchina virtuale al servizio metadati dell'istanza di Azure per l'autenticazione](howto-migrate-vm-extension.md).
 
 6. Viene effettuata una chiamata ad Azure AD per richiedere un token di accesso come specificato nel Passaggio 5, usando l'ID client e il certificato di cui è stata eseguita la configurazione nel Passaggio 3. Azure AD restituisce un token di accesso JSON Web.
 7. Il codice invia il token di accesso in una chiamata a un servizio che supporta l'autenticazione di Azure AD.

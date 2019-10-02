@@ -272,14 +272,14 @@ Per rendere integro lo stato della replica della macchina virtuale, è possibile
 
 #### <a name="to-protect-the-disks"></a>Per proteggere i dischi
 
-1. Passare > a **elementi replicati** **dischi***nome* > VM.
+1. Passare a **elementi replicati** > *dischi nome* > **VM**.
 1. Selezionare il disco non protetto e quindi selezionare **Abilita replica**:
 
     ![Abilitare la replica nei dischi delle macchine virtuali](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
 
 #### <a name="to-dismiss-the-warning"></a>Per ignorare l'avviso
 
-1. Passare > a **elementi replicati***nome VM*.
+1. Passare a **elementi replicati** > *nome VM*.
 1. Selezionare l'avviso nella sezione **Panoramica** e quindi fare clic su **OK**.
 
     ![Ignora nuovo-avviso del disco](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)

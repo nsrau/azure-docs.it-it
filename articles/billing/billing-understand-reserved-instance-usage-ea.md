@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 507ad62a917120689bee3f1e293e23c9ab8b0f66
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: f2f5b2ecf096d7dc8babb79a38d00158a2120688
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "68598090"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71218069"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Ottenere informazioni sui costi di prenotazione e l'utilizzo dei contratti Enterprise Agreement
 
@@ -26,7 +26,7 @@ I costi di prenotazione e i dati di utilizzo sono disponibili per gli utenti con
 - Individuare la sottoscrizione, il gruppo di risorse o la risorsa che ha usato la prenotazione
 - Effettuare il chargeback per l'utilizzo delle prenotazioni
 - Calcolare il risparmio delle prenotazioni
-- Ottenere i dati di sottoutilizzo della prenotazione
+- Ottenere i dati di sottoutilizzo delle prenotazioni
 - Ammortizzare i costi di prenotazione
 
 Gli addebiti per Marketplace sono consolidati nei dati di utilizzo. Vengono visualizzati gli addebiti per l'utilizzo proprietario, l'utilizzo del Marketplace e gli acquisti da una singola origine dati.
@@ -57,18 +57,20 @@ Sono state modificate altre informazioni disponibili nei dati di utilizzo di Azu
 - Durata: 12 mesi o 36 mesi.
 - RINormalizationRatio: disponibile in AdditionalInfo. È il rapporto in base a cui la prenotazione viene applicata al record di utilizzo. Se la flessibilità delle dimensioni dell'istanza è abilitata per la prenotazione, può essere applicata ad altre dimensioni. Il valore mostra il rapporto a cui è stata applicata la prenotazione per il record di utilizzo.
 
+[Visualizzare la definizione del campo](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#definitions)
+
 ## <a name="get-azure-consumption-and-reservation-usage-data-using-api"></a>Ottenere i dati di consumo e di utilizzo delle prenotazioni di Azure tramite l'API
 
 È possibile ottenere i dati usando l'API o scaricarli dal portale di Azure.
 
-Per ottenere i nuovi dati, chiamare l'[API Dettagli utilizzo](/rest/api/consumption/usagedetails/list) con l'API versione &quot;2019-04-01-(anteprima)&quot;. Per informazioni dettagliate sulla terminologia, vedere [Comprendere i termini di utilizzo nel file su utilizzo e costi di Azure](billing-understand-your-usage.md). Il chiamante deve essere un amministratore dell'organizzazione per il contratto Enterprise Agreement che usa [EA Portal](https://ea.azure.com). Anche gli amministratori dell'organizzazione in sola lettura possono ottenere i dati.
+Per ottenere i nuovi dati, chiamare l'[API Dettagli utilizzo](/rest/api/consumption/usagedetails/list). Per informazioni dettagliate sulla terminologia, vedere [Comprendere i termini di utilizzo nel file su utilizzo e costi di Azure](billing-understand-your-usage.md). Il chiamante deve essere un amministratore dell'organizzazione per il contratto Enterprise Agreement che usa [EA Portal](https://ea.azure.com). Anche gli amministratori dell'organizzazione in sola lettura possono ottenere i dati.
 
 I dati non sono disponibili in [API di creazione di report per i clienti Enterprise - Dettagli di utilizzo](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
 
 Ecco un esempio di chiamata all'API:
 
 ```
-https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-04-01-preview&amp;$filter={filter}
+https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-05-01&amp;$filter={filter}
 ```
 
 Per altre informazioni su {enrollmentId} e {billingPeriodId}, vedere l'articolo [Dettagli utilizzo - Elenco](https://docs.microsoft.com/rest/api/consumption/usagedetails/list).

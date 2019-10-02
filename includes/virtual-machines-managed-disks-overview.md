@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 69c63d4eb2e0bfd04bb232cb0cf39965a5b77193
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: be82ab1597021d7198d7936ecd24e4bec64fdf25
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104262"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266909"
 ---
 ## <a name="benefits-of-managed-disks"></a>Vantaggi dei dischi gestiti
 
@@ -43,15 +43,21 @@ Per proteggersi da emergenze a livello di area, [Backup di Azure](../articles/ba
 
 Per assegnare autorizzazioni specifiche per un disco gestito a uno o più utenti, è possibile usare il [controllo degli accessi in base al ruolo di Azure](../articles/role-based-access-control/overview.md). I dischi gestiti espongono una serie di operazioni, inclusa la lettura, la scrittura (creazione/aggiornamento), l'eliminazione e il recupero di un [URI di firma di accesso condiviso](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) per il disco. È possibile consentire l'accesso solo alle operazioni che servono agli utenti per svolgere il proprio lavoro. Ad esempio, per fare in modo che un utente non possa copiare un disco gestito in un account di archiviazione, è possibile scegliere di non consentire l'accesso all'operazione di esportazione di tale disco gestito. Analogamente, per fare in modo che un utente non possa usare un URI di firma di accesso condiviso per copiare un disco gestito, è possibile scegliere di non concedere l'autorizzazione per il disco gestito.
 
+### <a name="upload-your-vhd"></a>Caricare il disco rigido virtuale
+
+ Il caricamento diretto semplifica il trasferimento del disco rigido virtuale in un disco gestito di Azure. In precedenza era necessario seguire una procedura più complessa che includeva lo staging dei dati in un account di archiviazione. Ora sono richiesti meno passaggi. È più facile caricare le VM locali in Azure, anche in grandi dischi gestiti, e il processo di backup e ripristino è semplificato. I costi sono inoltre ridotti, grazie alla possibilità di caricare i dati direttamente nei dischi gestiti senza collegarli a VM. È possibile usare il caricamento diretto di dischi rigidi virtuali di dimensioni fino a 32 TiB.
+
+ Per altre informazioni su come trasferire i dischi rigidi virtuali in Azure, vedere gli articoli relativi all'[interfaccia della riga di comando](../articles/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli.md) o a [PowerShell](../articles/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md).
+
 ## <a name="encryption"></a>Crittografia
 
-Con i dischi gestiti vengono offerti due tipi diversi di crittografia. Il primo è la crittografia del servizio di archiviazione e viene eseguito dal servizio di archiviazione. Il secondo è Crittografia dischi di Azure e può essere attivato nei dischi del sistema operativo e nei dischi dati per le macchine virtuali.
+Con i dischi gestiti vengono offerti due tipi diversi di crittografia. Il primo è la crittografia del servizio di archiviazione e viene eseguito dal servizio di archiviazione. Il secondo è Crittografia dischi di Azure, che è possibile abilitare nei dischi del sistema operativo e in quelli dei dati per le VM.
 
 ### <a name="storage-service-encryption-sse"></a>Crittografia del servizio di archiviazione di Azure (SSE)
 
 La [crittografia del servizio di archiviazione di Azure](../articles/storage/common/storage-service-encryption.md) fornisce la crittografia inattiva e salvaguarda i dati, in modo da soddisfare i criteri di sicurezza e conformità dell'organizzazione. La crittografia del servizio di archiviazione è abilitata per impostazione predefinita per tutti i dischi gestiti, gli snapshot e le immagini in tutte le aree in cui i dischi gestiti sono disponibili. Visitare la [pagina Domande frequenti sui dischi e sui dischi Premium delle macchine virtuali IaaS di Azure (gestiti e non gestiti)](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) per altri dettagli.
 
-### <a name="azure-disk-encryption-ade"></a>Crittografia dischi di Azure (ADE)
+### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
 Crittografia dischi di Azure consente di crittografare i dischi del sistema operativo e i dischi dati usati da una macchina virtuale IaaS. Questo tipo di crittografia include i dischi gestiti. Per Windows, le unità vengono crittografate mediante la tecnologia di crittografia BitLocker standard del settore. Per Linux, i dischi vengono crittografati mediante la tecnologia DM-Crypt, Il processo di crittografia è integrato in Azure Key Vault per consentire il controllo e la gestione delle chiavi di crittografia del disco. Per altre informazioni, vedere [Crittografia dischi di Azure per macchine virtuali IaaS](../articles/security/azure-security-disk-encryption-overview.md).
 

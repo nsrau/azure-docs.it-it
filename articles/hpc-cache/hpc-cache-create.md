@@ -1,21 +1,21 @@
 ---
-title: Creare una cache HPC di Azure
+title: Creare un'istanza di Cache HPC di Azure (anteprima)
 description: Come creare un'istanza di Cache HPC di Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: tutorial
-ms.date: 09/06/2019
+ms.date: 09/24/2019
 ms.author: v-erkell
-ms.openlocfilehash: e1b69f17d964647944f23f4d16a0a1a5f112b60d
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: a0590c14032595bea685c69962ef27dca14d1d69
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036989"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300025"
 ---
-# <a name="create-an-azure-hpc-cache"></a>Creare una cache HPC di Azure
+# <a name="create-an-azure-hpc-cache-preview"></a>Creare un'istanza di Cache HPC di Azure (anteprima)
 
-Usare il portale di Azure per creare la cache.
+Usare il portale di Azure per creare la cache. 
 
 ![screenshot della panoramica della cache nel portale di Azure, con il pulsante Crea nella parte inferiore](media/hpc-cache-home-page.png)
 
@@ -23,18 +23,20 @@ Usare il portale di Azure per creare la cache.
 
 ![screenshot della pagina dei dettagli del progetto nel portale di Azure](media/hpc-cache-create-basics.png)
 
-In **Dettagli progetto** selezionare la sottoscrizione e il gruppo di risorse in cui verrà ospitata la cache HPC di Azure. Assicurarsi che la sottoscrizione sia presente nell'elenco di [accesso all'anteprima](hpc-cache-prereqs.md#azure-subscription).
+In **Dettagli progetto** selezionare la sottoscrizione e il gruppo di risorse in cui verrà ospitata la cache. Assicurarsi che la sottoscrizione sia presente nell'elenco di [accesso all'anteprima](hpc-cache-prereqs.md#azure-subscription).
 
 In **Dettagli servizio** impostare il nome della cache e questi altri attributi:
 
 * Località: selezionare una delle [aree supportate](hpc-cache-overview.md#region-availability).
 * Rete virtuale: è possibile selezionare una rete virtuale esistente oppure crearne una nuova.
-* Subnet: scegliere o creare una subnet con almeno 64 indirizzi IP (/24) che verranno usati solo per la cache HPC di Azure.
+* Subnet: scegliere o creare una subnet con almeno 64 indirizzi IP (/24) che verranno usati solo per questa istanza di Cache HPC di Azure.
 
 ## <a name="set-cache-capacity"></a>Impostare la capacità della cache
-<!-- change link in GUI -->
+<!-- referenced from GUI - update aka.ms link if you change this header text -->
 
-Nella pagina **Cache** è necessario impostare la capacità della cache HPC di Azure. Questo valore determina la quantità di dati che può essere mantenuta nella cache e la velocità con cui la cache può soddisfare le richieste client. Dopo il periodo di anteprima pubblica, la capacità influirà anche sul costo della cache.
+Nella pagina **Cache** è necessario impostare la capacità della cache. Questo valore determina la quantità di dati che può essere mantenuta nella cache e la velocità con cui la cache può soddisfare le richieste client. 
+
+Dopo il periodo di anteprima pubblica, la capacità influirà anche sul costo della cache.
 
 La capacità della cache viene misurata in operazioni di I/O al secondo. Scegliere la capacità impostando questi due valori:
 
@@ -43,9 +45,9 @@ La capacità della cache viene misurata in operazioni di I/O al secondo. Sceglie
 
 Scegliere uno dei valori disponibili per la velocità effettiva e le dimensioni di archiviazione della cache. La capacità in operazioni di I/O al secondo viene calcolata e mostrata sotto i selettori dei valori.
 
-Tenere presente che la velocità effettiva di trasferimento dei dati dipende dal carico di lavoro, dalle velocità di rete e dal tipo di destinazioni di archiviazione. Se un file non si trova nella cache o è contrassegnato come obsoleto, il servizio userà parte della velocità effettiva per recuperarlo dallo spazio di archiviazione back-end. Il valore scelto imposta la velocità effettiva massima per l'intera cache e non è tutta disponibile per tutte le richieste client.
+Tenere presente che la velocità effettiva di trasferimento dei dati dipende dal carico di lavoro, dalle velocità di rete e dal tipo di destinazioni di archiviazione. Il valore scelto imposta la velocità effettiva massima per l'intera cache e non è tutta disponibile per tutte le richieste client. Se, ad esempio, un client richiede un file che non è già archiviato nella cache o se il file è contrassegnato come obsoleto, la cache usa parte della velocità effettiva per recuperarla dall'archiviazione back-end.
 
-Per l'archiviazione nella cache, Cache HPC di Azure determina quali file vengono memorizzati nella cache e precaricati per massimizzare le percentuali di riscontri nella cache. Il contenuto della cache viene valutato continuamente e i file vengono spostati nello spazio di archiviazione a lungo termine se vi si accede con minore frequenza. Scegliere una dimensione di archiviazione della cache in grado di ospitare comodamente il set attivo di file di lavoro con spazio aggiuntivo per i metadati e altro overhead.
+Cache HPC di Azure determina quali file vengono memorizzati nella cache e precaricati per massimizzare le percentuali di riscontri nella cache. Il contenuto della cache viene valutato continuamente e i file vengono spostati nello spazio di archiviazione a lungo termine se vi si accede con minore frequenza. Scegliere una dimensione di archiviazione della cache in grado di ospitare comodamente il set attivo di file di lavoro con spazio aggiuntivo per i metadati e altro overhead.
 
 ![screenshot della pagina di determinazione delle dimensioni della cache](media/hpc-cache-create-iops.png)
 
@@ -61,9 +63,9 @@ Fare clic sul collegamento **Add storage target** (Aggiungi destinazione archivi
 
 È possibile definire fino a dieci destinazioni di archiviazione diverse.
 
-Le istruzioni dettagliate sull'aggiunta di una destinazione di archiviazione sono incluse in [Aggiungere spazio di archiviazione](hpc-cache-add-storage.md). La procedura è diversa a seconda che si tratti dell'archiviazione BLOB o di esportazioni NFS.
+Le istruzioni dettagliate sull'aggiunta di una destinazione di archiviazione sono incluse in [Aggiungere destinazioni di archiviazione](hpc-cache-add-storage.md). La procedura è diversa a seconda che si tratti dell'archiviazione BLOB o di esportazioni NFS.
 
-Ecco alcuni suggerimenti: 
+Ecco alcuni suggerimenti:
 
 * Per entrambi i tipi di archiviazione, è necessario specificare come trovare il sistema di archiviazione back-end (un indirizzo NFS o il nome di un contenitore BLOB) e il percorso dello spazio dei nomi lato client.
 
@@ -73,7 +75,7 @@ Ecco alcuni suggerimenti:
 
 ## <a name="add-resource-tags-optional"></a>Aggiungere tag di risorsa (facoltativo)
 
-La pagina **Tag** consente di aggiungere [tag di risorsa](https://go.microsoft.com/fwlink/?linkid=873112) alla cache HPC di Azure. 
+La pagina **Tag** consente di aggiungere [tag di risorsa](https://go.microsoft.com/fwlink/?linkid=873112) all'istanza di Cache HPC di Azure.
 
 ## <a name="finish-creating-the-cache"></a>Completare la creazione della cache
 

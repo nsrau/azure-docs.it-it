@@ -3,18 +3,18 @@ title: Panoramica di Gemelli digitali di Azure | Microsoft Docs
 description: Altre informazioni su Gemelli digitali di Azure, una soluzione Azure IoT per l'intelligenza spaziale.
 author: julieseto
 ms.author: jseto
-ms.date: 08/01/2019
+ms.date: 09/17/2019
 ms.topic: overview
 ms.service: digital-twins
 services: digital-twins
 manager: bertvanhoof
 ms.custom: mvc
-ms.openlocfilehash: 6bd4e3bb688e92d30a21c39599e2e5bdb7b17dba
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 2b80d0b364330a0effa7b89c620bd935157de290
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736975"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178288"
 ---
 # <a name="overview-of-azure-digital-twins"></a>Panoramica di Gemelli digitali di Azure
 
@@ -33,7 +33,7 @@ Gemelli digitali di Azure si applica a tutti i tipi di ambienti, ad esempio, dat
 - Analizzare i livelli di occupazione di un edificio.
 - Individuare la cassa più attiva del punto vendita.
 
-Qualsiasi sia lo scenario del mondo reale, è molto probabile poter eseguire il provisioning di un'istanza digitale corrispondente con Gemelli digitali di Azure.
+Qualsiasi sia lo scenario del mondo reale, è probabile poter eseguire il provisioning di un'istanza digitale corrispondente con Gemelli digitali di Azure.
 
 Il video seguente illustra in modo più approfondito il servizio Gemelli digitali di Azure.
 
@@ -45,13 +45,13 @@ Gemelli digitali include le funzionalità chiave seguenti.
 
 ### <a name="spatial-intelligence-graph"></a>Grafico di intelligenza spaziale
 
-Il [*grafico di intelligenza spaziale*](./concepts-objectmodel-spatialgraph.md#graph), o *grafico spaziale*, è una rappresentazione virtuale dell'ambiente fisico che consente di modellare le relazioni tra persone, luoghi e dispositivi.
+Il [*grafico di intelligenza spaziale*](./concepts-objectmodel-spatialgraph.md#spatial-intelligence-graph), o *grafico spaziale*, è una rappresentazione virtuale dell'ambiente fisico che consente di modellare le relazioni tra persone, luoghi e dispositivi.
 
 Si consideri un'app Smart Utility che prevede diversi contatori di utilizzo dell'energia elettrica connessi in un quartiere. L'azienda Smart Utility deve monitorare e prevedere con precisione l'utilizzo e la fatturazione dell'energia elettrica. A tale scopo, è necessario modellare ogni dispositivo e sensore con informazioni di contesto sulla località e sul cliente destinatario della fattura. È possibile usare il grafico di intelligenza spaziale per modellare questi tipi di relazioni complesse.
 
 ### <a name="digital-twin-object-models"></a>Modelli a oggetti di gemelli digitali
 
-I [modelli a oggetti di gemelli digitali](./concepts-objectmodel-spatialgraph.md#model) sono protocolli di dispositivo e schemi di dati predefiniti che consentono di allineare le esigenze specifiche del dominio di una soluzione per accelerare e semplificare lo sviluppo.
+I [modelli a oggetti di gemelli digitali](./concepts-objectmodel-spatialgraph.md#digital-twins-object-models) sono protocolli di dispositivo e schemi di dati predefiniti che consentono di allineare le esigenze specifiche del dominio di una soluzione per accelerare e semplificare lo sviluppo.
 
 Per esempio, un'applicazione per la gestione dell'occupazione delle stanze che può usare tipi di spazio predefiniti, come campus, edificio, piano e stanza.
 
@@ -93,9 +93,9 @@ Gemelli digitali di Azure è utile per rappresentare il mondo fisico e le tante 
 
 Gemelli digitali di Azure usa l'hub IoT di Azure per connettere i dispositivi e i sensori IoT che consentono di mantenere tutto aggiornato con il mondo fisico. Il diagramma seguente mostra le relazioni tra Gemelli digitali di Azure e altri servizi Azure IoT.
 
-![Gemelli digitali di Azure è un servizio basato sull'hub IoT di Azure][1]
+[![Gemelli digitali di Azure è un servizio basato sull'hub IoT di Azure](media/overview/azure-digital-twins-in-iot-ecosystem.png)](media/overview/azure-digital-twins-in-iot-ecosystem.png#lightbox)
 
-Per altre informazioni su IoT, vedere l'articolo su [tecnologie e soluzioni di Azure IoT](https://docs.microsoft.com/azure/iot-fundamentals/iot-services-and-technologies).
+Per altre informazioni su IoT, vedere l'articolo su [tecnologie e soluzioni di Azure IoT](../iot-fundamentals/iot-services-and-technologies.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -113,6 +113,3 @@ Informazioni su concetti di base relativi a Gemelli digitali di Azure:
 
 >[!div class="nextstepaction"]
 >[Informazioni sui modelli a oggetti di Gemelli digitali e sul grafico di intelligenza spaziale](./concepts-objectmodel-spatialgraph.md)
-
-<!-- Images -->
-[1]: media/overview/azure-digital-twins-in-iot-ecosystem.png

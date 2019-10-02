@@ -70,6 +70,14 @@
               href: devtest-lab-use-claim-capabilities.md
 - name: Guide alle procedure
   items:
+    - name: Lab per le classi - Tipi di classe
+      items:
+        - name: Tipi di classe
+          href: classroom-labs/class-types.md
+        - name: Deep Learning nell'elaborazione naturale
+          href: classroom-labs/class-type-deep-learning-natural-processing.md
+        - name: Script della shell in Linux
+          href: classroom-labs/class-type-shell-scripting-linux.md
     - name: Lab per le classi
       items:
         - name: Creare e configurare account lab (proprietario di account lab)

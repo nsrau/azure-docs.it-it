@@ -6,13 +6,13 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: overview
-ms.date: 07/22/2019
-ms.openlocfilehash: 4619545ab1fed5f55504e80eede0d1cf240eea87
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.date: 09/23/2019
+ms.openlocfilehash: e1863cc54759f6cc2266073629093d4923260525
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68488697"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240415"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Panoramica della sicurezza aziendale in Azure HDInsight
 
@@ -52,7 +52,7 @@ Controllare tutti gli accessi per le risorse del cluster e i dati, è necessario
 
 L'amministratore può visualizzare e segnalare tutti gli accessi ai dati e alle risorse del cluster HDInsight. L'amministratore può anche visualizzare e segnalare tutte le modifiche ai criteri di controllo degli accessi creati negli endpoint supportati da Apache Ranger. 
 
-Per accedere ai log di controllo di Apache Ranger e Ambari e ai log di accesso di ssh, [abilitare Monitoraggio di Azure](../hdinsight-hadoop-oms-log-analytics-tutorial.md) e visualizzare i record di controllo correlati.
+Per accedere ai log di controllo di Apache Ranger e Ambari e ai log di accesso di ssh, [abilitare Monitoraggio di Azure](../hdinsight-hadoop-oms-log-analytics-tutorial.md#cluster-auditing) e visualizzare le tabelle che forniscono i record di controllo.
 
 ### <a name="encryption"></a>Crittografia
 
@@ -73,6 +73,7 @@ La tabella seguente include i collegamenti alle risorse per ogni tipo di soluzio
 | Sicurezza dall'accesso ai dati | Configurare [elenchi di controllo di accesso (ACL)](../../storage/blobs/data-lake-storage-access-control.md) per Azure Data Lake Storage Gen1 e Gen2  | Customer |
 |  | Abilitare la proprietà [Trasferimento sicuro obbligatorio](../../storage/common/storage-require-secure-transfer.md) negli account di archiviazione. | Customer |
 |  | Configurare le reti virtuali e i [firewall di Archiviazione di Azure](../../storage/common/storage-network-security.md) | Customer |
+|  | Configurare gli [endpoint servizio di rete virtuale di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) per Cosmos DB e [Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) | Customer |
 |  | Assicurarsi che la [crittografia TLS](../../storage/common/storage-security-tls.md) sia abilitata per i dati in transito. | Customer |
 |  | Configurare le [chiavi gestite dal cliente](../../storage/common/storage-encryption-keys-portal.md) per la crittografia di Archiviazione di Azure | Customer |
 | Sicurezza delle applicazioni e del middleware | Eseguire l'integrazione con Azure AD Domain Services e [configurare l'autenticazione](apache-domain-joined-configure-using-azure-adds.md) | Customer |

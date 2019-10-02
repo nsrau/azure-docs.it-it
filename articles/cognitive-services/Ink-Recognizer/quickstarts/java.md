@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 09/23/2019
 ms.author: aahi
-ms.openlocfilehash: b1c739b6355d3b32063e5289720ed1d191611e65
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 36ff0fe4550b140a722ed25f4e372f7c88581211
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721240"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212679"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Guida introduttiva: Riconoscere l'input penna con l'API REST Riconoscimento input penna e Java
 
@@ -58,7 +58,7 @@ Il codice sorgente per questo avvio rapido è disponibile su [GitHub](https://go
     import java.nio.file.Paths;
     ```
 
-2. Creare variabili per la chiave di sottoscrizione e per l'endpoint. Di seguito è riportato l'URI che è possibile usare per il riconoscimento input penna. Questo URI verrà aggiunto all'endpoint di servizio in un secondo momento per creare l'URL della richiesta API.
+2. Creare variabili per la chiave di sottoscrizione e per l'endpoint. Sostituire l'endpoint seguente con quello generato per la risorsa riconoscimento input penna. Accodarlo all'URI di riconoscimento input penna per connettersi all'API.
 
     ```java
     // Replace the subscriptionKey string value with your valid subscription key.
@@ -66,7 +66,7 @@ Il codice sorgente per questo avvio rapido è disponibile su [GitHub](https://go
     // Replace the dataPath string with a path to the JSON formatted ink stroke data file.
     static final String dataPath = "PATH_TO_INK_STROKE_DATA";
     
-    static final String endpoint = "https://api.cognitive.microsoft.com";
+    static final String endpoint = "https://<your-custom-subdomain>.cognitiveservices.azure.com";
     static final String inkRecognitionUrl = "/inkrecognizer/v1.0-preview/recognize";
     ```
 
