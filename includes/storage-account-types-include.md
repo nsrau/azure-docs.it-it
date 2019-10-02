@@ -19,7 +19,7 @@ Archiviazione di Azure offre diversi tipi di account di archiviazione. Ogni tipo
 
 - **Account per utilizzo generico v2**: tipo di account di archiviazione Basic per BLOB, file, code e tabelle. Consigliato per la maggior parte degli scenari che usano Archiviazione di Azure.
 - **Account per utilizzo generico v1**: tipo di account legacy per BLOB, file, code e tabelle. Laddove è possibile, preferire account per utilizzo generico v2.
-- **Bloccare gli account di archiviazione BLOB**: Account di archiviazione solo BLOB con caratteristiche di prestazioni Premium. Consigliato per scenari con tariffe di transazioni elevate, uso di oggetti più piccoli o che richiedono una latenza di archiviazione costantemente bassa.
+- **Account di archiviazione BLOB in blocchi**: Account di archiviazione solo BLOB con caratteristiche di prestazioni Premium. Consigliato per scenari con tariffe di transazioni elevate, uso di oggetti più piccoli o che richiedono una latenza di archiviazione costantemente bassa.
 - **Account di archiviazione filestorage**: Solo file: account di archiviazione con caratteristiche di prestazioni Premium. Consigliato per applicazioni di livello aziendale o a prestazioni elevate.
 - **Account di archiviazione BLOB**: Account di archiviazione solo BLOB. Laddove è possibile, preferire account per utilizzo generico v2.
 
