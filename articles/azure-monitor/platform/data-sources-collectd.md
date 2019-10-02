@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 2118f137f2c0d32f891a170c3509bceee7ba13ed
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b1f02e01fef95bdd06930aa30479dd16d40675ce
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60764943"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71812560"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Raccogliere dati da CollectD su agenti Linux in Monitoraggio di Azure
 [CollectD](https://collectd.org/) è un daemon Linux open source che, a intervalli regolari, raccoglie metriche sulle prestazioni dalle applicazioni e informazioni a livello di sistema. Applicazioni di esempio includono Java Virtual Machine (JVM), MySQL Server e Nginx. Questo articolo fornisce informazioni sulla raccolta di dati sulle prestazioni da CollectD in Monitoraggio di Azure.
@@ -69,6 +69,8 @@ L'agente di Log Analytics per Linux resta in ascolto delle metriche di CollectD 
       type filter_collectd
     </filter>
 
+> [!NOTE]
+> Collectd per impostazione predefinita è impostato su Read values a un [intervallo](https://collectd.org/wiki/index.php/Interval)di 10 secondi. Poiché questo influisca direttamente sul volume dei dati inviati ai log di monitoraggio di Azure, potrebbe essere necessario ottimizzare questo intervallo nella configurazione di collectd per ottenere un giusto equilibrio tra i requisiti di monitoraggio e i costi e l'utilizzo associati per i log di monitoraggio di Azure.
 
 ## <a name="versions-supported"></a>Versioni supportate
 - Monitoraggio di Azure supporta attualmente CollectD versione 4.8 e versioni successive.
@@ -114,7 +116,7 @@ Per mantenere un modello comune tra le metriche dell'infrastruttura già raccolt
 |:--|:--|
 | `host` | Computer |
 | `plugin` | Nessuna |
-| `plugin_instance` | Nome dell'istanza<br>Se **plugin_instance** è *null*, InstanceName=" *_Total*" |
+| `plugin_instance` | Nome istanza<br>Se **plugin_instance** è *null*, InstanceName=" *_Total*" |
 | `type` | ObjectName |
 | `type_instance` | CounterName<br>Se **type_instance** è *null*, CounterName=**blank** |
 | `dsnames[]` | CounterName |

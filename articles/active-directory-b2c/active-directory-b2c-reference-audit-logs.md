@@ -11,12 +11,12 @@ ms.date: 09/14/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: a8e35254a79ac43b35f45d1a20f3d1f6815f32be
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: bf9b6a3ad40d46b628bfcdb3fa3e32b2419360c9
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71702813"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802102"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Accesso ai log di controllo di Azure AD B2C
 
@@ -112,10 +112,7 @@ Eseguire la procedura seguente per registrare un'applicazione, concedere al Micr
 
 ### <a name="create-client-secret"></a>Crea segreto client
 
-1. In **accesso all'API**selezionare **chiavi**.
-1. Immettere una descrizione per la chiave nella casella **Descrizione chiave** . Ad esempio, la *chiave del registro di controllo*.
-1. Selezionare una **durata**di validità, quindi selezionare **Salva**.
-1. Registrare il **valore**della chiave. Questo valore è necessario per l'autenticazione negli script di automazione come lo script PowerShell di esempio illustrato in una sezione successiva.
+[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
 A questo punto si dispone di un'applicazione con l'accesso all'API richiesto, un ID applicazione e una chiave che è possibile usare negli script di automazione. Vedere la sezione script di PowerShell più avanti in questo articolo per un esempio di come è possibile ottenere gli eventi di attività con uno script.
 

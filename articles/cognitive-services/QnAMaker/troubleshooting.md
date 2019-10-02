@@ -8,24 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 09/26/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: c0ceea5c86af8d733c838e19f77eaeadc8a12dbb
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 00d3d63ff1a5b4d5dab0534e039145b97091af87
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300233"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802162"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Risoluzione dei problemi per QnA Maker
 
 L'elenco curato delle domande più frequenti relative al servizio QnA Maker consentirà di adottare il servizio più rapidamente e con risultati migliori.
 
+<a name="how-to-get-the-qnamaker-service-hostname"></a>
 
-## <a name="how-to-get-the-qnamaker-service-hostname"></a>Come ottenere il nome host del servizio QnA Maker
+## <a name="how-to-get-the-qnamaker-service-endpoint"></a>Come ottenere l'endpoint del servizio QnAMaker
 
-Il nome host del servizio QnA Maker è utile per scopi di debug quando si contatta il supporto di QnA Maker o UserVoice. Il nome host è un URL nel formato seguente: https:// *{hostname}* . azurewebsites.NET.
+L'endpoint del servizio QnAMaker è utile a scopo di debug quando si contatta il supporto di QnAMaker o UserVoice. L'endpoint è un URL nel formato seguente: https://your-resource-name.azurewebsites.net.
     
 1. Passare al servizio QnA Maker (gruppo di risorse) nel [portale di Azure](https://portal.azure.com)
 
@@ -35,9 +36,9 @@ Il nome host del servizio QnA Maker è utile per scopi di debug quando si contat
 
      ![Selezionare il servizio app QnA Maker](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-appservice.png)
 
-1. L'URL del nome host è disponibile nella sezione Panoramica
+1. L'URL dell'endpoint è disponibile nella sezione Panoramica
 
-    ![Nome host di QnA Maker](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-gethostname.png)
+    ![Endpoint QnAMaker](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-gethostname.png)
     
 
 ## <a name="use-the-help-bot-in-the-qna-maker-portal"></a>Usare il bot della guida nel portale di QnA Maker
@@ -173,7 +174,7 @@ Seguire le istruzioni riportate in [questa](./Tutorials/create-qna-bot.md) docum
 È necessario disporre delle informazioni seguenti sulla Knowledge Base:
 
 * ID della Knowledge base.
-* Nome host dell'endpoint pubblicato della Knowledge base, disponibile nella pagina **Impostazioni** dopo la pubblicazione.
+* Nome del sottodominio personalizzato dell'endpoint pubblicato della Knowledge base, noto come `host`, disponibile nella pagina **Impostazioni** dopo la pubblicazione.
 * Chiave endpoint pubblicata della Knowledge base, disponibile nella pagina **Impostazioni** dopo la pubblicazione. 
 
 Con queste informazioni, andare al servizio app del bot nella portale di Azure. In **Impostazioni-> configurazione > Impostazioni applicazione**modificare tali valori.  

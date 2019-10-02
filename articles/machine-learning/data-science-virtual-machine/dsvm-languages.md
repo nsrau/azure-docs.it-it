@@ -6,16 +6,16 @@ keywords: strumenti di analisi scientifica dei dati, macchina virtuale per l'ana
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
-author: vijetajo
-ms.author: vijetaj
+author: gvashishtha
+ms.author: gopalv
 ms.topic: conceptual
-ms.date: 09/11/2017
-ms.openlocfilehash: 0cedc9ede43d18d0b94b8a516170db53e3a27910
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.date: 09/27/2019
+ms.openlocfilehash: 586cdd6dc06a7685f17c78fa4c4ea2f2ebf52f3d
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885641"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802392"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Linguaggi supportati dalla macchina virtuali per data science 
 
@@ -65,18 +65,17 @@ Il Data Science Virtual Machine (DSVM) è dotato di diversi linguaggi e strument
 
   Gli ambienti Python predefiniti nella DSVM sono ambienti globali leggibili da tutti gli utenti. Ma solo gli amministratori possono scrivere e installare i pacchetti globali. Per installare i pacchetti nell'ambiente globale, attivare la radice o l'ambiente python2 usando il `activate` comando come amministratore. Quindi, è possibile usare un gestore pacchetti come `conda` o `pip` per installare o aggiornare i pacchetti.
 
-## <a name="python-linux-and-windows-server-2012-edition"></a>Python (Linux e Windows Server 2012 Edition)
+## <a name="python-linux-edition"></a>Python (edizione Linux)
 
 |    |           |
 | ------------- | ------------- |
 | Versioni del linguaggio supportate | Python 2,7 e 3,5 |
-| Edizioni DSVM supportate      | Linux, Windows Server 2012    |
+| Edizioni DSVM supportate      | Linux   |
 | Come viene configurata o installata sulla macchina virtuale per data science?  | Vengono creati `conda` due ambienti globali: <br /> * `root`l'ambiente disponibile `/anaconda/` in è Python 2,7. <br/> * `py35`l'ambiente disponibile `/anaconda/envs/py35`in è Python 3,5.       |
 | Collegamenti agli esempi      | Sono inclusi i notebook di Jupyter di esempio per Python.     |
 | Strumenti correlati in DSVM      | PySpark, R, Julia      |
 ### <a name="how-to-use-and-run-it"></a>Come usarlo ed eseguirlo    
 
-**Linux**
 * Eseguire in un terminale:
 
   Aprire il terminale ed eseguire una delle operazioni seguenti, a seconda della versione di Python che si vuole eseguire:
@@ -103,34 +102,6 @@ Il Data Science Virtual Machine (DSVM) è dotato di diversi linguaggi e strument
 
   Gli ambienti Python predefiniti nella macchina virtuale per data science sono ambienti globali leggibili da tutti gli utenti. Ma solo gli amministratori possono scrivere e installare i pacchetti globali. Per installare i pacchetti nell'ambiente globale, attivare la radice o l'ambiente PY35 usando il `source activate` comando come amministratore o come utente con autorizzazioni sudo. Quindi, è possibile usare un gestore pacchetti come `conda` o `pip` per installare o aggiornare i pacchetti.
 
-**Windows 2012**
-* Eseguire al prompt dei comandi:
-
-  Aprire un prompt dei comandi ed eseguire una delle operazioni seguenti, a seconda della versione di Python che si vuole eseguire:
-
-     ```
-    # To run Python 2.7
-    activate 
-    python --version
-    
-    # To run Python 3.5
-    activate py35
-    python --version
-    
-    ```
-* Usare in un IDE:
-
-  Usare gli strumenti Python Tools for Visual Studio (PTVS) installati in Visual Studio Community Edition. L'unico ambiente configurato automaticamente in PTVS è Python 2,7.
-    > [!NOTE]
-    > Per puntare PTVS in Python 3,5, è necessario creare un ambiente personalizzato in PTVS. Per impostare questo percorso dell'ambiente in Visual Studio Community Edition, passare a **strumenti** -> strumenti**Python** -> **ambienti Python** e selezionare **+ personalizzato**. Impostare quindi il percorso su `c:\anaconda\envs\py35` e selezionare _rilevamento automatico_.
-
-* Usare in Jupyter:
-
-  Aprire Jupyter e selezionare **nuovo** per creare un nuovo notebook. È possibile impostare il tipo di kernel come **Python [conda root]** per Python 2,7 e **Python [conda ENV: Py35]** per Python 3,5. 
-
-* Installare i pacchetti Python:
-
-  Gli ambienti Python predefiniti nella DSVM sono ambienti globali leggibili da tutti gli utenti. Ma solo gli amministratori possono scrivere e installare i pacchetti globali. Per installare i pacchetti nell'ambiente globale, attivare la radice o l'ambiente PY35 usando il `activate` comando come amministratore. Quindi, è possibile usare un gestore pacchetti come `conda` o `pip` per installare o aggiornare i pacchetti.
 
 ## <a name="r"></a>R
 

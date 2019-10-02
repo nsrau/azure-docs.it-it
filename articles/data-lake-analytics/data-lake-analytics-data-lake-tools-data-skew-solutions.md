@@ -8,12 +8,12 @@ ms.reviewer: jasonwhowell
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/16/2016
-ms.openlocfilehash: 440a36d00334840688f66d0027152d7581b7158c
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 9ff7ba5f04a8c1862f8ef136f8f3f6900f00a431
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309911"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802543"
 ---
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Risolvere i problemi di asimmetria dei dati tramite Strumenti Azure Data Lake per Visual Studio
 
@@ -165,7 +165,7 @@ L'esempio seguente illustra un set di righe sinistro separato. Ogni riga di outp
 
 Attributi della modalità del combinatore:
 
-- [SqlUserDefinedCombiner(Mode=CombinerMode.Full)]: Every output row potentially depends on all the input rows from left and right with the same key value.
+- SqlUserDefinedCombiner (Mode = CombinerMode. Full): Ogni riga di output dipende potenzialmente da tutte le righe di input a sinistra e a destra con lo stesso valore di chiave.
 
 - SqlUserDefinedCombiner(Mode=CombinerMode.Left): Ogni riga di output dipende da una singola riga di input a sinistra (e potenzialmente da tutte le righe a destra con lo stesso valore della chiave).
 

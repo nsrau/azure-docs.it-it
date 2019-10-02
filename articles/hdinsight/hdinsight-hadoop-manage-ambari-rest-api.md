@@ -2,18 +2,18 @@
 title: Monitorare e gestire Hadoop con l'API REST Ambari - Azure HDInsight
 description: Informazioni sull'uso di Ambari per monitorare e gestire i cluster Hadoop in Azure HDInsight. In questo documento si apprenderà come usare l'API REST Ambari inclusa nei cluster HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/07/2019
-ms.author: hrasheed
-ms.openlocfilehash: 5836dda186c7bd9baeafa193052b0b75d63e291b
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 146aaa8b1b69c29e22f39d48883f604098b8e348
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019611"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71718391"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Gestire i cluster HDInsight mediante l'API REST Apache Ambari
 
@@ -29,7 +29,7 @@ Informazioni sull'uso dell'API REST Apache Ambari per gestire e monitorare i clu
 
 * **Un cluster Hadoop in HDInsight**. Vedere [Guida introduttiva: Introduzione ad Apache Hadoop e Apache Hive in Azure HDInsight usando il modello di Resource Manager](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-* **Bash in Ubuntu in Windows 10**.  Gli esempi in questo articolo usano la shell bash in Windows 10. Per la procedura di installazione, vedere [Guida all'installazione del sottosistema Windows per Linux per Windows 10](https://docs.microsoft.com/windows/wsl/install-win10).  Funzionano anche altre [shell Unix](https://www.gnu.org/software/bash/).  Gli esempi, con alcune piccole modifiche, possono funzionare in un prompt dei comandi di Windows.  In alternativa, è possibile usare Windows PowerShell.
+* **Bash in Ubuntu in Windows 10**.  Negli esempi di questo articolo si usa la shell Bash in Windows 10. Per la procedura di installazione, vedere [Guida all'installazione del sottosistema Windows per Linux per Windows 10](https://docs.microsoft.com/windows/wsl/install-win10).  Funzionano anche altre [shell Unix](https://www.gnu.org/software/bash/).  Gli esempi, con alcune piccole modifiche, possono funzionare in un prompt dei comandi di Windows.  In alternativa, è possibile usare Windows PowerShell.
 
 * **JQ**, un processore JSON da riga di comando.  Vedere [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 
@@ -37,20 +37,20 @@ Informazioni sull'uso dell'API REST Apache Ambari per gestire e monitorare i clu
 
 ## <a name="base-uri-for-ambari-rest-api"></a>URI di base per l'API REST Ambari
 
- Il Uniform Resource Identifier di base (URI) per l'API REST Ambari in HDInsight `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`è, `CLUSTERNAME` dove è il nome del cluster.  I nomi dei cluster negli URI fanno **distinzione tra maiuscole e**minuscole.  Mentre il nome del cluster nella parte relativa al nome di dominio completo (FQDN) dell'URI`CLUSTERNAME.azurehdinsight.net`() non fa distinzione tra maiuscole e minuscole, altre occorrenze nell'URI fanno distinzione tra maiuscole e minuscole.
+ Il Uniform Resource Identifier di base (URI) per l'API REST Ambari in HDInsight è `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, dove `CLUSTERNAME` è il nome del cluster.  I nomi dei cluster negli URI fanno **distinzione tra maiuscole e**minuscole.  Mentre il nome del cluster nella parte relativa al nome di dominio completo (FQDN) dell'URI (`CLUSTERNAME.azurehdinsight.net`) non fa distinzione tra maiuscole e minuscole, altre occorrenze nell'URI fanno distinzione tra maiuscole e minuscole.
 
 ## <a name="authentication"></a>Authentication
 
 La connessione ad Ambari su HDInsight richiede HTTPS. Usare il nome dell'account amministratore (il valore predefinito è **admin**) e la password forniti durante la creazione del cluster.
 
-Per i cluster Enterprise Security Package, anziché `admin`usare un nome utente completo, ad esempio. `username@domain.onmicrosoft.com`
+Per i cluster Enterprise Security Package, anziché `admin`, usare un nome utente completo, ad esempio `username@domain.onmicrosoft.com`.
 
 ## <a name="examples"></a>Esempi
 
 ### <a name="setup-preserve-credentials"></a>Impostazione (Mantieni credenziali)
 Mantenere le credenziali per evitare di immetterle nuovamente per ciascun esempio.  Il nome del cluster verrà mantenuto in un passaggio separato.
 
-**A. Bash**  
+**A. Bash @ no__t-0  
 Modificare lo script seguente sostituendo `PASSWORD` con la password effettiva.  Immettere quindi il comando.
 
 ```bash
@@ -66,7 +66,7 @@ $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
 ### <a name="identify-correctly-cased-cluster-name"></a>Identificare il nome corretto del cluster con maiuscole/minuscole
 L'uso effettivo di maiuscole e minuscole nel nome del cluster può differire dal previsto, a seconda della modalità di creazione del cluster.  I passaggi qui illustrano la combinazione di maiuscole e minuscole e quindi lo archiviano in una variabile per tutti gli esempi successivi.
 
-Modificare gli script riportati di seguito `CLUSTERNAME` per sostituire con il nome del cluster. Immettere quindi il comando. (Il nome del cluster per il nome di dominio completo non fa distinzione tra maiuscole e minuscole).
+Modificare gli script riportati di seguito per sostituire `CLUSTERNAME` con il nome del cluster. Immettere quindi il comando. (Il nome del cluster per il nome di dominio completo non fa distinzione tra maiuscole e minuscole).
 
 ```bash
 export clusterName=$(curl -u admin:$password -sS -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
@@ -85,7 +85,7 @@ $clusterName
 
 ### <a name="parsing-json-data"></a>Analisi dei dati JSON
 
-Nell'esempio seguente viene usato [JQ](https://stedolan.github.io/jq/) o [ConvertFrom-JSON](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json) per analizzare il documento di risposta JSON e visualizzare `health_report` solo le informazioni dai risultati.
+Nell'esempio seguente viene usato [JQ](https://stedolan.github.io/jq/) o [ConvertFrom-JSON](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json) per analizzare il documento di risposta JSON e visualizzare solo le informazioni `health_report` dai risultati.
 
 ```bash
 curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName" \
@@ -306,9 +306,9 @@ Questo esempio restituisce un documento JSON che contiene la configurazione corr
    Modificare, quindi immettere i comandi seguenti:
 
    * Sostituire `livy2-conf` con il componente desiderato.
-   * Sostituire `INITIAL` con il valore effettivo recuperato `tag` da per [ottenere tutte le configurazioni](#get-all-configurations).
+   * Sostituire `INITIAL` con il valore effettivo recuperato per `tag` da [Get All Configurations](#get-all-configurations).
 
-     **A. Bash**  
+     **A. Bash @ no__t-0  
      ```bash
      curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations?type=livy2-conf&tag=INITIAL" \
      | jq --arg newtag $(echo version$(date +%s%N)) '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
@@ -358,7 +358,7 @@ Questo esempio restituisce un documento JSON che contiene la configurazione corr
      }
      ```
 
-2. Modifica `newconfig.json`.  
+2. Modificare `newconfig.json`.  
    Aprire il documento `newconfig.json` e modificare o aggiungere i valori nell'oggetto `properties`. L'esempio seguente modifica il valore di `"livy.server.csrf_protection.enabled"` da `"true"` a `"false"`.
 
         "livy.server.csrf_protection.enabled": "false",
@@ -453,7 +453,7 @@ A questo punto, se si osserva l'interfaccia utente di Ambari Web, il servizio Sp
     ```
 
     > [!IMPORTANT]  
-    > Il valore `href` restituito dall'URI usa l'indirizzo IP interno del nodo del cluster. Per usarlo dall'esterno del cluster, sostituire la `10.0.0.18:8080` parte con il nome di dominio completo (FQDN) del cluster.  
+    > Il valore `href` restituito dall'URI usa l'indirizzo IP interno del nodo del cluster. Per usarlo dall'esterno del cluster, sostituire la parte `10.0.0.18:8080` con il nome di dominio completo (FQDN) del cluster.  
 
 4. Verificare la richiesta.  
     Modificare il comando seguente sostituendo `29` con il valore effettivo per `id` restituito dal passaggio precedente.  Il comando seguente recupera lo stato della richiesta:
@@ -510,4 +510,4 @@ A questo punto, se si osserva l'interfaccia utente di Ambari Web, il servizio Sp
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni tecniche complete sull'API REST, vedere la pagina relativa alle [informazioni di riferimento per l'API Apache Ambari V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+Per informazioni tecniche complete sull'API REST, vedere la pagina relativa alle [informazioni di riferimento per l'API Apache Ambari V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).  Vedere anche [autorizzare gli utenti per le viste di Apache Ambari](./hdinsight-authorize-users-to-ambari.md)

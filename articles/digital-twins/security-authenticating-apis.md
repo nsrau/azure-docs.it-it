@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 09/30/2019
 ms.author: lyhughes
-ms.openlocfilehash: ad51fbe7d2f8e8f115adf03d6333c0747765ee43
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 6d8d6f03847fcd22a6d78c445ae039c73e9badfa
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338595"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719160"
 ---
 # <a name="connect-to-and-authenticate-with-apis"></a>Connettersi ed eseguire l'autenticazione con le API
 
@@ -34,7 +34,10 @@ Azure AD supporta [cinque scenari applicativi principali](../active-directory/de
 * Da applicazione Web ad API Web: un'applicazione Web deve ottenere le risorse da un'API Web protetta da Azure AD.
 * Da applicazione daemon o server ad API Web: Un'applicazione daemon o un'applicazione server senza interfaccia utente Web deve ottenere risorse da un'API Web protetta da Azure AD.
 
-La libreria di autenticazione di Azure offre numerosi modi per acquisire i token di Active Directory. Per informazioni dettagliate sulla libreria e sugli esempi di codice, vedere [il wiki di adal.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki).
+> [!IMPORTANT]
+> I dispositivi gemelli digitali di Azure supportano entrambe le librerie di autenticazione seguenti:
+> * [Microsoft Authentication Library più recente (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview)
+> * [Libreria di autenticazione Azure Active Directory (adal)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)
 
 ## <a name="call-digital-twins-from-a-middle-tier-web-api"></a>Chiamare Gemelli digitali da un'API Web di livello intermedio
 

@@ -8,22 +8,26 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: bbb5b90ffac4a89c14a4a6df51022bb61b10fbb0
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: e5cea36760746eaa63451c9e9955368c71ba4472
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845506"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71816136"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Guida introduttiva-configurare un ambiente cloud privato
 
 Questo articolo illustra come creare un cloud privato CloudSimple e come configurare l'ambiente cloud privato.
 
+## <a name="before-you-begin"></a>Prima di iniziare
+
+Verificare i [prerequisiti di rete](cloudsimple-network-checklist.md).
+
 ## <a name="sign-in-to-azure"></a>Accedi ad Azure
 
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="create-a-private-cloud"></a>Creare un cloud privato
+## <a name="create-a-private-cloud"></a>Crea un cloud privato
 
 Un cloud privato è uno stack VMware isolato che supporta host ESXi, vCenter, rete VSAN e NSX.
 
@@ -151,7 +155,7 @@ CloudSimple fornisce un circuito ExpressRoute per il cloud privato. È possibile
 
 1. Per accedere a vCenter, iniziare dal portale di CloudSimple. Nella Home page, in **attività comuni**, fare clic su **avvia client vSphere**.  Selezionare il cloud privato e quindi fare clic su **avvia client vSphere** nel cloud privato.
 
-    ![Avviare vSphere client](media/launch-vcenter-from-cloudsimple-portal.png)
+    ![Avvia client vSphere](media/launch-vcenter-from-cloudsimple-portal.png)
 
 2. Selezionare il client vSphere preferito per accedere a vCenter e accedere con il nome utente e la password.  Le impostazioni predefinite sono:
     * Nome utente: **CloudOwner@cloudsimple.local**

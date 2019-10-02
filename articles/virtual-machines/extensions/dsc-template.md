@@ -5,7 +5,7 @@ services: virtual-machines-windows
 author: bobbytreed
 manager: carmonm
 tags: azure-resource-manager
-keywords: dsc
+keywords: DSC
 ms.assetid: b5402e5a-1768-4075-8c19-b7f7402687af
 ms.service: virtual-machines-windows
 ms.topic: article
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: 458ba61adba294af99f2265e4907e874ed3a6956
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 59f8035aa69f21196a2134bf6bc1b12f3e5b34c4
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70084586"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815699"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Estensione Desired State Configuration (DSC) con modelli di Azure Resource Manager
 
@@ -183,11 +183,11 @@ Per un elenco degli argomenti disponibili per lo script di configurazione predef
 | settings.configuration.url |string |Specifica il percorso URL da cui scaricare il file ZIP della configurazione DSC. Se l'URL specificato richiede un token di firma di accesso condiviso per l'accesso, impostare la proprietà **protectedSettings.configurationUrlSasToken** sul valore del token di firma di accesso condiviso. Questa proprietà è obbligatoria se **settings.configuration.script** o **settings.configuration.function** sono definiti. Se non viene specificato alcun valore per queste proprietà, l'estensione chiama lo script di configurazione predefinito per impostare i metadati di Gestione configurazione locale e devono essere forniti gli argomenti. |
 | settings.configuration.script |string |Specifica il nome del file di script che contiene la definizione della configurazione DSC. Questo script deve trovarsi nella cartella radice del file con estensione zip che viene scaricato dall'URL specificato dalla proprietà **settings.configuration.url**. Questa proprietà è obbligatoria se **settings.configuration.url** o **settings.configuration.script** sono definiti. Se non viene specificato alcun valore per queste proprietà, l'estensione chiama lo script di configurazione predefinito per impostare i metadati di Gestione configurazione locale e devono essere forniti gli argomenti. |
 | settings.configuration.function |string |Specifica il nome della configurazione DSC. La configurazione indicata deve essere inclusa nello script definito da **settings.configuration.script**. Questa proprietà è obbligatoria se **settings.configuration.url** o **settings.configuration.function** sono definiti. Se non viene specificato alcun valore per queste proprietà, l'estensione chiama lo script di configurazione predefinito per impostare i metadati di Gestione configurazione locale e devono essere forniti gli argomenti. |
-| settings.configurationArguments |Raccolta |Definisce i parametri da passare alla configurazione DSC. Questa proprietà non è crittografata. |
+| settings.configurationArguments |Collection |Definisce i parametri da passare alla configurazione DSC. Questa proprietà non è crittografata. |
 | settings.configurationData.url |string |Specifica l'URL da cui scaricare il file di dati di configurazione con estensione psd1 da usare come input per la configurazione DSC. Se l'URL specificato richiede un token di firma di accesso condiviso per l'accesso, impostare la proprietà **protectedSettings.configurationDataUrlSasToken** sul valore del token di firma di accesso condiviso. |
 | settings.privacy.dataCollection |string |Abilita o disabilita la raccolta di dati di telemetria. Gli unici valori possibili per questa proprietà sono **Enable**, **Disable**, **''** o **$null**. Lasciando questa proprietà vuota o con valore null verrà abilitata la raccolta di dati di telemetria. Il valore predefinito è **''** . Per altre informazioni, vedere [Azure DSC extension data collection](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/) (Raccolta di dati dell'estensione DSC di Azure). |
 | settings.advancedOptions.downloadMappings |Collection |Definisce i percorsi alternativi da cui scaricare WMF. Per altre informazioni, vedere [Azure DSC extension 2.8 and how to map downloads of the extension dependencies to your own location](https://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx) (Estensione DSC di Azure 2.8 e come eseguire il mapping dei download delle dipendenze dell'estensione al percorso). |
-| protectedSettings.configurationArguments |Raccolta |Definisce i parametri da passare alla configurazione DSC. Questa proprietà è crittografata. |
+| protectedSettings.configurationArguments |Collection |Definisce i parametri da passare alla configurazione DSC. Questa proprietà è crittografata. |
 | protectedSettings.configurationUrlSasToken |string |Specifica il token di firma di accesso condiviso da usare per accedere all'URL definito da **settings.configuration.url**. Questa proprietà è crittografata. |
 | protectedSettings.configurationDataUrlSasToken |string |Specifica il token di firma di accesso condiviso da usare per accedere all'URL definito da **settings.configurationData.url**. Questa proprietà è crittografata. |
 
@@ -236,8 +236,10 @@ e vengono passati allo script di configurazione predefinito per impostare i meta
 
 ```json
 "settings": {
-    "RegistrationUrl" : "[parameters('registrationUrl1')]",
-    "NodeConfigurationName" : "nodeConfigurationNameValue1"
+    "configurationArguments": {
+        "RegistrationUrl" : "[parameters('registrationUrl1')]",
+        "NodeConfigurationName" : "nodeConfigurationNameValue1"
+    }
 },
 "protectedSettings": {
     "configurationArguments": {
@@ -253,7 +255,7 @@ e vengono passati allo script di configurazione predefinito per impostare i meta
 
 L'esempio seguente è tratto da [Introduzione al gestore dell'estensione DSC (Desired State Configuration) di Azure](dsc-overview.md).
 Questo esempio usa modelli di Resource Manager anziché i cmdlet per distribuire l'estensione.
-Salvare la configurazione IisInstall. ps1, posizionarla in un file con estensione zip, ad `iisinstall.zip`esempio:, e quindi caricare il file in un URL accessibile.
+Salvare la configurazione IisInstall. ps1, posizionarla in un file zip, ad esempio `iisinstall.zip`, quindi caricare il file in un URL accessibile.
 Questo esempio usa l'archiviazione BLOB di Azure, ma è possibile scaricare file ZIP da qualsiasi percorso.
 
 Nel modello di Resource Manager il codice seguente indica alla VM di scaricare il file corretto e quindi eseguire la funzione PowerShell appropriata:
@@ -343,7 +345,7 @@ Il formato precedente si adatta al formato corrente come segue:
 | protectedSettings.configurationUrlSasToken |settings.SasToken |
 | protectedSettings.configurationDataUrlSasToken |Token di firma di accesso condiviso di protectedSettings.DataBlobUri |
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Di seguito sono riportati alcuni degli errori che possono verificarsi e la relativa soluzione.
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13c9003baaca11dce5a2192a8183674faddfa6dc
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: bd66df381e11582b30ded5e3b529070357f35ad2
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967289"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720279"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Assegnare utenti e gruppi a un'applicazione in Azure Active Directory
 Questo articolo illustra come assegnare utenti e gruppi a un'applicazione in Azure Active Directory (Azure AD). Gli utenti devono essere assegnati a un'applicazione prima che un amministratore possa concedere loro l'accesso per eseguire le operazioni seguenti:
@@ -50,7 +50,7 @@ Prima di assegnare utenti e gruppi a un'applicazione, è necessario richiedere l
 
 Per assegnare uno o più utenti direttamente a un'applicazione, seguire questa procedura:
 
-1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
+1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale o come proprietario di un'applicazione non amministrativa.**
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
@@ -88,7 +88,7 @@ Dopo un breve periodo di tempo, gli utenti selezionati saranno in grado di avvia
 
 Per assegnare uno o più gruppi direttamente a un'applicazione, seguire questa procedura:
 
-1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
+1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale** o come proprietario di un'applicazione non amministrativa con una licenza di Azure ad Premium assegnata.
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 

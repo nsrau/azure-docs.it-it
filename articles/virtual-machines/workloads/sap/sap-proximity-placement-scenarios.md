@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/15/2019
+ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c56bfda2b4f74bf31ce847f1fdb42f77f43eb372
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: deffcb81a4f66783fedc89c3e21ea46b15ad1c64
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677989"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720004"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>Gruppi di posizionamento di prossimità di Azure per la latenza di rete ottimale con le applicazioni SAP
 Le applicazioni SAP basate sull'architettura SAP NetWeaver o SAP S/4HANA sono sensibili alla latenza di rete tra il livello applicazione SAP e il livello database SAP. Questa distinzione è il risultato della maggior parte della logica di business in esecuzione a livello di applicazione. Poiché il livello dell'applicazione SAP esegue la logica di business, emette query al livello del database a una frequenza elevata, a una frequenza di migliaia o decine di migliaia al secondo. Nella maggior parte dei casi, la natura di queste query è semplice. Spesso possono essere eseguite a livello di database in microsecondi di 500 o meno.
@@ -34,7 +34,7 @@ Per evitare questi problemi, Azure offre [gruppi di posizionamento di prossimit�
 ## <a name="what-are-proximity-placement-groups"></a>Che cosa sono i gruppi di posizionamento di prossimità? 
 Un gruppo di posizionamento di prossimità di Azure è un costrutto logico. Quando ne viene definito uno, questo viene associato a un'area di Azure e a un gruppo di risorse di Azure. Quando si distribuiscono macchine virtuali, viene fatto riferimento a un gruppo di posizionamento di prossimità:
 
-- Prima VM di Azure distribuita nel Data Center. La prima macchina virtuale può essere considerata come una "VM di ancoraggio" distribuita in un Data Center in base agli algoritmi di allocazione di Azure che vengono combinati con le definizioni utente per una zona di disponibilità specifica.
+- Prima VM di Azure distribuita nel Data Center. La prima macchina virtuale può essere considerata come una "VM di ambito" distribuita in un Data Center in base agli algoritmi di allocazione di Azure che vengono combinati con le definizioni utente per una zona di disponibilità specifica.
 - Tutte le macchine virtuali successive distribuite che fanno riferimento al gruppo di posizionamento di prossimità, per inserire tutte le macchine virtuali di Azure successivamente distribuite nello stesso data center della prima macchina virtuale.
 
 > [!NOTE]
@@ -44,7 +44,7 @@ A un singolo [gruppo di risorse di Azure](https://docs.microsoft.com/azure/azure
 
 Quando si usano i gruppi di posizionamento prossimità, tenere presenti le considerazioni seguenti:
 
-- Quando si mirano a ottenere prestazioni ottimali per il sistema SAP e si è limitati a un singolo Data Center di Azure per il sistema usando gruppi di posizionamento di prossimità, potrebbe non essere possibile combinare tutti i tipi di famiglie di macchine virtuali all'interno del gruppo di posizionamento. Queste limitazioni si verificano perché l'hardware host necessario per eseguire un determinato tipo di macchina virtuale potrebbe non essere presente nel Data Center in cui è stata distribuita la macchina virtuale di ancoraggio del gruppo di posizionamento.
+- Quando si mirano a ottenere prestazioni ottimali per il sistema SAP e si è limitati a un singolo Data Center di Azure per il sistema usando gruppi di posizionamento di prossimità, potrebbe non essere possibile combinare tutti i tipi di famiglie di macchine virtuali all'interno del gruppo di posizionamento. Queste limitazioni si verificano perché l'hardware host necessario per eseguire un determinato tipo di macchina virtuale potrebbe non essere presente nel Data Center in cui è stata distribuita la "VM con ambito" del gruppo di posizionamento.
 - Durante il ciclo di vita di un sistema SAP di questo tipo, è possibile forzare lo spostamento del sistema in un altro Data Center. Questa operazione può essere necessaria se si decide che il livello di scalabilità orizzontale di HANA è necessario, ad esempio, passare da quattro nodi a 16 nodi e non è disponibile una capacità sufficiente per ottenere altre 12 macchine virtuali del tipo usato nel Data Center.
 - A causa della rimozione delle autorizzazioni per l'hardware, Microsoft potrebbe creare capacità per un tipo di macchina virtuale usato in un data center diverso, anziché quello usato inizialmente. In questo scenario, potrebbe essere necessario spostare tutte le macchine virtuali del gruppo di posizionamento vicino in un altro Data Center.
 
@@ -55,7 +55,7 @@ Nella maggior parte delle distribuzioni dei clienti, i clienti creano un singolo
 
 Evitare di aggregare diversi sistemi di produzione SAP o non di produzione in un singolo gruppo di posizionamento di prossimità. Quando un numero ridotto di sistemi SAP o di un sistema SAP e di alcune applicazioni circostanti deve avere una comunicazione di rete a bassa latenza, è possibile prendere in considerazione lo stato di trasferimento di questi sistemi in un gruppo di posizionamento di prossimità. È consigliabile evitare bundle di sistemi perché più sistemi si raggruppano in un gruppo di posizionamento di prossimità, maggiori sono le probabilità:
 
-- È necessario un tipo di macchina virtuale che non può essere eseguito nel data center specifico in cui è stato ancorato il gruppo di posizionamento di prossimità.
+- È necessario un tipo di macchina virtuale che non può essere eseguito nel data center specifico in cui è stato definito l'ambito del gruppo di posizionamento di prossimità.
 - Le risorse delle macchine virtuali non mainstream, come le macchine virtuali della serie M, potrebbero non essere soddisfatte quando sono necessarie altre, perché il software viene aggiunto a un gruppo di posizionamento vicino nel tempo.
 
 Di seguito è illustrata la configurazione ideale, come descritto in:

@@ -4,14 +4,14 @@ description: Informazioni su come configurare e gestire la durata (TTL) in Azure
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: ddda7b96147892efb38cb0405120db3613e98cf8
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: e36b894ec9c7433bc114145e0de5f519f73486f1
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104863"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815903"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configurare la durata (TTL) in Azure Cosmos DB
 
@@ -36,10 +36,16 @@ Usare la procedura seguente per abilitare la durata (TTL) in un contenitore senz
 
    ![Configurare la durata (TTL) nel portale di Azure](./media/how-to-time-to-live/how-to-time-to-live-portal.png)
 
+* Se DefaultTimeToLive è Null, la durata TTL è disattivata
+* Se DefaultTimeToLive è -1, l'impostazione della durata TTL è attivata (nessun valore predefinito)
+* Se DefaultTimeToLive include qualsiasi altro valore Int, ad eccezione di 0, l'impostazione della durata TTL è attivata
 
-- Se DefaultTimeToLive è Null, la durata TTL è disattivata
-- Se DefaultTimeToLive è -1, l'impostazione della durata TTL è attivata (nessun valore predefinito)
-- Se DefaultTimeToLive include qualsiasi altro valore Int, ad eccezione di 0, l'impostazione della durata TTL è attivata
+## <a name="enable-time-to-live-on-a-container-using-azure-cli-or-powershell"></a>Abilitare la durata per un contenitore usando l'interfaccia della riga di comando di Azure o PowerShell
+
+Per creare o abilitare la durata (TTL) in un contenitore, vedere.
+
+* [Creare un contenitore con TTL usando l'interfaccia della riga di comando di Azure](manage-with-cli.md#create-a-container-with-ttl)
+* [Creare un contenitore con TTL usando PowerShell](manage-with-powershell.md#create-container-unique-key-ttl)
 
 ## <a name="enable-time-to-live-on-a-container-using-sdk"></a>Abilitare la durata (TTL) in un contenitore usando l'SDK
 
@@ -185,11 +191,10 @@ SalesOrder salesOrder = new SalesOrder
 const itemDefinition = {
           id: "doc",
           name: "sample Item",
-          key: "value", 
+          key: "value",
           ttl: 2
         };
 ```
-
 
 ## <a name="reset-time-to-live"></a>Reimpostare la durata (TTL)
 

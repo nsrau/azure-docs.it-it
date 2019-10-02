@@ -8,40 +8,32 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: b20ff261939dd97a74d27f5ec7f21eae2665f474
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 39395c9d082bc40836c14ee4c0d328341f96edca
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574523"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71816108"
 ---
-# <a name="quickstart---create-cloudsimple-service"></a>Guida introduttiva-creare un servizio CloudSimple
+# <a name="quickstart---create-azure-vmware-solution-by-cloudsimple-service"></a>Guida introduttiva-creare una soluzione VMware di Azure tramite il servizio CloudSimple
 
 Per iniziare, creare la soluzione VMware di Azure da CloudSimple nel portale di Azure.
 
-Il servizio CloudSimple consente di usare la soluzione VMware di Azure con CloudSimple.  La creazione del servizio consente di acquistare nodi, riservare nodi e creare cloud privati.  È possibile aggiungere il servizio CloudSimple in ogni area di Azure in cui è disponibile il servizio CloudSimple.  Il servizio definisce la rete perimetrale della soluzione VMware di Azure tramite CloudSimple.  Questa rete perimetrale viene usata per i servizi che includono VPN, ExpressRoute e connettività Internet ai cloud privati.
+## <a name="vmware-solution-by-cloudsimple---service-overview"></a>Soluzione VMware per CloudSimple-Panoramica dei servizi
+
+Il servizio CloudSimple consente di usare la soluzione VMware di Azure con CloudSimple.  La creazione del servizio consente di effettuare il provisioning di nodi, riservare nodi e creare cloud privati.  È possibile aggiungere il servizio CloudSimple in ogni area di Azure in cui è disponibile il servizio CloudSimple.  Il servizio definisce la rete perimetrale della soluzione VMware di Azure tramite CloudSimple.  Questa rete perimetrale viene usata per i servizi che includono VPN, ExpressRoute e connettività Internet ai cloud privati.
 
 Per aggiungere il servizio CloudSimple, è necessario creare una subnet del gateway. La subnet del gateway viene usata quando si crea la rete perimetrale e richiede un blocco CIDR/28. Lo spazio degli indirizzi della subnet del gateway deve essere univoco. Non può sovrapporsi ad alcuno degli spazi di indirizzi della rete locale o dello spazio di indirizzi della rete virtuale di Azure.
+
+## <a name="before-you-begin"></a>Prima di iniziare
+
+Allocare un blocco CIDR/28 per la subnet del gateway.  È necessaria una subnet del gateway per ogni servizio CloudSimple ed è univoca per l'area in cui è stata creata. La subnet del gateway viene usata per la soluzione VMware di Azure dai servizi di rete CloudSimple Edge e richiede un blocco CIDR/28. Lo spazio degli indirizzi della subnet del gateway deve essere univoco. Non deve sovrapporsi ad alcuna rete che comunica con l'ambiente CloudSimple.  Le reti che comunicano con CloudSimple includono reti locali e reti virtuali di Azure.
+
+Verificare i [prerequisiti di rete](cloudsimple-network-checklist.md). 
 
 ## <a name="sign-in-to-azure"></a>Accedi ad Azure
 
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
-
-## <a name="enable-microsoftvmwarecloudsimple-resource-provider"></a>Abilita provider di risorse Microsoft. VMwareCloudSimple
-
-Attenersi alla procedura seguente per abilitare il provider di risorse per il servizio CloudSimple.
-
-1. Selezionare **Tutti i servizi**.
-2. Cercare e selezionare le **sottoscrizioni**.
-
-    ![Seleziona sottoscrizioni](media/cloudsimple-service-select-subscriptions.png)
-
-3. Selezionare la sottoscrizione in cui si vuole abilitare il servizio CloudSimple.
-4. Fare clic su **provider di risorse** per la sottoscrizione.
-5. Utilizzare **Microsoft. VMwareCloudSimple** per filtrare il provider di risorse.
-6. Selezionare il provider di risorse **Microsoft. VMwareCloudSimple** e fare clic su **registra**.
-
-    ![Registrare il provider di risorse](media/cloudsimple-service-enable-resource-provider.png)
 
 ## <a name="create-the-service"></a>Creare il servizio
 
@@ -66,7 +58,7 @@ Attenersi alla procedura seguente per abilitare il provider di risorse per il se
 
 Il servizio viene creato e aggiunto all'elenco dei servizi.
 
-## <a name="purchase-nodes"></a>Acquistare nodi
+## <a name="provision-nodes"></a>Effettuare il provisioning dei nodi
 
 Per configurare la capacità con pagamento in base al consumo per un ambiente cloud privato CloudSimple, eseguire prima il provisioning dei nodi nel portale di Azure.
 
@@ -80,7 +72,7 @@ Per configurare la capacità con pagamento in base al consumo per un ambiente cl
 
     ![Aggiungi nodi CloudSimple](media/create-cloudsimple-node-add.png)
 
-5. Selezionare la sottoscrizione in cui si vogliono acquistare i nodi di CloudSimple.
+5. Selezionare la sottoscrizione in cui si vuole eseguire il provisioning dei nodi CloudSimple.
 6. Selezionare il gruppo di risorse per i nodi. Per aggiungere un nuovo gruppo di risorse, fare clic su **Crea nuovo**.
 7. Immettere il prefisso per identificare i nodi.
 8. Selezionare il percorso per le risorse del nodo.
@@ -94,4 +86,4 @@ Per configurare la capacità con pagamento in base al consumo per un ambiente cl
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Creazione di un cloud privato e configurazione dell'ambiente](quickstart-create-private-cloud.md)
-* Altre informazioni sul [servizio CloudSimple](cloudsimple-service.md)
+* Altre informazioni sul [servizio CloudSimple](https://docs.azure.cloudsimple.com/cloudsimple-service)

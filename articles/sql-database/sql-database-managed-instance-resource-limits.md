@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 09/16/2019
-ms.openlocfilehash: 85ab8a61e0aebadf212217bc88e07e0066eca02b
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 5eaade975adac86b6842d1d8f9f9b8f522d15bca
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146796"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71816088"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Panoramica dei limiti delle risorse dell'istanza gestita di database SQL di Azure
 
@@ -38,12 +38,27 @@ Istanza gestita di database SQL di Azure può essere distribuita in due generazi
 | Hardware | Processori Intel E5-2673 v3 (Haswell) a 2,4 GHz, con unità vCore SSD = 1 PP (core fisico) | Processori Intel E5-2673 v4 (Broadwell) a 2,3 GHz, unità SSD NVMe veloce, vCore = 1 LP (hyperthread) |
 | Numero di vCore | 8, 16, 24 vCore | 4, 8, 16, 24, 32, 40, 64, 80 vcore |
 | Memoria massima (rapporto memoria/Core) | 7 GB per vCore<br/>Aggiungere altri Vcore per ottenere una maggiore quantità di memoria. | 5,1 GB per vCore<br/>Aggiungere altri Vcore per ottenere una maggiore quantità di memoria. |
-| Memoria OLTP max in memoria | Limite istanza: 3 GB per vCore<br/>Limiti del database:<br/> -8-core: 8 GB per database<br/> -16 core: 20 GB per database<br/> -24-core: 36 GB per database | Limite istanza: 2,5 GB per vCore<br/>Limiti del database:<br/> -8-core: 13 GB per database<br/> -16 core: 32 GB per database |
+| Memoria OLTP max in memoria | Limite istanza: da 1 a 1,5 GB per vCore| Limite istanza: 0,8-1,65 GB per vCore |
 | Archiviazione riservata istanza massima |  Per utilizzo generico: 8 TB<br/>Business critical: 1 TB | Per utilizzo generico: 8 TB<br/> Business critical 1 TB, 2 TB o 4 TB a seconda del numero di core |
 
 > [!IMPORTANT]
 > - L'hardware Gen4 è in fase di eliminazione. È consigliabile distribuire nuove istanze gestite nell'hardware quinta generazione.
 > - L'hardware Gen4 al momento è ancora disponibile solo nelle aree seguenti: Europa settentrionale, Europa occidentale, Stati Uniti orientali, Stati Uniti centro-meridionali, Stati Uniti centro-settentrionali, Stati Uniti occidentali 2, Stati Uniti centrali, Canada centrale, India meridionale, Asia sudorientale e Corea centrale.
+
+#### <a name="in-memory-oltp-available-space"></a>Spazio disponibile OLTP in memoria 
+
+La quantità di spazio di OLTP in memoria dipende dal numero di Vcore e dalla generazione dell'hardware. Nella tabella seguente sono elencati i limiti di memoria che possono essere utilizzati per gli oggetti OLTP in memoria.
+
+| Spazio OLTP in memoria per ogni vCore    | **Quinta generazione** | **Quarta generazione** |
+| --- | --- | --- |
+| 4 | 3,14 GB | |   
+| 8 | 6,28 GB | 8 GB |
+| 16    | 15,77 GB | 20 GB |
+| 24    | 25,25 GB | 36 GB |
+| 32    | 37,94 GB | |
+| 40    | 52,23 GB | |
+| 64    | 99,9 GB   | |
+| 80    | 131,68 GB| |
 
 ### <a name="service-tier-characteristics"></a>Caratteristiche del livello di servizio
 
@@ -110,7 +125,7 @@ La tabella seguente illustra i **limiti internazionali predefiniti** per i tipi 
 |CSP |8 (15 in alcune aree * *)|960 (1440 in alcune aree * *)|
 |Sviluppo/test con pagamento in base al consumo|3|320|
 |Sviluppo/test Enterprise|3|320|
-|Contratto Enterprise|8 (15 in alcune aree * *)|960 (1440 in alcune aree * *)|
+|EA|8 (15 in alcune aree * *)|960 (1440 in alcune aree * *)|
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional e MSDN Platforms|2|32|
 
@@ -125,7 +140,7 @@ Per avviare il processo di acquisizione di una quota maggiore:
 
 1. Aprire **Guida e supporto** e fare clic su **Nuova richiesta di supporto**.
 
-   ![Guida e supporto](media/sql-database-managed-instance-resource-limits/help-and-support.png)
+   ![Guida e supporto tecnico](media/sql-database-managed-instance-resource-limits/help-and-support.png)
 2. Nella scheda Generale per la nuova richiesta di supporto:
    - Per **Tipo di problema** selezionare **Limiti del servizio e della sottoscrizione (quote)** .
    - In **Sottoscrizione** selezionare la propria sottoscrizione.

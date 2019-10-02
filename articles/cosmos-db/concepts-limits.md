@@ -6,12 +6,12 @@ ms.author: arramac
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 9b78c18547ef61b388a56a1272b5621cada43806
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 8e22bf53a81d94c5204a76c58b43fed63e32b136
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71120497"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803394"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quote del servizio Azure Cosmos DB
 
@@ -33,7 +33,7 @@ Dopo aver creato un account Azure Cosmos nella sottoscrizione, è possibile gest
 | Dimensioni massime degli allegati per ogni account (la funzionalità degli allegati verrà ammortizzata) | 2 GB | 
 
 > [!NOTE]
-> Per le procedure consigliate per gestire i carichi di lavoro con chiavi di partizione che richiedono limiti più elevati per l'archiviazione o la velocità effettiva, vedere [progettazione di chiavi di partizione a caldo](synthetic-partition-keys.md)
+> Per informazioni sulle procedure consigliate per la gestione dei carichi di lavoro con chiavi di partizione che richiedono limiti più elevati per l'archiviazione o la velocità effettiva, vedere [creare una chiave di partizione sintetica](synthetic-partition-keys.md).
 >
 
 Un contenitore Cosmos (o un database con velocità effettiva condivisa) deve avere una velocità effettiva minima di 400 ur. Man mano che aumenta il contenitore, la velocità effettiva minima supportata dipende anche dai fattori seguenti:

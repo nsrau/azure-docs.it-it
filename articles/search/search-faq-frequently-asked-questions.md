@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/03/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d4aae2f2ef9ccbc645647125682d999c11c99ab6
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 600c619134cae18e69b5a200cb03fbebd82dee0f
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69649821"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719894"
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Ricerca di Azure: Domande frequenti
 
@@ -30,7 +30,7 @@ Ricerca di Azure supporta più origini dati, [l'analisi linguistica per molti li
 
 Quando si confrontano le tecnologie di ricerca, i clienti spesso chiedono informazioni sulle specifiche di Ricerca di Azure in confronto a Elasticsearch. I clienti che preferiscono Ricerca di Azure a Elasticsearch per i propri progetti di applicazioni di ricerca lo fanno in genere per usufruire di un'attività chiave che è stata semplificata o perché necessitano dell'integrazione incorporata con altre tecnologie Microsoft:
 
-+ Ricerca di Azure è un servizio cloud completamente gestito con contratti di servizio (SLA) al 99,9% quando offerto in provisioning con una ridondanza sufficiente (2 repliche per l'accesso in lettura, 3 repliche per l'accesso in lettura e scrittura).
++ Ricerca di Azure è un servizio cloud completamente gestito con contratto di servizio del 99,9% quando viene effettuato il provisioning con ridondanza sufficiente (2 repliche per l'accesso in lettura, tre repliche per la lettura/scrittura).
 + I [processori del linguaggio naturale](https://docs.microsoft.com/rest/api/searchservice/language-support) Microsoft offrono funzioni di analisi linguistica all'avanguardia.  
 + Gli [indicizzatori di Ricerca di Azure](search-indexer-overview.md) possono eseguire ricerche di un'ampia gamma di origini dati di Azure per l'indicizzazione iniziale e incrementale.
 + Se si desidera una risposta rapida alle fluttuazioni nei volumi di query o di indicizzazione, è possibile usare i [dispositivi di scorrimento](search-manage.md#scale-up-or-down) nel portale di Azure o eseguire uno [script di PowerShell](search-manage-powershell.md), evitando direttamente la gestione delle partizioni.  
@@ -42,17 +42,27 @@ Non è possibile sospendere il servizio. Quando viene creato il servizio, vengon
 
 ## <a name="indexing-operations"></a>Operazioni di indicizzazione
 
-### <a name="backup-and-restore-or-download-and-move-indexes-or-index-snapshots"></a>È possibile eseguire il backup e il ripristino (o il download e lo spostamento) degli indici o degli snapshot dell'indice?
+### <a name="move-backup-and-restore-indexes-or-index-snapshots"></a>Spostare, eseguire il backup e ripristinare gli indici o gli snapshot degli indici?
 
-Sebbene sia possibile [ottenere una definizione di indice](https://docs.microsoft.com/rest/api/searchservice/get-index) in qualsiasi momento, non vi è alcuna funzionalità di estrazione indice, di snapshot di indice, di backup o ripristino per scaricare un indice *popolato* in esecuzione nel cloud in un sistema locale o spostarlo in un altro servizio Ricerca di Azure.
+Durante la fase di sviluppo, potrebbe essere necessario spostare l'indice tra i servizi di ricerca. Ad esempio, è possibile usare un piano tariffario Basic o gratuito per sviluppare l'indice e quindi spostarlo nel livello standard o superiore per l'uso in produzione. 
 
-Gli indici vengono compilati e popolati dal codice che si scrive e vengono eseguiti solo in Ricerca di Azure nel cloud. I clienti che desiderano spostare un indice in un altro servizio, in genere devono modificare il codice in modo da poter usare un nuovo endpoint e quindi eseguire di nuovo l'indicizzazione. Se si desidera avere la possibilità di acquisire uno snapshot o eseguire il backup di un indice, esprimere un voto in [User Voice](https://feedback.azure.com/forums/263029-azure-search/suggestions/8021610-backup-snapshot-of-index).
+In alternativa, è possibile eseguire il backup di uno snapshot dell'indice in file che possono essere usati per ripristinarli in un secondo momento. 
+
+È possibile eseguire tutte queste operazioni con il codice di esempio **index-backup-restore** in questo [repository di esempio .NET di ricerca di Azure](https://github.com/Azure-Samples/azure-search-dotnet-samples). 
+
+È anche possibile [ottenere una definizione di indice](https://docs.microsoft.com/rest/api/searchservice/get-index) in qualsiasi momento usando l'API REST di ricerca di Azure.
+
+Non esiste attualmente alcuna funzionalità di estrazione, snapshot o ripristino di un indice incorporato nel portale di Azure. Tuttavia, si sta valutando di aggiungere la funzionalità di backup e ripristino in una versione futura. Se si desidera visualizzare il supporto per questa funzionalità, eseguire il cast di un voto sulla [voce dell'utente](https://feedback.azure.com/forums/263029-azure-search/suggestions/8021610-backup-snapshot-of-index).
 
 ### <a name="can-i-restore-my-index-or-service-once-it-is-deleted"></a>È possibile ripristinare l'indice o il servizio dopo l'eliminazione?
 
-No, non è possibile ripristinare gli indici o i servizi. Se si elimina un indice di Ricerca di Azure, l'operazione è definitiva e l'indice non può essere recuperato. Quando si elimina un servizio di Ricerca di Azure, vengono eliminati definitivamente tutti gli indici nel servizio. Inoltre, se si elimina un gruppo di risorse di Azure che contiene uno o più servizi di Ricerca di Azure, vengono eliminati definitivamente tutti i servizi.  
+No, se si elimina un indice o un servizio di ricerca di Azure, non è possibile recuperarlo. Quando si elimina un servizio di Ricerca di Azure, vengono eliminati definitivamente tutti gli indici nel servizio. Se si elimina un gruppo di risorse di Azure che contiene uno o più servizi di ricerca di Azure, tutti i servizi vengono eliminati in modo permanente.  
 
-Per il ripristino di risorse, ad esempio indici, indicizzatori, origini dati e competenze, è necessario ricrearli dal codice. Nel caso di indici è necessario reindicizzare i dati da origini esterne. Per questo motivo, si consiglia di mantenere una copia master o un backup dei dati originali in un altro archivio dati, ad esempio un Database SQL di Azure o Cosmos DB.
+Per ricreare risorse quali indici, indicizzatori, origini dati e skillsets, è necessario ricrearle dal codice. 
+
+Per ricreare un indice, è necessario reindicizzare i dati da origini esterne. Per questo motivo, è consigliabile mantenere una copia master o un backup dei dati originali in un altro archivio dati, ad esempio il database SQL di Azure o Cosmos DB.
+
+In alternativa, è possibile usare il codice di esempio **index-backup-restore** in questo [repository di esempio .NET di ricerca di Azure](https://github.com/Azure-Samples/azure-search-dotnet-samples) per eseguire il backup di una definizione di indice e di un indice di snapshot in una serie di file JSON. Successivamente, è possibile utilizzare lo strumento e i file per ripristinare l'indice, se necessario.  
 
 ### <a name="can-i-index-from-sql-database-replicas-applies-to-azure-sql-database-indexershttpsdocsmicrosoftcomazuresearchsearch-howto-connecting-azure-sql-database-to-azure-search-using-indexers"></a>È possibile indicizzare da repliche di database SQL (si applica agli [indicizzatori del database SQL di Azure](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers))?
 
@@ -70,9 +80,9 @@ No, questa operazione non è supportata. La ricerca avviene sempre nell'ambito d
 
 ### <a name="why-are-there-zero-matches-on-terms-i-know-to-be-valid"></a>Perché vengono trovate zero corrispondenze con termini che sono sicuramente validi?
 
-Non tutti sanno che ogni tipo di query supporta comportamenti di ricerca e livelli di analisi linguistiche diversi. La ricerca full-text, che è il carico di lavoro predominante, include una fase di analisi del linguaggio che scompone i termini in forme radice. Questo aspetto di analisi delle query esegue il cast di una rete più ampia alla ricerca di corrispondenze possibili, perché il termine in formato token corrisponde a un maggior numero di varianti.
+Non tutti sanno che ogni tipo di query supporta comportamenti di ricerca e livelli di analisi linguistiche diversi. La ricerca full-text, che è il carico di lavoro predominante, include una fase di analisi del linguaggio che suddivide i termini nei moduli radice. Questo aspetto di analisi delle query esegue il cast di una rete più ampia alla ricerca di corrispondenze possibili, perché il termine in formato token corrisponde a un maggior numero di varianti.
 
-Le query con caratteri jolly, fuzzy e regex, tuttavia, non vengono analizzate come query di un termine o una frase normale e possono causare un richiamo ridotto se la query non corrisponde alla forma della parola analizzata nell'indice di ricerca. Per altre informazioni sull'analisi delle query, vedere [architettura delle query](https://docs.microsoft.com/azure/search/search-lucene-query-architecture).
+Le query con caratteri jolly, fuzzy e regex, tuttavia, non vengono analizzate come query di un termine o una frase normale e possono causare un richiamo ridotto se la query non corrisponde alla forma della parola analizzata nell'indice di ricerca. Per altre informazioni sull'analisi e l'analisi delle query, vedere [architettura di query](https://docs.microsoft.com/azure/search/search-lucene-query-architecture).
 
 ### <a name="my-wildcard-searches-are-slow"></a>Le ricerche con caratteri jolly sono lente.
 

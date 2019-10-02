@@ -1,62 +1,122 @@
 ---
 title: Deep Learning & Framework di intelligenza artificiale
 titleSuffix: Azure Data Science Virtual Machine
-description: Framework e strumenti per Deep learning disponibili in Azure Data Science Virtual Machine, tra cui TensorFlow, PyTorch, keras, caffe, MXNet, Horovod, Theano, Chainer e altro ancora.
+description: Framework e strumenti per Deep learning disponibili in Data Science Virtual Machine di Azure.
 keywords: strumenti di analisi scientifica dei dati, macchina virtuale per l'analisi scientifica dei dati, strumenti per l'analisi scientifica dei dati, analisi scientifica dei dati per Linux
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
-author: vijetajo
-ms.author: vijetaj
+author: gvashishtha
+ms.author: gopalv
 ms.topic: conceptual
-ms.date: 08/11/2019
-ms.openlocfilehash: d8d351659bcfdcdddcc09831b5f95f580bf38f1e
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 10/1/2019
+ms.openlocfilehash: fd38bf1f7741c4d610ef43a12d90533d4ac7b703
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170854"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802419"
 ---
-# <a name="deep-learning-and-ai-frameworks-for-azure-data-science-vm"></a>Apprendimento avanzato e Framework di intelligenza artificiale per Azure Data Science VM
-Il [Data Science Virtual Machine](https://aka.ms/dsvm) (DSVM) supporta una serie di Framework per l'apprendimento avanzato che consentono di creare applicazioni di intelligenza artificiale con analisi predittiva e funzionalità cognitive come la comprensione di immagini e linguaggi.
+# <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Apprendimento avanzato e Framework di intelligenza artificiale per Azure Data Science VM
+I Framework per Deep Learning in DSVM sono elencati di seguito.
 
-I Framework per Deep learning disponibili tramite DSVM includono:
+## <a name="caffehttpsgithubcombvlccaffe"></a>[Caffe](https://github.com/BVLC/caffe)
 
-+ TensorFlow
-+ PyTorch
-+ Keras
-+ Caffe
-+ Caffe2
-+ Torch
-+ MXNet Model Server
-+ MXNet
-+ Horovod
-+ Theano
-+ Chainer
-+ Deep Water
-+ NVIDIA DIGITS
-+ nvidia-smi
-+ TensorFlow Serving
-+ TensorRT
-+ Microsoft Cognitive Toolkit
+|    |           |
+| ------------- | ------------- |
+| Versioni supportate | |
+| Edizioni DSVM supportate      | Linux (Ubuntu)     |
+| Come viene configurata o installata sulla macchina virtuale per data science?  | Caffe è installato in `/opt/caffe`.   Gli esempi sono `/opt/caffe/examples`disponibili in.|
+| Come eseguirla      | usare X2Go per accedere alla macchina virtuale e quindi avviare un nuovo terminale e immettere quanto segue:<br/>`cd /opt/caffe/examples`<br/>`source activate root`<br/>`jupyter notebook`<br/><br/>Si apre una nuova finestra del browser con i blocchi appunti di esempio. I file binari vengono installati in /opt/caffe/build/installazioni/bin.<br/><br/>La versione installata di caffe richiede Python 2,7 e non funziona con Python 3,5, che è attivato per impostazione predefinita. Per passare a Python 2,7, eseguire `source activate root` per passare all'ambiente Anaconda.|    
 
-|&nbsp;Strumenti&nbsp;diformazione&nbsp;approfondita su DSVM|Windows|Linux|Note&nbsp;sull'utilizzo|
-|---------|-------------------|------------------|-----|
-|[TensorFlow](https://www.tensorflow.org/) | Sì (Windows 2016) | Yes |Installato in Python 3,5 in [Linux e windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) e Python 3,6 in [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition). I notebook di Jupyter di esempio sono inclusi in DSVM.<br/><br/>**Per eseguirlo**:<br/>Terminal Attivare l'ambiente corretto, quindi eseguire python. <br/> Jupyter Connettersi a [Jupyter](provision-vm.md) o [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine), quindi aprire la directory TensorFlow per gli esempi.  |
-|[PyTorch](https://pytorch.org/)| No | Yes |Installato in [Python 3,5](dsvm-languages.md#python-linux-and-windows-server-2012-edition). Sono inclusi i notebook di Jupyter di esempio e gli esempi si trovano in/dsvm/Samples/pytorch.    <br/><br/>**Per eseguirlo**:<br/>Terminal Attivare l'ambiente corretto, quindi eseguire python.<br/>* [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine): Connettersi, quindi aprire la directory PyTorch per gli esempi.  |
-|[Keras](https://keras.io/)| Yes | Yes |L'API è installata in Python 3,5 in [Linux e windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) e in Python 3,6 in [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition). [Vedere esempi](https://github.com/fchollet/keras/tree/master/examples).<br/><br/>**Per eseguirlo**:<br/>Terminal Attivare l'ambiente corretto, quindi eseguire python. <br/> Jupyter Scaricare gli esempi dal percorso di GitHub, connettersi a [Jupyter](provision-vm.md) o [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine), quindi aprire la directory di esempio. |
-|[Caffe](https://github.com/caffe2/caffe2) | No |Sì (Ubuntu)|Caffe è installato in `/opt/caffe`.   Gli esempi sono `/opt/caffe/examples`disponibili in. <br/><br/>**Per eseguirlo**, usare x2go per accedere alla macchina virtuale e quindi avviare un nuovo terminale e immettere quanto segue:<br/>`cd /opt/caffe/examples`<br/>`source activate root`<br/>`jupyter notebook`<br/><br/>Si apre una nuova finestra del browser con i blocchi appunti di esempio. I file binari vengono installati in /opt/caffe/build/installazioni/bin.<br/><br/>La versione installata di caffe richiede Python 2,7 e non funziona con Python 3,5, che è attivato per impostazione predefinita. Per passare a Python 2,7, eseguire `source activate root` per passare all'ambiente Anaconda.|
-|[Caffe2](https://github.com/caffe2/caffe2) | No |Sì (Ubuntu)|Caffe2 viene installato nell'[ambiente Conda di Python 2.7, ovvero nella radice](dsvm-languages.md#python-linux-and-windows-server-2012-edition). L'origine è `/opt/caffe2`.<br/>In Jupyter sono inclusi i blocchi appunti di esempio.<br/><br/>**Per eseguirlo**:<br/>Terminal Attivare l' [ambiente Python radice](dsvm-languages.md#python-linux-and-windows-server-2012-edition), avviare Python e importare Caffe2. <br/> JupyterHub [Connettersi a JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine)e quindi passare alla directory Caffe2 per trovare i blocchi appunti di esempio. Alcuni blocchi appunti richiedono l'impostazione della radice di Caffe2 nel codice Python. Immettere /opt/caffe2. |
-|[Torcia](http://torch.ch/) | No |Sì (Ubuntu)|Torch è installato in `/dsvm/tools/torch`. PyTorch viene installato in Python 2.7, _radice_, e nell'ambiente Python 3.5, _py35_. Gli esempi di torcia `/dsvm/samples/torch` sono in e gli esempi `/dsvm/samples/pytorch`di PyTorch sono disponibili in. |
-|[MXNet](https://mxnet.io/) | Sì (Windows 2016) | Yes|MXNet è installato in `C:\dsvm\tools\mxnet` su Windows e in `/dsvm/tools/mxnet` su Linux. Le associazioni di Python vengono installate in Python 3.5 su [Linux e Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) e in Python 3.6 su [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition). Anche le associazioni di R vengono installate su Ubuntu.<br/><br/>Sono inclusi i blocchi appunti Jupyter di esempio. <br/><br/>**Per eseguirlo**:<br/>Terminal Attivare l'ambiente corretto, quindi eseguire python. <br/> Jupyter Connettersi a [Jupyter](provision-vm.md) o [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine), quindi aprire la directory MxNet per gli esempi.|
-|[Server modello MXNet](https://github.com/awslabs/mxnet-model-server) | No | Yes |Server per la creazione di endpoint HTTP per i modelli MXNet e ONNX. _MxNet-Model-server_ è disponibile nel terminale. Esempi nella [pagina del server del modello MXNet](https://github.com/awslabs/mxnet-model-server).|
-|[Horovod](https://github.com/uber/horovod) | No | Sì (Ubuntu) |Framework per Deep learning distribuito per TensorFlow. Horovod viene installato in Python 3.5 su [Ubuntu](dsvm-languages.md#python-linux-and-windows-server-2012-edition).  [Vedere esempi](https://github.com/uber/horovod/tree/master/examples).<br/><br/>**Per eseguirlo**, attivare l'ambiente corretto nel terminale, quindi eseguire python. |
-|[Theano](https://github.com/Theano/Theano) | No | Sì (Ubuntu) |Theano viene installato in Python 2,7 (_radice_) e nell'ambiente Python 3,5 (_PY35_).<br/><br/>**Per eseguirlo**: <br/>Terminal Attivare la versione di Python desiderata (root o PY35), eseguire python, quindi importare Theano.<br/>Jupyter Selezionare il kernel Python 2,7 o 3,5, quindi importare Theano.  <br/>Per aggirare un bug recente della libreria del kernel matematico (MKL), è necessario innanzitutto impostare il livello di threading MKL nel modo seguente:<br/><br/>`export MKL_THREADING_LAYER=GNU`|
-|[Chainer](https://chainer.org/) |No | Yes |Chainer viene installato in [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition). Vengono installati anche ChainerRL e ChainerCV. <br/><br/>In Jupyter sono inclusi i blocchi appunti di esempio.<br/><br/>**Per eseguirlo**: <br/>Terminal Attivare l'ambiente [python 3,5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) , eseguire _Python_, quindi importare Chainer. <br/> JupyterHub [Connettersi a JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine)e quindi passare alla directory chainer per trovare i blocchi appunti di esempio.|
-|[Cifre NVidia](https://github.com/NVIDIA/DIGITS) | No | Sì (Ubuntu) |Sistema di apprendimento avanzato di NVIDIA per il training rapido dei modelli di apprendimento avanzato. Le cifre vengono installate `/dsvm/tools/DIGITS` in ed è disponibile come servizio denominato _digits_.  <br/><br/>**Per eseguirlo**: <br/>Accedere alla macchina virtuale con X2Go. Avviare il servizio ```sudo systemctl start digits```in un terminale eseguendo. <br/><br/>L'avvio del servizio richiede circa un minuto. Aprire un Web browser e passare a `http://localhost:5000`. Si noti che DIGITS non offre un accesso protetto ed è consigliabile che non venga esposto al di fuori della macchina virtuale.|
-|[CUDA, cuDNN, driver NVIDIA](https://developer.nvidia.com/cuda-toolkit) |Yes | Yes | |
-|nvidia-smi|Yes | Yes |Strumento NVIDIA per l'esecuzione di query sull'attività GPU; _NVIDIA-SMI_ è disponibile nel percorso di sistema. <br/><br/>Aprire un prompt dei comandi (in Windows) o un terminale (in Linux), quindi eseguire _NVIDIA-SMI_.|
-|[Servizio TensorFlow](https://www.tensorflow.org/serving/) | No | Yes |Server da inferenza su un modello TensorFlow; tensorflow_model_server è disponibile nel terminale. Sono disponibili esempi [online](https://www.tensorflow.org/serving/).|
-|[TensorRT](https://developer.nvidia.com/tensorrt) |  No | Sì (Ubuntu) |Server di inferenza Deep Learning di NVIDIA. TensorRT viene installato come un pacchetto _apt_. Sono disponibili esempi [online](https://docs.nvidia.com/deeplearning/sdk/tensorrt-developer-guide/index.html#samples).|
-|[Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/)|Yes | Yes | Installato in Python 3,5 in [Linux e windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) e Python 3,6 in [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition). I notebook di Jupyter di esempio sono inclusi in DSVM. <br/><br/>**Per eseguirlo**: <br/>Terminal Attivare l'ambiente corretto ed eseguire python. <br/>Jupyter Connettersi a [Jupyter](provision-vm.md) o [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine), quindi aprire la directory CNTK per gli esempi. |
-|Deep Water|No | Sì (Ubuntu) |Il Framework per l'apprendimento avanzato per H2O, Deep Water è installato in [Python 3,5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) ed è disponibile `/dsvm/tools/deep_water`anche in. In Jupyter sono inclusi i blocchi appunti di esempio. Deep Water richiede CUDA 8 con cuDNN 5.1. Per impostazione predefinita, non si trova nel percorso di libreria, perché altri Framework di apprendimento avanzato usano CUDA 9 e cuDNN 7. Per usare, installare CUDA 8 + cuDNN 5,1 per Deep Water:<br/><br/>```export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:${LD_LIBRARY_PATH}```<br/>```export CUDA_ROOT=/usr/local/cuda-8.0```<br/><br/>Per usare Deep Water:<br/>Terminal Attivare l'ambiente [python 3,5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) , quindi eseguire _Python_. <br/>JupyterHub [Connettersi a JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine)e quindi passare alla directory deep_water per trovare i blocchi appunti di esempio.|
+## <a name="caffe2httpsgithubcomcaffe2caffe2"></a>[Caffe2](https://github.com/caffe2/caffe2)
+
+|    |           |
+| ------------- | ------------- |
+| Versioni supportate | |
+| Edizioni DSVM supportate      | Linux (Ubuntu)     |
+| Come viene configurata o installata sulla macchina virtuale per data science?  | Caffe2 viene installato nell'ambiente conda [Python 2,7 (radice). |
+| Come eseguirla      | Terminal Avviare Python e importare Caffe2. <br/> JupyterHub [Connettersi a JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine)e quindi passare alla directory Caffe2 per trovare i blocchi appunti di esempio. Alcuni blocchi appunti richiedono l'impostazione della radice di Caffe2 nel codice Python. Immettere /opt/caffe2. |
+
+## <a name="chainerhttpschainerorg"></a>[Chainer](https://chainer.org/)
+
+|    |           |
+| ------------- | ------------- |
+| Versioni supportate | 5,2 |
+| Edizioni DSVM supportate      | Linux (Ubuntu)     |
+| Come viene configurata o installata sulla macchina virtuale per data science?  | Chainer viene installato in Python 3,5. |
+| Come eseguirla      | Terminal Attivare l'ambiente Python 3,5, eseguire `python` e quindi `import chainer`. <br/> JupyterHub [Connettersi a JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine)e quindi passare alla directory chainer per trovare i blocchi appunti di esempio.| 
+
+## <a name="cuda-cudnn-nvidia-driverhttpsdevelopernvidiacomcuda-toolkit"></a>[CUDA, cuDNN, driver NVIDIA](https://developer.nvidia.com/cuda-toolkit)
+
+|    |           |
+| ------------- | ------------- |
+| Versioni supportate | 10.0.130|
+| Edizioni DSVM supportate      | Windows e Linux   |
+| Come viene configurata o installata sulla macchina virtuale per data science?  |_nvidia-smi_ è disponibile nel percorso del sistema.  |
+| Come eseguirla      | Aprire un prompt dei comandi (in Windows) o un terminale (in Linux), quindi eseguire _NVIDIA-SMI_. |
+
+
+## <a name="horovodhttpsgithubcomuberhorovod"></a>[Horovod](https://github.com/uber/horovod)
+
+|    |           |
+| ------------- | ------------- |
+| Versioni supportate | 0.16.1|
+| Edizioni DSVM supportate      | Linux (Ubuntu)   |
+| Come viene configurata o installata sulla macchina virtuale per data science?  | Horovod è installato in Python 3,5 |
+| Come eseguirla      | Attivare l'ambiente corretto nel terminale, quindi eseguire python. |
+
+## <a name="kerashttpskerasio"></a>[Keras](https://keras.io/)
+
+|    |           |
+| ------------- | ------------- |
+| Versioni supportate | 2.2.4 |
+| Edizioni DSVM supportate      | Windows e Linux   |
+| Come viene configurata o installata sulla macchina virtuale per data science?  | Keras viene installato in Python 3,6 in Windows e in Python 3,5 in Linux |
+| Come eseguirla      | Attivare l'ambiente corretto nel terminale, quindi eseguire python. |
+
+## <a name="microsoft-cognitive-toolkit-cntkhttpsdocsmicrosoftcomcognitive-toolkit"></a>[Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/)
+
+|    |           |
+| ------------- | ------------- |
+| Versioni supportate | 2.5.1 |
+| Edizioni DSVM supportate      | Windows e Linux   |
+| Come viene configurata o installata sulla macchina virtuale per data science?  | CNTK viene installato in Python 3,6 in [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition) e in Python 3,5 in [Linux](./dsvm-languages.md#python-linux-edition)) |
+| Come eseguirla      | Terminal Attivare l'ambiente corretto ed eseguire python. <br/>Jupyter Connettersi a [Jupyter](provision-vm.md) o [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine), quindi aprire la directory CNTK per gli esempi. |
+
+## <a name="pytorchhttpspytorchorg"></a>[PyTorch](https://pytorch.org/)
+
+|    |           |
+| ------------- | ------------- |
+| Versioni supportate | 1.2.0 |
+| Edizioni DSVM supportate      | Linux |
+| Come viene configurata o installata sulla macchina virtuale per data science?  | Installato in [Python 3,5](dsvm-languages.md#python-linux-edition). Sono inclusi i notebook di Jupyter di esempio e gli esempi si trovano in/dsvm/Samples/pytorch. |
+| Come eseguirla      | Terminal Attivare l'ambiente corretto, quindi eseguire python.<br/>* [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine): Connettersi, quindi aprire la directory PyTorch per gli esempi.  |
+
+## <a name="tensorflowhttpswwwtensorfloworg"></a>[TensorFlow](https://www.tensorflow.org/)
+
+|    |           |
+| ------------- | ------------- |
+| Versioni supportate | 1,13 |
+| Edizioni DSVM supportate      | Windows, Linux |
+| Come viene configurata o installata sulla macchina virtuale per data science?  | Installato in Python 3,5 in [Linux](dsvm-languages.md#python-linux-edition) e Python 3,6 in [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition) |
+| Come eseguirla      | Terminal Attivare l'ambiente corretto, quindi eseguire python. <br/> Jupyter Connettersi a [Jupyter](provision-vm.md) o [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine), quindi aprire la directory TensorFlow per gli esempi.   |
+
+## <a name="tensorflow-servinghttpswwwtensorfloworgserving"></a>[Servizio TensorFlow](https://www.tensorflow.org/serving/)
+
+|    |           |
+| ------------- | ------------- |
+| Versioni supportate | 1,12 |
+| Edizioni DSVM supportate      | Linux |
+| Come viene configurata o installata sulla macchina virtuale per data science?  | tensorflow_model_server è disponibile nel terminale. |
+| Come eseguirla      |  Sono disponibili esempi [online](https://www.tensorflow.org/serving/).   |
+
+
+## <a name="theanohttpsgithubcomtheanotheano"></a>[Theano](https://github.com/Theano/Theano)
+
+|    |           |
+| ------------- | ------------- |
+| Versioni supportate | 1.0.3 |
+| Edizioni DSVM supportate      | Linux |
+| Come viene configurata o installata sulla macchina virtuale per data science?  |Theano viene installato in Python 2,7 (_radice_) e nell'ambiente Python 3,5 (_PY35_). |
+| Come eseguirla      |  Terminal Attivare la versione di Python desiderata (root o PY35), eseguire python, quindi importare Theano.<br/>Jupyter Selezionare il kernel Python 2,7 o 3,5, quindi importare Theano.  <br/>Per aggirare un bug recente della libreria del kernel matematico (MKL), è necessario innanzitutto impostare il livello di threading MKL nel modo seguente:<br/><br/>`export MKL_THREADING_LAYER=GNU`  |

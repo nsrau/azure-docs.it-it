@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 08/06/2019
-ms.openlocfilehash: 677a52572658f80d9cde4de28dd02d6e957407d2
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: de215502f1ecb55bc331f29057a4f7c3f30b0132
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71269202"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720170"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Che cos'è un'area di lavoro Azure Machine Learning?
 
@@ -66,9 +66,6 @@ Le attività di Machine Learning leggono e/o scrivono elementi nell'area di lavo
 + Visualizzazione di elementi di Machine Learning, ad esempio esperimenti, pipeline, modelli e distribuzioni.
 + Rilevare e monitorare i modelli.
 
-
-
-
 ## <a name="workspace-management"></a>Gestione dell'area di lavoro
 
 È inoltre possibile eseguire le attività di gestione dell'area di lavoro seguenti:
@@ -80,7 +77,7 @@ Le attività di Machine Learning leggono e/o scrivono elementi nell'area di lavo
 | Gestisci l'accesso all'area di lavoro    | **&check;**   | |  **&check;**    |
 | Creare una macchina virtuale per notebook | **&check;**   | |     |
 
-### <a name='create-workspace'></a>Creare un'area di lavoro
+## <a name='create-workspace'></a>Creare un'area di lavoro
 
 Esistono diversi modi per creare un'area di lavoro.
 

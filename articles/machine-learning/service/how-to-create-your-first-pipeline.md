@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: f1a0db395b86f473d2372a5ca779020e54186e45
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: af20c9e3a50c0c60135b1e447e7e1cba1fc36526
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034851"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815719"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Creare ed eseguire pipeline di Machine Learning con Azure Machine Learning SDK
 
@@ -122,7 +122,7 @@ Di seguito sono riportati esempi di creazione e collegamento di destinazioni di 
 
 * Ambiente di calcolo di Azure Machine Learning
 * Azure Databricks 
-* Azure Data Lake Analytics.
+* Azure Data Lake Analytics
 
 ### <a name="azure-machine-learning-compute"></a>Ambiente di calcolo di Azure Machine Learning
 
@@ -436,7 +436,7 @@ p.disable()
 
 Per ottimizzare e personalizzare il comportamento delle pipeline, è possibile eseguire alcune operazioni per la memorizzazione nella cache e il riutilizzo. Ad esempio, è possibile scegliere di:
 + **Disattivare il riutilizzo predefinito del passaggio Esegui output** `allow_reuse=False` impostando durante la [definizione del passaggio](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py). Il riutilizzo è fondamentale quando si utilizzano pipeline in un ambiente di collaborazione, perché l'eliminazione di esecuzioni non necessarie offre flessibilità. Tuttavia, è possibile rifiutare esplicitamente il riutilizzo.
-+ **Estendere l'hashing oltre lo script**, in modo da includere anche un percorso assoluto o percorsi relativi a source_directory per altri file e directory usando il`hash_paths=['<file or directory']` 
++ **Estendere l'hashing oltre lo script**, in modo da includere anche un percorso assoluto o percorsi relativi a source_directory per altri file e directory usando il `hash_paths=['<file or directory']` 
 + **Forzare la rigenerazione dell'output per tutti i passaggi di un'esecuzione** con`pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
 
 Per impostazione predefinita `allow_reuse` , per i passaggi è abilitato e viene eseguito l'hashing solo del file di script principale. Quindi, se lo script per un determinato passaggio rimane lo stesso (`script_name`, input e parametri), viene riutilizzato l'output di un'esecuzione del passaggio precedente, il processo non viene inviato al calcolo e i risultati dell'esecuzione precedente sono immediatamente disponibili al passaggio successivo. .  
@@ -449,11 +449,11 @@ step = PythonScriptStep(name="Hello World",
                         allow_reuse=False,
                         hash_paths=['hello_world.ipynb'])
 ```
- 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Usare [questi notebook di Jupyter in GitHub](https://aka.ms/aml-pipeline-readme) per esplorare più in dettaglio le pipeline di Machine Learning.
 - Vedere la Guida di riferimento per l'SDK per il pacchetto [azureml-Pipelines-Core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) e il pacchetto [azureml-Pipelines-Steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) .
+- Vedere le [procedure](how-to-debug-pipelines.md) consigliate per il debug e la risoluzione dei problemi relativi alle pipeline.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]

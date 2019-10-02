@@ -4,20 +4,32 @@ description: Informazioni su come creare un contenitore in Azure Cosmos DB con u
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/03/2019
+ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: a1216daade2df832b606fceb648fca998c3fdec8
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 5b0d182e09a4978a4d9c1184f085e140e5c698bc
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300144"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71811704"
 ---
 # <a name="create-containers-with-large-partition-key"></a>Creare contenitori con una chiave di partizione grande
 
 Azure Cosmos DB usa lo schema di partizionamento basato su hash per ottenere il ridimensionamento orizzontale dei dati. Tutti i contenitori di Azure Cosmos creati prima del 3 2019 maggio usano una funzione hash che calcola l'hash in base ai primi 100 byte della chiave di partizione. Se sono presenti più chiavi di partizione con lo stesso primo 100 byte, le partizioni logiche vengono considerate come la stessa partizione logica da parte del servizio. Questo può causare problemi quali la quota delle dimensioni della partizione non corretta e gli indici univoci applicati tra le chiavi di partizione. Per risolvere questo problema, sono state introdotte chiavi di partizione di grandi dimensioni. Azure Cosmos DB supporta ora chiavi di partizione di grandi dimensioni con valori fino a 2 KB.
 
-Le chiavi di partizione di grandi dimensioni sono supportate usando la funzionalità di una versione migliorata della funzione hash, che può generare un hash univoco da chiavi di partizione di grandi dimensioni fino a 2 KB. Questa versione hash è consigliata anche per gli scenari con cardinalità a chiave di partizione elevata indipendentemente dalle dimensioni della chiave di partizione. Una cardinalità della chiave di partizione viene definita come il numero di partizioni logiche univoche, ad esempio nell'ordine di ~ 30000 partizioni logiche in un contenitore. Questo articolo descrive come creare un contenitore con una chiave di partizione di grandi dimensioni usando il portale di Azure e diversi SDK. 
+Le chiavi di partizione di grandi dimensioni sono supportate usando la funzionalità di una versione migliorata della funzione hash, che può generare un hash univoco da chiavi di partizione di grandi dimensioni fino a 2 KB. Questa versione hash è consigliata anche per gli scenari con cardinalità a chiave di partizione elevata indipendentemente dalle dimensioni della chiave di partizione. Una cardinalità della chiave di partizione viene definita come il numero di partizioni logiche univoche, ad esempio nell'ordine di ~ 30000 partizioni logiche in un contenitore. Questo articolo descrive come creare un contenitore con una chiave di partizione di grandi dimensioni usando il portale di Azure e diversi SDK.
+
+## <a name="create-a-large-partition-key-azure-portal"></a>Creare una chiave di partizione di grandi dimensioni (portale di Azure)
+
+Per creare una chiave di partizione di grandi dimensioni, durante la creazione di un nuovo contenitore con il portale di Azure, selezionare l'opzione **My Partition Key è maggiore di 100-bytes** . Per impostazione predefinita, tutti i nuovi contenitori vengono scelti con le chiavi di partizione di grandi dimensioni. Deselezionare la casella di controllo se non sono necessarie chiavi di partizione di grandi dimensioni o se sono presenti applicazioni in esecuzione nella versione SDK precedente alla 1,18.
+
+![Creazione di chiavi di partizione di grandi dimensioni con portale di Azure](./media/large-partition-keys/large-partition-key-with-portal.png)
+
+## <a name="create-a-large-partition-key-powershell"></a>Creare una chiave di partizione di grandi dimensioni (PowerShell)
+
+Per creare un contenitore con supporto di chiavi di partizione di grandi dimensioni, vedere
+
+* [Creare un contenitore di Azure Cosmos con una chiave di partizione di grandi dimensioni](manage-with-powershell.md##create-container-big-pk)
 
 ## <a name="create-a-large-partition-key-net-sdk"></a>Creare una chiave di partizione di grandi dimensioni (.NET SDK)
 
@@ -29,7 +41,7 @@ Per creare un contenitore con una chiave di partizione di grandi dimensioni usan
 await database.CreateContainerAsync(
     new ContainerProperties(collectionName, $"/longpartitionkey")
     {
-        PartitionKeyDefinitionVersion = PartitionKeyDefinitionVersion.V2, 
+        PartitionKeyDefinitionVersion = PartitionKeyDefinitionVersion.V2,
     })
 ```
 
@@ -48,47 +60,6 @@ database,
            }
          },
       new RequestOptions { OfferThroughput = 400 });
-```
-
-## <a name="create-a-large-partition-key-azure-portal"></a>Creare una chiave di partizione di grandi dimensioni (portale di Azure) 
-
-Per creare una chiave di partizione di grandi dimensioni, durante la creazione di un nuovo contenitore con il portale di Azure, selezionare l'opzione **My Partition Key è maggiore di 100-bytes** . Per impostazione predefinita, tutti i nuovi contenitori vengono scelti con le chiavi di partizione di grandi dimensioni. Deselezionare la casella di controllo se non sono necessarie chiavi di partizione di grandi dimensioni o se sono presenti applicazioni in esecuzione nella versione SDK precedente alla 1,18.
-
-![Creazione di chiavi di partizione di grandi dimensioni con portale di Azure](./media/large-partition-keys/large-partition-key-with-portal.png)
-
-## <a name="create-a-large-partition-key-powershell"></a>Creare una chiave di partizione di grandi dimensioni (PowerShell)
-
-Per creare un contenitore con una chiave di partizione di grandi dimensioni usando `"version" = 2` PowerShell, `partitionKey` includere per l'oggetto.
-
-```azurepowershell-interactive
-# Create a Cosmos SQL API container with large partition key support (version 2)
-$resourceGroupName = "myResourceGroup"
-$containerName = "mycosmosaccount" + "/sql/" + "myDatabase" + "/" + "myContainer"
-
-# Container with large partition key support (version = 2)
-$containerProperties = @{
-  "resource"=@{
-    "id"=$containerName;
-    "partitionKey"=@{
-        "paths"=@("/myPartitionKey");
-        "kind"="Hash";
-        "version" = 2
-    };
-    "indexingPolicy"=@{
-        "indexingMode"="Consistent";
-        "includedPaths"= @(@{
-            "path"="/*"
-        });
-        "excludedPaths"= @(@{
-            "path"="/myPathToNotIndex/*"
-        })
-    }
-  }
-}
-
-New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $containerName -PropertyObject $containerProperties
 ```
 
 ## <a name="supported-sdk-versions"></a>Versioni di SDK supportate
@@ -110,5 +81,3 @@ Attualmente, non è possibile usare contenitori con una chiave di partizione di 
 * [Unità richiesta in Azure Cosmos DB](request-units.md)
 * [Effettuare il provisioning della velocità effettiva per contenitori e database](set-throughput.md)
 * [Usare l'account Azure Cosmos](account-overview.md)
-
-

@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2019
 ms.author: rogirdh
-ms.openlocfilehash: eb5d03d50a99978e4f3ee58fba206dd730f7d5fe
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 63543c0ac34536b736bd4b8cdbd47fdd98e9f9be
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100146"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802219"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Configurare un'interconnessione diretta tra Azure e l'infrastruttura cloud Oracle  
 
 Per creare un' [esperienza multicloud integrata](oracle-oci-overview.md) (anteprima), Microsoft e Oracle offrono l'interconnessione diretta tra Azure e Oracle Cloud Infrastructure (OCI) tramite [ExpressRoute](../../../expressroute/expressroute-introduction.md) e [FastConnect](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm). Attraverso l'interconnessione ExpressRoute e FastConnect, i clienti possono riscontrare bassa latenza, velocità effettiva elevata e connettività diretta privata tra i due cloud.
 
 > [!IMPORTANT]
-> La connessione tra Microsoft Azure e OCI si trova nella fase di anteprima. Per abilitare la connettività a bassa latenza tra Azure e OCI, per questa funzionalità è necessario che la sottoscrizione di Azure sia prima elencata in bianco. È necessario iscriversi all'anteprima completando questo breve [modulo](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu)di questionario. Si riceverà un messaggio di posta elettronica dopo la registrazione della sottoscrizione. Non è possibile usare la funzionalità finché non si riceve un messaggio di posta elettronica di conferma. È anche possibile contattare il rappresentante Microsoft per abilitare questa versione di anteprima. L'accesso alla funzionalità di anteprima è soggetto alla disponibilità e limitato da Microsoft a sua esclusiva discrezione. Il completamento del sondaggio non garantisce l'accesso. Questa versione di anteprima viene fornita senza un contratto di servizio e non deve essere usata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate, potrebbero avere funzioni limitate o potrebbero non essere disponibili in tutte le località di Azure. Per informazioni dettagliate, vedere le condizioni per l' [utilizzo aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) per Microsoft Azure anteprime. Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
+> La connessione tra Microsoft Azure e OCI si trova nella fase di anteprima. Per stabilire una connettività a bassa latenza tra Azure e OCI, è necessario abilitare prima la sottoscrizione di Azure per questa funzionalità. È necessario iscriversi all'anteprima completando questo breve [modulo di questionario](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu). Si riceverà un messaggio di posta elettronica dopo la registrazione della sottoscrizione. Non è possibile usare la funzionalità finché non si riceve un messaggio di posta elettronica di conferma. È anche possibile contattare il rappresentante Microsoft per abilitare questa versione di anteprima. L'accesso alla funzionalità di anteprima è soggetto alla disponibilità e limitato da Microsoft a sua esclusiva discrezione. Il completamento del sondaggio non garantisce l'accesso. Questa versione di anteprima viene fornita senza un contratto di servizio e non deve essere usata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate, potrebbero avere funzioni limitate o potrebbero non essere disponibili in tutte le località di Azure. Per informazioni dettagliate, vedere le condizioni per l' [utilizzo aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) per Microsoft Azure anteprime. Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
 
 Nell'immagine seguente viene illustrata una panoramica di alto livello dell'interconnessione:
 
@@ -37,7 +37,7 @@ Nell'immagine seguente viene illustrata una panoramica di alto livello dell'inte
 
 * La connettività è possibile solo quando una località di peering di Azure ExpressRoute è in prossimità o nella stessa località di peering del FastConnect OCI. Vedere [limitazioni](oracle-oci-overview.md#preview-limitations)della versione di anteprima.
 
-* Per questa funzionalità di anteprima è necessario che la sottoscrizione di Azure sia consentita.
+* Per questa funzionalità di anteprima è necessario abilitare la sottoscrizione di Azure.
 
 ## <a name="configure-direct-connectivity-between-expressroute-and-fastconnect"></a>Configurare la connettività diretta tra ExpressRoute e FastConnect
 
@@ -51,13 +51,13 @@ Nell'immagine seguente viene illustrata una panoramica di alto livello dell'inte
     ![Chiave del servizio ExpressRoute](media/configure-azure-oci-networking/exr-service-key.png)
 
     > [!IMPORTANT]
-    > Verranno addebitati gli addebiti per ExpressRoute non appena viene effettuato il provisioning del circuito ExpressRoute (anche se **non**è stato effettuato il provisioning dello **stato del provider** ).
+    > Verranno addebitati gli addebiti per ExpressRoute non appena viene effettuato il provisioning del circuito ExpressRoute (anche se non è stato effettuato il **provisioning**dello **stato del provider** ).
 
 1. Suddividere due spazi di indirizzi IP privati di/30 ognuno che non si sovrappongono alla rete virtuale di Azure o allo spazio di indirizzi IP della rete del cloud virtuale OCI. Si fa riferimento al primo spazio degli indirizzi IP come spazio di indirizzi primario e al secondo spazio degli indirizzi IP come spazio degli indirizzi secondario. Prendere nota degli indirizzi necessari durante la configurazione del circuito FastConnect.
 1. Creare un gateway di routing dinamico (DRG). Questa operazione sarà necessaria per la creazione del circuito FastConnect. Per ulteriori informazioni, vedere la documentazione del [gateway di routing dinamico](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingDRGs.htm) .
 1. Creare un circuito FastConnect nel tenant Oracle. Per ulteriori informazioni, vedere la [documentazione di Oracle](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/azure.htm).
   
-    * In configurazione di FastConnect selezionare **Microsoft Azure: ExpressRoute** come provider.
+    * In configurazione di FastConnect selezionare **Microsoft Azure: ExpressRoute @ no__t-0 come provider.
     * Selezionare il gateway di routing dinamico di cui è stato effettuato il provisioning nel passaggio precedente.
     * Selezionare la larghezza di banda di cui effettuare il provisioning. Per ottenere prestazioni ottimali, la larghezza di banda deve corrispondere alla larghezza di banda selezionata durante la creazione del circuito ExpressRoute.
     * Nella **chiave del servizio del provider**incollare la chiave del servizio ExpressRoute.
@@ -65,7 +65,7 @@ Nell'immagine seguente viene illustrata una panoramica di alto livello dell'inte
         * Assegnare il primo indirizzo utilizzabile dei due intervalli per l'indirizzo IP BGP Oracle (primario e secondario) e il secondo indirizzo all'indirizzo IP BGP del cliente (dal punto di vista della FastConnect). Il primo indirizzo IP utilizzabile è il secondo indirizzo IP nello spazio degli indirizzi/30 (il primo indirizzo IP è riservato da Microsoft).
     * Fare clic su **Create**(Crea).
 1. Completare il collegamento di FastConnect alla rete cloud virtuale nel tenant Oracle tramite il gateway di routing dinamico, usando la tabella di route.
-1. Passare ad Azure e assicurarsi che lo **stato del provider** per il circuito ExpressRoute sia stato modificato in provisioning eseguito e che sia stato effettuato il provisioning di un peering di tipo **privato di Azure** . Questo è un prerequisito per i passaggi seguenti.
+1. Passare ad Azure e assicurarsi che lo **stato del provider** per il circuito ExpressRoute sia stato modificato in **provisioning** eseguito e che sia stato effettuato il provisioning di un peering di tipo **privato di Azure** . Questo è un prerequisito per i passaggi seguenti.
 
     ![Stato provider ExpressRoute](media/configure-azure-oci-networking/exr-provider-status.png)
 1. Fare clic sul peering **privato di Azure** . Si noterà che i dettagli del peering sono stati configurati automaticamente in base alle informazioni immesse durante la configurazione del circuito FastConnect.

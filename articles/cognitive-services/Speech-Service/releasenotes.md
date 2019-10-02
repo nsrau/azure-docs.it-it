@@ -8,17 +8,45 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.author: jhakulin
+ms.date: 09/20/2019
+ms.author: brianem
 ms.custom: seodec18
-ms.openlocfilehash: 12eecc4998153cbeedeb907ecad33c56141a50e6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0e4d0eb19da2485b689b1c5d5192e344153aef0b
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559131"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71799963"
 ---
 # <a name="release-notes"></a>Note sulla versione
+## <a name="speech-sdk-170-2019-september-release"></a>1\.7.0 SDK vocale: 2019-versione di settembre
+
+**Nuove funzionalità**
+*   Aggiunta del supporto beta per Novell in piattaforma UWP (Universal Windows Platform) (UWP), Android e iOS
+*   Aggiunta del supporto iOS per Unity
+*   Aggiunta del supporto per l'input compresso per alegge, mulaw, FLAC in Android, iOS e Linux
+*   Aggiunta di SendMessageAsync nella classe Connection per l'invio di un messaggio al servizio
+*   Aggiunta di SetMessageProperty nella classe Connection per l'impostazione della proprietà di un messaggio
+*   Binding aggiunto TTS per Java (JRE e Android), Python, Swift e Objective-C
+*   TTS aggiunto supporto per la riproduzione per macOS, iOS e Android.
+*   Sono state aggiunte informazioni "confine di parola" per TTS.
+
+**Correzioni di bug**
+*   Correzione del problema di compilazione di IL2CPP in Unity 2019 per Android
+*   Correzione del problema relativo all'elaborazione non corretta delle intestazioni in formato non corretto nell'input del file WAV
+*   Correzione di un problema con UUID non univoco in alcune proprietà di connessione
+*   Correzione di alcuni avvisi sugli identificatori di supporto di valori null nelle associazioni Swift (potrebbe richiedere modifiche minime al codice)
+*   Correzione di un bug che causava la chiusura non corretta delle connessioni WebSocket in un carico di rete
+*   iOS: supporto eliminato per l'architettura arm7s
+*   È stato risolto un problema in Android che a volte produce ID di impressione duplicati usati da DialogServiceConnector
+*   Miglioramenti alla stabilità delle connessioni tra interazioni a più turni e segnalazione di errori (tramite eventi annullati) quando si verificano con DialogServiceConnector
+*   L'avvio della sessione DialogServiceConnector ora fornirà correttamente gli eventi, incluso quando si chiama ListenOnceAsync () durante un StartKeywordRecognitionAsync attivo ()
+*   È stato risolto un arresto anomalo associato alle attività DialogServiceConnector ricevute 
+
+**Esempi**
+*   Guida introduttiva per Novell
+*   Guida introduttiva di CPP aggiornata con Linux ARM64 informazioni
+*   Aggiornamento rapido di Unity con informazioni iOS
 
 ## <a name="speech-sdk-160-2019-june-release"></a>Speech SDK 1.6.0: 2019-versione di giugno
 

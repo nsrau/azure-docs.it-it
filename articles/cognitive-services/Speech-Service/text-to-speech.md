@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: erhopf
-ms.openlocfilehash: 3d2c3e2bf693f763db13d90961a31e871aa25235
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d12b952d298b41c8d06f0fcac141a45749de9051
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68558876"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71799948"
 ---
 # <a name="what-is-text-to-speech"></a>Che cos'è la sintesi vocale?
 
@@ -55,7 +55,7 @@ Tutti gli input di testo inviati al servizio di sintesi vocale devono essere str
 Quando si usa il servizio di sintesi vocale, viene addebitato ogni carattere convertito in sintesi vocale, inclusa la punteggiatura. Anche se il documento SSML non è fatturabile, gli elementi facoltativi utilizzati per regolare la conversione del testo in sintesi vocale, ad esempio fonemi e pitch, vengono conteggiati come caratteri fatturabili. Ecco un elenco degli elementi fatturabili:
 
 * Testo passato al servizio di sintesi vocale nel corpo SSML della richiesta
-* Tutti i markup all'interno del campo di testo del corpo della richiesta nel formato SSML, `<speak>` ad `<voice>` eccezione dei tag e
+* Tutti i markup all'interno del campo di testo del corpo della richiesta nel formato SSML, ad eccezione dei tag `<speak>` e `<voice>`
 * Lettere, punteggiatura, spazi, tabulazioni, markup e tutti gli spazi vuoti
 * Ogni elemento di codice definito in Unicode
 
@@ -70,14 +70,14 @@ Questa tabella elenca le funzionalità di base per sintesi vocale:
 
 | Caso d'uso | SDK | REST |
 |----------|-----|------|
-| Converte il testo in sintesi vocale. | Sì | Yes |
+| Converte il testo in sintesi vocale. | Yes | Yes |
 | Caricare i set di impostazioni per l'adattamento vocale. | No | Sì\* |
 | Creare e gestire i modelli di tipo carattere voce. | No | Sì\* |
 | Creare e gestire le distribuzioni di tipi di carattere voce. | No | Sì\* |
 | Creare e gestire i test del tipo di carattere voce. | No | Sì\* |
 | Gestisci sottoscrizioni. | No | Sì\* |
 
-\**Questi servizi sono disponibili tramite l'endpoint cris.ai. Vedere informazioni di [riferimento su spavalderia](https://westus.cris.ai/swagger/ui/index). Queste API di gestione e formazione vocale personalizzate implementano la limitazione che limita le richieste a 25 per 5 secondi, mentre l'API di sintesi vocale stessa implementa la limitazione che consente 200 richieste al secondo come massime. Quando si verifica la limitazione, si riceverà una notifica tramite le intestazioni del messaggio.*
+i servizi \* *Questi sono disponibili tramite l'endpoint cris.ai. Vedere informazioni di [riferimento su spavalderia](https://westus.cris.ai/swagger/ui/index). Queste API di gestione e formazione vocale personalizzate implementano la limitazione che limita le richieste a 25 per 5 secondi, mentre l'API di sintesi vocale stessa implementa la limitazione che consente 200 richieste al secondo come massime. Quando si verifica la limitazione, si riceverà una notifica tramite le intestazioni del messaggio.*
 
 ## <a name="get-started-with-text-to-speech"></a>Inizia a usare sintesi vocale
 
@@ -93,6 +93,13 @@ Sono disponibili guide introduttive progettate per l'esecuzione di codice in men
 | [C#, Unity](quickstart-text-to-speech-csharp-unity.md) | Windows, Android | [Browse](https://aka.ms/csspeech/csharpref) |
 | [C++](quickstart-text-to-speech-cpp-windows.md) | Windows | [Browse](https://aka.ms/csspeech/cppref) |
 | [C++](quickstart-text-to-speech-cpp-linux.md) | Linux | [Browse](https://aka.ms/csspeech/cppref) |
+| [Java](quickstart-text-to-speech-java-jre.md) | Windows, Linux, macOS | [Browse](https://aka.ms/csspeech/javaref) |
+| [Java](quickstart-text-to-speech-java-android.md) | Android | [Browse](https://aka.ms/csspeech/javaref) |
+| [Objective-C](quickstart-text-to-speech-objectivec-macos.md) | macOS | [Browse](https://aka.ms/csspeech/objectivecref) |
+| [Objective-C](quickstart-text-to-speech-objectivec-ios.md) | iOS | [Browse](https://aka.ms/csspeech/objectivecref) |
+| [Swift](quickstart-text-to-speech-swift-macos.md) | macOS | [Browse](https://aka.ms/csspeech/objectivecref) |
+| [Swift](quickstart-text-to-speech-swift-ios.md) | iOS | [Browse](https://aka.ms/csspeech/objectivecref) |
+| [Python](quickstart-text-to-speech-python.md) | Windows, Linux, macOS | [Browse](https://aka.ms/csspeech/pythonref) |
 
 ### <a name="rest-quickstarts"></a>Guide introduttive REST
 

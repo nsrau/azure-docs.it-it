@@ -1,6 +1,6 @@
 ---
-title: Problemi noti e limitazioni per le migrazioni online a Database di Azure per MySQL | Microsoft Docs
-description: Informazioni su problemi noti e limitazioni per le migrazioni online a Database di Azure per MySQL.
+title: Articolo sui problemi noti/limitazioni della migrazione con migrazioni online da PostgreSQL a database di Azure per PostgreSQL-server singolo | Microsoft Docs
+description: Informazioni sui problemi noti/limitazioni della migrazione con migrazioni online da PostgreSQL a database di Azure per PostgreSQL.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -10,21 +10,21 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 08/06/2019
-ms.openlocfilehash: 56758e2962adb41c9876171c89b37263a70ed0e4
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.date: 10/03/2019
+ms.openlocfilehash: 891e8a261e092de0ffcef3941dd48f01942a8030
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743548"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802583"
 ---
-# <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>Problemi noti e limitazioni per le migrazioni online a Database di Azure per PostgreSQL
+# <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql-single-server"></a>Problemi noti/limitazioni della migrazione con migrazioni online da PostgreSQL a database di Azure per PostgreSQL-server singolo
 
-Le sezioni seguenti illustrano i problemi noti e le limitazioni associati alle migrazioni online da PostgreSQL a Database di Azure per PostgreSQL.
+Le sezioni seguenti illustrano i problemi noti e le limitazioni associate alle migrazioni online da PostgreSQL al database di Azure per PostgreSQL: un server singolo.
 
 ## <a name="online-migration-configuration"></a>Configurazione della migrazione online
 
-- Il server PostgreSQL di origine deve eseguire la versione 9.5.11, 9.6.7 o 10.3 o successiva. Per altre informazioni, vedere l'articolo [Versioni supportate del database PostgreSQL](../postgresql/concepts-supported-versions.md).
+- Il server PostgreSQL di origine deve eseguire la versione 9.5.11, 9.6.7 o 10,3 o successiva. Per altre informazioni, vedere l'articolo [Versioni supportate del database PostgreSQL](../postgresql/concepts-supported-versions.md).
 - Sono supportate solo le migrazioni della stessa versione. Ad esempio, la migrazione di PostgreSQL 9.5.11 in Database di Azure per PostgreSQL 9.6.7 non è supportata.
 
     > [!NOTE]
@@ -32,7 +32,7 @@ Le sezioni seguenti illustrano i problemi noti e le limitazioni associati alle m
 
 - Per abilitare la replica logica nel file **postgresql.config del server PostgreSQL di origine**, impostare i parametri seguenti:
   - **wal_level** = logical
-  - **max_replication_slots** = [numero massimo di database per la migrazione]; per eseguire la migrazione di 4 database, impostare il valore su 4
+  - **max_replication_slots** = [numero massimo di database per la migrazione]; Se si desidera eseguire la migrazione di quattro database, impostare il valore su 4.
   - **max_wal_senders** = [numero di database eseguiti contemporaneamente]; il valore consigliato è 10
 - Aggiungere l'indirizzo IP dell'agente DMS all'origine PostgreSQL pg_hba. conf
   1. Prendere nota dell'indirizzo IP del Servizio Migrazione del database dopo aver completato il provisioning di un'istanza nel Servizio Migrazione del database.
@@ -42,7 +42,7 @@ Le sezioni seguenti illustrano i problemi noti e le limitazioni associati alle m
 
 - L'utente deve avere l'autorizzazione utente con privilegi avanzati per il server che ospita il database di origine
 - A parte la presenza di ENUM nello schema del database di origine, gli schemi dei database di origine e di destinazione devono corrispondere.
-- Lo schema nell'istanza di Database di Azure per PostgreSQL di destinazione non deve avere chiavi esterne. Per rilasciare le chiavi esterne usare la query seguente:
+- Lo schema nel database di Azure di destinazione per PostgreSQL-singolo server non deve avere chiavi esterne. Per rilasciare le chiavi esterne usare la query seguente:
 
     ```
                                 SELECT Queries.tablename
@@ -73,7 +73,7 @@ Le sezioni seguenti illustrano i problemi noti e le limitazioni associati alle m
 
     Eseguire drop foreign key, ovvero la seconda colonna, sul risultato della query.
 
-- Lo schema nell'istanza di Database di Azure per PostgreSQL di destinazione non deve avere trigger. Per disabilitare i trigger nel database di destinazione:
+- Lo schema nel database di Azure di destinazione per PostgreSQL-server singolo non deve avere alcun trigger. Per disabilitare i trigger nel database di destinazione:
 
      ```
     SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGGERS WHERE TRIGGER_SCHEMA = 'your_schema';

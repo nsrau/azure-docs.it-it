@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/07/2017
+ms.date: 10/1/2019
 ms.author: motanv
-ms.openlocfilehash: d12c5097d4ba5e0ccfe0e2b2cbc8ccd758c32d98
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ea30b59e3195a0229c2584212e2897aaff4ee31
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60865017"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71718222"
 ---
 # <a name="testability-scenarios"></a>Scenari di testabilità
 Sistemi distribuiti di grandi dimensioni come le infrastrutture cloud sono intrinsecamente inaffidabili. Azure Service Fabric offre agli sviluppatori la possibilità di scrivere servizi destinati ad essere eseguiti in infrastrutture inaffidabili. Per scrivere servizi di qualità elevata, gli sviluppatori devono essere in grado di mettere alla prova un'infrastruttura inaffidabile in modo da testarne la stabilità dei servizi.
@@ -49,11 +49,11 @@ Si consideri, ad esempio, un test configurato per un'esecuzione della durata di 
 Nella forma attuale, il motore di generazione di errori del test Chaos provoca solo errori sicuri. In assenza di errori esterni, quindi, non si verifica mai una perdita di quorum o di dati.
 
 ### <a name="important-configuration-options"></a>Opzioni di configurazione importanti
-* **TimeToRun**: Tempo totale che il test verrà eseguito prima del completamento con esito positivo. Il test può essere completato in anticipo anziché produrre un errore di convalida.
-* **MaxClusterStabilizationTimeout**: Quantità massima di tempo di attesa per il cluster diventi integro prima del non superamento del test. I controlli eseguiti verificano che il cluster e il servizio siano integri, che la dimensione del set di repliche di destinazione sia stata raggiunta per la partizione di servizio e che non siano presenti repliche InBuild.
+* **TimeToRun**: Tempo totale durante il quale il test viene eseguito prima del completamento con esito positivo. Il test può essere completato in anticipo anziché produrre un errore di convalida.
+* **MaxClusterStabilizationTimeout**: Tempo massimo di attesa prima che il cluster diventi integro prima che il test abbia esito negativo. I controlli eseguiti verificano che il cluster e il servizio siano integri, che la dimensione del set di repliche di destinazione sia stata raggiunta per la partizione di servizio e che non siano presenti repliche InBuild.
 * **MaxConcurrentFaults**: Numero massimo di errori simultanei indotti in ogni iterazione. Maggiore è il numero, più aggressivo è il test e più complesse saranno le combinazioni di failover e transizioni. Il test garantisce che in assenza di errori esterni non si verificherà una perdita di quorum o di dati, a prescindere da quanto è elevata la configurazione.
-* **EnableMoveReplicaFaults**: Abilita o disabilita gli errori che causano lo spostamento di repliche primarie o secondarie. Questi errori sono disabilitati per impostazione predefinita.
-* **WaitTimeBetweenIterations**: Quantità di tempo di attesa tra due iterazioni, ad esempio dopo un ciclo di errori e convalida corrispondente.
+* **EnableMoveReplicaFaults**: Abilita o Disabilita gli errori che causano lo spostamento delle repliche primarie o secondarie. Questi errori sono disabilitati per impostazione predefinita.
+* **WaitTimeBetweenIterations**: Quantità di tempo di attesa tra le iterazioni, ovvero dopo un ciclo di errori e la convalida corrispondente.
 
 ### <a name="how-to-run-the-chaos-test"></a>Come eseguire il test chaos
 Esempio C#
@@ -133,6 +133,8 @@ class Test
 
 PowerShell
 
+Il modulo Service Fabric PowerShell include due modi per iniziare uno scenario Chaos. `Invoke-ServiceFabricChaosTestScenario` è basato su client e, se il computer client viene arrestato a metà del test, non verranno introdotti altri errori. In alternativa, è disponibile un set di comandi per l'esecuzione del test in caso di arresto del computer. `Start-ServiceFabricChaos` usa un servizio di sistema con stato e affidabile denominato FaultAnalysisService, garantendo che gli errori rimangano introdotti fino a quando il TimeToRun non è attivo. `Stop-ServiceFabricChaos` può essere utilizzato per arrestare manualmente lo scenario e `Get-ServiceFabricChaosReport` consente di ottenere un report. Per altre informazioni, vedere le informazioni di [riferimento su Azure Service Fabric PowerShell](https://docs.microsoft.com/powershell/module/servicefabric/?view=azureservicefabricps) e [indurre Chaos controllato nei cluster di Service Fabric](service-fabric-controlled-chaos.md).
+
 ```powershell
 $connection = "localhost:19000"
 $timeToRun = 60
@@ -160,10 +162,10 @@ Lo scenario di test di failover è una versione dello scenario di test chaos des
 Il test di failover provoca un errore scelto e quindi esegue la convalida del servizio per garantirne la stabilità. Il test di failover provoca un solo errore per volta, anziché i possibili errori multipli generati dal test chaos. Se dopo ogni errore la partizione di servizio non si stabilizza entro il timeout configurato, il test ha esito negativo. Il test provoca solo errori sicuri. In assenza di errori esterni, quindi, non si verifica una perdita di quorum o di dati.
 
 ### <a name="important-configuration-options"></a>Opzioni di configurazione importanti
-* **PartitionSelector**: Oggetto selettore che specifica la partizione che deve essere impostato come destinazione.
-* **TimeToRun**: Tempo totale di test verrà eseguito prima del completamento.
-* **MaxServiceStabilizationTimeout**: Quantità massima di tempo di attesa per il cluster diventi integro prima del non superamento del test. I controlli eseguiti verificano che il cluster sia integro, che la dimensione del set di repliche di destinazione sia stata raggiunta per tutte le partizioni e che non siano presenti repliche InBuild.
-* **WaitTimeBetweenFaults**: Quantità di tempo di attesa tra ogni ciclo di errore e di convalida.
+* **PartitionSelector**: Oggetto Selector che specifica la partizione che deve essere di destinazione.
+* **TimeToRun**: Tempo totale durante il quale il test viene eseguito prima del completamento.
+* **MaxServiceStabilizationTimeout**: Tempo massimo di attesa prima che il cluster diventi integro prima che il test abbia esito negativo. I controlli eseguiti verificano che il cluster sia integro, che la dimensione del set di repliche di destinazione sia stata raggiunta per tutte le partizioni e che non siano presenti repliche InBuild.
+* **WaitTimeBetweenFaults**: Tempo di attesa tra ogni ciclo di errore e di convalida.
 
 ### <a name="how-to-run-the-failover-test"></a>Come eseguire il test di failover
 **C#**

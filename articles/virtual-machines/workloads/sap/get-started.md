@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/17/2019
+ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81deaaffa301c4453842875f9cfd6b63bb6bbfd7
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: ab6139e1f87938edaa0a8a94453faa213d39e23f
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71672976"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719018"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Usare Azure per ospitare ed eseguire scenari di carico di lavoro SAP
 
@@ -120,6 +120,8 @@ Per informazioni sull'integrazione dei servizi di Azure nei componenti SAP, vede
 
 
 ## <a name="change-log"></a>Registro modifiche
+- 10/01/2019: Modificare la grafica dei [gruppi di posizionamento di prossimità di Azure per una latenza di rete ottimale con le applicazioni SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) per ottenere maggiore chiarezza
+- 10/01/2019: Modificare [le configurazioni e le operazioni di SAP Hana infrastruttura in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations) per correggere le istruzioni sulla condivisione NFS a disponibilità elevata per/Hana/Shared. 
 - 09/28/2019: Modificare la [configurazione di pacemaker in Red Hat Enterprise Linux in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) per chiarire SBD come meccanismo di schermatura non supportato nei cluster RHEL  
 - 09/17/2019: Modificare la guida alla pianificazione e distribuzione di NetWeaver per unificare i termini relativi all'estensione della macchina virtuale per SAP  
 - 08/22/2019: Modifiche nella [configurazione di pacemaker in SUSE Linux Enterprise Server in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) per aggiornare gli URL per la creazione di un ruolo personalizzato  

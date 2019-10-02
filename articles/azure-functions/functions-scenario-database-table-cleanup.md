@@ -8,18 +8,18 @@ manager: jeconnoc
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 10/02/2019
 ms.author: glenga
-ms.openlocfilehash: 0388c712d6f44755e768e491944df1a9451653b7
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 469e0149a3b9dce22f0590240a053ee3b183c7b9
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70085243"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815986"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Usare Funzioni di Azure per connettersi al database SQL di Azure
 
-Questo articolo illustra come usare Funzioni di Azure per creare un processo pianificato che si connette a un'istanza del database SQL di Azure. Il codice della funzione pulisce le righe in una tabella nel database. La nuova C# funzione viene creata in base a un modello predefinito di attivazione del timer in Visual Studio 2019. Per supportare questo scenario, è necessario anche impostare una stringa di connessione di database come impostazione app nell'app per le funzioni. Questo scenario esegue un'operazione in blocco sul database. 
+Questo articolo illustra come usare funzioni di Azure per creare un processo pianificato che si connette a un database SQL di Azure o a un Istanza gestita SQL di Azure. Il codice della funzione pulisce le righe in una tabella nel database. La nuova C# funzione viene creata in base a un modello predefinito di attivazione del timer in Visual Studio 2019. Per supportare questo scenario, è necessario anche impostare una stringa di connessione di database come impostazione app nell'app per le funzioni. Per il Istanza gestita SQL di Azure è necessario [abilitare l'endpoint pubblico](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) per potersi connettere da funzioni di Azure. Questo scenario esegue un'operazione in blocco sul database. 
 
 Se si tratta della prima esperienza di utilizzo di funzioni C#, è consigliabile leggere la [Guida di riferimento per gli sviluppatori C# di Funzioni di Azure](functions-dotnet-class-library.md).
 
@@ -39,7 +39,7 @@ Se si tratta della prima esperienza di utilizzo di funzioni C#, è consigliabile
 
 1. Scegliere **Database SQL** dal menu a sinistra, quindi scegliere il database nella pagina **Database SQL**.
 
-1. Selezionare **Stringhe di connessione** in **Impostazioni** e copiare la stringa di connessione **ADO.NET** completa.
+1. Selezionare **Stringhe di connessione** in **Impostazioni** e copiare la stringa di connessione **ADO.NET** completa. Per Azure SQL Istanza gestita Copiare la stringa di connessione per l'endpoint pubblico.
 
     ![Copiare la stringa di connessione ADO.NET.](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
 

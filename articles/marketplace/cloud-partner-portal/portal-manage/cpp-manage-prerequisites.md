@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pabutler
-ms.openlocfilehash: 9c55688674fe16f64bfb27788a6e038059694a77
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 09bf8479921c9bd55b98e835a19ea995fa37e20b
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087468"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720074"
 ---
 # <a name="prerequisites-for-managing-accounts-on-the-cloud-partner-portal"></a>Prerequisiti per la gestione di account nel portale Cloud Partner 
 
@@ -28,11 +28,10 @@ Scegliere con attenzione il nome dell'account.  Rappresenta l'organizzazione, qu
 
 ## <a name="registration-steps"></a>Procedura di registrazione
 
-Nella tabella seguente sono elencati i passaggi necessari per eseguire la registrazione completa come Microsoft Cloud Publisher.  Per istruzioni complete, vedere [diventare un editore](https://docs.microsoft.com/azure/marketplace/become-publisher
-)del Marketplace cloud. 
+Nella tabella seguente sono elencati i passaggi necessari per eseguire la registrazione completa come Microsoft Cloud Publisher.  Per istruzioni complete, vedere [diventare un editore del Marketplace cloud](https://docs.microsoft.com/azure/marketplace/become-publisher). 
 
 
-|                   Passaggio                   |  Registrazione o risorsa risultante                     |
+|                   Procedi                   |  Registrazione o risorsa risultante                     |
 |                  ------                  |  -----------------------------------                    |
 | 1. Eseguire la registrazione a Microsoft Partner Network |  ID Microsoft Partner Network per l'organizzazione |
 | 2. Creare una account Microsoft *           |  Account Microsoft verificato, che termina con @outlook.com, @live.come così via. |

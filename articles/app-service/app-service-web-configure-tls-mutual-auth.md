@@ -11,15 +11,15 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 02/22/2019
+ms.date: 10/01/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c4e97a96687e5fa1d934ab8c0317b52cb753f72c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d2823158192ae9fc9182f3f60f82d5bd9c050b09
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088165"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71811634"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Configurare l'autenticazione reciproca TLS per il servizio app Azure
 
@@ -31,19 +31,28 @@ ms.locfileid: "70088165"
 
 ## <a name="enable-client-certificates"></a>Abilita certificati client
 
-Per configurare l'app in modo da richiedere i certificati client, è necessario impostare `clientCertEnabled` l'impostazione per l'app `true`su. Per impostare l'impostazione, eseguire il comando seguente nella [cloud Shell](https://shell.azure.com).
+Per configurare l'app in modo da richiedere i certificati client, è necessario impostare l'impostazione `clientCertEnabled` per l'app su `true`. Per impostare l'impostazione, eseguire il comando seguente nella [cloud Shell](https://shell.azure.com).
 
 ```azurecli-interactive
 az webapp update --set clientCertEnabled=true --name <app_name> --resource-group <group_name>
 ```
 
+## <a name="exclude-paths-from-requiring-authentication"></a>Escludere i percorsi dalla richiesta di autenticazione
+
+Quando si Abilita l'autenticazione reciproca per l'applicazione, tutti i percorsi sotto la radice dell'app richiedono un certificato client per l'accesso. Per consentire a determinati percorsi di rimanere aperti per l'accesso anonimo, è possibile definire i percorsi di esclusione come parte della configurazione dell'applicazione.
+
+È possibile configurare i percorsi di esclusione selezionando **Configuration** > **General Settings** e definendo un percorso di esclusione. In questo esempio, qualsiasi elemento in un percorso `/public` per l'applicazione non richiede un certificato client.
+
+![Percorsi di esclusione dei certificati][exclusion-paths]
+
+
 ## <a name="access-client-certificate"></a>Accedere al certificato client
 
-Nel servizio app, la terminazione SSL della richiesta viene eseguita presso il servizio di bilanciamento del carico front-end. Quando si invia la richiesta al codice dell'app con i [certificati client abilitati](#enable-client-certificates), il servizio app `X-ARR-ClientCert` inserisce un'intestazione di richiesta con il certificato client. Il servizio app non esegue alcuna operazione con questo certificato client, tranne che per l'invio all'app. Il codice dell'app è responsabile della convalida del certificato client.
+Nel servizio app, la terminazione SSL della richiesta viene eseguita presso il servizio di bilanciamento del carico front-end. Quando si invia la richiesta al codice dell'app con i [certificati client abilitati](#enable-client-certificates), il servizio app inserisce un'intestazione di richiesta `X-ARR-ClientCert` con il certificato client. Il servizio app non esegue alcuna operazione con questo certificato client, tranne che per l'invio all'app. Il codice dell'app è responsabile della convalida del certificato client.
 
 Per ASP.NET, il certificato client è disponibile tramite la proprietà **HttpRequest. ClientCertificate** .
 
-Per gli altri stack di applicazioni (node. js, php e così via), il certificato client è disponibile nell'app tramite un valore con codifica Base64 nell'intestazione della `X-ARR-ClientCert` richiesta.
+Per gli altri stack di applicazioni (node. js, PHP e così via), il certificato client è disponibile nell'app tramite un valore con codifica Base64 nell'intestazione della richiesta `X-ARR-ClientCert`.
 
 ## <a name="aspnet-sample"></a>Esempio ASP.NET
 
@@ -171,7 +180,7 @@ Per gli altri stack di applicazioni (node. js, php e così via), il certificato 
 
 ## <a name="nodejs-sample"></a>Esempio node. js
 
-Il codice di esempio node. js seguente ottiene `X-ARR-ClientCert` l'intestazione e USA [node-Forge](https://github.com/digitalbazaar/forge) per convertire la stringa PEM con codifica Base64 in un oggetto Certificate e convalidarla:
+Il codice di esempio node. js seguente ottiene l'intestazione `X-ARR-ClientCert` e USA [node-Forge](https://github.com/digitalbazaar/forge) per convertire la stringa PEM con codifica Base64 in un oggetto Certificate e convalidarla:
 
 ```javascript
 import { NextFunction, Request, Response } from 'express';
@@ -213,3 +222,5 @@ export class AuthorizationHandler {
     }
 }
 ```
+
+[exclusion-paths]: ./media/app-service-web-configure-tls-mutual-auth/exclusion-paths.png

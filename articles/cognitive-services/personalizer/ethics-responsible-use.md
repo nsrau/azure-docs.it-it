@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: diberry
-ms.openlocfilehash: f565d95f8270612a8d83dd44a1e1bb895d1a4373
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 11b626c0033814f0886ac76fff0c5d4087a80554
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68662776"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720229"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Linee guida per l'implementazione responsabile di Personalizza esperienze
 
@@ -50,7 +50,7 @@ L'implementazione di Personalizza esperienze può essere di grande valore per gl
 
 Usare un servizio che apprende come personalizzare il contenuto e le interfacce utente è utile. Un servizio di questo tipo può tuttavia essere usato in modo improprio se la modalità di personalizzazione genera effetti collaterali negativi nel mondo reale e se gli utenti non sono a conoscenza della personalizzazione del contenuto. 
 
-Gli usi di Personalizza esperienze con elevato potenziale di effetti collaterali negativi o mancanza di trasparenza includono ad esempio gli scenari in cui la "ricompensa" dipende da molti fattori complessi a lungo termine che, se ipersemplificati in una ricompensa immediata, possono avere risultati sfavorevoli per gli utenti. Queste scelte sono in genere considerate "consequenziali", perché comportano un rischio di danno. Ad esempio: 
+Gli usi di Personalizza esperienze con elevato potenziale di effetti collaterali negativi o mancanza di trasparenza includono ad esempio gli scenari in cui la "ricompensa" dipende da molti fattori complessi a lungo termine che, se ipersemplificati in una ricompensa immediata, possono avere risultati sfavorevoli per gli utenti. Queste scelte sono in genere considerate "consequenziali", perché comportano un rischio di danno. Esempio: 
 
 
 * **Settore finanziario**: personalizzazione di offerte di prestiti o prodotti finanziari e assicurativi i cui fattori di rischio sono basati su dati che gli utenti non conoscono, non possono ottenere o non possono contestare. 
@@ -63,7 +63,8 @@ Quando si scelgono i casi d'uso per Personalizza esperienze:
 
 * Iniziare il processo di progettazione considerando i vantaggi offerti agli utenti dalla personalizzazione.
 * Considerare le conseguenze negative che si possono verificare nel mondo reale se alcuni elementi non vengono classificati per gli utenti a causa dei modelli di personalizzazione o dell'esplorazione.
-* Considerare i cicli di profezia autoavverante, che possono verificarsi se una ricompensa della personalizzazione determina il training di un modello in modo che possa successivamente escludere ulteriormente un gruppo demografico dall'accesso a contenuto rilevante. Ad esempio, se la maggior parte delle persone in un quartiere a basso reddito non ottiene un'offerta assicurativa Premium, gradualmente l'offerta tenderà a non essere visualizzata affatto ai residenti del quartiere.
+* Valutare se il caso d'uso costituisce un'elaborazione automatizzata che influisca in modo significativo sugli oggetti dati regolamentati in [GDPR](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679) articolo 22 o altre leggi.
+* Considerare i cicli di profezia autoavverante, che possono verificarsi se una ricompensa della personalizzazione determina il training di un modello in modo che possa successivamente escludere ulteriormente un gruppo demografico dall'accesso a contenuto rilevante. Ad esempio, la maggior parte delle persone in un quartiere a basso reddito non ottiene un'offerta Premium assicurativa e lentamente nessuno nel quartiere tende a vedere l'offerta se non è disponibile un'esplorazione sufficiente.
 * Salvare copie dei modelli e dei criteri di apprendimento nel caso in cui sia necessario riprodurre Personalizza esperienze in futuro. È possibile eseguire questa operazione periodicamente o in ogni periodo di aggiornamento dei modelli.
 * Considerare il livello di esplorazione adeguato per lo spazio e come può essere usato come strumento per mitigare gli effetti "camera d'eco".
 
@@ -102,7 +103,7 @@ Un sito di notizie, al contrario, potrebbe voler impostare ricompense collegate 
 ### <a name="unintended-consequences-from-reward-scores"></a>Conseguenze impreviste dei punteggi di ricompensa
 Pur essendo creati con le migliori intenzioni, i punteggi di ricompensa possono comunque generare conseguenze o risultati imprevisti nella classificazione del contenuto da parte di Personalizza esperienze. 
 
-Considerare gli esempi seguenti:
+Si considerino gli esempi seguenti:
 
 * Basando la ricompensa per la personalizzazione di contenuto video sulla percentuale di lunghezza del video visualizzata si tenderà probabilmente a classificare i video più brevi.
 * La ricompensa per le condivisioni sui social media, senza analisi del sentiment in relazione alla modalità di condivisione o al contenuto stesso, potrebbe determinare la classificazione di contenuto offensivo, non moderato o provocatorio che tende a suscitare un "engagement" considerevole ma aggiunge scarso valore.

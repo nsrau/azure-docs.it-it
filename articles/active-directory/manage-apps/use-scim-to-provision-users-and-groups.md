@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 10/01/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b135838558a493cff0e28a8429d31f5a03a69857
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 922e5a2d5c639d7df380f686ddf7843ab59fca59
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033464"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802367"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Uso di System for Cross-Domain Identity Management (SCIM) per abilitare il provisioning automatico di utenti e gruppi da Azure Active Directory ad applicazioni
 
@@ -59,7 +59,7 @@ Le applicazioni che supportano il profilo SCIM descritto in questo articolo poss
 
 **Per connettere un'applicazione che supporta SCIM:**
 
-1. Accedere al portale di [Azure Active Directory](https://aad.portal.azure.com). 
+1. Accedere al portale di [Azure Active Directory](https://aad.portal.azure.com). Si noti che è possibile ottenere l'accesso a una versione di valutazione gratuita per Azure Active Directory con licenze P2 iscrivendosi al [programma per sviluppatori](https://developer.microsoft.com/office/dev-program)
 1. Selezionare **applicazioni aziendali** dal riquadro sinistro. Viene visualizzato un elenco di tutte le app configurate, incluse le app aggiunte dalla raccolta.
 1. Selezionare **+ nuova applicazione** > **tutte le** > **applicazioni non della raccolta**.
 1. Immettere un nome per l'applicazione e selezionare **Aggiungi** per creare un oggetto app. La nuova app viene aggiunta all'elenco di applicazioni aziendali e si apre alla relativa schermata di gestione delle app.
@@ -96,6 +96,9 @@ Una volta avviato il ciclo iniziale, è possibile selezionare i **log di control
 > [!NOTE]
 > Il ciclo iniziale richiede più tempo delle sincronizzazioni successive, che vengono eseguite approssimativamente ogni 40 minuti, a condizione che il servizio sia in esecuzione.
 
+**Per pubblicare l'applicazione nel Azure AD raccolta di applicazioni:**
+
+Se si compila un'applicazione che verrà usata da più di un tenant, è possibile renderla disponibile nella raccolta di applicazioni Azure AD. In questo modo è più semplice per le organizzazioni individuare l'applicazione e configurare il provisioning. La pubblicazione dell'app nella raccolta Azure AD e l'esecuzione del provisioning per altri è facile. Consultare i passaggi [qui](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing) 
 ## <a name="understanding-the-azure-ad-scim-implementation"></a>Informazioni sull'implementazione di Azure AD SCIM
 
 Se si compila un'applicazione che supporta un'API di gestione utenti SCIM 2,0, in questa sezione viene descritto in dettaglio il modo in cui viene implementato il client di Azure AD SCIM e viene illustrato come modellare le risposte e la gestione delle richieste di protocollo SCIM. Una volta implementato l'endpoint SCIM, è possibile testarlo attenendosi alla procedura descritta nella sezione precedente.
@@ -197,7 +200,7 @@ Questa sezione fornisce le richieste SCIM di esempio emesse dal client Azure AD 
 
 #### <a name="create-user"></a>Crea utente
 
-###### <a name="request"></a>Richiesta
+###### <a name="request"></a>Richiedi
 
 *POST/Users*
 ```json
@@ -459,7 +462,7 @@ Questa sezione fornisce le richieste SCIM di esempio emesse dal client Azure AD 
 * L'aggiornamento alla richiesta PATCH di gruppo deve restituire un *contenuto HTTP 204 senza contenuto* nella risposta. Non è consigliabile restituire un corpo con un elenco di tutti i membri.
 * Non è necessario supportare la restituzione di tutti i membri del gruppo.
 
-#### <a name="create-group"></a>Creare un gruppo
+#### <a name="create-group"></a>Crea gruppo
 
 ##### <a name="request-7"></a>Richiesta
 

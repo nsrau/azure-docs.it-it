@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 41fbebcf4b85f6e48babba30c2d05fedb3e7a5c7
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 74a1a2218020718a05c9d01de96ddf4fccb35eb4
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70985298"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802574"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Ottimizzazione delle prestazioni con indice columnstore cluster ordinato  
 
@@ -29,7 +29,7 @@ Quando si crea una CCI ordinata, il motore di Azure SQL Data Warehouse Ordina i 
 Per verificare gli intervalli di segmenti per una colonna, eseguire questo comando con il nome della tabella e il nome della colonna:
 
 ```sql
-SELECT o.name, pnp.index_id, pnp.rows, pnp.data_compression_desc, pnp.pdw_node_id, 
+SELECT o.name, pnp.index_id, cls.row_count, pnp.data_compression_desc, pnp.pdw_node_id, 
 pnp.distribution_id, cls.segment_id, cls.column_id, cls.min_data_id, cls.max_data_id, cls.max_data_id-cls.min_data_id as difference
 FROM sys.pdw_nodes_partitions AS pnp
    JOIN sys.pdw_nodes_tables AS Ntables ON pnp.object_id = NTables.object_id AND pnp.pdw_node_id = NTables.pdw_node_id
@@ -37,8 +37,9 @@ FROM sys.pdw_nodes_partitions AS pnp
    JOIN sys.objects AS o ON TMap.object_id = o.object_id
    JOIN sys.pdw_nodes_column_store_segments AS cls ON pnp.partition_id = cls.partition_id AND pnp.distribution_id  = cls.distribution_id
    JOIN sys.columns as cols ON o.object_id = cols.object_id AND cls.column_id = cols.column_id
-WHERE o.name = '<table_name>' and c.name = '<column_name>'
+WHERE o.name = '<Table_Name>' and cols.name = '<Column_Name>' 
 ORDER BY o.name, pnp.distribution_id, cls.min_data_id
+
 ```
 
 ## <a name="data-loading-performance"></a>Prestazioni di caricamento dei dati
@@ -47,7 +48,7 @@ Le prestazioni del caricamento dei dati in una tabella CCI ordinata sono simili 
 Il caricamento dei dati in una tabella CCI ordinata può richiedere più tempo rispetto al caricamento dei dati in una tabella CCI non ordinata a causa dell'ordinamento dei dati.  
 
 Di seguito è riportato un esempio di confronto delle prestazioni di caricamento dei dati nelle tabelle con schemi diversi.
-![Performance_comparison_data_loading](media/performance-tuning-ordered-cci/cci-data-loading-performance.png)
+![Performance_comparison_data_loading @ no__t-1
  
 ## <a name="reduce-segment-overlapping"></a>Riduzione della sovrapposizione del segmento
 Di seguito sono riportate le opzioni per ridurre ulteriormente la sovrapposizione dei segmenti quando si crea un'CCI ordinata in una nuova tabella tramite CTAS o in una tabella esistente con dati:

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8a03472b72ea7c2dc69d79400e33d5ec65cc6126
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 863050b2646f6f7b3a3d9ba3487f11729bef22c8
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647684"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719838"
 ---
 # <a name="how-to-rebuild-an-azure-search-index"></a>Come ricompilare un indice di Ricerca di Azure
 
@@ -33,7 +33,7 @@ A differenza delle ricompilazioni che prevedono che l'indice venga portato offli
 | Aggiornare o eliminare una definizione di analizzatore in un indice | Non è possibile eliminare o modificare una configurazione di analizzatore esistente (analizzatore, tokenizer, filtro di token o filtro di caratteri) nell'indice a meno che non si ricompili l'intero indice. |
 | Aggiungere un campo a uno strumento suggerimenti | Se esiste già un campo e lo si vuole aggiungere a un costrutto [Suggesters](index-add-suggesters.md), è necessario ricompilare l'indice. |
 | Eliminare un campo | Per rimuovere fisicamente tutte le tracce di un campo è necessario ricompilare l'indice. Se la ricompilazione immediata non è una soluzione pratica, è possibile modificare il codice dell'applicazione per disabilitare l'accesso al campo "eliminato". Fisicamente la definizione del campo e i contenuti rimangono nell'indice fino alla successiva ricompilazione, quando si applica uno schema che omette il campo in questione. |
-| Cambiare i livelli | Se è necessaria ulteriore capacità, non è disponibile un aggiornamento sul posto. Nel nuovo punto di capacità viene creato un nuovo servizio e gli indici devono essere compilati da zero nel nuovo servizio. |
+| Cambiare i livelli | Se è necessaria una maggiore capacità, non è disponibile alcun aggiornamento sul posto nel portale di Azure. È necessario creare un nuovo servizio e gli indici devono essere compilati da zero nel nuovo servizio. Per semplificare l'automazione di questo processo, è possibile usare il codice di esempio **index-backup-restore** in questo [repository di esempio .NET di ricerca di Azure](https://github.com/Azure-Samples/azure-search-dotnet-samples). Questa app eseguirà il backup dell'indice in una serie di file JSON e quindi ricreerà l'indice in un servizio di ricerca specificato.|
 
 Qualsiasi altra modifica può essere eseguita senza alcun impatto sulle strutture fisiche esistenti. Nello specifico, le modifiche seguenti *non* richiedono una ricompilazione dell'indice:
 

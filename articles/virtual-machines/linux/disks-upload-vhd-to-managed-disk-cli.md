@@ -1,6 +1,6 @@
 ---
 title: Caricare un VHD in Azure usando l'interfaccia della riga di comando di Azure
-description: Informazioni su come caricare un disco rigido virtuale in un disco gestito di Azure usando l'interfaccia della riga di comando di Azure.
+description: Informazioni su come caricare un disco rigido virtuale in un disco gestito di Azure e copiare un disco gestito tra le aree usando l'interfaccia della riga di comando di Azure.
 services: virtual-machines-linux,storage
 author: roygara
 ms.author: rogarana
@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 938f1696c95f8feb9aeebd28139870e3ce020613
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
-ms.translationtype: HT
+ms.openlocfilehash: d16e37849ce8ba043fdb1fddb13df2abe8732cda
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695455"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71717181"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-cli"></a>Caricare un VHD in Azure usando l'interfaccia della riga di comando di Azure
 
@@ -29,6 +29,8 @@ Attualmente, il caricamento diretto è supportato per HDD standard, unità SSD s
 - Scaricare la versione più recente [di AzCopy V10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli)
 - Un file VHD, archiviato localmente
+- Se si intende caricare un disco rigido virtuale da-PEM: Un VHD [preparato per Azure](../windows/prepare-for-upload-vhd-image.md), archiviato localmente.
+- In alternativa, un disco gestito in Azure, se si intende eseguire un'azione di copia.
 
 ## <a name="create-an-empty-managed-disk"></a>Creare un disco gestito vuoto
 
@@ -45,7 +47,7 @@ Prima di poter creare un HDD standard vuoto per il caricamento, è necessario av
 
 Creare un HDD standard vuoto per il caricamento specificando il parametro **--for-upload** e il parametro **--upload-size-bytes** in un cmdlet di [creazione disco](/cli/azure/disk#az-disk-create) :
 
-```azurecli-interactive
+```bash
 az disk create -n mydiskname -g resourcegroupname -l westus2 --for-upload --upload-size-bytes 34359738880 --sku standard_lrs
 ```
 
@@ -55,7 +57,7 @@ A questo punto è stato creato un disco gestito vuoto configurato per il process
 
 Per generare una firma di accesso condiviso scrivibile del disco gestito vuoto, usare il comando seguente:
 
-```azurecli-interactive
+```bash
 az disk grant-access -n mydiskname -g resourcegroupname --access-level Write --duration-in-seconds 86400
 ```
 
@@ -75,7 +77,7 @@ Usare AzCopy V10 per caricare il file VHD locale in un disco gestito specificand
 
 Questo caricamento ha la stessa velocità effettiva del [disco rigido standard](disks-types.md#standard-hdd)equivalente. Se, ad esempio, si dispone di una dimensione equivalente a S4, sarà presente una velocità effettiva massima di 60 MiB/s. Tuttavia, se si dispone di una dimensione che equivale a S70, si avrà una velocità effettiva di un massimo di 500 MiB/s.
 
-```
+```bash
 AzCopy.exe copy "c:\somewhere\mydisk.vhd" "sas-URI" --blob-type PageBlob
 ```
 
@@ -83,8 +85,41 @@ Se la firma di accesso condiviso scade durante il caricamento e non `revoke-acce
 
 Una volta completato il caricamento e non è più necessario scrivere altri dati sul disco, revocare la firma di accesso condiviso. La revoca della firma di accesso condiviso modificherà lo stato del disco gestito e consentirà di aggiungere il disco a una macchina virtuale.
 
-```azurecli-interactive
+```bash
 az disk revoke-access -n mydiskname -g resourcegroupname
+```
+
+## <a name="copy-a-managed-disk"></a>Copiare un disco gestito
+
+Il caricamento diretto semplifica anche il processo di copia di un disco gestito. È possibile eseguire la copia all'interno della stessa area o tra più aree (in un'altra area).
+
+Lo script seguente consente di eseguire questa operazione per l'utente, il processo è simile a quello descritto in precedenza, con alcune differenze poiché si sta lavorando con un disco esistente.
+
+> [!IMPORTANT]
+> È necessario aggiungere un offset di 512 quando si specificano le dimensioni del disco in byte di un disco gestito da Azure. Questo perché Azure omette il piè di pagina quando restituisce le dimensioni del disco. Se non si esegue questa operazione, la copia avrà esito negativo. Lo script seguente esegue già questa operazione.
+
+Sostituire il `<sourceResourceGroupHere>`, `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>` e `<yourTargetLocationHere>` (un esempio di un valore location è uswest2) con i valori, quindi eseguire lo script seguente per copiare un disco gestito.
+
+```bash
+sourceDiskName = <sourceDiskNameHere>
+sourceRG = <sourceResourceGroupHere>
+targetDiskName = <targetDiskNameHere>
+targetRG = <targetResourceGroupHere>
+targetLocale = <yourTargetLocationHere>
+
+sourceDiskSizeBytes= $(az disk show -g $sourceRG -n $sourceDiskName --query '[uniqueId]' -o tsv)
+
+az disk create -n $targetRG -n $targetDiskName -l $targetLocale --for-upload --upload-size-bytes $(($sourceDiskSizeBytes+512)) --sku standard_lrs
+
+targetSASURI = $(az disk grant-access -n $targetDiskName -g $targetRG  --access-level Write --duration-in-seconds 86400 -o tsv)
+
+sourceSASURI=$(az disk grant-access -n <sourceDiskNameHere> -g $sourceRG --duration-in-seconds 86400 --query [acessSas] -o tsv)
+
+.\azcopy copy $sourceSASURI $targetSASURI --blob-type PageBlob
+
+az disk revoke-access -n $sourceDiskName -g $sourceRG
+
+az disk revoke-access -n $targetDiskName -g $targetRG
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

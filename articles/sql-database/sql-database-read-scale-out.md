@@ -11,24 +11,26 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 ms.date: 06/03/2019
-ms.openlocfilehash: aefd3da1908b2be879b5ba500746fab48e43d5bd
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 73c31a60fb14df00f50fefb35ca123298241c61d
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566965"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71812380"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>Usare le repliche di sola lettura per bilanciare il carico dei carichi di lavoro di query di sola lettura
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Come parte dell' [architettura a disponibilità elevata](./sql-database-high-availability.md#premium-and-business-critical-service-tier-availability), ogni database nel livello di servizio Premium, business critical o iperscalabile viene sottoposta automaticamente a provisioning con una replica primaria e diverse repliche secondarie. Le repliche secondarie vengono sottoposte a provisioning con le stesse dimensioni di calcolo della replica primaria. La funzionalità di scalabilità in **lettura** consente di bilanciare il carico dei carichi di lavoro di sola lettura del database SQL usando la capacità di una delle repliche di sola lettura anziché condividere la replica di lettura/scrittura. In questo modo i carichi di lavoro di sola lettura verranno isolati dal carico di lavoro principale di lettura/scrittura e non ne comprometteranno le prestazioni. Questa funzionalità è destinata alle applicazioni che includono carichi di lavoro di sola lettura separati logicamente, ad esempio l'analisi. Potrebbero ottenere vantaggi in termini di prestazioni grazie a questa capacità aggiuntiva senza costi aggiuntivi.
+Nell'ambito dell' [architettura a disponibilità elevata](./sql-database-high-availability.md#premium-and-business-critical-service-tier-availability), a ogni database nel livello di servizio Premium e business critical viene effettuato automaticamente il provisioning con una replica primaria e diverse repliche secondarie. Le repliche secondarie vengono sottoposte a provisioning con le stesse dimensioni di calcolo della replica primaria. La funzionalità di scalabilità in **lettura** consente di bilanciare il carico dei carichi di lavoro di sola lettura del database SQL usando la capacità di una delle repliche di sola lettura anziché condividere la replica di lettura/scrittura. In questo modo i carichi di lavoro di sola lettura verranno isolati dal carico di lavoro principale di lettura/scrittura e non ne comprometteranno le prestazioni. Questa funzionalità è destinata alle applicazioni che includono carichi di lavoro di sola lettura separati logicamente, ad esempio l'analisi. Nei livelli di servizio Premium e business critical, le applicazioni possono ottenere vantaggi in termini di prestazioni grazie a questa capacità aggiuntiva senza costi aggiuntivi.
+
+La funzionalità di **scalabilità in lettura** è disponibile anche nel livello di servizio di iperscalabilità quando viene creata almeno una replica secondaria. È possibile usare più repliche secondarie se i carichi di lavoro di sola lettura richiedono più risorse rispetto a quelle disponibili in una replica secondaria. L'architettura a disponibilità elevata dei livelli di servizio Basic, standard e per utilizzo generico non include alcuna replica. La funzionalità di **scalabilità in lettura** non è disponibile in questi livelli di servizio.
 
 Il diagramma seguente illustra l'uso di un database business critical.
 
 ![Repliche di sola lettura](media/sql-database-read-scale-out/business-critical-service-tier-read-scale-out.png)
 
-La funzionalità di scalabilità in lettura è abilitata per impostazione predefinita nei nuovi database Premium, business critical e con iperscalabilità. Se la stringa di connessione SQL è configurata con `ApplicationIntent=ReadOnly`, l'applicazione verrà reindirizzata dal gateway a una replica di sola lettura di tale database. Per informazioni sull'uso della proprietà, `ApplicationIntent` vedere Specifica della [finalità dell'applicazione](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
+La funzionalità di scalabilità in lettura è abilitata per impostazione predefinita nei nuovi database Premium, business critical e con iperscalabilità. Per l'iperscalabilità, per impostazione predefinita viene creata una replica secondaria per i nuovi database. Se la stringa di connessione SQL è configurata con `ApplicationIntent=ReadOnly`, l'applicazione verrà reindirizzata dal gateway a una replica di sola lettura di tale database. Per informazioni sull'uso della proprietà, `ApplicationIntent` vedere Specifica della [finalità dell'applicazione](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
 
 Se si desidera assicurarsi che l'applicazione si connetta alla replica primaria indipendentemente dall' `ApplicationIntent` impostazione nella stringa di connessione SQL, è necessario disabilitare in modo esplicito la scalabilità in lettura durante la creazione del database o quando si modifica la configurazione. Ad esempio, se si aggiorna il database dal livello standard o per utilizzo generico al livello Premium, business critical o iperscalabile e si vuole assicurarsi che tutte le connessioni continuino a passare alla replica primaria, disabilitare la scalabilità in lettura. Per informazioni dettagliate su come disabilitarlo, vedere [abilitare e disabilitare](#enable-and-disable-read-scale-out)la scalabilità in lettura.
 

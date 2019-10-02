@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 737bad504519a2ec7eee9764593245e0fee28cc3
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 4523d7bf8f6c0ffc0ebfbc57d20a19baec08c91b
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673062"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720347"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Creazione di applicazioni di archiviazione di Azure a disponibilità elevata con archiviazione con ridondanza geografica (GZRS) (anteprima)
 
@@ -21,7 +21,7 @@ L'archiviazione con ridondanza della zona geografica (GZRS) (anteprima) si assoc
 
 Con un account di archiviazione GZRS, è possibile continuare a leggere e scrivere dati se una zona di disponibilità diventa non disponibile o non è recuperabile. Inoltre, i dati sono anche durevoli in caso di un'interruzione completa dell'area o di un'emergenza in cui l'area primaria non è recuperabile. GZRS è progettato per offrire almeno il 99,99999999999999% (16 9) di durabilità degli oggetti in un determinato anno. GZRS offre anche gli stessi [obiettivi di scalabilità](storage-scalability-targets.md) di con ridondanza locale, ZRS, GRS o RA-GRS. Facoltativamente, è possibile abilitare l'accesso in lettura ai dati nell'area secondaria con archiviazione con ridondanza geografica e accesso in lettura (RA-GZRS) se le applicazioni devono essere in grado di leggere i dati in caso di emergenza nell'area primaria.
 
-Microsoft consiglia di usare GZRS per le applicazioni che richiedono coerenza, durabilità, disponibilità elevata, prestazioni ottimali e resilienza per il ripristino di reaster. Per la sicurezza aggiuntiva dell'accesso in lettura all'area secondaria in caso di emergenza a livello di area, abilitare RA-GZRS per l'account di archiviazione.
+Microsoft consiglia di usare GZRS per le applicazioni che richiedono coerenza, durabilità, disponibilità elevata, prestazioni ottimali e resilienza per il ripristino di emergenza. Per la sicurezza aggiuntiva dell'accesso in lettura all'area secondaria in caso di emergenza a livello di area, abilitare RA-GZRS per l'account di archiviazione.
 
 ## <a name="about-the-preview"></a>Informazioni sulla versione di anteprima
 

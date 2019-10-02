@@ -7,18 +7,24 @@ ms.date: 06/20/2019
 ms.topic: article
 ms.service: azure
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 70ad44eade871d52591014ee24e645b95c52f1e5
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: c7860a098096d718a6c5d7cd661ef2b1c1b21e89
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234908"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802674"
 ---
 # <a name="classic-deployment-model"></a>Modello di distribuzione classica
 
-Il modello di distribuzione classica è la modalità di distribuzione di Azure di generazione precedente impone un limite globale di quota di vCPU per le macchine virtuali e i set di scalabilità di macchine virtuali. Il modello di distribuzione classica non è più consigliato ed è ora sostituito da Gestione risorse modello. Per ulteriori informazioni su questi due modelli di distribuzione e sui vantaggi offerti da Gestione risorse fare riferimento alla pagina Gestione risorse modello di distribuzione. Quando viene creata una nuova sottoscrizione, viene assegnata una quota predefinita di vCPU. Ogni volta che una nuova macchina virtuale deve essere distribuita usando il modello di distribuzione classica, la somma dell'utilizzo di vCPU nuovo ed esistente in tutte le aree non deve superare la quota vCPU approvata per il modello di distribuzione classica. Altre informazioni sulle quote nella [pagina sottoscrizione di Azure e limiti del servizio](https://aka.ms/quotalimits)
+Il modello di distribuzione classica è il modello di distribuzione di Azure di generazione precedente. Impone un limite di quota vCPU globale per le macchine virtuali e i set di scalabilità di macchine virtuali. Il modello di distribuzione classica non è più consigliato ed è ora sostituito dal modello di Gestione risorse. 
 
-È possibile richiedere un aumento del limite di vCPU per il modello di distribuzione classica tramite il pannello Guida e supporto oppure il pannello utilizzi e quota nel portale.
+Per ulteriori informazioni su questi due modelli di distribuzione e sui vantaggi derivanti dall'utilizzo di Gestione risorse, vedere la pagina relativa alla [distribuzione di gestione risorse e classica](../azure-resource-manager/resource-manager-deployment-model.md) .
+ 
+Quando viene creata una nuova sottoscrizione, viene assegnata una quota predefinita di vCPU. Ogni volta che una nuova macchina virtuale deve essere distribuita usando il modello di distribuzione classica, la somma dell'utilizzo di vCPU nuovo ed esistente in tutte le aree non deve superare la quota vCPU approvata per il modello di distribuzione classica.
+ 
+Altre informazioni sulle quote sono disponibili nella pagina [sottoscrizione di Azure e limiti dei servizi](https://aka.ms/quotalimits) .
+
+È possibile richiedere un aumento del limite di quota vCPU per il modello di distribuzione classica tramite il pannello "Guida e supporto" o il pannello "utilizzi + quota" nel portale.
 
 ## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-the-help--support-blade"></a>Richiesta per serie di macchine virtuali vCPU aumento della quota a livello di sottoscrizione usando il pannello **Guida e supporto**
 
@@ -46,7 +52,7 @@ Seguire le istruzioni riportate di seguito per creare una richiesta di supporto 
 
 6. In **Dettagli problema**specificare informazioni aggiuntive per l'elaborazione della richiesta facendo clic su **Fornisci dettagli**.
 
-   ![Specificare i dettagli](./media/resource-manager-core-quotas-request/provide-details.png)
+   ![Specifica dettagli](./media/resource-manager-core-quotas-request/provide-details.png)
 
 7. Nel pannello dei **Dettagli della quota** selezionare classico e selezionare una località.
 
@@ -86,7 +92,7 @@ Seguire le istruzioni riportate di seguito per creare una richiesta di supporto 
    
 6. In **Dettagli problema**specificare informazioni aggiuntive per l'elaborazione della richiesta facendo clic su **Fornisci dettagli**.
 
-   ![Specificare i dettagli](./media/resource-manager-core-quotas-request/provide-details.png)
+   ![Specifica dettagli](./media/resource-manager-core-quotas-request/provide-details.png)
 
 7. Nel pannello dei **Dettagli della quota** selezionare classico e selezionare una località.
 

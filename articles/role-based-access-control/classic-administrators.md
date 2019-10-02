@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/19/2019
+ms.date: 10/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c2096b6c5ddb72c8ab5c5d3203a05c94db51f6c5
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 9c5e87d8d6fe49302bee2b2248f84ba98a650533
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444343"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802305"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Amministratori della sottoscrizione classica di Azure
 
@@ -56,12 +56,14 @@ Questo articolo descrive come aggiungere o modificare i ruoli di coamministrator
 
 Gli [utenti guest](../active-directory/b2b/b2b-quickstart-add-guest-users-portal.md) a cui è stato assegnato il ruolo di coamministratore potrebbero notare alcune differenze rispetto agli utenti membri con ruolo di coamministratore. Si consideri lo scenario seguente:
 
-- L'utente A con un account aziendale o dell'istituto di istruzione di Azure AD è un amministratore del servizio per una sottoscrizione di Azure.
+- Un utente con un account Azure AD (aziendale o dell'Istituto di istruzione) è un amministratore del servizio per una sottoscrizione di Azure.
 - L'utente B ha un account Microsoft.
 - L'utente A assegna il ruolo di coamministratore all'utente B.
 - L'utente B può eseguire quasi tutte le operazioni, ma non può registrare le applicazioni o cercare gli utenti nella directory di Azure AD.
 
-Ci si aspetta che l'utente B possa gestire tutto. Il motivo di questa differenza è che l'account Microsoft viene aggiunto alla sottoscrizione come utente guest invece di utente membro. Gli utenti guest hanno diverse autorizzazioni predefinite in Azure AD rispetto agli utenti membri. Ad esempio, gli utenti membri possono leggere gli altri utenti di Azure AD mentre gli utenti guest non possono farlo. Gli utenti membri possono registrare nuove entità servizio in Azure AD mentre gli utenti guest non possono farlo. Se un utente guest deve essere in grado di eseguire queste attività, una possibile soluzione consiste nell'assegnare i ruoli di amministratore di Azure AD specifici necessari all'utente guest. Ad esempio, nello scenario precedente è possibile assegnare i [ruoli con autorizzazioni di lettura nella directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) per leggere altri utenti e assegnare il ruolo [sviluppatore di applicazioni](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) per poter creare le entità servizio. Per altre informazioni sugli utenti membri e guest e le relative autorizzazioni, vedere [Autorizzazioni utente predefinite in Azure Active Directory](../active-directory/fundamentals/users-default-permissions.md).
+Ci si aspetta che l'utente B possa gestire tutto. Il motivo di questa differenza è che l'account Microsoft viene aggiunto alla sottoscrizione come utente guest invece di utente membro. Gli utenti guest hanno diverse autorizzazioni predefinite in Azure AD rispetto agli utenti membri. Ad esempio, gli utenti membri possono leggere gli altri utenti di Azure AD mentre gli utenti guest non possono farlo. Gli utenti membri possono registrare nuove entità servizio in Azure AD mentre gli utenti guest non possono farlo.
+
+Se un utente guest deve essere in grado di eseguire queste attività, una possibile soluzione consiste nell'assegnare i ruoli di amministratore di Azure AD specifici necessari all'utente guest. Ad esempio, nello scenario precedente è possibile assegnare i [ruoli con autorizzazioni di lettura nella directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) per leggere altri utenti e assegnare il ruolo [sviluppatore di applicazioni](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) per poter creare le entità servizio. Per altre informazioni sugli utenti membri e guest e le relative autorizzazioni, vedere [Autorizzazioni utente predefinite in Azure Active Directory](../active-directory/fundamentals/users-default-permissions.md).
 
 Si noti che i [ruoli predefiniti per le risorse di Azure](../role-based-access-control/built-in-roles.md) sono diversi dai [ruoli di amministratore di Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md). I ruoli predefiniti non concedono l'accesso ad Azure AD. Per altre informazioni, vedere [Informazioni sui diversi ruoli](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
@@ -127,14 +129,16 @@ Esistono due modi per modificare l'amministratore del servizio. È possibile mod
 
 ### <a name="limitations-for-changing-the-service-administrator"></a>Limitazioni per la modifica degli amministratori del servizio
 
-Ogni sottoscrizione è associata a una directory di Azure AD. Per trovare la directory a cui è associata la sottoscrizione, aprire **Sottoscrizioni** nel portale di Azure, quindi selezionare una sottoscrizione per visualizzare la directory.
+Può essere presente un solo amministratore del servizio per ogni sottoscrizione di Azure. La modifica dell'amministratore del servizio si comporterà in modo diverso a seconda che l'amministratore dell'account sia un account Microsoft o che si tratti di un account Azure AD (account aziendale o dell'Istituto di istruzione).
 
-Se l'accesso è stato eseguito con un account aziendale o dell'istituto di istruzione, è possibile aggiungere altri account dell'organizzazione come amministratori del servizio. Ad esempio, abby@contoso.com può aggiungere bob@contoso.com come amministratore del servizio, ma non può aggiungere john@notcontoso.com a meno che john@notcontoso.com non si trovi nella directory contoso.com. Gli utenti che hanno eseguito l'accesso con un account aziendale o dell'istituto di istruzione possono continuare ad aggiungere utenti con account Microsoft come amministratori del servizio. Può essere presente un solo amministratore del servizio per ogni sottoscrizione di Azure.
+| Account amministratore account | È possibile modificare l'amministratore del servizio in un account Microsoft diverso? | È possibile modificare l'amministratore del servizio in un account Azure AD nella stessa directory? | È possibile modificare l'amministratore del servizio in un account Azure AD in una directory diversa? |
+| --- | --- | --- | --- |
+| Account Microsoft | Yes | No | No |
+| Account Azure AD | Yes | Sì | No |
 
-  | Metodo di accesso | Aggiungere l'utente con account Microsoft come amministratore del servizio? | Aggiungere un account aziendale o dell'istituto di istruzione nella stessa organizzazione come amministratore del servizio? | Aggiungere un account aziendale o dell'istituto di istruzione in un'organizzazione diversa come amministratore del servizio? |
-  | --- | --- | --- | --- |
-  |  Account Microsoft |Sì |No |No |
-  |  Account aziendale o dell 'istituto di istruzione |Sì |Sì |No |
+Se l'amministratore dell'account è un account di Azure AD, è possibile modificare l'amministratore del servizio in un account di Azure AD nella stessa directory, ma non in una directory diversa. Ad esempio, abby@contoso.com può modificare l'amministratore del servizio in bob@contoso.com, ma non può modificare l'amministratore del servizio in john@notcontoso.com a meno che john@notcontoso.com non abbia una presenza nella directory contoso.com
+
+Per ulteriori informazioni sugli account Microsoft e Azure AD, vedere [che cos'è Azure Active Directory?](../active-directory/fundamentals/active-directory-whatis.md).
 
 ## <a name="view-the-account-administrator"></a>Visualizzare l'amministratore dell'account
 

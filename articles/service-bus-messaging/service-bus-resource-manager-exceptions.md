@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2019
 ms.author: aschhab
-ms.openlocfilehash: 67e95133b9d78823f37ba48f291175ae8e9058d6
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 7b9d4099734af3a04f43d35d89f07f8b005c90f9
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703550"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802521"
 ---
 # <a name="service-bus-resource-manager-exceptions"></a>Eccezioni Gestione risorse del bus di servizio
 
@@ -36,8 +36,8 @@ Di seguito sono riportate le varie eccezioni/errori che vengono rilevati tramite
 
 | Codice errore | Codice di errore | Messaggio di errore | Descrizione | Indicazione |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
-| Richiesta non valida | 40000 | Sottocodice = 40000. Impossibile impostare la proprietà *' Property Name '* durante la creazione di una coda perché lo spazio dei nomi *' namespace name '* utilizza il livello ' Basic '. Questa operazione è supportata solo nel livello ' standard ' o ' Premium '. | Nel livello Basic del bus di servizio di Azure non è possibile impostare o aggiornare le proprietà seguenti: <ul> <li> RequiresDuplicateDetection </li> <li> AutoDeleteOnIdle </li> <li>requiresSession</li> <li>DefaultMessageTimeToLive </li> <li> DuplicateDetectionHistoryTimeWindow </li> <li> EnableExpress </li> <li> ForwardTo </li> <li> Argomenti </li> </ul> | Per sfruttare questa funzionalità, provare a eseguire l'aggiornamento dal livello Basic al livello standard o Premium. |
-| Richiesta non valida | 40000 | Sottocodice = 40000. Impossibile modificare il valore della proprietà' requiresDuplicateDetection ' di una coda o di un argomento esistente. | Il rilevamento dei duplicati deve essere abilitato o disabilitato al momento della creazione dell'entità. Una volta creato, il parametro di configurazione del rilevamento duplicato non può essere modificato. | Per abilitare il rilevamento dei duplicati in una coda o un argomento creato in precedenza, è possibile creare una nuova coda o un nuovo argomento con rilevamento duplicato e quindi procedere dalla coda originale alla nuova coda/argomento. |
+| Richiesta non valida | 40000 | Sottocodice = 40000. Impossibile impostare la proprietà *' Property Name '* durante la creazione di una coda perché lo spazio dei nomi *' namespace name '* utilizza il livello ' Basic '. Questa operazione è supportata solo nel livello ' standard ' o ' Premium '. | Nel livello Basic del bus di servizio di Azure non è possibile impostare o aggiornare le proprietà seguenti: <ul> <li> RequiresDuplicateDetection </li> <li> AutoDeleteOnIdle </li> <li>requiresSession</li> <li>DefaultMessageTimeToLive </li> <li> DuplicateDetectionHistoryTimeWindow </li> <li> EnableExpress </li> <li> ForwardTo </li> <li> Argomenti </li> </ul> | Per usare questa funzionalità, provare a eseguire l'aggiornamento dal livello Basic al livello standard o Premium. |
+| Richiesta non valida | 40000 | Sottocodice = 40000. Impossibile modificare il valore della proprietà' requiresDuplicateDetection ' di una coda o di un argomento esistente. | Il rilevamento dei duplicati deve essere abilitato o disabilitato al momento della creazione dell'entità. Il parametro di configurazione del rilevamento duplicato non può essere modificato dopo la creazione. | Per abilitare il rilevamento dei duplicati in una coda o un argomento creato in precedenza, è possibile creare una nuova coda o un nuovo argomento con rilevamento duplicato e quindi procedere dalla coda originale alla nuova coda/argomento. |
 | Richiesta non valida | 40000 | Sottocodice = 40000. Il valore 16384 specificato non è valido. La proprietà' MaxSizeInMegabytes ' deve essere uno dei valori seguenti: 1024; 2048; 3072; 4096; 5120. | Il valore MaxSizeInMegabytes non è valido. | Verificare che MaxSizeInMegabytes sia uno dei seguenti: 1024, 2048, 3072, 4096, 5120. |
 | Richiesta non valida | 40000 | Sottocodice = 40000. Non è possibile modificare il partizionamento per la coda o l'argomento. | Non è possibile modificare il partizionamento per l'entità. | Creare una nuova entità (coda o argomento) e abilitare le partizioni. | 
 | Richiesta non valida | nessuno | Lo spazio dei nomi *' namespace name '* non esiste. | Lo spazio dei nomi non esiste nella sottoscrizione di Azure. | Per correggere l'errore, provare il seguente <ul> <li> Assicurarsi che la sottoscrizione di Azure sia corretta. </li> <li> Verificare che lo spazio dei nomi esista. </li> <li> Verificare che il nome dello spazio dei nomi sia corretto (nessun errore di ortografia o stringa null). </li> </ul> | 
@@ -58,4 +58,17 @@ Analogamente a HTTP, "codice errore 429" indica "numero eccessivo di richieste".
 | 429 | 40901 | Sottocodice = 40901. È in corso un'altra operazione in conflitto. | È in corso un'altra operazione in conflitto sulla stessa risorsa/entità | Attendere il completamento dell'operazione corrente in corso prima di riprovare. |
 | 429 | 40900 | Sottocodice = 40900. Conflitto. Si sta richiedendo un'operazione non consentita nello stato corrente della risorsa. | Questa condizione può essere raggiunta quando vengono effettuate più richieste per eseguire le operazioni sulla stessa entità (coda, argomento, sottoscrizione o regola) nello stesso momento. | Attendere alcuni secondi e riprovare |
 | 429 | nessuno | Si è verificato un conflitto di risorse. È possibile che sia in corso un'altra operazione in conflitto. Se si tenta di eseguire un'operazione non riuscita, la pulitura in background è ancora in sospeso. Riprovare. | Questa condizione può essere raggiunta quando si verifica un'operazione in sospeso sulla stessa entità. | Attendere il completamento dell'operazione precedente prima di riprovare. |
+| 429 | nessuno | Richiesta nell'entità *' nome entità'* in conflitto con un'altra richiesta | È in corso un'altra operazione in conflitto sulla stessa risorsa/entità | Attendere il completamento dell'operazione precedente prima di riprovare |
+| 429 | nessuno | È in corso un'altra richiesta di aggiornamento per l'entità *"nome entità"* . | È in corso un'altra operazione in conflitto sulla stessa risorsa/entità | Attendere il completamento dell'operazione precedente prima di riprovare |
 
+
+## <a name="error-code-not-found"></a>Codice errore: Non trovato
+
+Questa classe di errori indica che la risorsa non è stata trovata.
+
+| Codice errore | Codice di errore | Messaggio di errore | Descrizione | Indicazione |
+| ---------- | ------------- | ------------- | ----------- | -------------- |
+| Non trovato | nessuno | L'entità *' nome entità'* non è stata trovata. | Entità sulla quale l'operazione non è stata trovata. | Verificare che l'entità esista, quindi riprovare. |
+| Non trovato | nessuno | Non trovato. L'operazione non esiste. | L'operazione che si sta tentando di eseguire non esiste. | Controllare l'operazione e riprovare. |
+| Non trovato | nessuno | La richiesta in ingresso non è riconosciuta come richiesta PUT del criterio dello spazio dei nomi. | Il corpo della richiesta in ingresso è null e pertanto non può essere eseguito come richiesta PUT. | Verificare il corpo della richiesta per assicurarsi che non sia null. | 
+| Non trovato | nessuno | Impossibile trovare l'entità di messaggistica *"nome entità"* . | Impossibile trovare l'entità su cui si sta tentando di eseguire l'operazione. | Verificare se l'entità esiste, quindi riprovare. |

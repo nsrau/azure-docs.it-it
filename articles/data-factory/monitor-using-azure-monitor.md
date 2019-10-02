@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: c8d78473a1128dd4f96f2cfa0c14d2d3b1b2c1e9
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 2a707eda6a7e32a95666dd70e196c8da3c3b7834
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300569"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815953"
 ---
 # <a name="alert-and-monitor-data-factories-by-using-azure-monitor"></a>Avvisi e monitoraggio di data factory con monitoraggio di Azure
 
@@ -468,6 +468,9 @@ Creare o aggiungere impostazioni di diagnostica per il data factory.
 
 Dopo qualche istante, la nuova impostazione viene visualizzata nell'elenco delle impostazioni per questa data factory. I log di diagnostica vengono trasmessi a tale area di lavoro non appena vengono generati nuovi dati degli eventi. Un massimo di 15 minuti può trascorrere tra il momento in cui viene generato un evento e il momento in cui viene visualizzato in Log Analytics.
 
+* In modalità _specifica della risorsa_ , i log di diagnostica dal flusso Azure Data Factory nelle tabelle _ADFPipelineRun_, _ADFTriggerRun_e _ADFActivityRun_
+* In modalità _diagnostica di Azure_ , i log di diagnostica scorrono nella tabella _AzureDiagnostics_
+
 > [!NOTE]
 > Poiché una tabella dei log di Azure non può contenere più di 500 colonne, è consigliabile selezionare la modalità specifica della risorsa. Per ulteriori informazioni, vedere [log Analytics limitazioni note](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#known-limitation-column-limit-in-azurediagnostics).
 
@@ -508,6 +511,9 @@ Con l'installazione di Azure Data Factory Analytics viene creato un set predefin
 È possibile visualizzare le metriche precedenti, esaminare le query dietro a queste metriche, modificare le query, creare avvisi e intraprendere altre azioni.
 
 ![Rappresentazione grafica delle esecuzioni di pipeline per data factory "](media/data-factory-monitor-oms/monitor-oms-image8.png)
+
+> [!NOTE]
+> Azure Data Factory Analytics (anteprima) Invia i log di diagnostica alle tabelle di destinazione _specifiche delle risorse_ . È possibile scrivere query sulle tabelle seguenti: _ADFPipelineRun_, _ADFTriggerRun_e _ADFActivityRun_.
 
 ## <a name="alerts"></a>Avvisi
 

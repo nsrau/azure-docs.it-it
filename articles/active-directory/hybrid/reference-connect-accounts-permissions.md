@@ -17,12 +17,12 @@ ms.date: 09/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6760677a94855c259501103a54a96d687c87910b
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 8e7bd33d74d9ecf6ebc35981df7255ecc19253c7
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71290958"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71812588"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Account e autorizzazioni
 
@@ -57,6 +57,9 @@ Oltre a questi tre account usati per eseguire Azure AD Connect, per installare A
 > Le foreste amministrative dedicate consentono alle organizzazioni di ospitare gli account amministrativi, le workstation e i gruppi in un ambiente che dispone di controlli di sicurezza più avanzati rispetto all'ambiente di produzione.
 > Per altre informazioni sulle foreste amministrative dedicate, vedere [approccio alla progettazione della foresta amministrativa ESAE](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach)
 >>>>>>> e683a61b0ed62ae739941410f658a127534e2481
+
+> [!NOTE]
+> Il ruolo di amministratore globale non è necessario dopo l'installazione iniziale e l'unico account necessario sarà l'account del ruolo **account di sincronizzazione della directory** . Questa operazione non necssarily significa che sarà necessario rimuovere solo l'account con il ruolo di amministratore globale. È preferibile modificare il ruolo in un ruolo meno potente, poiché la rimozione completa dell'account può comportare problemi se è necessario eseguire nuovamente la procedura guidata. Riducendo i privilegi del ruolo è sempre possibile rielevare il privilegi se è necessario utilizzare di nuovo la procedura guidata Azure AD Connect. 
 
 ## <a name="installing-azure-ad-connect"></a>Installazione di Azure AD Connect
 L'installazione guidata di Azure AD Connect offre due percorsi diversi:

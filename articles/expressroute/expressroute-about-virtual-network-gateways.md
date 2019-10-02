@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 10/01/2019
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: 5b74e387c6bee58acbbb7bae320a9bc72a4dda1c
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: b566cc9e45348241cf6ae7b81bd0e471fbf59ba0
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376285"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720030"
 ---
 # <a name="expressroute-virtual-network-gateway-and-fastpath"></a>Gateway di rete virtuale ExpressRoute e FastPath
 Per connettere la rete virtuale di Azure e la rete locale tramite ExpressRoute, è prima di tutto necessario creare un gateway di rete virtuale. Un gateway di rete virtuale svolge due finalità: le route IP di Exchange tra le reti e il traffico di rete instradato. Questo articolo illustra i tipi di gateway, gli SKU del gateway e le prestazioni stimate in base allo SKU. Questo articolo illustra anche ExpressRoute [FastPath](#fastpath), una funzionalità che consente al traffico di rete dalla rete locale di ignorare il gateway di rete virtuale per migliorare le prestazioni.
@@ -60,12 +60,12 @@ I nuovi SKU gateway supportano anche altre opzioni di distribuzione per soddisfa
 ## <a name="fastpath"></a>FastPath
 Il gateway di rete virtuale ExpressRoute è progettato per scambiare le route di rete e instradare il traffico di rete. FastPath è progettato per migliorare le prestazioni del percorso dati tra la rete locale e la rete virtuale. Se abilitata, FastPath invia il traffico di rete direttamente alle macchine virtuali nella rete virtuale, ignorando il gateway. 
 
-FastPath è disponibile solo in [ExpressRoute Direct](expressroute-erdirect-about.md) . In altre parole, è possibile abilitare questa funzionalità solo se si [connette la rete virtuale](expressroute-howto-linkvnet-arm.md) a un circuito ExpressRoute creato in una porta ExpressRoute Direct. FastPath richiede ancora la creazione di un gateway di rete virtuale per scambiare le route tra la rete virtuale e la rete locale. Il gateway di rete virtuale deve essere ultra performance o ErGw3AZ.
+FastPath è disponibile in tutti i circuiti ExpressRoute. È comunque necessario creare un gateway di rete virtuale per scambiare le route tra la rete virtuale e la rete locale. Il gateway di rete virtuale deve essere ultra performance o ErGw3AZ.
 
 FastPath non supporta le funzionalità seguenti:
 * UDR sulla subnet del gateway: se si applica un UDR alla subnet del gateway della rete virtuale, il traffico di rete proveniente dalla rete locale continuerà a essere inviato al gateway di rete virtuale.
 * Peering VNet: se si dispone di altre reti virtuali con peering con quello connesso a ExpressRoute, il traffico di rete dalla rete locale alle altre reti virtuali (ad esempio, il cosiddetto "spoke" reti virtuali) continuerà a essere inviato alla rete virtuale Gateway. La soluzione alternativa consiste nel connettere direttamente tutte le reti virtuali al circuito ExpressRoute.
-* Basic Load Balander: se si distribuisce un servizio di bilanciamento del carico interno di base nella rete virtuale o il servizio Azure PaaS distribuito nella rete virtuale usa un servizio di bilanciamento del carico interno di base, il traffico di rete dalla rete locale agli indirizzi IP virtuali ospitati nel Il servizio di bilanciamento del carico di base verrà inviato al gateway di rete virtuale. La soluzione consiste nell'aggiornare il servizio di bilanciamento del carico di base a un servizio di [bilanciamento del carico standard](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview). 
+* Load Balancer di base: se si distribuisce un servizio di bilanciamento del carico interno di base nella rete virtuale o il servizio Azure PaaS distribuito nella rete virtuale usa un servizio di bilanciamento del carico interno di base, il traffico di rete dalla rete locale agli indirizzi IP virtuali ospitati nel Il servizio di bilanciamento del carico di base verrà inviato al gateway di rete virtuale. La soluzione consiste nell'aggiornare il servizio di bilanciamento del carico di base a un servizio di [bilanciamento del carico standard](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview). 
  
 ## <a name="resources"></a>API REST e cmdlet PowerShell
 Per altre risorse tecniche e requisiti di sintassi specifici quando si usano le API REST e i cmdlet PowerShell per le configurazioni di gateway di rete virtuale, vedere le pagine seguenti:

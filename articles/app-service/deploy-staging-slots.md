@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: cephalin
-ms.openlocfilehash: 35618b80dc4731f4d679bab9f035987af50730e8
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 436ab0a561349185de58c3783f334ea1dce9001d
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71129705"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720124"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurare gli ambienti di gestione temporanea nel Servizio app di Azure
 <a name="Overview"></a>
@@ -38,14 +38,14 @@ Per ridimensionare l'app a un livello diverso, verificare che il livello di dest
 
 <a name="Add"></a>
 
-## <a name="add-a-slot"></a>Aggiungi uno slot
+## <a name="add-a-slot"></a>Aggiungere uno slot
 Per poter abilitare più slot di distribuzione, l'app deve essere in esecuzione con il piano **Standard**, **Premium** o **Isolato**.
 
 1. Nel [portale di Azure](https://portal.azure.com/) aprire la [pagina delle risorse](../azure-resource-manager/manage-resources-portal.md#manage-resources) dell'app.
 
 2. Nel riquadro sinistro selezionare **slot** > di distribuzione**Aggiungi slot**.
    
-    ![Aggiungi un nuovo slot di distribuzione](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
+    ![Aggiungi nuovo slot di distribuzione](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
    
    > [!NOTE]
    > Se l'app non è già nel livello **standard**, **Premium**o **isolato** , viene visualizzato un messaggio che indica i livelli supportati per l'abilitazione della pubblicazione di gestione temporanea. A questo punto, è possibile selezionare **Aggiorna** e passare alla scheda **scalabilità** dell'app prima di continuare.
@@ -128,7 +128,7 @@ Per scambiare gli slot di distribuzione:
 
 2. Selezionare gli slot desiderati in **Origine** e **Destinazione**. In genere, la destinazione è lo slot di produzione. Selezionare anche le schede **modifiche di origine** e **modifiche di destinazione** e verificare che siano previste le modifiche alla configurazione. Al termine, è possibile scambiare immediatamente gli slot selezionando **Scambia**.
 
-    ![Completa scambio](./media/web-sites-staged-publishing/SwapImmediately.png)
+    ![Scambio completo](./media/web-sites-staged-publishing/SwapImmediately.png)
 
     Per vedere come viene eseguito lo slot di destinazione con le nuove impostazioni prima che lo scambio avvenga effettivamente, non selezionare **swap**, ma seguire le istruzioni in [scambiare con l'anteprima](#Multi-Phase).
 
@@ -139,9 +139,6 @@ In caso di problemi, vedere risolvere i problemi di [swap](#troubleshoot-swaps).
 <a name="Multi-Phase"></a>
 
 ### <a name="swap-with-preview-multi-phase-swap"></a>Scambio con anteprima (swap multifase)
-
-> [!NOTE]
-> Lo scambio con anteprima non è supportato nelle app Web in Linux.
 
 Prima di scambiare in produzione come slot di destinazione, verificare che l'app venga eseguita con le impostazioni scambiate. Lo slot di origine viene anche scaldato prima del completamento dello scambio, che è consigliabile per le applicazioni cruciali.
 
@@ -204,7 +201,8 @@ In caso di problemi, vedere risolvere i problemi di [swap](#troubleshoot-swaps).
 <a name="Warm-up"></a>
 
 ## <a name="specify-custom-warm-up"></a>Specificare un riscaldamento personalizzato
-Quando si usa lo [scambio automatico](#Auto-Swap), alcune app potrebbero richiedere azioni di riscaldamento personalizzate prima dello scambio. L' `applicationInitialization` elemento di configurazione in Web. config consente di specificare azioni di inizializzazione personalizzate. L' [operazione di scambio](#AboutConfiguration) attende il completamento di questo riscaldamento personalizzato prima di eseguire lo scambio con lo slot di destinazione. Ecco un frammento di esempio di Web. config.
+
+Alcune app potrebbero richiedere azioni di riscaldamento personalizzate prima dello scambio. L' `applicationInitialization` elemento di configurazione in Web. config consente di specificare azioni di inizializzazione personalizzate. L' [operazione di scambio](#AboutConfiguration) attende il completamento di questo riscaldamento personalizzato prima di eseguire lo scambio con lo slot di destinazione. Ecco un frammento di esempio di Web. config.
 
     <system.webServer>
         <applicationInitialization>
@@ -317,7 +315,7 @@ Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType M
 ```
 
 ---
-### <a name="swap-deployment-slots"></a>Swap degli slot di distribuzione
+### <a name="swap-deployment-slots"></a>Scambia slot di distribuzione
 ```powershell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
 Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01
@@ -334,7 +332,61 @@ Get-AzLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller Slo
 Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [app name]/[slot name] -ApiVersion 2015-07-01
 ```
 
----
+## <a name="automate-with-arm-templates"></a>Automatizzare i modelli ARM
+
+I [modelli ARM](https://docs.microsoft.com/en-us/azure/azure-resource-manager/template-deployment-overview) sono file JSON dichiarativi usati per automatizzare la distribuzione e la configurazione delle risorse di Azure. Per scambiare gli slot con i modelli ARM, è necessario impostare due proprietà nelle risorse *Microsoft. Web/sites/Slots* e *Microsoft. Web/sites* :
+
+- `buildVersion`: proprietà stringa che rappresenta la versione corrente dell'app distribuita nello slot. Ad esempio: "V1", "1.0.0.1" o "2019-09-20T11:53:25.2887393-07:00".
+- `targetBuildVersion`: questa è una proprietà di stringa che specifica il `buildVersion` dello slot. Se targetBuildVersion non è uguale al `buildVersion` corrente, verrà attivata l'operazione di scambio individuando lo slot con l'`buildVersion` specificato.
+
+### <a name="example-arm-template"></a>Modello ARM di esempio
+
+Il modello ARM seguente aggiornerà il `buildVersion` dello slot di staging e imposterà il `targetBuildVersion` sullo slot di produzione. Questa operazione comporterà lo scambio dei due slot. Il modello presuppone che sia già stato creato un webapp con uno slot denominato "Staging".
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "my_site_name": {
+            "defaultValue": "SwapAPIDemo",
+            "type": "String"
+        },
+        "sites_buildVersion": {
+            "defaultValue": "v1",
+            "type": "String"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Web/sites/slots",
+            "apiVersion": "2018-02-01",
+            "name": "[concat(parameters('my_site_name'), '/staging')]",
+            "location": "East US",
+            "kind": "app",
+            "properties": {
+                "buildVersion": "[parameters('sites_buildVersion')]"
+            }
+        },
+        {
+            "type": "Microsoft.Web/sites",
+            "apiVersion": "2018-02-01",
+            "name": "[parameters('my_site_name')]",
+            "location": "East US",
+            "kind": "app",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites/slots', parameters('my_site_name'), 'staging')]"
+            ],
+            "properties": {
+                "targetBuildVersion": "[parameters('sites_buildVersion')]"
+            }
+        }        
+    ]
+}
+```
+
+Questo modello ARM è idempotente, vale a dire che può essere eseguito ripetutamente e produrre lo stesso stato degli slot. Dopo la prima esecuzione, `targetBuildVersion` corrisponderà al `buildVersion` corrente, quindi non verrà attivato uno scambio.
+
 <!-- ======== Azure CLI =========== -->
 
 <a name="CLI"></a>

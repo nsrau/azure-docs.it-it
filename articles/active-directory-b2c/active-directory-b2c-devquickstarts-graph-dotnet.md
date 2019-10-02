@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 02765538ce8a351db539438837b6426c0896d2d4
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
-ms.translationtype: HT
+ms.openlocfilehash: 2585b47d049047cc191bfc284c4486361917f1ed
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71701884"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802072"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Usare l'API Graph di Azure AD
 
@@ -49,19 +49,11 @@ Per usare la Azure AD API Graph con il tenant B2C, è necessario registrare un'a
 
 ### <a name="assign-api-access-permissions"></a>Assegnare le autorizzazioni di accesso all'API
 
-1. Nella pagina Panoramica dell' **app registrata** selezionare **Impostazioni**.
-1. In **accesso all'API**selezionare **autorizzazioni necessarie**.
-1. Selezionare **Windows Azure Active Directory**.
-1. In **Autorizzazioni applicazione**selezionare **lettura e scrittura dati directory**.
-1. Selezionare **Salva**.
-1. Selezionare **Concedi autorizzazioni** e quindi selezionare **Sì**. Potrebbero essere necessari alcuni minuti per la propagazione completa delle autorizzazioni.
+[!INCLUDE [active-directory-b2c-permissions-directory](../../includes/active-directory-b2c-permissions-directory.md)]
 
 ### <a name="create-client-secret"></a>Crea segreto client
 
-1. In **accesso all'API**selezionare **chiavi**.
-1. Immettere una descrizione per la chiave nella casella **Descrizione chiave** . Ad esempio, la *chiave di gestione*.
-1. Selezionare una **durata** di validità e quindi fare clic su **Salva**.
-1. Registrare il **valore**della chiave. Usare questo valore per la configurazione in un passaggio successivo.
+[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
 A questo punto si dispone di un'applicazione che dispone dell'autorizzazione per *creare*, *leggere*e *aggiornare* gli utenti nel tenant del Azure ad B2C. Passare alla sezione successiva per aggiungere le autorizzazioni per l' *eliminazione* e l' *aggiornamento della password* dell'utente.
 
