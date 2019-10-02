@@ -1,5 +1,5 @@
 ---
-title: Cos'è l'anteprima di Azure Sentinel? | Microsoft Docs
+title: Che cos'è Azure Sentinel? | Microsoft Docs
 description: Informazioni su Azure Sentinel, le funzionalità principali e il funzionamento.
 services: sentinel
 documentationcenter: na
@@ -14,20 +14,16 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 09/24/2019
 ms.author: rkarlin
-ms.openlocfilehash: 15cf770a372c9a1386dd0293abeac01fd3cacf63
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 964ba16fb7421c58f43d8b7d0d0d96f5cd377579
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779737"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261873"
 ---
-# <a name="what-is-azure-sentinel-preview"></a>Cos'è l'anteprima di Azure Sentinel?
-
-> [!IMPORTANT]
-> Azure Sentinel è attualmente in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="what-is-azure-sentinel"></a>Che cos'è Azure Sentinel?
 
 Microsoft Azure Sentinel è una soluzione di tipo **SIEM (Security Information and Event Management)** e **SOAR (Security Orchestration, Automation and Response)** scalabile e nativa del cloud. Azure Sentinel offre analisi della sicurezza intelligenti e intelligence sulle minacce per l'intera azienda, fornendo un'unica soluzione per il rilevamento degli avvisi, la visibilità delle minacce, la ricerca proattiva e la risposta alle minacce. 
 
@@ -53,25 +49,17 @@ Per eseguire l'onboarding Azure Sentinel, è necessario innanzitutto [connetters
 
 ![Agenti di raccolta dati](./media/collect-data/collect-data-page.png)
 
-## <a name="dashboards"></a>Dashboard
+## <a name="workbooks"></a>Workbooks
 
-Dopo la connessione delle origini dati è possibile scegliere da una raccolta di [dashboard creati da esperti](quickstart-get-visibility.md#dashboards), che elaborano informazioni cognitive dettagliate dalle origini dati. Ogni dashboard è completamente personalizzabile. È possibile aggiungere la propria logica, modificare le query o anche creare un dashboard da zero.
+Dopo aver [connesso le origini dati](quickstart-onboard.md) ad Azure Sentinel, è possibile monitorare i dati usando l'integrazione di Azure Sentinel con Cartelle di lavoro di Monitoraggio di Azure, che consente di creare cartelle di lavoro personalizzate in modo versatile. Anche se le cartelle di lavoro sono visualizzate in modo diverso in Azure Sentinel, può essere utile vedere come [creare report interattivi con Cartelle di lavoro di Monitoraggio di Azure](../azure-monitor/app/usage-workbooks.md). Azure Sentinel consente di creare cartelle di lavoro personalizzate tra i dati e include anche modelli di cartella di lavoro predefiniti per ottenere rapidamente informazioni dettagliate sui dati non appena si connette un'origine dati.
 
-I dashboard forniscono una visualizzazione interattiva usando funzionalità di analisi avanzata per aiutare gli analisti della sicurezza a comprendere più chiaramente ciò che accade durante un attacco. Gli strumenti di indagine consentono di eseguire il drill-down in qualsiasi campo e da qualsiasi dato, per sviluppare rapidamente il contesto della minaccia. 
-
-![Dashboard](./media/overview/dashboards.png)
+![Dashboard](./media/tutorial-monitor-data/access-workbooks.png)
 
 ## <a name="analytics"></a>Analytics
 
-Per ridurre i risultati non significativi e minimizzare il numero di avvisi da esaminare e di cui ricercare le cause, Azure Sentinel usa [l'analisi per correlare gli avvisi in eventi imprevisti](tutorial-detect-threats.md). Gli **eventi imprevisti** sono gruppi di avvisi correlati che insieme creano una possibile minaccia di utilità pratica ai fini delle indagini e della risoluzione. È possibile usare le regole di correlazione predefinite così come sono o come punto di partenza per crearne di personalizzate. Azure Sentinel fornisce anche regole di Machine Learning per mappare il comportamento di rete e quindi cercare le anomalie in tutte le risorse. Queste funzionalità di analisi uniscono i puntini, combinando gli avvisi con un basso livello di affidabilità relativi a entità diverse in potenziali eventi imprevisti della sicurezza di affidabilità elevata.
+Per ridurre i risultati non significativi e minimizzare il numero di avvisi da esaminare e di cui ricercare le cause, Azure Sentinel usa [l'analisi per correlare gli avvisi in eventi imprevisti](tutorial-detect-threats-built-in.md). Gli **eventi imprevisti** sono gruppi di avvisi correlati che insieme creano una possibile minaccia di utilità pratica ai fini delle indagini e della risoluzione. È possibile usare le regole di correlazione predefinite così come sono o come punto di partenza per crearne di personalizzate. Azure Sentinel fornisce anche regole di Machine Learning per mappare il comportamento di rete e quindi cercare le anomalie in tutte le risorse. Queste funzionalità di analisi uniscono i puntini, combinando gli avvisi con un basso livello di affidabilità relativi a entità diverse in potenziali eventi imprevisti della sicurezza di affidabilità elevata.
 
-![Casi](./media/overview/cases.png)
-
-## <a name="user-analytics"></a>Analisi degli utenti
-
-Grazie all'integrazione nativa di Machine Learning (ML) e [analisi degli utenti](user-analytics.md), Azure Sentinel consente di rilevare rapidamente le minacce. Azure Sentinel si integra alla perfezione con Azure Advanced Threat Protection per analizzare il comportamento degli utenti e classificare in ordine di priorità quelli da esaminare per primi, in base ai relativi avvisi e ai modelli di attività sospette in Azure Sentinel e Microsoft 365.
-
-![Analisi degli utenti](./media/overview/user-analytics.png)
+![Eventi imprevisti](./media/tutorial-investigate-cases/incident-severity.png)
 
 
 ## <a name="security-automation--orchestration"></a>Automazione e orchestrazione della sicurezza
@@ -83,23 +71,22 @@ Ad esempio, se si usa il sistema di creazione dei ticket ServiceNow, è possibil
 ![Playbook](./media/tutorial-respond-threats-playbook/logic-app.png)
 
 
-
 ## <a name="investigation"></a>Analisi
 
-Gli strumenti di [indagine approfondita](tutorial-investigate-cases.md) di Azure Sentinel aiutano a comprendere l'ambito e individuare la causa radice di una potenziale minaccia per la sicurezza. È possibile scegliere un'entità nel grafico interattivo per porre domande interessanti per una specifica entità, oltre che eseguire il drill-down nell'entità e nelle relative connessioni per risalire alla causa radice della minaccia. 
+Attualmente disponibili in anteprima, gli strumenti di [indagine approfondita](tutorial-investigate-cases.md) di Azure Sentinel sono utili per comprendere l'ambito e individuare la causa radice di una potenziale minaccia per la sicurezza. È possibile scegliere un'entità nel grafico interattivo per porre domande interessanti per una specifica entità, oltre che eseguire il drill-down nell'entità e nelle relative connessioni per risalire alla causa radice della minaccia. 
 
-![Analisi](./media/overview/investigation.png)
+![Analisi](./media/tutorial-investigate-cases/map-timeline.png)
 
 
 ## <a name="hunting"></a>Ricerca
 
-Usando i [potenti strumenti di ricerca e query](hunting.md) di Azure Sentinel, basati sul framework MITRE, è possibile cercare in modo proattivo le minacce alla sicurezza tra le origini dati dell'organizzazione prima che venga attivato un avviso. Dopo aver individuato la query di ricerca che fornisce informazioni cognitive dettagliate di valore elevato sui possibili attacchi, è anche possibile creare regole di rilevamento personalizzate basate sulla query e presentare queste informazioni sotto forma di avvisi al personale addetto a rispondere agli eventi imprevisti di sicurezza. Durante la ricerca si possono creare segnalibri per gli eventi interessanti, per potervi tornare in seguito, condividerli con altri utenti e raggrupparli con altri eventi correlati per creare un caso interessante da sottoporre a indagine.
+Usando i [potenti strumenti di ricerca e query](hunting.md) di Azure Sentinel, basati sul framework MITRE, è possibile cercare in modo proattivo le minacce alla sicurezza tra le origini dati dell'organizzazione prima che venga attivato un avviso. Dopo aver individuato la query di ricerca che fornisce informazioni cognitive dettagliate di valore elevato sui possibili attacchi, è anche possibile creare regole di rilevamento personalizzate basate sulla query e presentare queste informazioni sotto forma di avvisi al personale addetto a rispondere agli eventi imprevisti di sicurezza. Durante la ricerca si possono creare segnalibri per gli eventi interessanti, per potervi tornare in seguito, condividerli con altri utenti e raggrupparli con altri eventi correlati per creare un evento imprevisto interessante da sottoporre a indagine.
 
 ![Ricerca](./media/overview/hunting.png)
 
 ## <a name="community"></a>Community
 
-La community di Azure Sentinel è una risorsa potente per il rilevamento delle minacce e l'automazione. Gli analisti della sicurezza di Microsoft creano e aggiungono continuamente nuovi dashboard, playbook, query di ricerca e altro ancora, pubblicandoli nella community perché ognuno possa usarli nel proprio ambiente. È possibile scaricare contenuto di esempio dal [repository](https://aka.ms/asicommunity) GitHub privato della community, per creare dashboard personalizzati, query di ricerca, notebook e playbook per Azure Sentinel. 
+La community di Azure Sentinel è una risorsa potente per il rilevamento delle minacce e l'automazione. Gli analisti della sicurezza di Microsoft creano e aggiungono continuamente nuove cartelle di lavoro, playbook, query di ricerca e altro ancora, pubblicandoli nella community perché ognuno possa usarli nel proprio ambiente. È possibile scaricare contenuto di esempio dal [repository](https://aka.ms/asicommunity) GitHub privato della community, per creare cartelle di lavoro, query di ricerca, notebook e playbook personalizzati per Azure Sentinel. 
 
 ![Community](./media/overview/community.png)
 

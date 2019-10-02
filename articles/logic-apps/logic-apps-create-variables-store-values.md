@@ -39,7 +39,7 @@ Le variabili esistono e sono globali solo all'interno dell'istanza dell'app per 
 
 * App per la logica in cui si vuole creare la variabile
 
-  Se non si ha familiarità con le app per la logica, vedere informazioni sulle [app per [la logica di Azure](../logic-apps/logic-apps-overview.md) e Guida introduttiva: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+  Se non si ha familiarità con le app per la logica, vedere informazioni sulle [app per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Guida introduttiva: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 * Un [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) come primo passo nell'app per la logica
 
