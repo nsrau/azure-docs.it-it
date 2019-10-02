@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b3607f0b462efceab322e6eaf616268a34b02fb0
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 2c63d63e57a23963f17b6773f244973b051b57eb
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142090"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162464"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Utilizzare la versione precedente di Azure Migrate
 
@@ -78,7 +78,7 @@ La visualizzazione Idoneità per Azure nella valutazione mostra lo stato di idon
 
 **Idoneità** | **State** | **Dettagli**
 --- | --- | ---
-Idoneo per Azure | Nessun problema di compatibilità. È possibile eseguire la migrazione del computer così com'è in Azure e il computer verrà avviato in Azure con il supporto completo di Azure. | Per le macchine virtuali idonee, Azure Migrate offre un consiglio riguardo alle dimensioni delle macchine in Azure.
+Idoneo per Azure | Nessun problema di compatibilità. È possibile eseguire la migrazione ad Azure del computer così com'è. Il computer verrà avviato in Azure con il supporto completo di Azure. | Per le macchine virtuali idonee, Azure Migrate offre un consiglio riguardo alle dimensioni delle macchine in Azure.
 Idoneo per Azure con condizioni | Il computer potrebbe essere avviato in Azure, ma potrebbe non avere il supporto completo di Azure. Ad esempio un computer con una versione precedente di Windows Server non supportata in Azure. | Azure Migrate spiega i problemi di idoneità e indica le procedure di correzione.
 Non idonea per Azure |  La macchina virtuale non verrà avviata in Azure. Ad esempio, il disco di una macchina virtuale locale che supera i 4 TB non può essere ospitato in Azure. | Azure Migrate spiega i problemi di idoneità e indica le procedure di correzione.
 Idoneità sconosciuta | Azure Migrate non è in grado di identificare l'idoneità per Azure, in genere perché i dati non sono disponibili.
@@ -91,7 +91,7 @@ Per l'idoneità si tiene conto di un certo numero di proprietà della macchina v
 **Proprietà** | **Dettagli** | **Idoneità**
 --- | --- | ---
 **Tipo di avvio** | BIOS supportato. UEFI non supportato. | Idoneo con condizioni se il tipo di avvio è UEFI.
-**Core** | Core della macchina virtuale < = numero massimo di core (128) supportati per una macchina virtuale di Azure.<br/><br/> Se è disponibile la cronologia delle prestazioni, Azure Migrate prende in considerazione i core utilizzati.<br/>Se <br/>nelle impostazioni di valutazione è specificato un fattore di comfort, il numero di core utilizzati viene moltiplicato per questo fattore.<br/><br/> In mancanza di una cronologia delle prestazioni, Azure Migrate usa i core allocati senza applicare il fattore di comfort. | Idoneo se è minore o uguale ai limiti.
+**Core** | Core della macchina virtuale < = numero massimo di core (128) supportati per una macchina virtuale di Azure.<br/><br/> Se è disponibile la cronologia delle prestazioni, Azure Migrate prende in considerazione i core utilizzati.<br/>Se nelle impostazioni di valutazione è specificato un fattore di comfort, il numero di core utilizzati viene moltiplicato per questo fattore.<br/><br/> In mancanza di una cronologia delle prestazioni, Azure Migrate usa i core allocati senza applicare il fattore di comfort. | Idoneo se è minore o uguale ai limiti.
 **Memoria** | La dimensione della memoria del computer deve essere minore o uguale alla memoria massima per una macchina virtuale di Azure, ovvero 3892 GB per standard_M128m&nbsp;<sup>2</sup> di Azure serie M. [Altre informazioni](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)<br/><br/> Se è disponibile la cronologia delle prestazioni, Azure Migrate prende in considerazione la memoria utilizzata.<br/><br/>Se è specificato un fattore di comfort, la memoria utilizzata viene moltiplicata per questo fattore.<br/><br/> In mancanza di una cronologia, si usa la memoria allocata senza applicare il fattore di comfort.<br/><br/> | Idoneo se rientra nei limiti.
 **Disco di archiviazione** | Le dimensioni allocate di un disco non devono superare i 4 TB (4096 GB).<br/><br/> I dischi collegati al computer non devono essere più di 65, incluso il disco del sistema operativo. | Idoneo se rientra nei limiti.
 **Rete** | A un computer non devono essere collegati più di 32 NIC. | Idoneo se rientra nei limiti.
@@ -216,7 +216,7 @@ Dopo aver configurato un'area di lavoro, è necessario scaricare e installare gl
 4. Copiare l'ID e la chiave dell'area di lavoro. Questi dati sono necessari quando si installa MMA nel computer locale.
 
 > [!NOTE]
-> Per automatizzare l'installazione degli agenti è possibile usare uno strumento di distribuzione come System Center Configuration Manager o uno strumento dei partner come [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), che offre una soluzione di distribuzione degli agenti per Azure Migrate.
+> Per automatizzare l'installazione degli agenti è possibile usare uno strumento di distribuzione come System Center Configuration Manager o uno strumento di partner come [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), che offre una soluzione di distribuzione degli agenti per Azure Migrate.
 
 
 #### <a name="install-the-mma-agent-on-a-windows-machine"></a>Installare l'agente MMA in un computer Windows

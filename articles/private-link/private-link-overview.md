@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: overview
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: fc3ae87ce5c4547526ae50f371684ac14dfcf266
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 0c5541d7a80c3b6157ccadd979412163122ca8a2
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104651"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300743"
 ---
 # <a name="what-is-azure-private-link-preview"></a>Che cos'è Collegamento privato di Azure? (Anteprima)
 Collegamento privato di Azure consente di accedere ai servizi PaaS di Azure, ad esempio Database SQL e Archiviazione di Azure, e ai servizi di clienti/partner ospitati in Azure tramite un [endpoint privato](private-endpoint-overview.md) nella rete virtuale. Il traffico tra la rete virtuale e il servizio attraversa la rete backbone Microsoft, impedendone l'esposizione alla rete Internet pubblica. È anche possibile creare un proprio [servizio Collegamento privato](private-link-service-overview.md) nella rete virtuale e distribuirlo privatamente ai clienti. Collegamento privato di Azure offre un'esperienza di configurazione e utilizzo coerente per i servizi PaaS di Azure, i servizi di proprietà dei clienti e quelli condivisi dei partner.
@@ -40,11 +40,11 @@ Collegamento privato di Azure offre i vantaggi descritti di seguito.
 
 |Scenario  |Servizi supportati   |Aree disponibili | Stato   |
 |---------|---------|---------|---------|
-|Collegamento privato per servizi di proprietà dei clienti|Servizi Collegamento privato dietro Load Balancer Standard |Stati Uniti centro-occidentali, Stati Uniti occidentali, Stati Uniti centro-meridionali, Stati Uniti orientali, Stati Uniti settentrionali  |  Anteprima  |
+|Collegamento privato per servizi di proprietà dei clienti|Servizi Collegamento privato dietro Load Balancer Standard |Stati Uniti centro-occidentali, Stati Uniti occidentali, Stati Uniti centro-meridionali, Stati Uniti orientali, Stati Uniti centro-settentrionali  |  Anteprima  |
 |Collegamento privato per servizi PaaS di Azure   | Archiviazione di Azure        |  Stati Uniti orientali, Stati Uniti occidentali, Stati Uniti centro-occidentali       | Anteprima         |
 |  | Azure Data Lake Storage Gen2        |  Stati Uniti orientali, Stati Uniti occidentali, Stati Uniti centro-occidentali       | Anteprima         |
-|  |  database SQL di Azure         | Stati Uniti centro-occidentali, Stati Uniti occidentali, Stati Uniti centro-meridionali, Stati Uniti orientali, Stati Uniti settentrionali       |   Anteprima      |
-||Azure SQL Data Warehouse| Stati Uniti centro-occidentali, Stati Uniti occidentali, Stati Uniti centro-meridionali, Stati Uniti orientali, Stati Uniti settentrionali |Anteprima|
+|  |  database SQL di Azure         | Stati Uniti centro-occidentali, Stati Uniti occidentali, Stati Uniti centro-meridionali, Stati Uniti orientali, Stati Uniti centro-settentrionali      |   Anteprima      |
+||Azure SQL Data Warehouse| Stati Uniti centro-occidentali, Stati Uniti occidentali, Stati Uniti centro-meridionali, Stati Uniti orientali, Stati Uniti centro-settentrionali |Anteprima|
 
 Per le notifiche più aggiornate, vedere la [pagina degli aggiornamenti relativi a Rete virtuale di Azure](https://azure.microsoft.com/updates/?product=virtual-network). 
 

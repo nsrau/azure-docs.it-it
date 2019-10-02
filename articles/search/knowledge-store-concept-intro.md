@@ -5,16 +5,15 @@ manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
-ms.subservice: cognitive-search
 ms.topic: overview
 ms.date: 08/02/2019
 ms.author: heidist
-ms.openlocfilehash: f4308cf0309725fc0ba3b5feb047d04af2ebbe66
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: ec0bf6002d8e90b41c2eed3c21f53e38f0fbbe8f
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69638191"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265212"
 ---
 # <a name="what-is-knowledge-store-in-azure-search"></a>Che cos'è il knowledge store in Ricerca di Azure?
 
@@ -26,13 +25,13 @@ L'archivio conoscenze è una funzionalità di Ricerca di Azure che consente di s
 
 Se in passato è stata usata la ricerca cognitiva, si sa già che è possibile usare i set di competenze per spostare un documento attraverso una sequenza di arricchimenti. Il risultato può essere rappresentato da un indice di Ricerca di Azure o (novità in questa anteprima) da proiezioni in un knowledge store. I due output, l'indice di ricerca e l'archivio conoscenze, sono fisicamente distinti tra loro. Condividono lo stesso contenuto, ma vengono archiviati e usati in modi molto diversi.
 
-A livello fisico, l'archivio conoscenze viene creato in un account di archiviazione di Azure, come archiviazione tabelle o archiviazione BLOB di Azure, a seconda della configurazione della pipeline. Qualsiasi strumento o processo in grado di connettersi ad archiviazione di Azure può usare il contenuto di un archivio conoscenze.
+A livello fisico, un archivio conoscenze è un account di archiviazione di Azure, corrispondente a un archivio tabelle di Azure, un archivio BLOB o entrambi a seconda della configurazione della pipeline. Qualsiasi strumento o processo in grado di connettersi ad archiviazione di Azure può usare il contenuto di un archivio conoscenze.
 
 Le proiezioni sono un meccanismo per strutturare i dati in un archivio conoscenze. Ad esempio, tramite le proiezioni è possibile scegliere se l'output viene salvato come singolo BLOB o come raccolta di tabelle correlate. Un modo semplice per visualizzare il contenuto dell'archivio conoscenze è tramite lo strumento predefinito [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) per archiviazione di Azure.
 
 ![Diagramma del knowledge store nella pipeline](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Diagramma del knowledge store nella pipeline")
 
-Per usare il knowledge store, aggiungere un elemento `knowledgeStore` a un set di competenze che definisce le operazioni graduali in una pipeline di indicizzazione. Durante l'esecuzione, Ricerca di Azure crea uno spazio nell'account di archiviazione di Azure e vi inserisce le definizioni e i contenuti creati dalla pipeline.
+Per usare il knowledge store, aggiungere un elemento `knowledgeStore` a un set di competenze che definisce le operazioni graduali in una pipeline di indicizzazione. Durante l'esecuzione, Ricerca di Azure crea uno spazio nell'account di archiviazione di Azure e proietta i documenti arricchiti con la definizione creata nella pipeline.
 
 ## <a name="benefits-of-knowledge-store"></a>Vantaggi del knowledge store
 
@@ -105,6 +104,13 @@ Se si ha già familiarità con l'indicizzazione basata intelligenza artificiale,
 
             ], 
             "objects": [ 
+               
+            ]      
+        },
+        { 
+            "tables": [ 
+            ], 
+            "objects": [ 
                 { 
                 "storageContainer": "Reviews", 
                 "format": "json", 
@@ -112,7 +118,7 @@ Se si ha già familiarità con l'indicizzazione basata intelligenza artificiale,
                 "key": "/document/Review/Id" 
                 } 
             ]      
-        }    
+        }        
     ]     
     } 
 }
@@ -132,7 +138,7 @@ I dati o documenti che si vuole arricchire devono esistere in un'origine dati di
 
 * [Archivio BLOB di Azure](search-howto-indexing-azure-blob-storage.md)
 
-L'[archiviazione tabelle di Azure](search-howto-indexing-azure-tables.md) può essere usata per i dati in uscita in un knowledge store, ma non può essere usata come risorsa per i dati in ingresso in una pipeline di indicizzazione basata su intelligenza artificiale.
+* [Archivio tabelle di Azure](search-howto-indexing-azure-tables.md)
 
 ### <a name="2---azure-search-service"></a>2 - Servizio Ricerca di Azure
 
@@ -143,17 +149,17 @@ Ricerca di Azure fornisce la funzione di indicizzatore, e gli indicizzatori veng
 | Oggetto | API REST | DESCRIZIONE |
 |--------|----------|-------------|
 | Origine dati | [Creare un'origine dati](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Risorsa che identifica un'origine dati esterna di Azure che fornisce dati di origine usati per creare documenti arricchiti.  |
-| Set di competenze | [Creare un set di competenze (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Risorsa che coordina l'utilizzo di [competenze predefinite](cognitive-search-predefined-skills.md) e [competenze cognitive personalizzate](cognitive-search-custom-skill-interface.md) usate in una pipeline di arricchimento durante l'indicizzazione. |
+| Set di competenze | [Creare un set di competenze (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Risorsa che coordina l'utilizzo di [competenze predefinite](cognitive-search-predefined-skills.md) e [competenze cognitive personalizzate](cognitive-search-custom-skill-interface.md) usate in una pipeline di arricchimento durante l'indicizzazione. |
 | index | [Creare un indice](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Schema che esprime un indice di Ricerca di Azure. Viene eseguito il mapping dei campi nell'indice con i campi nei dati di origine o i campi prodotti durante la fase di arricchimento (ad esempio, un campo per i nomi dell'organizzazione creati dal riconoscimento entità). |
 | Indicizzatore | [Creare un indicizzatore (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Risorsa che definisce i componenti usati durante l'indicizzazione, incluso un'origine dati, un set di competenze, associazioni di campi dalle strutture dei dati di origine e intermedie all'indice di destinazione, oltre all'indice stesso. L'esecuzione dell'indicizzatore è il trigger di inserimento dati e arricchimento. L'output è un indice di ricerca basato sullo schema dell'indice, popolato con dati di origine e arricchito da set di competenze.  |
 
 ### <a name="3---cognitive-services"></a>3 - Servizi cognitivi
 
-Gli arricchimenti specificati in un set di competenze si basano sulle funzionalità Visione artificiale e Lingua di Servizi cognitivi. Le funzionalità di Servizi cognitivi vengono usate durante l'indicizzazione tramite un set di competenze. Un set di competenze è una composizione di competenze, e le competenze sono associate alle funzionalità specifiche Visione artificiale e Lingua. Per integrare i Servizi Cognitivi, è possibile [collegare una risorsa Servizi cognitivi](cognitive-search-attach-cognitive-services.md) a un set di competenze.
+Gli arricchimenti specificati in un set di competenze sono personalizzati o basati sulle funzionalità Visione artificiale e Lingua di Servizi cognitivi. Le funzionalità di Servizi cognitivi vengono usate durante l'indicizzazione tramite un set di competenze. Un set di competenze è una composizione di competenze, e le competenze sono associate alle funzionalità specifiche Visione artificiale e Lingua. Per integrare i Servizi Cognitivi, è possibile [collegare una risorsa Servizi cognitivi](cognitive-search-attach-cognitive-services.md) a un set di competenze.
 
 ### <a name="4---storage-account"></a>4 - Account di archiviazione
 
-Nell'account di archiviazione di Azure Ricerca di Azure crea un contenitore BLOB o tabelle, a seconda di come si configura un set di competenze. Se i dati provengono da Archiviazione BLOB di Azure o da Archiviazione tabelle di Azure, non ci sono altre operazioni da eseguire. In caso contrario, sarà necessario creare un account di archiviazione di Azure. Le tabelle e gli oggetti nell'archiviazione di Azure contengono i documenti arricchiti creati dalla pipeline di indicizzazione basata su intelligenza artificiale.
+Nell'account di archiviazione di Azure, Ricerca di Azure crea un contenitore BLOB, tabelle o entrambi, a seconda di come si configurano le proiezioni nel set di competenze. Se i dati provengono da un archivio BLOB o tabelle di Azure, le impostazioni sono già presenti ed è possibile riusare l'account di archiviazione. In caso contrario, sarà necessario creare un account di archiviazione di Azure. Le tabelle e gli oggetti nell'archiviazione di Azure contengono i documenti arricchiti creati dalla pipeline di indicizzazione basata su intelligenza artificiale.
 
 L'account di archiviazione viene specificato nel set di competenze. In `api-version=2019-05-06-Preview`, una definizione di set di competenze include una definizione di knowledge store in modo da poter fornire le informazioni sull'account.
 
@@ -179,15 +185,13 @@ All'interno dell'account di archiviazione, gli arricchimenti possono essere espr
 
 + L'archiviazione BLOB crea una rappresentazione JSON completa di ogni documento. È possibile usare entrambe le opzioni di archiviazione in un unico set di competenze per ottenere una gamma completa di espressioni.
 
-+ Ricerca di Azure salva in modo permanente il contenuto in un indice. Se lo scenario non è legato alla ricerca, ad esempio se l'obiettivo è l'analisi in un altro strumento, è possibile eliminare l'indice che creato dalla pipeline. Ma è anche possibile mantenere l'indice e usare uno strumento incorporato come [Esplora ricerche](search-explorer.md) come supporto terzo (dietro Storage Explorer e un'app di analisi) per l'interazione con il contenuto.
-
-Insieme ai contenuti dei documenti, i documenti arricchiti includono i metadati della versione del set di competenze che ha prodotto gli arricchimenti.  
++ Ricerca di Azure salva in modo permanente il contenuto in un indice. Se lo scenario non è legato alla ricerca, ad esempio se l'obiettivo è l'analisi in un altro strumento, è possibile eliminare l'indice che creato dalla pipeline. Ma è anche possibile mantenere l'indice e usare uno strumento incorporato come [Esplora ricerche](search-explorer.md) come supporto terzo (dietro Storage Explorer e un'app di analisi) per l'interazione con il contenuto.  
 
 ## <a name="inside-a-knowledge-store"></a>All'interno di un knowledge store
 
-Il knowledge store è costituito da una cache di annotazione e proiezioni. La *cache* viene usata dal servizio internamente per memorizzare nella cache i risultati delle competenze e tenere traccia delle modifiche. Una *proiezione* definisce lo schema e la struttura degli arricchimenti che corrispondono all'uso previsto. Esiste una cache per knowledge store, ma più proiezioni. 
+ Una *proiezione* definisce lo schema e la struttura degli arricchimenti che corrispondono all'uso previsto. Se sono presenti applicazioni che utilizzano i dati in formati e forme diversi, è possibile definire più proiezioni. 
 
-La cache è sempre un contenitore BLOB, ma le proiezioni possono essere articolate come tabelle o oggetti:
+Le proiezioni possono essere articolate come oggetti o tabelle:
 
 + Come oggetto, la proiezione esegue il mapping all'archiviazione BLOB, in cui la proiezione viene salvata in un contenitore, all'interno del quale di trovano gli oggetti o le rappresentazioni gerarchiche in formato JSON per scenari come ad esempio una pipeline di data science.
 

@@ -1,21 +1,18 @@
 ---
-title: "Guida introduttiva: Configurare l'intelligenza artificiale geografica"
-titleSuffix: Azure Data Science Virtual Machine
-description: Informazioni su come creare e configurare la Data Science Virtual Machine con intelligenza artificiale geografica. La Data Science Virtual Machine con intelligenza artificiale geografica offre gli strumenti necessari per creare soluzioni di intelligenza artificiale e Machine Learning usando i dati geografici.
-keywords: apprendimento avanzato, AI, strumenti di data science, macchina virtuale per data science, analisi geospaziale
-services: machine-learning
+title: 'Guida introduttiva: Creare una Data Science Virtual Machine con intelligenza artificiale geografica'
+description: Configurare e creare una Data Science Virtual Machine con intelligenza artificiale geografica in Azure per l'analisi geospaziale e il Machine Learning.
 ms.service: machine-learning
 ms.subservice: data-science-vm
-author: vijetajo
-ms.author: vijetaj
+author: gvashishtha
+ms.author: gopalv
 ms.topic: quickstart
-ms.date: 03/05/2018
-ms.openlocfilehash: 7afeec3f71cd1af30093801fedabf3f0357ae3d0
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.date: 09/13/2019
+ms.openlocfilehash: 6b32d1f76091d7bbb8f870402020d0ac247d425b
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208052"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170717"
 ---
 # <a name="quickstart-set-up-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Guida introduttiva: Configurare una macchina virtuale con intelligenza artificiale geografica in Azure 
 

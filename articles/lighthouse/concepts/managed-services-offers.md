@@ -4,15 +4,15 @@ description: Le offerte di servizi gestiti consentono ai provider di servizi di 
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 07/11/2019
+ms.date: 09/19/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: a6fcf5f1d0ac194d60f834fb8d26db019c538410
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 0a6371a1020182650d83d5e7ec9bb2378b44b557
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810875"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155262"
 ---
 # <a name="managed-services-offers-in-azure-marketplace"></a>Offerte di servizi gestiti in Azure Marketplace
 
@@ -20,9 +20,9 @@ Questo articolo descrive il nuovo tipo di offerta **Servizi gestiti** in [Azure 
 
 ## <a name="understand-managed-services-offers"></a>Informazioni sulle offerte di servizi gestiti
 
-Le offerte di servizi gestiti semplificano il processo di onboarding dei clienti per la gestione delle risorse delegate di Azure. Quando un cliente acquista un'offerta in Azure Marketplace, potrà specificare le sottoscrizioni e/o i gruppi di risorse di cui eseguire l'onboarding in modo che gli utenti specificati dell'organizzazione possano eseguire attività amministrative per il cliente dal tenant dell'organizzazione.
+Le offerte di servizi gestiti semplificano il processo di onboarding dei clienti per la gestione delle risorse delegate di Azure. Quando un cliente acquista un'offerta in Azure Marketplace, può specificare le sottoscrizioni e/o i gruppi di risorse di cui deve essere eseguito l'onboarding. Si noti che è prima di tutto necessario autorizzare la sottoscrizione per l'onboarding registrando manualmente il provider di risorse **Microsoft.ManagedServices**.
 
-Non sono necessarie altre azioni da parte del cliente o del provider di servizi per eseguire l'onboarding del cliente. Quando infatti si definisce l'offerta nel [portale Cloud Partner](https://cloudpartner.azure.com/), si crea un manifesto che specifica gli utenti, i gruppi e le entità servizio di Azure AD che avranno accesso alle risorse del cliente usando la gestione delle risorse delegate di Azure, insieme ai ruoli che definiscono il livello di accesso. Assegnando le autorizzazioni a un gruppo di Azure AD invece che a una serie di singoli account utente o applicazione, è possibile aggiungere o rimuovere singoli utenti quando cambiano i requisiti di accesso.
+Successivamente, gli utenti dell'organizzazione potranno eseguire le attività di amministrazione per tali risorse dal tenant dell'organizzazione, in base all'accesso definito durante la creazione dell'offerta nel [portale Cloud Partner](https://cloudpartner.azure.com/). A tale scopo si usa un manifesto che specifica gli utenti, i gruppi e le entità servizio di Azure AD che avranno accesso alle risorse del cliente con la gestione risorse delegate di Azure, insieme ai ruoli che ne definiscono il livello di accesso. Assegnando le autorizzazioni a un gruppo di Azure AD invece che a una serie di singoli account utente o applicazione, è possibile aggiungere o rimuovere singoli utenti quando cambiano i requisiti di accesso.
 
 ## <a name="public-and-private-offers"></a>Offerte pubbliche e private
 
