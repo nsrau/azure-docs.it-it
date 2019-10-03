@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/18/2019
+ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 4dc5f88f7a5994e5bcd50d71c86bf1ba35b10734
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 862ec629504da4d8ee7eadd8f9b925984d96614c
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "68321775"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71718885"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Visualizzare e scaricare la fattura di Microsoft Azure
 
@@ -72,7 +72,7 @@ Le fatture vengono generate per ogni [profilo di fatturazione](billing-mca-overv
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Cercare *Gestione dei costi e fatturazione*.
-1. Selezionare un profilo di fatturazione. In base all'accesso, potrebbe essere necessario selezionare prima un account di fatturazione.
+1. Selezionare un profilo di fatturazione. A seconda dell'accesso, potrebbe essere necessario selezionare prima un account di fatturazione.
 1. Selezionare **Fatture**.
 1. Nella griglia della fattura trovare la riga della fattura da scaricare.
 1. Fare clic sui puntini di sospensione (`...`) alla fine della riga.
@@ -111,7 +111,7 @@ Per rifiutare esplicitamente di ricevere la fattura tramite posta elettronica, s
 
 ### <a name="get-your-microsoft-customer-agreement-invoices-in-email"></a>Ricevere le fatture del Contratto del cliente Microsoft tramite posta elettronica
 
-Se si dispone di un Contratto del cliente Microsoft, è possibile acconsentire esplicitamente a ricevere la fattura tramite posta elettronica. Tutti gli utenti con il ruolo di proprietario, collaboratore, lettore o gestione fatture del profilo di fatturazione riceveranno la fattura tramite posta elettronica. I lettori non possono aggiornare la preferenza per la fattura tramite posta elettronica.
+Se si ha un Contratto del cliente Microsoft, è possibile acconsentire esplicitamente a ricevere la fattura tramite posta elettronica. Tutti gli utenti con il ruolo di proprietario, collaboratore, lettore o gestione fatture del profilo di fatturazione riceveranno la fattura tramite posta elettronica. I lettori non possono aggiornare la preferenza per la fattura tramite posta elettronica.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Cercare **Gestione dei costi e fatturazione**.

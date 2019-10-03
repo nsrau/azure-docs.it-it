@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 09/30/2019
 ms.author: diberry
-ms.openlocfilehash: 376c2efbf3269092d0534870108ef6d753f8743e
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: bad581fbc53292b5a7c25157ef839e07f33e131e
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962540"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827890"
 ---
 # <a name="personalizer-settings"></a>Impostazioni di Personalizza esperienze
 
@@ -61,7 +61,7 @@ Le modifiche apportate a questa impostazione reimpostano il modello corrente di 
 
 Dopo aver cambiato questa impostazione, assicurarsi di selezionare **Salva**.
 
-### <a name="model-update-frequency"></a>Model update frequency (Frequenza di aggiornamento del modello)
+### <a name="model-update-frequency"></a>Frequenza di aggiornamento del modello
 
 Il modello più recente, sottoposto a training dalle chiamate all'API per le ricompense da tutti gli eventi attivi, non viene usato automaticamente dalla chiamata a Classifica di Personalizza esperienze. **Frequenza di aggiornamento del modello** imposta la frequenza con cui viene aggiornato il modello usato dalla chiamata a Classifica. 
 
@@ -87,6 +87,21 @@ Nella sezione **Model and Policy** (Modello e criteri) di Gestione risorse esami
 
 Nella sezione **Model and Policy** (Modello e criteri) di Gestione risorse importare un nuovo criterio di apprendimento oppure esportare quello corrente.
 È possibile ottenere i file dei criteri di apprendimento dalle esportazioni precedenti oppure scaricare i criteri ottimizzati individuati durante le valutazioni offline. Apportare modifiche manuali a questi file influirà sulle prestazioni e sull'accuratezza delle valutazioni offline e Microsoft non è in grado di garantire l'accuratezza di machine learning e valutazioni oppure le eccezioni dei servizi derivanti da criteri modificati manualmente.
+
+## <a name="clear-data-for-your-learning-loop"></a>Cancellare i dati per il ciclo di apprendimento
+
+1. Nel portale di Azure, per la risorsa di personalizzazione, nella pagina **modello e criterio** selezionare **Cancella dati**.
+1. Per cancellare tutti i dati e reimpostare il ciclo di apprendimento sullo stato originale, selezionare tutte e tre le caselle di controllo.
+
+    ![In portale di Azure cancellare i dati dalla risorsa di personalizzazione.](./media/settings/clear-data-from-personalizer-resource.png)
+
+    |Impostazione|Scopo|
+    |--|--|
+    |Personalizzazione e dati di ricompensa registrati.|I dati di registrazione vengono usati nelle valutazioni offline. Cancellare i dati se si sta reimpostando la risorsa.|
+    |Reimpostare il modello di personalizzazione.|Questo modello viene modificato a ogni ripetizione del training. Questa frequenza di training è specificata in **carica frequenza modello** nella pagina **Impostazioni** . |
+    |Impostare i criteri di apprendimento su predefinito.|Se sono stati modificati i criteri di apprendimento come parte di una valutazione offline, questo Reimposta i criteri di apprendimento originali.|
+
+1. Selezionare **Cancella dati selezionati** per avviare il processo di cancellazione. Lo stato viene segnalato nelle notifiche di Azure, nella barra di spostamento in alto a destra. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

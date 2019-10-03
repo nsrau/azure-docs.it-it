@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: overview
 ms.date: 08/29/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4f9591b26891ab36ccbfa34126fb1ac1bdb9cf52
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: f8ec833a469e3c3a9b4c88343a48e109fc5c9728
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164804"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338219"
 ---
 # <a name="azure-resource-manager-overview"></a>Panoramica di Gestione risorse di Microsoft Azure
 
@@ -59,7 +59,7 @@ Con Resource Manager è possibile:
 
 ## <a name="understand-scope"></a>Informazioni sull'ambito
 
-Azure offre quattro livelli relativi all'ambito: [gruppi di gestione](../governance/management-groups/index.md), sottoscrizioni, [gruppi di risorse](#resource-groups) e risorse. Nella figura seguente viene illustrato un esempio di questi livelli.
+Azure offre quattro livelli relativi all'ambito: [gruppi di gestione](../governance/management-groups/overview.md), sottoscrizioni, [gruppi di risorse](#resource-groups) e risorse. Nella figura seguente viene illustrato un esempio di questi livelli.
 
 ![Scope](./media/resource-group-overview/scope-levels.png)
 

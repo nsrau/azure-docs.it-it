@@ -7,12 +7,12 @@ ms.date: 03/11/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 473e16c610e7dee0b2838cb1a54ef7cd98958889
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 225f5cfe36daaafb7f6ab5d64e77c626e52edaac
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232980"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338190"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Guida introduttiva: Definire e assegnare un progetto nel portale
 
@@ -223,7 +223,7 @@ Una volta pubblicato, un progetto può essere assegnato a una sottoscrizione. As
 
    1. Selezionare l'**offerta** disponibile nell'elenco a discesa.
 
-   1. Usare i puntini di sospensione per selezionare il [gruppo di gestione](../management-groups/index.md) di cui la sottoscrizione sarà un elemento figlio.
+   1. Usare i puntini di sospensione per selezionare il [gruppo di gestione](../management-groups/overview.md) di cui la sottoscrizione sarà un elemento figlio.
 
    1. Selezionare **Crea** nella parte inferiore della pagina.
 

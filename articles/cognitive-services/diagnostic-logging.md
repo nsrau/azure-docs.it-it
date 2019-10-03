@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 06/14/2019
 ms.author: erhopf
-ms.openlocfilehash: cd380b4e2a7c05f0beedc2ab102b268aa4068f66
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 539a35f170b2ee0c94762a30ed9376ca4a416210
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516365"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827905"
 ---
 # <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>Abilitare la registrazione diagnostica per servizi cognitivi di Azure
 
@@ -35,7 +35,7 @@ Per abilitare la registrazione diagnostica, è necessario un punto in cui archiv
 Per iniziare, abilitare la registrazione diagnostica usando il portale di Azure.
 
 > [!NOTE]
-> Per abilitare questa funzionalità usando PowerShell o l'interfaccia della riga di comando di Azure, usare le istruzioni fornite in [raccogliere e utilizzare i dati di log dalle risorse di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#diagnostic-settings).
+> Per abilitare questa funzionalità usando PowerShell o l'interfaccia della riga di comando di Azure, usare le istruzioni fornite in [raccogliere e utilizzare i dati di log dalle risorse di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
 
 1. Passare al portale di Azure. Individuare e selezionare una risorsa Servizi cognitivi. Ad esempio, la sottoscrizione Ricerca Web Bing.   
 2. Quindi, nel menu di spostamento a sinistra individuare **monitoraggio** e selezionare impostazioni di **diagnostica**. Questa schermata contiene tutte le impostazioni di diagnostica create in precedenza per questa risorsa.
@@ -43,7 +43,7 @@ Per iniziare, abilitare la registrazione diagnostica usando il portale di Azure.
 4. Immettere un nome per l'impostazione. Selezionare quindi **archivia in un account di archiviazione** e **Invia a log Analytics**.
 5. Quando viene richiesto di configurare, selezionare l'account di archiviazione e l'area di lavoro OMS che si vuole usare per archiviare i log di diagnostica. **Nota**: Se non si dispone di un account di archiviazione o di un'area di lavoro OMS, seguire le istruzioni per crearne uno.
 6. Selezionare **Audit**, **RequestResponse**e **AllMetrics**. Impostare quindi il periodo di conservazione per i dati del log di diagnostica. Se un criterio di conservazione è impostato su zero, gli eventi per tale categoria di log vengono archiviati per un periodo illimitato.
-7. Fare clic su **Save**.
+7. Fare clic su **Salva**.
 
 Potrebbero essere necessarie fino a due ore prima che i dati di registrazione siano disponibili per eseguire query e analizzare. Quindi, non c'è da preoccuparsi se non vengono visualizzati immediatamente.
 
