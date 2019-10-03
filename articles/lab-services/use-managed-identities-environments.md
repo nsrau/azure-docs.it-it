@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: spelluru
-ms.openlocfilehash: fc06d5d36cb6004c79bec79838c8f0d51961d560
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
-ms.translationtype: HT
+ms.openlocfilehash: d1dd059f1a6f9ce96b27d4fe1f214978dfc06a8f
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720147"
+ms.locfileid: "71815992"
 ---
 # <a name="use-azure-managed-identities-to-deploy-environments-in-a-lab"></a>Usare le identità gestite di Azure per distribuire gli ambienti in un Lab 
 In qualità di proprietario del Lab, è possibile usare un'identità gestita per distribuire gli ambienti in un Lab. Questa funzionalità è utile negli scenari in cui l'ambiente contiene o contiene riferimenti alle risorse di Azure, ad esempio insiemi di credenziali delle chiavi, raccolte di immagini condivise e reti esterne al gruppo di risorse dell'ambiente. Consente la creazione di ambienti sandbox che non sono limitati al gruppo di risorse dell'ambiente.
@@ -54,7 +54,7 @@ Per modificare l'identità gestita dall'utente assegnata al Lab, rimuovere prima
 1. Dopo aver creato un'identità, prendere nota dell'ID risorsa dell'identità. Dovrebbe essere simile all'esempio seguente: 
 
     `/subscriptions/0000000000-0000-0000-0000-00000000000000/resourceGroups/<RESOURCE GROUP NAME> /providers/Microsoft.ManagedIdentity/userAssignedIdentities/<NAME of USER IDENTITY>` (Indici per tabelle con ottimizzazione per la memoria).
-1. Utilizzando **Fiddler**, eseguire un comando put simile all'esempio seguente. Per il nome del Runner del servizio, è consigliabile usare il nome dell'identità, anche se è possibile specificare qualsiasi nome. 
+1. Eseguire un metodo PUT HTTPS per aggiungere una nuova risorsa `ServiceRunner` al Lab in modo analogo all'esempio seguente. La risorsa di Service Runner è una risorsa proxy per gestire e controllare le identità gestite in DevTest Labs. Il nome del Runner del servizio può essere qualsiasi nome valido, ma è consigliabile usare il nome della risorsa di identità gestita. 
  
     ```json
     PUT https://management.azure.com/subscriptions/{subId}/resourceGroups/{rg}/providers/Microsoft.Devtestlab/labs/{yourlabname}/serviceRunners/{serviceRunnerName}

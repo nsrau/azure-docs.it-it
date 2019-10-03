@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/11/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 22d0e56a77036c551b6006f43997c92fcce07499
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: a0887a66b6cb886419f86d93973b991151141e0a
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273364"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327215"
 ---
 # <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Esercitazione: Bilanciare il carico del traffico Internet verso le macchine virtuali con il portale di Azure
 
@@ -90,7 +90,6 @@ Per consentire all'istanza di Load Balancer di monitorare lo stato dell'app, si 
     | Porta | Immettere *80*.|
     | Interval | Immettere *15* in **Intervallo** come numero di secondi tra i tentativi del probe. |
     | Soglia non integra | Selezionare *2* per **Soglia di non integrità** come numero di errori di probe consecutivi che devono verificarsi prima che una macchina virtuale venga considerata non integra.|
-    | Probe di integrità | Selezionare *myHealthProbe*. |
     
 4. Selezionare **OK**.
 

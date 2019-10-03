@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.date: 7/30/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8453c236f83c4501587789e96545599f1e976eea
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: b2a06e47eec52d860aecdd2d9b57310cce5aeb27
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608064"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315944"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Esercitazione: Creare un gateway applicazione con reindirizzamento basato su percorsi URL usando l'interfaccia della riga di comando di Azure
 
-È possibile usare l'interfaccia della riga di comando di Azure per configurare [regole di routing basato su percorsi URL](application-gateway-url-route-overview.md) quando si crea un [gateway applicazione](application-gateway-introduction.md). In questa esercitazione si creano pool back-end usando i [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Si creano quindi le regole di routing degli URL per garantire che il traffico Web venga reindirizzato nel pool back-end appropriato.
+È possibile usare l'interfaccia della riga di comando di Azure per configurare [regole di routing basato su percorsi URL](tutorial-url-route-cli.md) quando si crea un [gateway applicazione](application-gateway-introduction.md). In questa esercitazione si creano pool back-end usando i [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Si creano quindi le regole di routing degli URL per garantire che il traffico Web venga reindirizzato nel pool back-end appropriato.
 
 In questa esercitazione si apprenderà come:
 

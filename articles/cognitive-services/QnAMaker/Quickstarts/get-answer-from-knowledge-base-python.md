@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 09/03/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: 34c85de456e7ec96f3244d327fd53c91ed90d109
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: f7bf73561cadab866c08ae279d18bc1bd4655983
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306907"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802969"
 ---
 # <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-python"></a>Guida introduttiva: Ottenere risposte a una domanda da una knowledge base con Python
 
@@ -43,6 +43,8 @@ Aprire VSCode e creare un nuovo file denominato `get-answer-3x.py`.
 All'inizio del file `get-answer-3x.py` aggiungere le dipendenze necessarie al progetto:
 
 [!code-python[Add the required dependencies](~/samples-qnamaker-python/documentation-samples/quickstarts/get-answer/get-answer-3x.py?range=1-2 "Add the required dependencies")]
+
+<!--TBD - reword this following paragraph -->
 
 L'host e la route sono diversi rispetto a quanto visualizzato nella pagina **Pubblica**. Questo avviene perché la libreria di Python non consente alcun routing nell'host. Il routing che viene visualizzato nella pagina **Pubblica** come parte dell'host è stato spostato alla route.
 

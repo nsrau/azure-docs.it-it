@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: a020ef91e52a5d801557399df827d3641bfb974e
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 176cde77810a1c75cc18c351969a128fa78348af
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934193"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694917"
 ---
 # <a name="set-up-a-geofence-by-using-azure-maps"></a>Configurare un recinto virtuale con Mappe di Azure
 
@@ -148,10 +148,24 @@ Aprire l'app Postman e seguire questi passaggi per caricare il recinto virtuale 
    }
    ```
 
-5. Fare clic su Send (Invia) e quindi esaminare l'intestazione della risposta. L'intestazione di posizione contiene l'URI per accedere o scaricare i dati per un uso futuro. Include anche un valore `udId` univoco per i dati caricati.
+5. Fare clic su Send (Invia) e quindi esaminare l'intestazione della risposta. Una volta completata la richiesta, l'intestazione **Location** conterrà l'URI di stato per controllare lo stato corrente della richiesta di caricamento. L'URI di stato avrà il formato seguente. 
 
    ```HTTP
-   https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
+   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
+   ```
+
+6. Copiare l'URI di stato e aggiungervi un parametro `subscription-key` con un valore corrispondente alla chiave di sottoscrizione dell'account Mappe di Azure. Il formato dell'URI di stato deve essere simile a quello riportato di seguito:
+
+   ```HTTP
+   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
+   ```
+
+7. Per ottenere l'`udId`, aprire una nuova scheda nell'app Postman e selezionare il metodo GET HTTP nella scheda Builder (Generatore) ed effettuare una richiesta GET nell'URI di stato. Se il caricamento dei dati è riuscito, si riceverà un udId nel corpo della risposta. Copiare l'udId per un uso successivo.
+
+   ```JSON
+   {
+    "udid" : "{udId}"
+   }
    ```
 
 ## <a name="set-up-an-event-handler"></a>Configurare un gestore di eventi

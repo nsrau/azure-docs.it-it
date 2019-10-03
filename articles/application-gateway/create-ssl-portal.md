@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 08/31/2019
+ms.date: 09/27/2019
 ms.author: victorh
-ms.openlocfilehash: b558384fe6bc86cd7b0ebd640407557e23f68ddd
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 53a4fca0c05cd54bae6d01d07e72e1033a247a05
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194571"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327371"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Esercitazione: Configurare un gateway applicazione con la terminazione SSL tramite il portale di Azure
 
@@ -82,7 +82,7 @@ Export-PfxCertificate `
    - **Gruppo di risorse**: selezionare **myResourceGroupAG** come gruppo di risorse. Se non esiste, selezionare **Crea nuovo** per crearlo.
    - **Nome del gateway applicazione**: immettere *myAppGateway* come nome del gateway applicazione.
 
-     ![Creare il nuovo gateway applicazione: Nozioni di base](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
+        ![Creare il nuovo gateway applicazione: Nozioni di base](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
 
 2.  Per le comunicazioni tra le risorse create in Azure è necessaria una rete virtuale. È possibile creare una nuova rete virtuale oppure usarne una esistente. In questo esempio verrà creata una nuova rete virtuale in concomitanza con la creazione del gateway applicazione. Le istanze del gateway applicazione vengono create in subnet separate. In questo esempio vengono create due subnet: una per il gateway applicazione e l'altra per i server back-end.
 
@@ -98,7 +98,7 @@ Export-PfxCertificate `
 
     Selezionare **OK** per chiudere la finestra **Crea rete virtuale** e salvare le impostazioni della rete virtuale.
 
-     ![Creare un nuovo gateway applicazione: rete virtuale](./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png)
+    ![Creare un nuovo gateway applicazione: rete virtuale](./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png)
     
 3. Nella scheda **Informazioni di base** accettare i valori predefiniti per le altre impostazioni e quindi selezionare **Successivo: Front-end**.
 
@@ -110,7 +110,7 @@ Export-PfxCertificate `
 
 2. Scegliere **Crea nuovo** per **Indirizzo IP pubblico** e immettere *myAGPublicIPAddress* per il nome dell'indirizzo IP pubblico, quindi selezionare **OK**. 
 
-     ![Creare il nuovo gateway applicazione: front-end](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
+   ![Creare il nuovo gateway applicazione: front-end](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
 
 3. Selezionare **Avanti: Back-end**.
 
@@ -127,7 +127,7 @@ Il pool back-end viene usato per instradare le richieste ai server back-end che 
 
 3. Nella finestra **Aggiungi un pool back-end** selezionare **Aggiungi** per salvare la configurazione del pool back-end e tornare alla scheda **Back-end**.
 
-     ![Creare il nuovo gateway applicazione: back-end](./media/application-gateway-create-gateway-portal/application-gateway-create-backends.png)
+   ![Creare il nuovo gateway applicazione: back-end](./media/application-gateway-create-gateway-portal/application-gateway-create-backends.png)
 
 4. Nella scheda **Back-end** selezionare **Passaggio successivo: Configurazione**.
 
@@ -152,19 +152,19 @@ Nella scheda **Configurazione** verranno connessi il front-end e il pool back-en
    - **Nome del certificato**: immettere *mycert1* come nome del certificato.
    - **Password**: digitare *Azure123456!* come password.
   
-      Accettare i valori predefiniti per le altre impostazioni nella scheda **Listener**, quindi selezionare la scheda **Destinazioni back-end** per configurare il resto della regola di routing.
+        Accettare i valori predefiniti per le altre impostazioni nella scheda **Listener**, quindi selezionare la scheda **Destinazioni back-end** per configurare il resto della regola di routing.
 
-   ![Creare il nuovo gateway applicazione: listener](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-listener.png)
+   ![Creare il nuovo gateway applicazione: listener](./media/create-ssl-portal/application-gateway-create-rule-listener.png)
 
 4. Nella scheda **Destinazioni back-end** selezionare **myBackendPool** per **Destinazione back-end**.
 
 5. Per **Impostazione HTTP** selezionare **Crea nuovo** per creare una nuova impostazione HTTP. L'impostazione HTTP determinerà il comportamento della regola di routing. Nella finestra **Aggiungi un'impostazione HTTP** visualizzata immettere *myHTTPSetting* per **Nome impostazione HTTP**. Accettare i valori predefiniti per le altre impostazioni nella finestra **Aggiungi un'impostazione HTTP** e quindi selezionare **Aggiungi** per tornare alla finestra **Aggiungi una regola di routing**. 
 
-     ![Creare il nuovo gateway applicazione: impostazione HTTP](./media/application-gateway-create-gateway-portal/application-gateway-create-httpsetting.png)
+   ![Creare il nuovo gateway applicazione: impostazione HTTP](./media/create-ssl-portal/application-gateway-create-httpsetting.png)
 
 6. Nella finestra **Aggiungi una regola di routing** selezionare **Aggiungi** per salvare la regola di routing e tornare alla scheda **Configurazione**.
 
-     ![Creare il nuovo gateway applicazione: regola di routing](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-backends.png)
+   ![Creare il nuovo gateway applicazione: regola di routing](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-backends.png)
 
 7. Selezionare **Avanti: Tag** e quindi **Passaggio successivo: Rivedi e crea**.
 
@@ -214,17 +214,17 @@ In questo esempio viene installato IIS nelle macchine virtuali solo per verifica
 
 2. Eseguire questo comando per installare IIS nella macchina virtuale: 
 
-    ```azurepowershell-interactive
-    Set-AzVMExtension `
-      -ResourceGroupName myResourceGroupAG `
-      -ExtensionName IIS `
-      -VMName myVM `
-      -Publisher Microsoft.Compute `
-      -ExtensionType CustomScriptExtension `
-      -TypeHandlerVersion 1.4 `
-      -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
-      -Location EastUS
-    ```
+   ```azurepowershell-interactive
+          Set-AzVMExtension `
+            -ResourceGroupName myResourceGroupAG `
+            -ExtensionName IIS `
+            -VMName myVM `
+            -Publisher Microsoft.Compute `
+            -ExtensionType CustomScriptExtension `
+            -TypeHandlerVersion 1.4 `
+            -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
+            -Location EastUS
+   ```
 
 3. Creare una seconda macchina virtuale e installare IIS seguendo la procedura precedentemente completata. Uso *myVM2* per il nome della macchina virtuale e per l'impostazione **VMName** del cmdlet **Set-AzVMExtension**.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: memildin
-ms.openlocfilehash: 0ae2b695a64e55b493453549627860872166ed25
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b3d05e71726ae37dd30bbb68ceb84b67a3bef0e5
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202495"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71822287"
 ---
 # <a name="apply-disk-encryption-in-azure-security-center"></a>Applicare la crittografia del disco nel Centro sicurezza Azure
 Il Centro sicurezza di Azure suggerisce di applicare la crittografia dischi se sono presenti dischi di VM Windows o Linux che non vengono crittografati con Crittografia dischi di Azure. Crittografia dischi consente di crittografare i dischi delle VM IaaS Windows e Linux.  La crittografia è consigliabile sia per il sistema operativo sia per i volumi di dati della macchina virtuale.
@@ -43,7 +43,7 @@ Per crittografare le macchine virtuali di Azure che in base al Centro sicurezza 
 * Ottenere ed eseguire lo script di Azure PowerShell dei prerequisiti di Crittografia dischi di Azure.
 * Crittografare le macchine virtuali.
 
-L'articolo [Crittografare una macchina virtuale IaaS Windows con Azure PowerShell](../security/azure-disk-encryption-linux-powershell-quickstart.md) illustra questi passaggi. Questo argomento presuppone l'uso di un computer client Windows da cui si esegue la configurazione della crittografia dei dischi.
+L'articolo [Crittografare una macchina virtuale IaaS Windows con Azure PowerShell](../virtual-machines/linux/disk-encryption-powershell-quickstart.md) illustra questi passaggi. Questo argomento presuppone l'uso di un computer client Windows da cui si esegue la configurazione della crittografia dei dischi.
 
 È possibile usare diversi approcci per le macchine virtuali di Azure. Se si ha buona familiarità con Azure PowerShell o l'interfaccia della riga di comando di Azure, è possibile adottare soluzioni alternative. Per altre informazioni su altri approcci, consultare l'articolo sulla [crittografia dischi di Azure](../security/azure-security-disk-encryption.md).
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 06/11/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 41c5e2f01678996406c586eb20043516beaf2184
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3d4251613ac2a00ddc56d5e573b49ced01adf61c
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563188"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703106"
 ---
 # <a name="what-is-language-understanding-luis"></a>Che cos'è il servizio Language Understanding (LUIS)?
 
@@ -123,7 +123,7 @@ Esempi che usano LUIS:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Creare una nuova app LUIS con un dominio [precompilato](luis-get-started-create-app.md) o [personalizzato](luis-quickstart-intents-only.md). [Eseguire query sull'endpoint di stima](luis-get-started-cs-get-intent.md) di un'app IoT pubblica.
+Creare una nuova app LUIS con un dominio [precompilato](luis-get-started-create-app.md) o [personalizzato](luis-quickstart-intents-only.md). [Eseguire query sull'endpoint di stima](luis-get-started-get-intent-from-browser.md) di un'app IoT pubblica.
 
 [bot-framework]: https://docs.microsoft.com/bot-framework/
 [flow]: https://docs.microsoft.com/connectors/luis/

@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 7f47798ec3d0be8885853454ced8c1ea4c2a268c
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 94e9a484afe42f8621380fa685f8bc9faeb894d3
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720384"
+ms.locfileid: "71816045"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Differenze, limitazioni e problemi noti di istanza gestita di T-SQL
 
@@ -544,7 +544,15 @@ Un'istanza gestita inserisce informazioni dettagliate nei log degli errori. Nel 
 
 ## <a name="Issues"></a>Problemi noti
 
-### <a name="change-service-tier-and-create-instance-operations-are-blocked-by-ongioing-database-restore"></a>Modificare il livello di servizio e le operazioni di creazione istanza sono bloccate dal ripristino del database ongioing
+### <a name="wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty"></a>Errore errato restituito durante il tentativo di rimozione di un file non vuoto
+
+**Data** 2019 ottobre
+
+SQL Server/Istanza gestita [non consentire all'utente di eliminare un file non vuoto](https://docs.microsoft.com/sql/relational-databases/databases/delete-data-or-log-files-from-a-database.md#Prerequisites). Se si tenta di rimuovere un file di dati non vuoto utilizzando l'istruzione `ALTER DATABASE REMOVE FILE`, l'errore `Msg 5042 – The file '<file_name>' cannot be removed because it is not empty` non verrà restituito immediatamente. Istanza gestita continuerà a eliminare il file e l'operazione avrà esito negativo dopo 30min con `Internal server error`.
+
+**Soluzione temporanea**: Rimuovere il contenuto del file utilizzando il comando `DBCC SHRINKFILE (N'<file_name>', EMPTYFILE)`. Se si tratta dell'unico file del filegroup, è necessario eliminare i dati dalla tabella o dalla partizione associata a questo filegroup prima di compattare il file e, facoltativamente, caricare i dati in un'altra tabella o partizione.
+
+### <a name="change-service-tier-and-create-instance-operations-are-blocked-by-ongoing-database-restore"></a>Modificare il livello di servizio e le operazioni di creazione istanza sono bloccate dal ripristino del database in corso
 
 **Data** 2019 Sep
 

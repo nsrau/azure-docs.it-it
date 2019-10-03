@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7cbddc4b7af546396a1a5a4c86d349a96054a6f3
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 4c065e1970a01f7e3737f8bd99672c84f2019bfe
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726264"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71822329"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Appendice per Crittografia dischi di Azure 
 
@@ -104,7 +104,7 @@ Prima di iniziare, vedere l'articolo [Prerequisiti](azure-security-disk-encrypti
      ```
 
 ### <a name="bkmk_prereq-script"></a> Uso dello script di PowerShell per i prerequisiti di Crittografia dischi di Azure
-Se si ha già familiarità con i prerequisiti per Crittografia dischi di Azure, è possibile usare lo [script di PowerShell per i prerequisiti di Crittografia dischi di Azure](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Per un esempio d'uso di questo script di PowerShell, vedere [Guida introduttiva alla crittografia di una macchina virtuale](azure-disk-encryption-linux-powershell-quickstart.md). È possibile rimuovere i commenti da una sezione dello script, a partire dalla riga 211, per crittografare tutti i dischi per le macchine virtuali esistenti in un gruppo di risorse esistente. 
+Se si ha già familiarità con i prerequisiti per Crittografia dischi di Azure, è possibile usare lo [script di PowerShell per i prerequisiti di Crittografia dischi di Azure](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Per un esempio d'uso di questo script di PowerShell, vedere [Guida introduttiva alla crittografia di una macchina virtuale](../virtual-machines/linux/disk-encryption-powershell-quickstart.md). È possibile rimuovere i commenti da una sezione dello script, a partire dalla riga 211, per crittografare tutti i dischi per le macchine virtuali esistenti in un gruppo di risorse esistente. 
 
 La tabella seguente illustra i parametri che possono essere usati nello script di PowerShell: 
 
@@ -206,7 +206,7 @@ Usare il comando [`manage-bde`](https://technet.microsoft.com/library/ff829849.a
 
 ### <a name="prerequisites-for-os-disk-encryption"></a>Prerequisiti per la crittografia del disco del sistema operativo
 
-* La macchina virtuale deve usare una distribuzione compatibile con la crittografia del [disco del sistema operativo, come elencato nei sistemi operativi supportati da crittografia dischi di Azure: Linux](azure-security-disk-encryption-prerequisites.md#linux) 
+* La macchina virtuale deve usare una distribuzione compatibile con la crittografia del disco del sistema operativo, come elencato nei sistemi operativi supportati dalla crittografia del disco [Azure: Linux](azure-security-disk-encryption-prerequisites.md#linux) 
 * La macchina virtuale deve essere creata dall'immagine del Marketplace in Azure Resource Manager.
 * VM di Azure con almeno 4 GB di RAM (7 GB consigliati).
 * (Per RHEL e CentOS) Disabilitare SELinux. Per disabilitare SELinux, vedere "4.4.2. Disabling SELinux" (4.4.2. Disabilitazione di SELinux) in [SELinux User's and Administrator's Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) (Manuale dell'utente e dell'amministratore di SELinux) nella VM.
@@ -353,7 +353,7 @@ Configurare la crittografia per l'uso in Azure eseguendo i passaggi seguenti:
     fi
    ```
 
-2. Modificare la configurazione di crittografia in */etc/crypttab*. Il codice dovrebbe essere simile al seguente:
+2. Modificare la configurazione di crittografia in */etc/crypttab*. L'aspetto dovrebbe risultare simile al seguente:
    ```
     xxx_crypt uuid=xxxxxxxxxxxxxxxxxxxxx none luks,discard,keyscript=/usr/local/sbin/azure_crypt_key.sh
     ```
@@ -498,7 +498,7 @@ Per configurare la crittografia per l'uso in Azure, eseguire i passaggi seguenti
    ```bash
     if [ -z "$DRACUT_SYSTEMD" ]; then
    ```
-   in
+   to
    ```bash
     if [ 1 ]; then
    ```

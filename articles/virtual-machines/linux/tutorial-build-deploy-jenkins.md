@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: a62a302748cb7e60b6a857c686d1833ad499cc7a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 42e1ede7c762fef1f33436ea4c757b0c0531a8f2
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70081663"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828435"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Esercitazione: Distribuire l'app su macchine virtuali Linux in Azure con Jenkins e Azure DevOps Services
 
@@ -54,7 +54,7 @@ in un [gruppo di distribuzione](https://docs.microsoft.com/azure/devops/pipeline
 ## <a name="get-the-sample-app"></a>Ottenere l'app di esempio
 
 È necessario disporre di un'app da distribuire archiviata in un repository Git.
-Per questa esercitazione, si consiglia di usare [questa app di esempio disponibile in GitHub](https://github.com/azooinmyluggage/fabrikam-node). Questa esercitazione contiene uno script di esempio usato per installare Node.js e un'applicazione. Per usare il proprio repository, è consigliabile configurare un esempio simile.
+Per questa esercitazione, si consiglia di usare [questa app di esempio disponibile in GitHub](https://github.com/azure-devops/fabrikam-node). Questa esercitazione contiene uno script di esempio usato per installare Node.js e un'applicazione. Per usare il proprio repository, è consigliabile configurare un esempio simile.
 
 Creare un fork di questa app e prendere nota del percorso (URL) per l'uso nei passaggi successivi di questa esercitazione. Per altre informazioni, vedere [Creare una copia tramite fork di un repository](https://help.github.com/articles/fork-a-repo/).    
 

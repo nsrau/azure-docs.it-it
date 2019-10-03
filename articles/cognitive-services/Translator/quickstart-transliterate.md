@@ -11,20 +11,18 @@ ms.topic: quickstart
 ms.date: 09/05/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: b1da3904c0081a7948adc233878a9a30727f3b37
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: fb6e3128bdcd0d60cb24b2af2efab43f1a84aae4
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70393908"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827420"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text"></a>Guida introduttiva: Usare l'API Traduzione testuale per traslitterare un testo
 
 Questo argomento di avvio rapido descrive come traslitterare (convertire) un testo da uno script a un altro usando l'API REST Traduzione testuale. Nell'esempio fornito il giapponese è traslitterato per usare l'alfabeto latino.
 
 Per questa guida introduttiva è necessario avere un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa Traduzione testuale. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/) per ottenere una chiave di sottoscrizione.
-
-[!INCLUDE [Custom subdomains notice](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ::: zone pivot="programming-language-csharp"
 
