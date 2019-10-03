@@ -30,9 +30,12 @@
             - name: 'C# (.NET Core - Windows)'
               href: quickstart-csharp-dotnetcore-windows.md
               displayName: 'recognize speech, speech recognition, speech-to-text, stt'
-            - name: 'C# (piattatorma UWP)'
+            - name: 'C# (piattaforma UWP)'
               href: quickstart-csharp-uwp.md
               displayName: 'recognize speech, speech recognition, speech-to-text, stt, universal windows platform'
+            - name: 'C# (Xamarin)'
+              href: quickstart-csharp-xamarin.md
+              displayName: 'recognize speech, speech recognition, speech-to-text, stt, universal windows platform, android, ios, xamarin, cross-platform'
             - name: 'C# (Unity)'
               href: quickstart-csharp-unity.md
               displayName: 'recognize speech, speech recognition, speech-to-text, stt, unity 3d, windows, android, universal windows platform, uwp'
@@ -79,7 +82,7 @@
             - name: 'C# (.NET Framework - Windows)'
               href: quickstart-translate-speech-dotnetframework-windows.md
               displayName: 'translate speech, speech translation, translator, s2s, speech to speech'
-            - name: 'C# (piattatorma UWP)'
+            - name: 'C# (piattaforma UWP)'
               href: quickstart-translate-speech-uwp.md
               displayName: 'translate speech, speech translation, translator, s2s, speech to speech, universal windows platform'
             - name: C++ (Windows)
@@ -96,7 +99,7 @@
             - name: 'C# (.NET Core - Windows)'
               href: quickstart-text-to-speech-dotnetcore.md
               displayName: 'synthesize speech, speech synthesis, text-to-speech, tts'
-            - name: 'C# (piattatorma UWP)'
+            - name: 'C# (piattaforma UWP)'
               href: quickstart-text-to-speech-csharp-uwp.md
               displayName: 'synthesize speech, speech synthesis, text-to-speech, tts, universal windows platform'
             - name: 'C# (Unity)'
@@ -108,9 +111,30 @@
             - name: C++ (Linux)
               href: quickstart-text-to-speech-cpp-linux.md
               displayName: 'synthesize speech, speech synthesis, text-to-speech, tts'
+            - name: Java (Android)
+              href: quickstart-text-to-speech-java-android.md
+              displayName: 'synthesize speech, speech synthesis, text-to-speech, tts'
+            - name: 'Java (Windows, Linux, macOS)'
+              href: quickstart-text-to-speech-java-jre.md
+              displayName: 'synthesize speech, speech synthesis, text-to-speech, tts, jre, jvm'
+            - name: Objective-C (iOS)
+              href: quickstart-text-to-speech-objectivec-ios.md
+              displayName: 'synthesize speech, speech synthesis, text-to-speech, tts, xcode'
+            - name: Objective-C (macOS)
+              href: quickstart-text-to-speech-objectivec-macos.md
+              displayName: 'synthesize speech, speech synthesis, text-to-speech, tts, xcode'
+            - name: Swift (iOS)
+              href: quickstart-text-to-speech-swift-ios.md
+              displayName: 'synthesize speech, speech synthesis, text-to-speech, tts, xcode'
+            - name: Swift (macOS)
+              href: quickstart-text-to-speech-swift-macos.md
+              displayName: 'synthesize speech, speech synthesis, text-to-speech, tts, xcode'
+            - name: Python
+              href: quickstart-text-to-speech-python.md
+              displayName: 'synthesize speech, speech synthesis, text-to-speech, tts'
         - name: Assistenti vocali voice-first (anteprima)
           items:
-            - name: 'C# (piattatorma UWP)'
+            - name: 'C# (piattaforma UWP)'
               href: quickstart-virtual-assistant-csharp-uwp.md
               displayName: 'virtual assistant, speech-enabled bot, conversational agent, universal windows platform'
             - name: 'Java (Windows, macOS, Linux)'
@@ -178,7 +202,13 @@
       href: how-to-use-audio-input-streams.md
     - name: Utilizzare flussi di input audio compressi del codec (SDK)
       href: how-to-use-codec-compressed-audio-input-streams.md
-      displayName: 'mp3, opus, ogg, flac'
+      displayName: 'mp3, opus, ogg, flac, alaw, mulaw'
+    - name: Utilizzare flussi di input audio compressi del codec (SDK) in Android
+      href: how-to-use-codec-compressed-audio-input-streams-android.md
+      displayName: 'mp3, opus, ogg, flac, alaw, mulaw'
+    - name: Utilizzare flussi di input audio compressi del codec (SDK) in iOS
+      href: how-to-use-codec-compressed-audio-input-streams-ios.md
+      displayName: 'mp3, opus, ogg, flac, alaw, mulaw'
     - name: Selezionare un dispositivo di input audio (SDK)
       href: how-to-select-audio-input-devices.md
       displayName: 'audio, microphone, input, device'

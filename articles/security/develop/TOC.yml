@@ -7,6 +7,12 @@
       items:
         - name: App Web in un contenitore Linux
           href: secure-web-app.md
+        - name: App Web con Azure Active Directory
+          href: secure-aad-app.md
+    - name: Soluzioni conformi al settore
+      items:
+        - name: Payment Card Industry
+          href: secure-pci-web-app.md
 - name: Concetti
   expanded: true
   items:

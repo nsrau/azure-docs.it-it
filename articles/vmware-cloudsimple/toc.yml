@@ -10,6 +10,8 @@
     - name: Guida introduttiva
       expanded: true
       items:
+        - name: Pianificazione della rete
+          href: cloudsimple-network-checklist.md
         - name: Inizializzare ed effettuare il provisioning di capacità
           href: quickstart-create-cloudsimple-service.md
         - name: Configurare l'ambiente cloud privato
@@ -144,6 +146,8 @@
               href: configure-server-vrealize-automation-endpoint.md
             - name: Eseguire la migrazione delle VM dei carichi di lavoro a un cloud privato
               href: migrate-workloads.md
+            - name: Migrazione tramite Azure Data Box
+              href: migration-using-azure-data-box.md
             - name: Assicurare la disponibilità elevata delle applicazioni in VMware in Azure
               href: ensuring-high-availability.md
             - name: Scegliere una soluzione di bilanciamento del carico

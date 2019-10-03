@@ -113,7 +113,7 @@
       href: concept-generating-thumbnails.md
     - name: Riconoscimento del testo stampato e scritto a mano
       href: concept-recognizing-text.md
-    - name: Rilevamento di contenuti per adulti e spinti
+    - name: Rilevamento contenuto per adulti
       href: concept-detecting-adult-content.md
 - name: Guide alle procedure
   items:

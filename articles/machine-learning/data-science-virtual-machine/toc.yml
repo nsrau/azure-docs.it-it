@@ -4,10 +4,12 @@
 - name: Panoramica
   expanded: true
   items:
-    - name: Che cos'è Data Science Virtual Machine?
+    - name: Che cos'è Data Science Virtual Machine (DSVM)?
       href: overview.md
     - name: Che cos'è la Data Science Virtual Machine con intelligenza artificiale geografica?
       href: geo-ai-dsvm-overview.md
+    - name: Strumenti inclusi in DSVM
+      href: tools-included.md
 - name: Guide introduttive
   expanded: true
   items:

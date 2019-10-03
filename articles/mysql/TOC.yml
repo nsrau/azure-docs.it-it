@@ -4,6 +4,8 @@
   items:
     - name: Informazioni su Database di Azure per MySQL
       href: overview.md
+    - name: Quale opzione di MySQL scegliere?
+      href: select-right-deployment-type.md
 - name: Guide introduttive
   expanded: true
   items:
