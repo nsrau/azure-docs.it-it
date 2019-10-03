@@ -6,14 +6,14 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 7c1855b587ab1d603e9c6ac24a67b0f50065361f
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 9651a61cb7b5c995a46571b7628d5416c08f4161
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67827633"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719655"
 ---
 # <a name="how-azure-databricks-pre-purchase-discount-is-applied"></a>Come viene applicato lo sconto di preacquisto di Azure Databricks
 
@@ -25,7 +25,7 @@ Lo sconto di preacquisto si applica solo all'utilizzo di unità Azure Databricks
 
 ## <a name="pre-purchase-discount-application"></a>Applicazione dello sconto di preacquisto
 
-Il preacquisto di Databricks si applica a tutti i carichi di lavoro e i livelli di Databricks. Il preacquisto può essere considerato come un pool di unità di impegno in Databricks prepagate. L'utilizzo viene detratto dal pool, indipendentemente dal carico di lavoro o dal livello. L'utilizzo viene detratto nel rapporto seguente:
+Il preacquisto di Databricks si applica a tutti i carichi di lavoro e i livelli di Databricks. Il preacquisto può essere considerato come un pool di unità di impegno in Databricks prepagate. L'utilizzo viene detratto dal pool, indipendentemente dal carico di lavoro o dal livello, nel rapporto seguente:
 
 | **Carico di lavoro** | **Rapporto di applicazione per unità Databricks - Livello Standard** | **Rapporto di applicazione per unità Databricks - Livello Premium** |
 | --- | --- | --- |
