@@ -367,7 +367,7 @@ Per ulteriori informazioni sull'esperienza avanzata delle informazioni di sicure
 
 3. In **utenti possono usare le funzionalità di anteprima per la registrazione e la gestione delle informazioni di sicurezza-area avanzata** , selezionare **selezionata**, quindi scegliere un gruppo di utenti o scegliere **tutti** per attivare questa funzionalità per tutti gli utenti nel tenant.
 
-4. In * * gli utenti possono usare le funzionalità di anteprima per la registrazione e la gestione della sicurezza * * info * * * * area, selezionare **nessuno**.
+4. In **gli utenti possono usare le funzionalità di anteprima per la registrazione e la gestione della sicurezza** **info** area, selezionare **nessuno**.
 
 5. Salvare le impostazioni.
 
