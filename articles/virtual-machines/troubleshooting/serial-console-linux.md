@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: f6e08f113e29b44e4ec94d14624d62c1c3d48d45
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 15e0b8a5b3ea64148eb78cb376500adac2410a71
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70124473"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949678"
 ---
 # <a name="azure-serial-console-for-linux"></a>Console seriale di Azure per Linux
 
@@ -46,7 +46,7 @@ Per la documentazione sulla console seriale per Windows, vedere [console seriale
 
 - Per le impostazioni specifiche delle distribuzioni Linux, vedere [Disponibilità delle distribuzioni della console seriale per Linux](#serial-console-linux-distribution-availability).
 
-- La VM o l'istanza del set di scalabilità di macchine virtuali deve essere `ttys0`configurata per l'output seriale in. Si tratta dell'impostazione predefinita per le immagini di Azure, ma è consigliabile eseguire una doppia verifica sulle immagini personalizzate. Dettagli di [seguito](#custom-linux-images).
+- La VM o l'istanza del set di scalabilità di macchine virtuali deve essere configurata per l'output seriale in `ttys0`. Si tratta dell'impostazione predefinita per le immagini di Azure, ma è consigliabile eseguire una doppia verifica sulle immagini personalizzate. Dettagli di [seguito](#custom-linux-images).
 
 
 > [!NOTE]
@@ -61,7 +61,7 @@ Affinché la console seriale funzioni correttamente, il sistema operativo guest 
 
 Distribuzione      | Accesso alla console seriale
 :-----------|:---------------------
-Red Hat Enterprise Linux.    | L'accesso alla console seriale è abilitato per impostazione predefinita.
+Red Hat Enterprise Linux    | L'accesso alla console seriale è abilitato per impostazione predefinita.
 CentOS      | L'accesso alla console seriale è abilitato per impostazione predefinita.
 Ubuntu      | L'accesso alla console seriale è abilitato per impostazione predefinita.
 CoreOS      | L'accesso alla console seriale è abilitato per impostazione predefinita.
@@ -69,7 +69,7 @@ SUSE        | Le immagini SLES più recenti disponibili in Azure hanno l'accesso
 Oracle Linux        | L'accesso alla console seriale è abilitato per impostazione predefinita.
 
 ### <a name="custom-linux-images"></a>Immagini personalizzate di Linux
-Per abilitare la console seriale per l'immagine personalizzata della VM Linux, abilitare l'accesso alla console nel file */etc/inittab* per l'esecuzione di un terminale in `ttyS0`. Ad esempio: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Potrebbe anche essere necessario generare un Getty in ttyS0. Questa operazione può essere eseguita `systemctl start serial-getty@ttyS0.service`con.
+Per abilitare la console seriale per l'immagine personalizzata della VM Linux, abilitare l'accesso alla console nel file */etc/inittab* per l'esecuzione di un terminale in `ttyS0`. Ad esempio: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Potrebbe anche essere necessario generare un Getty in ttyS0. Questa operazione può essere eseguita con `systemctl start serial-getty@ttyS0.service`.
 
 Sarà anche possibile aggiungere ttyS0 come destinazione per l'output seriale. Per altre informazioni sulla configurazione di un'immagine personalizzata per l'uso con la console seriale, vedere i requisiti di sistema generali in [creare e caricare un disco rigido virtuale Linux in Azure](https://aka.ms/createuploadvhd#general-linux-system-requirements).
 
@@ -119,16 +119,14 @@ Usare il tasto **TAB** della tastiera per eseguire la navigazione nell'interfacc
 La console seriale viene fornita con il supporto dell'utilità per la lettura dello schermo incorporato. La navigazione con un'utilità per la lettura dello schermo attivata consentirà la lettura a voce alta del testo alternativo del pulsante attualmente selezionato da parte dell'utilità per la lettura dello schermo.
 
 ## <a name="known-issues"></a>Problemi noti
-La console seriale presenta alcuni problemi. Di seguito è riportato un elenco dei problemi riscontrati e delle procedure necessarie per risolverli. Questi problemi e mitigazioni si applicano sia alle macchine virtuali che alle istanze dei set di scalabilità di macchine virtuali.
+Sono stati rilevati alcuni problemi con la console seriale e il sistema operativo della macchina virtuale. Ecco un elenco di questi problemi e i passaggi per la mitigazione delle macchine virtuali Linux. Questi problemi e mitigazioni si applicano sia alle macchine virtuali che alle istanze dei set di scalabilità di macchine virtuali. Se non corrispondono all'errore visualizzato, vedere gli errori comuni del servizio console seriale in caso di [errori comuni della console seriale](./serial-console-errors.md).
 
 Problema                           |   Attenuazione
 :---------------------------------|:--------------------------------------------|
 Se si preme il tasto **INVIO** dopo il banner della connessione, non viene visualizzato un prompt di accesso. | Per altre informazioni, vedere [Premendo INVIO, non accade nulla](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Questo problema può verificarsi se si esegue una macchina virtuale personalizzata, un dispositivo con protezione avanzata o una configurazione di GRUB che causa la mancata connessione di Linux alla porta seriale.
 Il testo della console seriale occupa solo una parte delle dimensioni dello schermo (spesso dopo l'uso di un editor di testo). | Le console seriali non supportano la negoziazione sulle dimensioni della finestra ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)): questo significa che non sarà presente alcun segnale SIGWINCH inviato per aggiornare le dimensioni dello schermo e la macchina virtuale non avrà alcuna conoscenza delle dimensioni del terminale. Installare xterm o un'utilità analoga per fornire il comando `resize` e quindi eseguire `resize`.
 L'operazione di incollare le stringhe lunghe non funziona. | La console seriale limita la lunghezza delle stringhe incollate nel terminale a 2048 caratteri per impedire il sovraccarico della larghezza di banda della porta seriale.
-La console seriale non funziona con un firewall dell'account di archiviazione. | Per impostazione predefinita, la console seriale non funziona con i firewall dell'account di archiviazione abilitati nell'account di archiviazione della diagnostica di avvio.
-Console seriale non funziona con un account di archiviazione usando Azure Data Lake Storage Gen2 con spazi dei nomi gerarchici. | Si tratta di un problema noto con gli spazi dei nomi gerarchici. Per attenuare, verificare che l'account di archiviazione della diagnostica di avvio della macchina virtuale non venga creato con Azure Data Lake Storage Gen2. Questa opzione può essere impostata solo al momento della creazione dell'account di archiviazione. Potrebbe essere necessario creare un account di archiviazione di diagnostica di avvio separato senza Azure Data Lake Storage Gen2 abilitato per attenuare questo problema.
-Input da tastiera irregolare nelle immagini SLES BYOS. L'input da tastiera viene riconosciuto solo sporadicamente. | Si tratta di un problema con il pacchetto Plymouth. Plymouth non deve essere eseguito in Azure perché non è necessaria una schermata iniziale e Plymouth interferisce con la possibilità di usare la console seriale. Rimuovere Plymouth con `sudo zypper remove plymouth` e quindi riavviare. In alternativa, modificare la riga del kernel della configurazione di GRUB aggiungendo `plymouth.enable=0` alla fine della riga. Questa operazione può essere eseguita [modificando la voce di avvio in fase di avvio](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles)oppure modificando la riga `/etc/default/grub`GRUB_CMDLINE_LINUX in, ricompilando GRUB con `grub2-mkconfig -o /boot/grub2/grub.cfg`e riavviando il sistema.
+Input da tastiera irregolare nelle immagini SLES BYOS. L'input da tastiera viene riconosciuto solo sporadicamente. | Si tratta di un problema con il pacchetto Plymouth. Plymouth non deve essere eseguito in Azure perché non è necessaria una schermata iniziale e Plymouth interferisce con la possibilità di usare la console seriale. Rimuovere Plymouth con `sudo zypper remove plymouth` e quindi riavviare. In alternativa, modificare la riga del kernel della configurazione di GRUB aggiungendo `plymouth.enable=0` alla fine della riga. È possibile eseguire questa operazione [modificando la voce di avvio in fase di avvio](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles)oppure modificando la riga GRUB_CMDLINE_LINUX in `/etc/default/grub`, ricompilando GRUB con `grub2-mkconfig -o /boot/grub2/grub.cfg` e riavviando il sistema.
 
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti

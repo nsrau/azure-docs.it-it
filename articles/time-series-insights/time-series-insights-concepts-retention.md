@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5388b157ebea78a69355eb745492910f260be3ad
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 5799974581ba74d3265f0a5a66f9b081ded9f800
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68823652"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71948213"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights"></a>Informazioni sulla conservazione dei dati in Azure Time Series Insights
 
@@ -66,7 +66,7 @@ Se la velocità in ingresso giornaliera di questo ambiente supera 0,166 GB al gi
 ## <a name="pause-ingress"></a>Sospendi dati in ingresso
 
 - L'impostazione **Sospendi ingresso** è progettata per garantire che i dati non vengano eliminati se si raggiungono i limiti relativi alle dimensioni e al numero prima del periodo di conservazione.  
-- Sospendere il traffico in **ingresso** consente agli utenti di aumentare la capacità dell'ambiente prima che i dati vengano eliminati a causa della violazione del periodo di conservazione
+- **Sospendere** il traffico in ingresso consente agli utenti di aumentare la capacità dell'ambiente prima che i dati vengano eliminati a causa della violazione del periodo di conservazione
 - Consente di evitare la perdita di dati, ma può creare un'opportunità per la perdita dei dati più recenti se il traffico in ingresso viene sospeso oltre il periodo di conservazione dell'origine evento.
 - Tuttavia, una volta raggiunta la capacità massima di un ambiente, l'ambiente sospende l'ingresso dei dati fino a quando non si verificano le azioni aggiuntive seguenti:
 
@@ -89,9 +89,9 @@ Quando il traffico in ingresso riprende:
 
 Negli hub eventi interessati provare a regolare la proprietà **Conservazione messaggi** per ridurre al minimo la perdita di dati quando si verifica la sospensione del traffico in ingresso in Time Series Insights.
 
-[![Conservazione dei messaggi nell'hub eventi.](media/time-series-insights-contepts-retention/event-hub-retention.png)](media/time-series-insights-contepts-retention/event-hub-retention.png#lightbox)
+[conservazione dei messaggi dell'hub 1Event @no__t.](media/time-series-insights-contepts-retention/event-hub-retention.png)](media/time-series-insights-contepts-retention/event-hub-retention.png#lightbox)
 
-Se non è configurata alcuna proprietà nell'`timeStampPropertyName`origine evento (), Time Series Insights imposta come valore predefinito il timestamp di arrivo nell'hub eventi come asse X. Se `timeStampPropertyName` è configurato come altro, l'ambiente cerca la configurazione `timeStampPropertyName` nel pacchetto di dati quando vengono analizzati gli eventi.
+Se non è configurata alcuna proprietà nell'origine evento (`timeStampPropertyName`), Time Series Insights imposta come valore predefinito il timestamp di arrivo nell'hub eventi come asse X. Se `timeStampPropertyName` è configurato come altro, l'ambiente Cerca il `timeStampPropertyName` configurato nel pacchetto di dati quando vengono analizzati gli eventi.
 
 Se è necessario potenziare l'ambiente per aumentarne la capacità o il periodo di conservazione, vedere [Come scalare l'ambiente Time Series Insights](time-series-insights-how-to-scale-your-environment.md) per altre informazioni.  
 

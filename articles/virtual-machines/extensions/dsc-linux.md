@@ -13,16 +13,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: c37b81e08e5d9f150081a9dc12af51175e3f590c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6df6bb5c0be4bf1779541a815bd933965024809f
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70084712"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960400"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Estensione DSC per Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
 Desired State Configuration (DSC) è una piattaforma di gestione che consente di gestire l'infrastruttura IT e di sviluppo con la configurazione come codice.
+
+> ! Si noti che l'estensione DSC per Linux e l' [estensione della macchina virtuale di monitoraggio di Azure per Linux](/virtual-machines/extensions/oms-linux) attualmente presentano un conflitto e non sono supportati in una configurazione side-by-side.  Ciò significa che le due soluzioni non devono essere usate insieme nella stessa VM.
 
 L'estensione DSCForLinux è pubblicata e supportata da Microsoft. L'estensione installa l'agente OMI e DSC nelle macchine virtuali di Azure. L'estensione DSC può eseguire anche le azioni seguenti
 
@@ -39,7 +41,7 @@ L'estensione DSCForLinux è pubblicata e supportata da Microsoft. L'estensione i
 
 ### <a name="operating-system"></a>Sistema operativo
 
-L'estensione DSC Linux supporta tutte le [distribuzioni Linux approvate in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) tranne:
+L'estensione DSC Linux supporta tutte le [distribuzioni Linux approvate in Azure](/virtual-machines/linux/endorsed-distros) tranne:
 
 | Distribuzione | Versione |
 |---|---|
@@ -272,7 +274,7 @@ $publicConfig = '{
 }'
 ```
 
-## <a name="template-deployment"></a>Distribuzione del modello
+## <a name="template-deployment"></a>Distribuzione modello
 
 Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager. I modelli rappresentano la scelta migliore quando si distribuiscono una o più macchine virtuali per cui è necessaria una configurazione post-distribuzione, ad esempio l'onboarding in Automazione di Azure. 
 
@@ -303,7 +305,7 @@ Per conoscere la versione più recente dell'estensione, eseguire:
 $ azure vm extension list
 ```
 
-#### <a name="212-resource-manager"></a>2.1.2. Gestione risorse
+#### <a name="212-resource-manager"></a>2.1.2. Resource Manager
 È possibile passare alla modalità Azure Resource Manager eseguendo:
 ```
 $ azure config mode arm

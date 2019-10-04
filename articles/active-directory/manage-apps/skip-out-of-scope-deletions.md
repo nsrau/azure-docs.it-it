@@ -1,6 +1,6 @@
 ---
 title: Ignorare l'eliminazione degli utenti fuori ambito | Microsoft Docs
-description: Informazioni su come eseguire l'override del comportamento predefinito dell'eliminazione degli utenti all'esterno dell'ambito.
+description: Informazioni su come eseguire l'override del comportamento predefinito del deprovisioning fuori dagli utenti dell'ambito.
 services: active-directory
 author: cmmdesai
 documentationcenter: na
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/09/2019
+ms.date: 10/03/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a753d8cce3f3b610abab2f78d54d76a05d8bc5cb
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 3b4a8005cf308d5cfce02976e3b2eff39d5fe8c0
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70815968"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958639"
 ---
 # <a name="skip-deletion-of-user-accounts-that-go-out-of-scope"></a>Ignora l'eliminazione di account utente che non rientrano nell'ambito
 
-Per impostazione predefinita, il motore di provisioning di Azure AD Elimina o Disabilita gli utenti che non rientrano nell'ambito. Tuttavia, per alcuni scenari come la giornata lavorativa ad Active Directory in ingresso, questo comportamento potrebbe non essere quello previsto e potrebbe essere necessario eseguire l'override di questo comportamento predefinito.  
+Per impostazione predefinita, il motore di provisioning di Azure AD elimina temporaneamente o Disabilita gli utenti che non rientrano nell'ambito. Tuttavia, per alcuni scenari come la giornata lavorativa ad Active Directory in ingresso, questo comportamento potrebbe non essere quello previsto e potrebbe essere necessario eseguire l'override di questo comportamento predefinito.  
 
 Questa guida descrive come usare l'API Microsoft Graph e il Microsoft Graph Esplora API per impostare il flag ***SkipOutOfScopeDeletions*** che controlla l'elaborazione degli account che non rientrano nell'ambito. 
 * Se ***SkipOutOfScopeDeletions*** è impostato su 0 (false), gli account che non rientrano nell'ambito verranno disabilitati nella destinazione
@@ -53,7 +53,7 @@ Poiché questa configurazione viene usata ampiamente con la *giornata lavorativa
 In Microsoft Graph Explorer, eseguire la query GET seguente, sostituendo [servicePrincipalId] con il **ServicePrincipalId** estratto dal [Passaggio 1](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id).
 
 ```http
-   GET https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/jobs
+   GET https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/secrets
 ```
 
    ![OTTENERE la query del processo](./media/skip-out-of-scope-deletions/skip-03.png)

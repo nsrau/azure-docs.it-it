@@ -1,20 +1,20 @@
 ---
 title: Come eseguire il debug di funzioni definite dall'utente in Gemelli digitali di Azure | Microsoft Docs
 description: Linee guida su come eseguire il debug di funzioni definite dall'utente in Gemelli digitali di Azure.
-author: kingdomofends
-manager: alinast
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 10/01/2019
-ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: df12d6866f5e9e6bf492e228e32b0b10f7266eb4
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
-ms.translationtype: HT
+ms.openlocfilehash: 7b122df279ecde8ed9ed49b5a89251073f3feda7
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71843844"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949893"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Come eseguire il debug di funzioni definite dall'utente in Gemelli digitali di Azure
 
@@ -63,7 +63,7 @@ AzureDiagnostics
 | order by CorrelationId desc
 ```
 
-Se si Abilita la registrazione per la funzione definita dall'utente, i log vengono visualizzati nell'istanza di log Analytics con `UserDefinedFunction`la categoria. Per recuperarle, immettere la condizione di query seguente in log Analytics:
+Se si Abilita la registrazione per la funzione definita dall'utente, i log vengono visualizzati nell'istanza di log Analytics con la categoria `UserDefinedFunction`. Per recuperarle, immettere la condizione di query seguente in log Analytics:
 
 ```Kusto
 AzureDiagnostics

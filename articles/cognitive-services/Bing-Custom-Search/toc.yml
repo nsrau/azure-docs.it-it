@@ -60,8 +60,9 @@
     - name: Gestire l'evidenziazione dei risultati
       href: ../Bing-Web-Search/hit-highlighting.md
       maintainContext: true
-    - name: Sfogliare le pagine Web
-      href: page-webpages.md
+    - name: Sfogliare i risultati della ricerca
+      href: ../Bing-Web-Search/paging-search-results.md
+      maintainContext: true
 - name: riferimento
   items:
     - name: Informazioni di riferimento sull'API Suggerimenti automatici personalizzati Bing

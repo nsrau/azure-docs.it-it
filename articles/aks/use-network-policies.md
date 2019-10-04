@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 1339fe66a4925104d459c0491caccdd7db5998a7
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 63678ad7260210d86daf035bfec9bb467a526042
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114468"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950320"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Proteggere il traffico tra i pod usando criteri di rete nel servizio Azure Kubernetes
 
@@ -50,21 +50,16 @@ Azure offre due modi per implementare i criteri di rete. Quando si crea un clust
 
 Entrambe le implementazioni usano *iptables* Linux per applicare i criteri specificati. I criteri vengono convertiti in set di coppie IP consentite e non consentite. Queste coppie vengono quindi programmate come regole di filtro IPTable.
 
-I criteri di rete funzionano solo con l'opzione Azure CNI (Advanced). L'implementazione è diversa per le due opzioni:
-
-* *Criteri di rete di Azure* : Azure CNI configura un Bridge nell'host della macchina virtuale per la rete all'interno di un nodo. Le regole di filtro vengono applicate quando i pacchetti passano attraverso il Bridge.
-* *Criteri di rete* di calice: la CNI di Azure configura le route del kernel locale per il traffico all'interno del nodo. I criteri vengono applicati sull'interfaccia di rete del Pod.
-
 ### <a name="differences-between-azure-and-calico-policies-and-their-capabilities"></a>Differenze tra i criteri di Azure e di calice e le relative funzionalità
 
 | Capacità                               | Azure                      | Calico                      |
 |------------------------------------------|----------------------------|-----------------------------|
 | Piattaforme supportate                      | Linux                      | Linux                       |
-| Opzioni di rete supportate             | Azure CNI                  | Azure CNI                   |
+| Opzioni di rete supportate             | Azure CNI                  | Azure CNI e kubenet       |
 | Conformità con la specifica Kubernetes | Tutti i tipi di criteri supportati |  Tutti i tipi di criteri supportati |
-| Funzionalità aggiuntive                      | Nessuna                       | Modello di criteri esteso costituito da criteri di rete globali, da un set di reti globale e da un endpoint host. Per ulteriori informazioni sull'utilizzo dell' `calicoctl` interfaccia della riga di comando per la gestione di queste funzionalità estese, vedere [calicoctl User Reference][calicoctl]. |
+| Funzionalità aggiuntive                      | Nessuna                       | Modello di criteri esteso costituito da criteri di rete globali, da un set di reti globale e da un endpoint host. Per altre informazioni sull'uso dell'interfaccia della riga di comando `calicoctl` per gestire queste funzionalità estese, vedere [riferimento utente calicoctl][calicoctl]. |
 | Supporto                                  | Supportato dal team di progettazione e supporto tecnico di Azure | Supporto della community di calice. Per altre informazioni sul supporto a pagamento aggiuntivo, vedere [Opzioni di supporto per Project calice][calico-support]. |
-| Registrazione                                  | Le regole aggiunte/eliminate in IPTables vengono registrate in ogni host in */var/log/Azure-NPM.log* | Per ulteriori informazioni, vedere [log dei componenti][calico-logs] di calice |
+| Registrazione                                  | Le regole aggiunte/eliminate in IPTables vengono registrate in ogni host in */var/log/Azure-NPM.log* | Per ulteriori informazioni, vedere [log dei componenti di calice][calico-logs] |
 
 ## <a name="create-an-aks-cluster-and-enable-network-policy"></a>Creare un cluster del servizio Azure Kubernetes e abilitare i criteri di rete
 
@@ -76,7 +71,7 @@ Per visualizzare i criteri di rete in azione, è possibile creare ed espandere i
 
 Prima di tutto, creare un cluster AKS che supporti i criteri di rete. La funzionalità dei criteri di rete può essere abilitata solo quando viene creato il cluster. Non è possibile abilitare criteri di rete in un cluster esistente del servizio Azure Kubernetes.
 
-Per usare i criteri di rete con un cluster AKS, è necessario usare il [plug-in CNI di Azure][azure-cni] e definire la rete virtuale e le subnet. Per informazioni più dettagliate su come pianificare gli intervalli di subnet necessari, vedere [configurare Advanced Networking][use-advanced-networking].
+Per usare i criteri di rete di Azure, è necessario usare il [plug-in CNI di Azure][azure-cni] e definire la rete virtuale e le subnet. Per informazioni più dettagliate su come pianificare gli intervalli di subnet necessari, vedere [configurare Advanced Networking][use-advanced-networking]. I criteri di rete di calice possono essere usati con lo stesso plug-in CNI di Azure o con il plug-in Kubenet CNI.
 
 Lo script di esempio seguente:
 
@@ -84,7 +79,7 @@ Lo script di esempio seguente:
 * Crea un'entità servizio Azure Active Directory (Azure AD) per l'uso con il cluster AKS.
 * Assegna autorizzazioni di *Collaboratore* per l'entità servizio del cluster del servizio Azure Kubernetes nella rete virtuale.
 * Crea un cluster AKS nella rete virtuale definita e Abilita i criteri di rete.
-    * Viene usata l'opzione dei criteri di rete di *Azure* . Per usare invece l'opzione dei criteri di rete, usare il `--network-policy calico` parametro.
+    * Viene usata l'opzione dei criteri di rete di *Azure* . Per usare invece l'opzione dei criteri di rete, usare il parametro `--network-policy calico`. Nota: Il calice può essere usato con `--network-plugin azure` o `--network-plugin kubenet`.
 
 Specificare la propria *SP_PASSWORD* protetta. È possibile sostituire le variabili *RESOURCE_GROUP_NAME* e *CLUSTER_NAME* :
 
@@ -168,7 +163,7 @@ Creare un altro pod e alleghi una sessione terminal per verificare che sia possi
 kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
 ```
 
-Al prompt della shell, usare `wget` per confermare che è possibile accedere alla pagina web nginx predefinita:
+Al prompt della Shell usare `wget` per confermare che è possibile accedere alla pagina Web NGINX predefinita:
 
 ```console
 wget -qO- http://backend
@@ -223,7 +218,7 @@ Vediamo se è possibile usare di nuovo la pagina Web NGINX sul Pod back-end. Cre
 kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
 ```
 
-Al prompt della shell, usare `wget` per verificare se è possibile accedere alla pagina web nginx predefinita. Questa volta impostare un valore di timeout di *2* secondi. Il criterio di rete ora blocca tutto il traffico in ingresso, quindi la pagina non può essere caricata, come illustrato nell'esempio seguente:
+Al prompt della shell, usare `wget` per verificare se è possibile accedere alla pagina Web NGINX predefinita. Questa volta impostare un valore di timeout di *2* secondi. Il criterio di rete ora blocca tutto il traffico in ingresso, quindi la pagina non può essere caricata, come illustrato nell'esempio seguente:
 
 ```console
 $ wget -qO- --timeout=2 http://backend
@@ -278,7 +273,7 @@ Pianificare un pod con etichetta *app = webapp, Role = frontend* e alleghi una s
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development --generator=run-pod/v1
 ```
 
-Al prompt della shell, usare `wget` per verificare se è possibile accedere alla pagina web nginx predefinita:
+Al prompt della shell, usare `wget` per verificare se è possibile accedere alla pagina Web NGINX predefinita:
 
 ```console
 wget -qO- http://backend
@@ -308,7 +303,7 @@ I criteri di rete consentono il traffico dai pod etichettati *app: webapp,role: 
 kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
 ```
 
-Al prompt della shell, usare `wget` per verificare se è possibile accedere alla pagina web nginx predefinita. Il criterio di rete blocca il traffico in ingresso, quindi la pagina non può essere caricata, come illustrato nell'esempio seguente:
+Al prompt della shell, usare `wget` per verificare se è possibile accedere alla pagina Web NGINX predefinita. Il criterio di rete blocca il traffico in ingresso, quindi la pagina non può essere caricata, come illustrato nell'esempio seguente:
 
 ```console
 $ wget -qO- --timeout=2 http://backend
@@ -339,7 +334,7 @@ Pianificare un pod di test nello spazio dei nomi *production* con l'etichetta *a
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production --generator=run-pod/v1
 ```
 
-Al prompt della shell, usare `wget` per confermare che è possibile accedere alla pagina web nginx predefinita:
+Al prompt della Shell usare `wget` per confermare che è possibile accedere alla pagina Web NGINX predefinita:
 
 ```console
 wget -qO- http://backend.development
@@ -397,7 +392,7 @@ kubectl apply -f backend-policy.yaml
 
 ### <a name="test-the-updated-network-policy"></a>Testare i criteri di rete aggiornati
 
-Pianificare un altro Pod nello spazio dei nomi Production e alleghi una sessione terminal:
+Pianificare un altro Pod nello spazio dei nomi *Production* e alleghi una sessione terminal:
 
 ```console
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production --generator=run-pod/v1
@@ -468,9 +463,9 @@ Per ulteriori informazioni sui criteri, vedere [criteri di rete Kubernetes][kube
 [policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
 [aks-github]: https://github.com/azure/aks/issues
 [tigera]: https://www.tigera.io/
-[calicoctl]: https://docs.projectcalico.org/v3.6/reference/calicoctl/
+[calicoctl]: https://docs.projectcalico.org/v3.9/reference/calicoctl/
 [calico-support]: https://www.projectcalico.org/support
-[calico-logs]: https://docs.projectcalico.org/v3.6/maintenance/component-logs
+[calico-logs]: https://docs.projectcalico.org/v3.9/maintenance/component-logs
 [calico-aks-cleanup]: https://github.com/Azure/aks-engine/blob/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml
 
 <!-- LINKS - internal -->

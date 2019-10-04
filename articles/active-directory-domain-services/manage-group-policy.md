@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: iainfou
-ms.openlocfilehash: 5c6d7b3403209710c9086b90abcb0e2ce61a0e8a
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 6fe959a661f23673bb5d3e6df630ef4ee25128f7
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612617"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958555"
 ---
 # <a name="administer-group-policy-in-an-azure-ad-domain-services-managed-domain"></a>Amministrare Criteri di gruppo in un dominio gestito Azure AD Domain Services
 
@@ -31,31 +31,34 @@ Per completare questo articolo, sono necessari i privilegi e le risorse seguenti
 
 * Una sottoscrizione di Azure attiva.
     * Se non si ha una sottoscrizione di Azure, [creare un account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Un tenant Azure Active Directory associato alla sottoscrizione, sincronizzato con una directory locale o solo cloud.
+* Un tenant di Azure Active Directory associato alla sottoscrizione, sincronizzato con una directory locale o con una directory solo cloud.
     * Se necessario, [creare un tenant di Azure Active Directory][create-azure-ad-tenant] o [associare una sottoscrizione di Azure al proprio account][associate-azure-ad-tenant].
-* Un Azure Active Directory Domain Services dominio gestito abilitato e configurato nel tenant del Azure AD.
+* Un dominio gestito di Azure Active Directory Domain Services abilitato e configurato nel tenant di Azure AD.
     * Se necessario, completare l'esercitazione per [creare e configurare un'istanza di Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * Una macchina virtuale di gestione di Windows Server aggiunta al dominio gestito di Azure AD DS.
     * Se necessario, completare l'esercitazione per [creare una macchina virtuale Windows Server e aggiungerla a un dominio gestito][create-join-windows-vm].
-* Un account utente membro del gruppo *amministratori Azure ad controller* di dominio nel tenant del Azure ad.
+* Un account utente membro del gruppo di *amministratori dei controller di dominio di Azure AD* nel tenant di Azure AD.
+
+> [!NOTE]
+> Poiché non è possibile [accedere ai controller di dominio in Azure AD DS](faqs.md#can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop), non è possibile creare e usare un archivio centrale per i modelli amministrativi di criteri di gruppo in un dominio gestito. [SYSVOL non è incluso nella sincronizzazione dei Azure ad Connect locali](synchronization.md#what-isnt-synchronized-to-azure-ad-ds), quindi non è possibile creare un archivio centrale locale e sincronizzarlo per Azure AD DS tramite Azure ad.
 
 ## <a name="install-group-policy-management-tools"></a>Installare gli strumenti di gestione di Criteri di gruppo
 
 Per creare e configurare Criteri di gruppo oggetto (GPO), è necessario installare gli strumenti di gestione di Criteri di gruppo. Questi strumenti possono essere installati come funzionalità di Windows Server. Per ulteriori informazioni su come installare gli strumenti di amministrazione in un client Windows, vedere Install [strumenti di amministrazione remota del server (amministrazione remota][install-rsat]del server).
 
 1. Accedere alla macchina virtuale di gestione. Per i passaggi relativi alla modalità di connessione tramite la portale di Azure, vedere [connettersi a una macchina virtuale Windows Server][connect-windows-server-vm].
-1. Per impostazione predefinita, **Server Manager** dovrebbe essere aperto quando si accede alla macchina virtuale. In caso contrario, scegliere **Server Manager**dal menu **Start** .
-1. Nel riquadro *Dashboard* della finestra di **Server Manager** Selezionare **Aggiungi ruoli e funzionalità**.
-1. Nella pagina **prima di iniziare** dell' *Aggiunta guidata ruoli e funzionalità*Selezionare **Avanti**.
-1. Per il *tipo di installazione*, lasciare selezionata l'opzione **installazione basata su ruoli o basata su funzionalità** e selezionare **Avanti**.
-1. Nella pagina **Selezione server** scegliere la macchina virtuale corrente dal pool di server, ad esempio *MyVM.contoso.com*, quindi fare clic su **Avanti**.
+1. Quando si accede alla macchina virtuale, per impostazione predefinita dovrebbe essere visualizzata la finestra di **Server Manager**. In caso contrario, scegliere **Server Manager** dal menu **Start**.
+1. Fare clic su *Aggiungi ruoli e funzionalità* nel riquadro **Dashboard** della finestra **Server Manager**.
+1. Nella pagina **Prima di iniziare** dell'*aggiunta guidata ruoli e funzionalità* selezionare **Avanti**.
+1. Per *Tipo di installazione* lasciare selezionata l'opzione **Installazione basata su ruoli o basata su funzionalità** e selezionare **Avanti**.
+1. Nella pagina **Selezione server** scegliere la VM corrente dal pool di server, ad esempio *myvm.contoso.com*, quindi selezionare **Avanti**.
 1. Nella pagina **Ruoli del server** fare clic su **Avanti**.
 1. Nella pagina **Funzionalità**, selezionare **Gestione Criteri di gruppo**.
 
     ![Installare ' Criteri di gruppo Management ' dalla pagina funzionalità](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-gp-management.png)
 
-1. Nella pagina **conferma** selezionare **Installa**. L'installazione degli strumenti di gestione Criteri di gruppo potrebbe richiedere un minuto o due.
-1. Al termine dell'installazione della funzionalità, fare clic su **Chiudi** per uscire dall' **Aggiunta guidata ruoli e funzionalità** .
+1. Nella pagina **Conferma** selezionare **Installa**. L'installazione degli strumenti di gestione Criteri di gruppo potrebbe richiedere un minuto o due.
+1. Dopo aver completato correttamente l'installazione della funzionalità, selezionare **Chiudi** per uscire dall'**Aggiunta guidata ruoli e funzionalità**.
 
 ## <a name="open-the-group-policy-management-console-and-edit-an-object"></a>Aprire il Console Gestione Criteri di gruppo e modificare un oggetto
 

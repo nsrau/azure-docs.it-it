@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: 2dbb900d297f1acf05e77dca3e1753745e9b2b38
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
-ms.translationtype: HT
+ms.openlocfilehash: a83e2163c9aa970932f2eea8e2e04a715107ac7f
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937409"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950264"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Inserire dati dall'hub eventi in Esplora dati di Azure
 
@@ -114,6 +114,7 @@ A questo punto è possibile connettersi all'hub eventi da Esplora dati di Azure.
     | Spazio dei nomi dell'hub eventi | Nome dello spazio dei nomi univoco | Nome scelto in precedenza che identifica lo spazio dei nomi. |
     | Hub eventi | *test-hub* | Hub eventi creato. |
     | Gruppo di consumer | *test-group* | Gruppo di consumer definito nell'hub eventi creato. |
+    | Proprietà del sistema per gli eventi | Selezionare le proprietà rilevanti | [Proprietà del sistema dell'hub eventi](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations) |
     | | |
 
     Tabella di destinazione:
@@ -124,7 +125,7 @@ A questo punto è possibile connettersi all'hub eventi da Esplora dati di Azure.
      **Impostazione** | **Valore consigliato** | **Descrizione campo**
     |---|---|---|
     | Tabella | *TestTable* | Tabella creata in **TestDatabase**. |
-    | Formato dati | *JSON* | I formati supportati sono Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV e TXT. Opzioni di compressione supportate: GZip |
+    | Formato dati | *JSON* | I formati supportati sono Avro, CSV, JSON, multiriga JSON, PSV, SOHSV, SCSV, TSV, TSVE e TXT. Opzioni di compressione supportate: GZip |
     | Mapping colonne | *TestMapping* | Mapping creato in **TestDatabase** che esegue il mapping dei dati JSON in ingresso ai nomi di colonna e ai tipi di dati di **TestTable**. Obbligatorio per JSON, MULTILINE JSON o AVRO e facoltativo per gli altri formati.|
     | | |
 

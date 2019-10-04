@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 14e82bc5f58383c37bfd82d793851fc7e927b2f4
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
-ms.translationtype: HT
+ms.openlocfilehash: 61c85d17e88016e5e9067d4be86e1cd290b4b12a
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828449"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71948195"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Crittografia dischi di Azure per macchine virtuali Linux 
 
@@ -57,6 +57,7 @@ Le distribuzioni di server Linux che non sono approvate da Azure non supportano 
 | Ubuntu | 18,04| Disco del sistema operativo e dati |
 | Ubuntu | 16.04| Disco del sistema operativo e dati |
 | Ubuntu | 14.04.5</br>[con il kernel ottimizzato per Azure aggiornato alla versione 4.15 o successiva](disk-encryption-troubleshooting.md) | Disco del sistema operativo e dati |
+| RHEL | 7,7 | Sistema operativo e disco dati (vedere la nota di seguito) |
 | RHEL | 7.6 | Sistema operativo e disco dati (vedere la nota di seguito) |
 | RHEL | 7.5 | Sistema operativo e disco dati (vedere la nota di seguito) |
 | RHEL | 7.4 | Sistema operativo e disco dati (vedere la nota di seguito) |
@@ -64,6 +65,7 @@ Le distribuzioni di server Linux che non sono approvate da Azure non supportano 
 | RHEL | 7.2 | Sistema operativo e disco dati (vedere la nota di seguito) |
 | RHEL | 6.8 | Disco dati (vedere la nota di seguito) |
 | RHEL | 6.7 | Disco dati (vedere la nota di seguito) |
+| CentOS | 7,7 | Disco del sistema operativo e dati |
 | CentOS | 7.6 | Disco del sistema operativo e dati |
 | CentOS | 7.5 | Disco del sistema operativo e dati |
 | CentOS | 7.4 | Disco del sistema operativo e dati |

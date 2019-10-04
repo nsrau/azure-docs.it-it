@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 09/25/2019
+ms.date: 10/03/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e7bd33d74d9ecf6ebc35981df7255ecc19253c7
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 72ae1301be4a3a3c086961aae72fb9eeb12aeda2
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71812588"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960237"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Account e autorizzazioni
 
@@ -48,10 +48,10 @@ Oltre a questi tre account usati per eseguire Azure AD Connect, per installare A
 
 - **Account SA di SQL (facoltativo)** :     usato per creare il database ADSync, quando si usa la versione completa di SQL Server.  SQL Server può essere locale o remoto per l'installazione di Azure AD Connect.  Questo account può essere lo stesso dell'amministratore dell'organizzazione.  L'amministratore SQL può ora effettuare il provisioning del database fuori banda e quindi l'amministratore di Azure AD Connect può eseguire l'installazione con diritti di proprietario del database.  Per altre informazioni, vedere [Installare Azure AD Connect usando le autorizzazioni di amministratore con delega SQL](how-to-connect-install-sql-delegation.md)
 
-<<<<<<< HEAD
+
 >[!IMPORTANT]
 > A partire dalla Build 1.4. # # #. non è più supportato l'uso di un amministratore dell'organizzazione o di un account di amministratore di dominio come account del connettore di servizi di dominio Active Directory.  Se si tenta di immettere un account di amministratore dell'organizzazione o di dominio quando si specifica **Usa account esistente**, verrà visualizzato un errore.
-=======
+
 > [!NOTE]
 > È supportato per gestire gli account amministrativi usati in Azure AD Connect da una foresta amministrativa ESAE (noto anche come "foresta rossa").
 > Le foreste amministrative dedicate consentono alle organizzazioni di ospitare gli account amministrativi, le workstation e i gruppi in un ambiente che dispone di controlli di sicurezza più avanzati rispetto all'ambiente di produzione.

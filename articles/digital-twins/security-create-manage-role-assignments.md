@@ -1,20 +1,20 @@
 ---
 title: Creare e gestire le assegnazioni di ruolo-dispositivi gemelli digitali di Azure | Microsoft Docs
 description: Informazioni su come creare e gestire le assegnazioni di ruolo in dispositivi gemelli digitali di Azure.
-author: lyrana
-manager: alinast
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.author: lyhughes
 ms.custom: seodec18
-ms.openlocfilehash: 9a9f3398df099eca7d83b38595364956e6b3b76b
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
-ms.translationtype: HT
+ms.openlocfilehash: 68714a06f72a522df0245d9c044bb6ff6557d52f
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827712"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949815"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Creare e gestire assegnazioni di ruolo in Gemelli digitali di Azure
 

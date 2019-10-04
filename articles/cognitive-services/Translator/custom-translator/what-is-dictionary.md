@@ -9,18 +9,18 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 5103526956b5041771a1d8e4abb5e8800b971059
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: a4aac8afb7974be402ee98bb65c920133d4c118f
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595379"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947694"
 ---
 # <a name="what-is-a-dictionary"></a>Cos’è un dizionario?
 
-Un dizionario è una coppia allineata di documenti che specifica un elenco di espressioni o frasi e le traduzioni corrispondenti. Utilizzare un dizionario per il training se si desidera che Microsoft Translator traduca sempre tutte le istanze delle espressioni o delle frasi con la traduzione indicata nel dizionario. I dizionari sono detti talvolta glossari o termbase. È possibile considerare il dizionario come un copia e incolla deciso di tutti i termini indicati.
+Un dizionario è una coppia allineata di documenti che specifica un elenco di espressioni o frasi e le traduzioni corrispondenti. Utilizzare un dizionario per il training se si desidera che Microsoft Translator traduca sempre tutte le istanze delle espressioni o delle frasi con la traduzione indicata nel dizionario. I dizionari sono detti talvolta glossari o termbase. È possibile considerare il dizionario come un copia e incolla deciso di tutti i termini indicati. Inoltre, il servizio Microsoft Translator personalizzato consente di compilare e utilizzare i propri dizionari per scopi generici per migliorare la qualità della traduzione. Tuttavia, un dizionario fornito dal cliente assume la precedenza e verrà cercato prima di cercare parole o frasi.
 
-I dizionari funzionano solo per i progetti in coppie di lingue per le quali è disponibile un sistema di traduzione automatica neurale (NMT) Microsoft completamente supportato. [Visualizzare l'elenco completo delle lingue](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
+I dizionari funzionano solo per i progetti in coppie di linguaggi che hanno un modello di rete neurale Microsoft generale completamente supportato. [Visualizzare l'elenco completo delle lingue](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
 
 ## <a name="phrase-dictionary"></a>Dizionario di espressioni
 Quando si include un dizionario di espressioni per il training sul modello, qualsiasi parola o epressione elencata viene tradotta nel modo specificato. Il resto della frase viene tradotto normalmente. È possibile utilizzare un dizionario di espressioni per specificare le espressioni che non devono essere tradotte, inserendo la stessa espressione non tradotta nel file con origine e destinazione del dizionario.
@@ -32,15 +32,15 @@ Il dizionario di frasi consente di specificare una traduzione di destinazione es
 È possibile eseguire il training su un modello utilizzando solo i dati del dizionario. Per farlo, selezionare solo il documento del dizionario (o più documenti di dizionario) da includere e toccare Crea modello. Poiché si tratta di un training con solo dizionario, non vi è alcun numero minimo di frasi di training necessarie. Il modello verrà completato in genere molto più velocemente rispetto a un training standard.  I modelli risultanti utilizzeranno i modelli di base Microsoft per la traduzione con l'aggiunta dei dizionari aggiunti.  Non si otterrà un report di test.
 
 >[!Note]
->Custom Translator non allinea le frasi dei file di dizionario ed è quindi importante che sia presente un numero uguale di espressioni/frasi di origine e di destinazione nei documenti di dizionario e che queste siano esattamente allineate.
+>Custom Translator non allinea le frasi del dizionario, pertanto è importante che sia presente un numero uguale di espressioni/frasi di origine e di destinazione nei documenti del dizionario e che siano esattamente allineate.
 
 ## <a name="recommendations"></a>Consigli
 
-- I dizionari non sono un sostituto dei modelli di training contenenti dati di training.  I dizionari si limitano a trovare e sostituire parole o frasi.  Lasciare che il sistema apprenda frasi complete dal materiale di training in genere è consigliabile, rispetto all’uso di un dizionario.
-- Il dizionario di frasi deve essere utilizzato solo se necessario. Quando viene sostituita un’espressione all'interno di una frase, il contesto all'interno di tale frase viene smarrito o limitato per tradurre il resto della frase. Il risultato è che mentre la frase o la parola all'interno della frase verrà tradotta in base al dizionario di espressioni, la qualità complessiva della traduzione della frase ne risentirà.
-- Il dizionario di espressioni funziona bene per i nomi composti, ad esempio i nomi di prodotto ("Microsoft SQL Server"), i nomi propri ("Città di Amburgo") o le funzionalità dei prodotti ("tabella pivot"). Non funziona altrettanto bene per i verbi o gli aggettivi, perché questi sono in genere altamente declinati nelle lingue di origine e di destinazione. Evitare di usare le voci del dizionario di espressioni per espressioni diverse dai nomi composti.
-- Quando si usa un dizionario, l'uso delle maiuscole e la punteggiatura nelle traduzioni rifletterà l’uso delle maiuscole e la punteggiatura forniti nel file di destinazione. L’uso delle maiuscole e la punteggiatura vengono ignorati quando si tenta di identificare le corrispondenze tra la frase inserita e la frasi di origine nel file di dizionario. Ad esempio, se si è eseguito il training di un sistema dall’inglese allo spagnolo usando un dizionario all’interno del quale era presente “City of Hamburg” nel file di origine e “Ciudad de hamburg” nel file di destinazione. Se si richiede la traduzione di una frase che include l’espressione “city of Hamburg”, l’espressione corrisponde alla voce “City of Hamburg” inclusa nel file di dizionario, pertanto viene mappata a “Ciudad de hamburg” nella traduzione finale.
-- Se una parola è presente più volte in un file del dizionario, il sistema userà sempre l'ultima voce fornita. Il dizionario non deve contenere più traduzioni della stessa parola.
+- I dizionari non sono un sostituto per il training di un modello usando i dati di training. Si consiglia di evitarli e lasciare che il sistema apprenda i dati di training. Tuttavia, quando è necessario eseguire il rendering di frasi o sostantivi composti così come sono, utilizzare un dizionario.
+- Il dizionario di frasi deve essere utilizzato solo se necessario. Tenere presente che quando una frase all'interno di una frase viene sostituita, il contesto all'interno di tale frase viene perso o limitato per tradurre il resto della frase. Il risultato è che, mentre la frase o la parola all'interno della frase verrà traslata in base al dizionario fornito, la qualità complessiva della traduzione della frase risulterà spesso negativa.
+- Il dizionario di espressioni funziona bene per i nomi composti, ad esempio i nomi di prodotto ("Microsoft SQL Server"), i nomi propri ("Città di Amburgo") o le funzionalità dei prodotti ("tabella pivot"). Non funziona altrettanto bene per i verbi o gli aggettivi, perché questi sono in genere altamente declinati nelle lingue di origine e di destinazione. Le procedure consigliate consentono di evitare voci del dizionario di frasi per qualsiasi elemento, ma sostantivi composti.
+- Quando si usa un dizionario, le lettere maiuscole e punteggiatura sono importanti. Le voci del dizionario corrispondono solo a parole e frasi con le stesse lettere maiuscole e punteggiatura della voce trovata nel dizionario. Le traduzioni rifletteranno le lettere maiuscole e la punteggiatura fornite nel lato destinazione del file del dizionario. Ad esempio, è stato eseguito il training di un modello inglese in spagnolo usando un dizionario che specifica "Hello" nel file di origine da convertire in "Buenos Dias" nel file di destinazione. Quando si richiede la traduzione di una frase che include "Hello", il sistema effettuerà la ricerca prima del dizionario e troverà una corrispondenza ("Hello") e restituirà "Buenos Dias" nella traduzione finale.
+- Se una parola è presente più volte in un file del dizionario, il sistema userà sempre l'ultima voce fornita. Il dizionario, quindi, non deve contenere più traduzioni della stessa parola.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

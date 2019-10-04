@@ -52,8 +52,9 @@
       href: gif-images.md
     - name: Ottenere immagini di tendenza
       href: trending-images.md
-    - name: Sfogliare le immagini
-      href: paging-images.md
+    - name: Sfogliare i risultati della ricerca
+      maintainContext: true
+      href: ../bing-web-search/paging-search-results.md
     - name: Ridimensionare e ritagliare le anteprime
       maintainContext: true
       href: ../bing-web-search/resize-and-crop-thumbnails.md

@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: trbye
 ms.author: trbye
 author: trevorbye
-ms.date: 10/01/2019
-ms.openlocfilehash: 50593741e185a146c5a376c34da959063198e7d0
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.date: 10/03/2019
+ms.openlocfilehash: 3df95f88c057fa564078dbf05d5dfa4b26150f6a
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71813808"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959647"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Eseguire il debug e risolvere i problemi delle pipeline di Machine Learning
 
@@ -27,7 +27,7 @@ Le sezioni seguenti forniscono una panoramica dei problemi comuni quando si comp
 
 Uno degli errori più comuni in una pipeline è che uno script associato (script per la pulizia dei dati, script di assegnazione dei punteggi e così via) non è in esecuzione come previsto o contiene errori di runtime nel contesto di calcolo remoto difficili da eseguire il debug nell'area di lavoro del portale di Azure. 
 
-Non è possibile eseguire le pipeline in locale, ma il testing unità degli script sottostanti è un modo semplice per assicurarsi che gli script stiano eseguendo gli elementi previsti in isolamento, senza attendere la durata dell'esecuzione completa della pipeline. Per eseguire questa operazione, è necessario eseguire alcune operazioni di sviluppo:
+Le pipeline non possono essere eseguite localmente, ma l'esecuzione degli script in isolamento nel computer locale consente di eseguire il debug più velocemente perché non è necessario attendere il processo di compilazione di calcolo e ambiente. Per eseguire questa operazione, è necessario eseguire alcune operazioni di sviluppo:
 
 * Se i dati si trova in un archivio dati cloud, sarà necessario scaricare i dati e renderli disponibili per lo script. L'uso di un piccolo campione di dati è un modo efficace per ridurre il tempo di esecuzione e ottenere commenti e suggerimenti sul comportamento degli script
 * Se si sta tentando di simulare un passaggio della pipeline intermedia, potrebbe essere necessario compilare manualmente i tipi di oggetto previsti dallo script specifico dal passaggio precedente
@@ -38,6 +38,9 @@ Una volta completata l'installazione di uno script nell'ambiente locale, è molt
 * Associazione di una configurazione di debug personalizzata
 * Sospensione dell'esecuzione e controllo dello stato dell'oggetto
 * Rilevamento di errori logici o di tipo che non verranno esposti fino al runtime
+
+> [!TIP] 
+> Quando è possibile verificare che lo script sia in esecuzione come previsto, un passaggio successivo consiste nell'eseguire lo script in una pipeline a singolo passaggio prima di provare a eseguirlo in una pipeline con più passaggi.
 
 ## <a name="debugging-scripts-from-remote-context"></a>Debug di script dal contesto remoto
 

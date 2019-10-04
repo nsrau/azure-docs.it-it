@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: mlearned
-ms.openlocfilehash: 967ca233169e2a2a213534d5b60bef2e3f44b6a9
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 26ba3ff600ddca6158579941ab5d32b60ff13101
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69969639"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950372"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Concetti relativi alla rete per le applicazioni nel servizio Azure Kubernetes
 
@@ -29,7 +29,7 @@ Questo articolo introduce i concetti di base correlati alle funzionalità di ret
 
 Per consentire l'accesso alle applicazioni o per consentire ai componenti dell'applicazione di comunicare tra loro, Kubernetes offre un livello di astrazione per funzionalità di rete virtuale. I nodi Kubernetes vengono connessi a una rete virtuale e possono fornire la connettività in ingresso e in uscita per i pod. Il componente *kube-proxy* viene eseguito in ogni nodo per fornire queste funzionalità di rete.
 
-In Kubernetes, i *servizi* raggruppano i pod dal punto di vista logico per consentire l'accesso diretto tramite un indirizzo IP o nome DNS e su una porta specifica. È anche possibile distribuire il traffico usando un *bilanciamento del carico*. Si può anche ottenere un routing più complesso del traffico dell'applicazione con i *controller di ingresso*. La sicurezza e il filtro del traffico di rete per i pod sono possibili con i *criteri di rete* Kubernetes (in anteprima in AKS).
+In Kubernetes, i *servizi* raggruppano i pod dal punto di vista logico per consentire l'accesso diretto tramite un indirizzo IP o nome DNS e su una porta specifica. È anche possibile distribuire il traffico usando un *bilanciamento del carico*. Si può anche ottenere un routing più complesso del traffico dell'applicazione con i *controller di ingresso*. La sicurezza e il filtraggio del traffico di rete per i pod sono possibili con i *criteri di rete* di Kubernetes.
 
 Anche la piattaforma Azure contribuisce a semplificare le funzionalità di rete virtuale per i cluster servizio Azure Kubernetes. Quando si crea un bilanciamento del carico di Kubernetes, viene creata e configurata la risorsa di bilanciamento del carico di Azure sottostante. Quando si aprono le porte di rete per i pod, vengono configurate le regole del gruppo di sicurezza di rete di Azure corrispondente. Per il routing delle applicazioni HTTP, Azure può anche configurare il *DNS esterno* quando vengono configurate nuove route in ingresso.
 
@@ -37,7 +37,7 @@ Anche la piattaforma Azure contribuisce a semplificare le funzionalità di rete 
 
 Per semplificare la configurazione di rete per i carichi di lavoro dell'applicazione, Kubernetes usa *servizi* per raggruppare un set di pod in modo logico e fornire la connettività di rete. Sono disponibili i tipi di servizio seguenti:
 
-- **IP del cluster** - Crea un indirizzo IP interno per l'uso all'interno del cluster AKS. Soluzione idonea per le applicazioni solo interne che supportano altri carichi di lavoro all'interno del cluster.
+- **IP del cluster** - Crea un indirizzo IP interno per l'uso all'interno del cluster del servizio Azure Kubernetes. Soluzione idonea per le applicazioni solo interne che supportano altri carichi di lavoro all'interno del cluster.
 
     ![Diagramma che mostra il flusso del traffico IP del cluster in un cluster servizio Azure Kubernetes][aks-clusterip]
 
@@ -115,7 +115,7 @@ Indipendentemente dal modello di rete usato, sia kubenet che Azure CNI possono e
 * La piattaforma Azure può creare e configurare automaticamente le risorse della rete virtuale quando si crea un cluster AKS.
 * Quando si crea il cluster AKS, è possibile creare e configurare manualmente le risorse della rete virtuale e connetterle a tali risorse.
 
-Sebbene le funzionalità come gli endpoint di servizio o UdR siano supportate sia con kubenet che con Azure CNI, i [criteri di supporto per AKS][support-policies] definiscono le modifiche che è possibile apportare. Ad esempio:
+Sebbene le funzionalità come gli endpoint di servizio o UdR siano supportate sia con kubenet che con Azure CNI, i [criteri di supporto per AKS][support-policies] definiscono le modifiche che è possibile apportare. Esempio:
 
 * Se si creano manualmente le risorse della rete virtuale per un cluster AKS, si è supportati quando si configurano gli endpoint di servizio o UdR personalizzati.
 * Se la piattaforma Azure crea automaticamente le risorse di rete virtuale per il cluster del servizio contenitore di Azure, non è supportata la modifica manuale delle risorse gestite da AKS per configurare UdR o endpoint di servizio personalizzati.

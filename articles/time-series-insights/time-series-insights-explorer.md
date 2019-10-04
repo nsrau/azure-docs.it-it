@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9ea9240ce5fa791734ab7b650ebdfa56b3f8dced
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 3a6bebfa11294821ff717f221e3e0ddfd68cd65c
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840574"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71948219"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Strumento di esplorazione di Azure Time Series Insights
 
@@ -57,7 +57,7 @@ Dopo aver connesso l'origine evento all'ambiente Time Series Insights, è possib
 
 1. L'icona del cloud di Azure consente di portarsi all'ambiente nella portale di Azure.
 
-   [![Ambiente Time Series Insights](media/time-series-insights-explorer/explorer1.png)](media/time-series-insights-explorer/explorer1.png#lightbox)
+   [ambiente @no__t 1Time Series Insights](media/time-series-insights-explorer/explorer1.png)](media/time-series-insights-explorer/explorer1.png#lightbox)
 
 1. Nel grafico visualizzato è riportato il conteggio di tutti gli eventi durante l'intervallo di tempo selezionato. Sono disponibili i controlli seguenti:
 
@@ -67,7 +67,7 @@ Dopo aver connesso l'origine evento all'ambiente Time Series Insights, è possib
       - È possibile abilitare l'interpolazione dei passaggi, visualizzare il valore minimo e massimo e regolare l'asse y dal pannello di controllo accanto a **misura**. È anche possibile regolare se i dati visualizzati sono un conteggio, una media o una somma dei dati.
       - È possibile aggiungere fino a cinque termini per visualizzare sullo stesso asse x. Usare il pulsante **copia giù** per aggiungere un termine aggiuntivo oppure selezionare **Aggiungi** per aggiungere un nuovo termine.
 
-        [![Pannello Editor termini](media/time-series-insights-explorer/explorer2.png)](media/time-series-insights-explorer/explorer2.png#lightbox)
+        [pannello Editor ![Terms](media/time-series-insights-explorer/explorer2.png)](media/time-series-insights-explorer/explorer2.png#lightbox)
 
       - **Predicato**: Utilizzare il predicato per filtrare rapidamente gli eventi utilizzando il set di operandi elencati nella tabella seguente. Se si esegue una ricerca selezionando o facendo clic su, il predicato viene aggiornato automaticamente in base a tale ricerca. I tipi di operandi supportati includono:
 
@@ -80,7 +80,7 @@ Dopo aver connesso l'origine evento all'ambiente Time Series Insights, è possib
 
       - **Esempi di query**
 
-         [![Query di esempio](media/time-series-insights-explorer/explorer9.png)](media/time-series-insights-explorer/explorer9.png#lightbox)
+         [query ![Example](media/time-series-insights-explorer/explorer9.png)](media/time-series-insights-explorer/explorer9.png#lightbox)
 
 1. È possibile utilizzare lo strumento Slider **Dimensioni intervallo** per ingrandire e ridurre gli intervalli sullo stesso intervallo di tempo. Il dispositivo di scorrimento fornisce un controllo più preciso dello spostamento tra le vaste sezioni di tempo che mostrano tendenze uniformi fino a sezioni fino al millisecondo, che consentono di visualizzare tagli granulari e a risoluzione elevata dei dati. Il punto di partenza predefinito del dispositivo di scorrimento è impostato come visualizzazione ottimale dei dati della selezione per bilanciare la risoluzione, la velocità delle query e la granularità.
 
@@ -88,13 +88,13 @@ Dopo aver connesso l'origine evento all'ambiente Time Series Insights, è possib
 
 1. Usare il comando **Salva** per salvare la query corrente e condividerla con altri utenti dell'ambiente. Quando si usa **Apri**, è possibile visualizzare tutte le query salvate e tutte le query condivise di altri utenti negli ambienti a cui si ha accesso.
 
-   [![Query](media/time-series-insights-explorer/explorer3.png)](media/time-series-insights-explorer/explorer3.png#lightbox)
+   [![Queries](media/time-series-insights-explorer/explorer3.png)](media/time-series-insights-explorer/explorer3.png#lightbox)
 
 ## <a name="visualize-data"></a>Visualizzare i dati
 
 1. Utilizzare lo strumento **visualizzazione prospettiva** per una visualizzazione simultanea di un massimo di quattro query univoche. Il pulsante **visualizzazione prospettiva** si trova nell'angolo superiore destro del grafico.
 
-   [![Visualizzazione prospettiva](media/time-series-insights-explorer/explorer4.png)](media/time-series-insights-explorer/explorer4.png#lightbox)
+   [visualizzazione ![Perspective](media/time-series-insights-explorer/explorer4.png)](media/time-series-insights-explorer/explorer4.png#lightbox)
 
 1. Visualizzazione di un grafico per esplorare visivamente i dati e utilizzare gli strumenti per i **grafici** :
 
@@ -104,26 +104,26 @@ Dopo aver connesso l'origine evento all'ambiente Time Series Insights, è possib
     - Nell'area del filtro a sinistra del grafico è possibile visualizzare tutte le serie di dati visualizzate e riordinarle in base al valore o al nome. È anche possibile visualizzare tutte le serie di dati o qualsiasi serie bloccata o sbloccata. È possibile selezionare una singola serie di dati e suddividere le serie in base a un'altra colonna, aggiungere la serie come nuovo termine, visualizzare solo la serie selezionata, escludere la serie selezionata, aggiungere tale serie o esplorare gli eventi della serie selezionata.
     - Quando si visualizzano più termini simultaneamente, è possibile stack, unstack, visualizzare dati aggiuntivi relativi a una serie di dati e usare lo stesso asse y in tutti i termini. Utilizzare i pulsanti nell'angolo superiore destro del grafico.
 
-    [![Strumento grafico](media/time-series-insights-explorer/explorer5.png)](media/time-series-insights-explorer/explorer5.png#lightbox)
+    [strumento ![Chart](media/time-series-insights-explorer/explorer5.png)](media/time-series-insights-explorer/explorer5.png#lightbox)
 
 1. Usare **mappa termica** per individuare in modo rapido la serie di dati univoca o anomala in una determinata query. È possibile visualizzare come mappa termica solo un termine di ricerca.
 
-    [![Mappa termica](media/time-series-insights-explorer/explorer6.png)](media/time-series-insights-explorer/explorer6.png#lightbox)
+    [![Heatmap](media/time-series-insights-explorer/explorer6.png)](media/time-series-insights-explorer/explorer6.png#lightbox)
 
 1. Quando si esplorano gli eventi selezionando o facendo clic con il pulsante destro del mouse, viene reso disponibile il pannello **eventi** . In questa area è possibile visualizzare tutti gli eventi non elaborati ed esportare gli eventi come file con estensione json o csv. Time Series Insights archivia tutti i dati non elaborati.
 
-    [![Eventi](media/time-series-insights-explorer/explorer7.png)](media/time-series-insights-explorer/explorer7.png#lightbox)
+    [![Events](media/time-series-insights-explorer/explorer7.png)](media/time-series-insights-explorer/explorer7.png#lightbox)
 
 1. Selezionare la scheda **statistiche** dopo aver esplorato gli eventi per esporre i modelli e le statistiche di colonna.
 
     - **Modelli**: Questa funzionalità consente di ripartire in modo proattivo i modelli più statistici significativi in un'area dati selezionata. Non è necessario esaminare migliaia di eventi per comprendere quali modelli richiedono più tempo ed energia. Con Time Series Insights, è possibile passare direttamente a questi modelli statisticamente significativi per continuare a eseguire un'analisi. Questa funzionalità risulta utile anche per le analisi retrospettive di dati storici.
     - **Statistiche di colonna**: Le statistiche di colonna forniscono grafici e tabelle che suddividono i dati da ogni colonna della serie di dati selezionata nell'intervallo di tempo selezionato.
 
-      [![STATISTICHE](media/time-series-insights-explorer/explorer8.png)](media/time-series-insights-explorer/explorer8.png#lightbox)
+      [![STATS](media/time-series-insights-explorer/explorer8.png)](media/time-series-insights-explorer/explorer8.png#lightbox)
 
 Sono ora disponibili le varie funzionalità e opzioni disponibili nell'app Web di Time Series Insights Explorer.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Informazioni su come [diagnosticare e risolvere i problemi](time-series-insights-diagnose-and-solve-problems.md) nell'ambiente Time Series Insights.
-- Visitare la Guida [introduttiva Azure Time Series Insights](time-series-quickstart.md) Guida introduttiva.
+- Visitare la Guida [introduttiva Azure Time Series Insights Guida introduttiva](time-series-quickstart.md) .

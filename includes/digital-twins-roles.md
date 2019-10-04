@@ -2,18 +2,19 @@
 title: File di inclusione
 description: File di inclusione
 services: digital-twins
-author: kingdomofends
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
 ms.date: 09/30/2019
-ms.author: v-adgera
 ms.custom: include file
-ms.openlocfilehash: f9b9341be32e5707ef646bd6d08d9d7ec92a8575
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
-ms.translationtype: HT
+ms.openlocfilehash: e1512db9bea2aa3eb1a56045a97b3402ac62d84e
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827692"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949057"
 ---
 La tabella seguente descrive i ruoli disponibili in Gemelli digitali di Azure:
 

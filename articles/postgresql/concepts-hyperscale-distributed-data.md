@@ -1,18 +1,18 @@
 ---
 title: 'Dati distribuiti nel database di Azure per PostgreSQL: iperscalabilità (CITUS)'
-description: Tabelle e partizioni distribuite nel gruppo di server.
+description: Informazioni sulle tabelle distribuite, le tabelle di riferimento, le tabelle locali e le partizioni nel database di Azure per PostgreSQL.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: acc07086f4eaac523cb27e1361cb9cc6d380c695
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 8a0fe871685f2a140cd8272d93f49f594cd2c910
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69998031"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947494"
 ---
 # <a name="distributed-data-in-azure-database-for-postgresql--hyperscale-citus"></a>Dati distribuiti nel database di Azure per PostgreSQL: iperscalabilità (CITUS)
 
@@ -51,7 +51,7 @@ Un buon candidato per le tabelle locali è costituito da piccole tabelle amminis
 
 Nella sezione precedente è stata descritta la modalità di archiviazione delle tabelle distribuite come partizioni nei nodi di lavoro. In questa sezione vengono illustrati i dettagli più tecnici.
 
-La `pg_dist_shard` tabella dei metadati nel coordinatore contiene una riga per ogni partizione di ogni tabella distribuita nel sistema. La riga corrisponde a un ID di partizione con un intervallo di numeri interi in uno spazio hash (shardminvalue, shardmaxvalue).
+La tabella di metadati `pg_dist_shard` nel coordinatore contiene una riga per ogni partizione di ogni tabella distribuita nel sistema. La riga corrisponde a un ID di partizione con un intervallo di numeri interi in uno spazio hash (shardminvalue, shardmaxvalue).
 
 ```sql
 SELECT * from pg_dist_shard;
@@ -64,13 +64,13 @@ SELECT * from pg_dist_shard;
  (4 rows)
 ```
 
-Se il nodo coordinatore desidera determinare quale partizione include una riga `github_events`di, viene eseguito l'hashing del valore della colonna Distribution nella riga. Il nodo verifica quindi l'intervallo\'della partizione che contiene il valore con hash. Gli intervalli vengono definiti in modo che l'immagine della funzione hash sia la relativa unione non contigua.
+Se il nodo coordinatore desidera determinare quale partizione include una riga di `github_events`, viene eseguito l'hashing del valore della colonna di distribuzione nella riga. Il nodo verifica quindi l'intervallo di partizione @ no__t-0 che contiene il valore con hash. Gli intervalli vengono definiti in modo che l'immagine della funzione hash sia la relativa unione non contigua.
 
 ### <a name="shard-placements"></a>Posizionamenti della partizione
 
 Si supponga che la partizione 102027 sia associata alla riga in questione. La riga viene letta o scritta in una tabella denominata `github_events_102027` in uno dei ruoli di lavoro. Quale ruolo di lavoro? Questo è determinato interamente dalle tabelle di metadati. Il mapping della partizione al ruolo di lavoro è noto come posizionamento della partizione.
 
-Il nodo coordinatore riscrive le query in frammenti che fanno riferimento a tabelle specifiche `github_events_102027` come ed esegue tali frammenti sui ruoli di lavoro appropriati. Di seguito è riportato un esempio di esecuzione di una query dietro le quinte per individuare il nodo che contiene l'ID di partizione 102027.
+Il nodo coordinatore riscrive le query in frammenti che fanno riferimento a tabelle specifiche come `github_events_102027` ed esegue tali frammenti sui ruoli di lavoro appropriati. Di seguito è riportato un esempio di esecuzione di una query dietro le quinte per individuare il nodo che contiene l'ID di partizione 102027.
 
 ```sql
 SELECT

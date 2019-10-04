@@ -49,8 +49,8 @@
     - name: Gestire l'evidenziazione dei risultati
       href: ../Bing-Web-Search/hit-highlighting.md
       maintainContext: true
-    - name: Sfogliare le notizie
-      href: paging-news.md
+    - name: Sfogliare i risultati della ricerca
+      href: ../Bing-Web-Search/paging-search-results.md
     - name: Ridimensionare e ritagliare le anteprime
       maintainContext: true
       href: ../bing-web-search/resize-and-crop-thumbnails.md

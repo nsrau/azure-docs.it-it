@@ -1,5 +1,5 @@
 ---
-title: Usare un'identità gestita assegnata dal sistema dell'applicazione del servizio app per accedere Azure Key Vault
+title: Usare un'identità gestita assegnata dal sistema per accedere a Azure Key Vault
 description: Informazioni su come creare un'identità gestita per le applicazioni del servizio app e su come usarla per accedere a Azure Key Vault
 services: key-vault
 author: msmbaldwin
@@ -9,18 +9,19 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 8ac6f9be80d31804089ae2589998079dc7df66b3
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 6c7a9fdb5ed60023a82984fd5be5b424c634e679
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71004306"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720257"
 ---
-# <a name="use-an-app-service-managed-identity-to-access-azure-key-vault"></a>Usare un'identità gestita del servizio app per accedere a Azure Key Vault 
+# <a name="provide-key-vault-authentication-with-a-managed-identity"></a>Fornire Key Vault autenticazione con un'identità gestita
 
-Questo articolo illustra come creare un'identità gestita per le applicazioni del servizio app e come usarla per accedere a Azure Key Vault. Per le applicazioni ospitate nelle macchine virtuali di Azure, vedere [usare un'identità gestita assegnata dal sistema VM Windows per accedere a Azure Key Vault](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md). 
+Un'identità gestita da Azure Active Directory consente all'app di accedere facilmente ad altre risorse protette da Azure AD. L'identità viene gestita dalla piattaforma Azure e non è necessario eseguire il provisioning o ruotare alcun segreto. Per altre informazioni, vedere [Identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md). 
 
-Un'identità gestita da Azure Active Directory consente all'app di accedere facilmente ad altre risorse protette da Azure AD. L'identità viene gestita dalla piattaforma Azure e non è necessario eseguire il provisioning o ruotare alcun segreto. Per altre informazioni sulle identità gestite in Azure AD, vedere [identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md). 
+Questo articolo illustra come creare un'identità gestita per un'applicazione del servizio app e usarla per accedere a Azure Key Vault. Per le applicazioni ospitate nelle macchine virtuali di Azure, vedere [usare un'identità gestita assegnata dal sistema VM Windows per accedere a Azure Key Vault](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md).
+
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -32,7 +33,8 @@ Per completare questa guida, è necessario disporre delle risorse riportate di s
    - [Creare un Key Vault con l'interfaccia della riga di comando di Azure](quick-create-cli.md)
    - [Creare un insieme di credenziali delle chiavi con Azure PowerShell](quick-create-powershell.md)
    - [Creare un insieme di credenziali delle chiavi con l'portale di Azure](quick-create-portal.md).
-- Un'applicazione del servizio app esistente a cui concedere l'accesso all'insieme di credenziali delle chiavi. È possibile crearne rapidamente una seguendo i passaggi descritti nella [documentazione del servizio app](../app-service/overview.md)/
+- Un'applicazione del servizio app esistente a cui concedere l'accesso all'insieme di credenziali delle chiavi. È possibile crearne rapidamente uno attenendosi alla procedura descritta nella [documentazione del servizio app](../app-service/overview.md).
+- [Interfaccia](/cli/azure/install-azure-cli?view=azure-cli-latest) della riga di comando di Azure o [Azure PowerShell](/powershell/azure/overview). In alternativa, è possibile usare la [portale di Azure](http://portal.azure.com).
 
 
 ## <a name="adding-a-system-assigned-identity"></a>Aggiunta di un'identità assegnata dal sistema 
@@ -47,7 +49,7 @@ Per configurare un'identità gestita nel portale, è prima necessario creare un'
 
 1. Selezionare **Identità gestita**. 
 
-1. All'interno della scheda **Assegnata dal sistema** impostare **Stato** su **Attivato**. Fare clic su **Save**. 
+1. All'interno della scheda **Assegnata dal sistema** impostare **Stato** su **Attivato**. Fare clic su **Salva**. 
 
     ![](./media/managed-identity-system-assigned.png)
 
@@ -101,7 +103,7 @@ Prendere nota dell'oggetto `PrincipalId`, che sarà necessario nella sezione suc
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-Per concedere l'accesso all'applicazione all'insieme di credenziali delle chiavi, usare l'interfaccia della riga di comando di Azure [AZ Key Vault set-Policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) Command, specificando il parametro **ObjectID** con la **PrincipalId* annotata in precedenza.
+Per concedere all'applicazione l'accesso all'insieme di credenziali delle chiavi, usare l'interfaccia della riga di comando di Azure [AZ Key Vault set-Policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) Command, specificando il parametro **ObjectID** con il **PrincipalId** annotato in precedenza.
 
 ```azurecli-interactive
 az keyvault set-policy --name myKeyVault --object-id <PrincipalId> --secret-permissions get list 
@@ -109,7 +111,9 @@ az keyvault set-policy --name myKeyVault --object-id <PrincipalId> --secret-perm
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Leggere una [panoramica di Azure Key Vault](key-vault-overview.md)
-- Vedere la [Guida per gli sviluppatori per Azure Key Vault](key-vault-developers-guide.md)
-- Vedere le informazioni su [chiavi, segreti e certificati](about-keys-secrets-and-certificates.md)
+- sicurezza Key Vault [Azure: Gestione delle identità e degli accessi @ no__t-0
+- [Fornire Key Vault autenticazione con un criterio di controllo di accesso](key-vault-group-permissions-for-apps.md)
+- [Informazioni su chiavi, segreti e certificati](about-keys-secrets-and-certificates.md)
+- [Proteggere l'](key-vault-secure-your-key-vault.md)insieme di credenziali delle chiavi.
+- [Guida per gli sviluppatori di Azure Key Vault](key-vault-developers-guide.md)
 - Esaminare le [procedure consigliate per Azure Key Vault](key-vault-best-practices.md)

@@ -15,12 +15,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: b9ab36343dd11bdb5bd7cc1adcf2c8b1b971dab3
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: ee5354845efba0cce92ccf4f11eb3480684e7509
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300672"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947894"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Debug dell'applicazione di Service Fabric mediante Visual Studio
 > [!div class="op_single_selector"]
@@ -76,14 +76,10 @@ Se le applicazioni Service Fabric sono in esecuzione in un cluster Service Fabri
 
 > [!NOTE]
 > La funzionalità richiede [Service Fabric SDK 2.0](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) e [Azure SDK per .NET 2.9](https://azure.microsoft.com/downloads/).    
-> 
-> 
 
 <!-- -->
 > [!WARNING]
 > Il debug remoto è progettato per scenari di sviluppo e test e non deve essere usato in ambienti di produzione a causa dell'impatto sulle applicazioni in esecuzione.
-> 
-> 
 
 1. Passare al cluster in **Cloud Explorer**. Fare clic con il pulsante destro del mouse e scegliere **Abilita debug**
    
@@ -128,8 +124,6 @@ Se le applicazioni Service Fabric sono in esecuzione in un cluster Service Fabri
 > [!WARNING]
 > Lo streaming delle tracce è progettato per scenari di sviluppo e test e non deve essere usato in ambienti di produzione a causa dell'impatto sulle applicazioni in esecuzione.
 > In uno scenario di produzione è consigliabile basarsi sugli eventi di inoltro usando Diagnostica di Azure.
-> 
-> 
 
 1. Passare al cluster in **Cloud Explorer**. Fare clic con il pulsante destro del mouse e scegliere **Abilita tracce di streaming**
    

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 09/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b7f701cd3ce07099d80bca40e506108bcc9a9da9
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: b4eebf7dac4d388411f570b1546c96e3b82b2a98
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178105"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950055"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-resource-manager-templates"></a>Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e i modelli di Azure Resource Manager
 
@@ -159,6 +159,9 @@ New-AzDeployment -Location centralus -TemplateFile rbac-test.json -principalId $
 az deployment create --location centralus --template-file rbac-test.json --parameters principalId=$userid builtInRoleType=Reader
 ```
 
+> [!NOTE]
+> Questo modello non è idempotente a meno che non venga specificato lo stesso valore `roleNameGuid` come parametro per ogni distribuzione del modello. Se non viene specificato alcun `roleNameGuid`, per impostazione predefinita viene generato un nuovo GUID per ogni distribuzione e le distribuzioni successive avranno esito negativo con un errore `Conflict: RoleAssignmentExists`.
+
 ## <a name="create-a-role-assignment-at-a-resource-scope"></a>Creare un'assegnazione di ruolo in un ambito di risorsa
 
 Se è necessario creare un'assegnazione di ruolo al livello di una risorsa, il formato dell'assegnazione di ruolo è diverso. Specificare lo spazio dei nomi del provider di risorse e il tipo di risorsa della risorsa a cui assegnare il ruolo. È anche possibile includere il nome della risorsa nel nome dell'assegnazione di ruolo.
@@ -180,8 +183,6 @@ Per usare il modello, è necessario specificare gli input seguenti:
 
 - L'identificatore univoco dell'utente, del gruppo o dell'applicazione che è stato assegnato al ruolo
 - Il ruolo da assegnare
-- Identificatore univoco che verrà utilizzato per l'assegnazione di ruolo oppure è possibile utilizzare l'identificatore predefinito
-
 
 ```json
 {
@@ -203,13 +204,6 @@ Per usare il modello, è necessario specificare gli input seguenti:
             ],
             "metadata": {
                 "description": "Built-in role to assign"
-            }
-        },
-        "roleNameGuid": {
-            "type": "string",
-            "defaultValue": "[newGuid()]",
-            "metadata": {
-                "description": "A new GUID used to identify the role assignment"
             }
         },
         "location": {
@@ -238,7 +232,7 @@ Per usare il modello, è necessario specificare gli input seguenti:
         {
             "type": "Microsoft.Storage/storageAccounts/providers/roleAssignments",
             "apiVersion": "2018-09-01-preview",
-            "name": "[concat(variables('storageName'), '/Microsoft.Authorization/', parameters('roleNameGuid'))]",
+            "name": "[concat(variables('storageName'), '/Microsoft.Authorization/', guid(uniqueString(parameters('storageName'))))]",
             "dependsOn": [
                 "[variables('storageName')]"
             ],
@@ -267,12 +261,12 @@ Di seguito viene illustrato un esempio di assegnazione di ruolo Collaboratore a 
 
 ## <a name="create-a-role-assignment-for-a-new-service-principal"></a>Creare un'assegnazione di ruolo per una nuova entità servizio
 
-Se si crea una nuova entità servizio e si tenta immediatamente di assegnare un ruolo a tale entità servizio, l'assegnazione di ruolo può non riuscire in alcuni casi. Se, ad esempio, si crea una nuova identità gestita e quindi si tenta di assegnare un ruolo a tale entità servizio nello stesso modello di Azure Resource Manager, l'assegnazione del ruolo potrebbe non riuscire. Il motivo di questo errore è probabilmente un ritardo di replica. L'entità servizio viene creata in un'area; Tuttavia, l'assegnazione di ruolo potrebbe verificarsi in un'area diversa che non ha ancora replicato l'entità servizio. Per risolvere questo scenario, è necessario impostare la `principalType` proprietà su `ServicePrincipal` quando si crea l'assegnazione di ruolo.
+Se si crea una nuova entità servizio e si tenta immediatamente di assegnare un ruolo a tale entità servizio, l'assegnazione di ruolo può non riuscire in alcuni casi. Se, ad esempio, si crea una nuova identità gestita e quindi si tenta di assegnare un ruolo a tale entità servizio nello stesso modello di Azure Resource Manager, l'assegnazione del ruolo potrebbe non riuscire. Il motivo di questo errore è probabilmente un ritardo di replica. L'entità servizio viene creata in un'area; Tuttavia, l'assegnazione di ruolo potrebbe verificarsi in un'area diversa che non ha ancora replicato l'entità servizio. Per risolvere questo scenario, è necessario impostare la proprietà `principalType` su `ServicePrincipal` quando si crea l'assegnazione di ruolo.
 
 Il modello seguente illustra:
 
 - Come creare una nuova entità servizio identità gestita
-- Come specificare`principalType`
+- Come specificare il `principalType`
 - Come assegnare il ruolo Collaboratore a tale entità servizio in un ambito del gruppo di risorse
 
 Per usare il modello, è necessario specificare gli input seguenti:

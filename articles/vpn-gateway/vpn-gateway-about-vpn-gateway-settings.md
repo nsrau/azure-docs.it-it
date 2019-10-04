@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 10/03/2019
 ms.author: cherylmc
-ms.openlocfilehash: 4030c196d6a4de721b640f5da0b692f4d8157d12
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 063ca5307468da90eb905323f6b145dfdb6654fe
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64859001"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959086"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Informazioni sulle impostazioni di configurazione del gateway VPN
 
@@ -77,7 +77,7 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --r
 
 ###  <a name="resizechange"></a>Ridimensionare o modificare uno SKU
 
-Se è disponibile un gateway VPN e si vuole usare un diverso SKU del gateway, le opzioni disponibili sono ridimensionare lo SKU del gateway oppure passare a un altro SKU. Quando si usa un altro SKU del gateway, eliminare completamente il gateway esistente e compilarne uno nuovo. Un gateway può richiedere fino a 45 minuti. In confronto, quando si ridimensiona un SKU del gateway, non c'è molto tempo di inattività perché non è necessario eliminare e ricreare il gateway. Se si ha la possibilità di ridimensionare lo SKU del gateway, anziché modificarlo, è opportuno preferire tale prima opzione. Esistono tuttavia alcune regole relative al ridimensionamento:
+Se è disponibile un gateway VPN e si vuole usare un diverso SKU del gateway, le opzioni disponibili sono ridimensionare lo SKU del gateway oppure passare a un altro SKU. Quando si usa un altro SKU del gateway, eliminare completamente il gateway esistente e compilarne uno nuovo. La compilazione di un gateway può richiedere fino a 45 minuti. In confronto, quando si ridimensiona uno SKU del gateway, non si verificano tempi di inattività perché non è necessario eliminare e ricompilare il gateway. Se si ha la possibilità di ridimensionare lo SKU del gateway, anziché modificarlo, è opportuno preferire tale prima opzione. Esistono tuttavia alcune regole relative al ridimensionamento:
 
 1. È possibile eseguire il ridimensionamento tra gli SKU VpnGw1, VpnGw2 e VpnGw3.
 2. Quando si usano SKU del gateway di versione precedente, è possibile eseguire il ridimensionamento tra gli SKU Basic, Standard e HighPerformance.
@@ -132,13 +132,15 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ## <a name="gwsub"></a>Subnet del gateway
 
-Prima di creare un gateway VPN, è necessario creare una subnet del gateway. La subnet del gateway contiene gli indirizzi IP usati dalle VM e dai servizi del gateway di rete virtuale. Quando si crea il gateway di rete virtuale, le VM del gateway vengono distribuite nella subnet del gateway e configurate con le impostazioni del gateway VPN necessarie. Mai distribuire altro (ad esempio, VM aggiuntive) alla subnet del gateway. Per poter funzionare correttamente, la subnet del gateway deve essere denominata "GatewaySubnet". Denominando la subnet del gateway 'GatewaySubnet', Azure riconosce questa subnet come quella in cui distribuire i servizi e le VM del gateway di rete virtuale.
+Prima di creare un gateway VPN, è necessario creare una subnet del gateway. La subnet del gateway contiene gli indirizzi IP usati dalle VM e dai servizi del gateway di rete virtuale. Quando si crea il gateway di rete virtuale, le VM del gateway vengono distribuite nella subnet del gateway e configurate con le impostazioni del gateway VPN necessarie. Non distribuire mai nient'altro (ad esempio, altre VM) alla subnet del gateway. Per poter funzionare correttamente, la subnet del gateway deve essere denominata "GatewaySubnet". Denominando la subnet del gateway 'GatewaySubnet', Azure riconosce questa subnet come quella in cui distribuire i servizi e le VM del gateway di rete virtuale.
 
 >[!NOTE]
 >[!INCLUDE [vpn-gateway-gwudr-warning.md](../../includes/vpn-gateway-gwudr-warning.md)]
 >
 
-Quando si crea la subnet del gateway, si specifica il numero di indirizzi IP inclusi nella subnet. Gli indirizzi IP inclusi nella subnet del gateway sono allocati alle VM del gateway e ai servizi del gateway. Alcune configurazioni richiedono più indirizzi IP di altre. Esaminare le istruzioni per la configurazione da creare e verificare che la subnet del gateway che si vuole creare soddisfi tali requisiti. È anche consigliabile verificare che la subnet del gateway contenga una quantità di indirizzi IP sufficiente per supportare possibili future configurazioni aggiuntive. Anche se è possibile creare una subnet del gateway con dimensioni pari a /29, è consigliabile crearne una con dimensioni pari a /28 o superiori, ad esempio /28, /27, /26 e così via. In questo modo, se si aggiungono funzionalità in futuro, non sarà necessario rimuovere il gateway ed eliminare e ricreare la subnet del gateway per consentire altri indirizzi IP.
+Quando si crea la subnet del gateway, si specifica il numero di indirizzi IP inclusi nella subnet. Gli indirizzi IP inclusi nella subnet del gateway sono allocati alle VM del gateway e ai servizi del gateway. Alcune configurazioni richiedono più indirizzi IP di altre. 
+
+Quando si pianificano le dimensioni della subnet del gateway, fare riferimento alla documentazione per la configurazione che si prevede di creare. Ad esempio, la configurazione della coesistenza del gateway ExpressRoute/VPN richiede una subnet del gateway di dimensioni maggiori rispetto alla maggior parte delle altre configurazioni. È anche consigliabile verificare che la subnet del gateway contenga una quantità di indirizzi IP sufficiente per supportare possibili future configurazioni aggiuntive. Anche se è possibile creare una subnet del gateway con dimensioni pari a /29, è consigliabile crearne una con dimensioni pari a /28 o superiori, ad esempio /28, /27, /26 e così via. La maggior parte delle configurazioni verrà adattata.
 
 L'esempio seguente di PowerShell Resource Manager illustra una subnet del gateway denominata GatewaySubnet. La notazione CIDR specifica /27. Questa dimensione ammette un numero di indirizzi IP sufficiente per la maggior parte delle configurazioni attualmente esistenti.
 

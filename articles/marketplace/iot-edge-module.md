@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 09/22/2018
 ms.author: pabutler
-ms.openlocfilehash: 3010b63c7c4c575d915789c19b60710194c79196
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 54369e0f2c943c146d186605833198253b960022
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67874682"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949533"
 ---
 # <a name="iot-edge-modules"></a>Moduli di IoT Edge
 
@@ -82,9 +82,7 @@ I requisiti tecnici principali di un modulo Azure IoT Edge, affinché possa esse
 
 Se non è già stato fatto,
 
-- Eseguire la registrazione a [Microsoft Partner Network](https://partner.microsoft.com/membership).
-- Creare un [account Microsoft](https://account.microsoft.com/account/)(obbligatorio per le offerte di transazione di Azure Marketplace, consigliato per le altre).
-- Inviare il [modulo di registrazione a Marketplace](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv). Per ulteriori informazioni, vedere come [creare un account del centro](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) per i partner.
+- [Registrarsi](https://azuremarketplace.microsoft.com/sell) in Marketplace.
 
 Se la registrazione è già stata effettuata e si sta creando una nuova offerta o lavorando su una esistente,
 

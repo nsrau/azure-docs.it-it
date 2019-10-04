@@ -5,16 +5,16 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 09/23/2019
+ms.date: 10/03/2019
 ms.author: helohr
-ms.openlocfilehash: e7f565a995e4c2a5338f08437b0dd336846ba154
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 3a6fb67ce531ed8cc028d2d0a8dfc3022544efe0
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679919"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947577"
 ---
-# <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Distribuire una macchina virtuale Windows 7 in un desktop virtuale Windows
+# <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Distribuire una macchina virtuale Windows 7 in Desktop virtuale Windows
 
 Il processo di distribuzione di una macchina virtuale (VM) Windows 7 in un desktop virtuale Windows è leggermente diverso rispetto a quello delle macchine virtuali che eseguono versioni successive di Windows. Questa guida illustra come distribuire Windows 7.
 
@@ -43,9 +43,15 @@ Per configurare una macchina virtuale Windows 7 in un desktop virtuale Windows:
      shutdown /r /t 0
      ```
     
+11. Seguire le istruzioni riportate [qui](https://docs.microsoft.com/powershell/module/windowsvirtualdesktop/export-rdsregistrationinfo) per ottenere un token di registrazione.
+12. [Scaricare l'agente desktop virtuale Windows per Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm).
+13. [Scaricare il desktop virtuale windows Agent Manager per Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3).
+14. Aprire il programma di installazione dell'agente desktop virtuale di Windows e seguire le istruzioni. Quando richiesto, fornire la chiave di registrazione creata al passaggio 11.
+15. Aprire il programma di installazione del desktop virtuale di Windows e seguire le istruzioni.
+16. Facoltativamente, bloccare la porta TCP/3389 per rimuovere l'accesso diretto Remote Desktop Protocol alla macchina virtuale.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-La VM di Windows 7 è ora pronta per la distribuzione nel desktop virtuale di Windows. Per completare la distribuzione, seguire le istruzioni in [preparare le installazioni delle macchine virtuali per l'agente desktop virtuale di Windows](create-host-pools-powershell.md#prepare-the-virtual-machines-for-windows-virtual-desktop-agent-installations) .
+È ora possibile usare la distribuzione di desktop virtuali Windows. Per iniziare, [scaricare la versione più recente del client desktop virtuale di Windows](https://aka.ms/wvd/clients/windows) .
 
 Per un elenco dei problemi noti e delle istruzioni per la risoluzione dei problemi relativi a Windows 7 su desktop virtuale Windows, vedere l'articolo sulla risoluzione dei problemi relativi alle [macchine virtuali Windows 7 in desktop virtuali Windows](troubleshoot-windows-7-vm.md).
-

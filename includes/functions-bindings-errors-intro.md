@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: f771b6b0416c5777c1ebde7e2cf2c4ffc6f375ff
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 178fa7d5f129a12736ec068fca605ba24cd37839
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155290"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71955867"
 ---
 Gli errori generati in funzioni di Azure possono provenire da una qualsiasi delle origini seguenti:
 
@@ -23,7 +23,7 @@ Per evitare la perdita di dati o messaggi mancanti, è importante seguire le pro
 - [Abilita Application Insights](../articles/azure-functions/functions-monitoring.md)
 - [Usa la gestione degli errori strutturata](#use-structured-error-handling)
 - [Progettazione per idempotenza](../articles/azure-functions/functions-idempotent.md)
-- Implementare i criteri di ripetizione dei tentativi (laddove appropriato)
+- [Implementare i criteri di ripetizione dei tentativi](../articles/azure-functions/functions-reliable-event-processing.md) (laddove appropriato)
 
 ### <a name="use-structured-error-handling"></a>Usa la gestione degli errori strutturata
 

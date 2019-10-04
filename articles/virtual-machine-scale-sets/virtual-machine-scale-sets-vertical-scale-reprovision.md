@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2019
 ms.author: manayar
-ms.openlocfilehash: d12fde33ec9d55c891c801f1b89143b4db6f8ae7
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 87d2b19f6143f567782778e35c8511f233d8b0e8
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035762"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958138"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Scalabilità verticale automatica con set di scalabilità di macchine virtuali
 
-In questo articolo viene descritto come ridimensionare in verticale i [set di macchine virtuali](https://azure.microsoft.com/services/virtual-machine-scale-sets/) di Azure con o senza un nuovo provisioning. Per la scalabilità verticale delle macchine virtuali non incluse nei set di scalabilità, vedere l'articolo [Scalabilità verticale di macchine virtuali di Azure tramite Automazione di Azure](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+In questo articolo viene descritto come ridimensionare in verticale i [set di macchine virtuali](https://azure.microsoft.com/services/virtual-machine-scale-sets/) di Azure con o senza un nuovo provisioning. 
 
 Per ridimensionamento verticale, detto anche *aumento delle prestazioni* e *riduzione delle prestazioni*, si intende l'aumento o la riduzione delle dimensioni delle macchine virtuali (VM) in risposta a un carico di lavoro. Confrontare questo comportamento con la [scalabilità orizzontale](virtual-machine-scale-sets-autoscale-overview.md), detta anche *aumento delle istanze* e *riduzione delle istanze*, in cui il numero di macchine virtuali viene modificato in base al carico di lavoro.
 

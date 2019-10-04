@@ -1,19 +1,19 @@
 ---
-title: Informazioni sui modelli a oggetti di Gemelli digitali e sul grafico di intelligenza spaziale | Microsoft Docs
+title: Informazioni sui modelli a oggetti gemelli digitali di Azure e sul grafico di intelligence spaziale | Microsoft Docs
 description: Gemelli digitali di Azure consente di modellare le relazioni tra persone, luoghi e dispositivi
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.author: alinast
-ms.openlocfilehash: 37f2afbd9bae4ca6bccc5062515f166687d8913c
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 67a4aceb157ee3fe1b1d1553efd587a0f2838d88
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71177062"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950016"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Informazioni sui modelli a oggetti di Gemelli digitali e sul grafico di intelligenza spaziale
 
@@ -23,7 +23,7 @@ I modelli a oggetti di Gemelli digitali descrivono concetti, categorie e proprie
 
 Predisponendo modelli a oggetti di Gemelli digitali e un’ontologia, è possibile popolare un _grafico spaziale_. I grafici spaziali sono rappresentazioni virtuali delle molte relazioni tra spazi, dispositivi e persone rilevanti per una soluzione IoT. Questo diagramma mostra un esempio di grafico spaziale che usa l'ontologia di un edificio intelligente.
 
-[![Creazione di grafici spaziali gemelli digitali](media/concepts/digital-twins-spatial-graph-building.png)](media/concepts/digital-twins-spatial-graph-building.png#lightbox)
+[![Digital gemelli-creazione di grafici spaziali](media/concepts/digital-twins-spatial-graph-building.png)](media/concepts/digital-twins-spatial-graph-building.png#lightbox)
 
 Il grafico spaziale riunisce spazi, dispositivi, sensori e utenti. Ogni elemento è collegato agli altri in modo da modellare il mondo reale. In questo esempio, la sede 43 presenta quattro piani, ciascuno con molte aree differenti. Gli utenti sono associati alla propria workstation e hanno accesso a parti del grafico. Un amministratore dispone dei diritti per apportare modifiche al grafico spaziale, mentre un visitatore ha solo i diritti per visualizzare determinati dati dell'edificio.
 

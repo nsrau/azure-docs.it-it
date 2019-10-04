@@ -1,20 +1,20 @@
 ---
 title: Informazioni su come usare la documentazione di riferimento di Swagger per Gemelli digitali di Azure | Microsoft Docs
 description: Comprendere come usare la documentazione di riferimento di Swagger per Gemelli digitali di Azure.
-author: kingdomofends
-manager: alinast
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/16/2019
-ms.author: v-adgera
+ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1344b86b9fa922dc22870dda495ff367a511b8ca
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 06cbdf6fbba89b6666e6fe3162fd591e93dffecd
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640253"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958879"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Documentazione di riferimento di Swagger per Gemelli digitali di Azure
 
@@ -42,15 +42,15 @@ Il materiale di riferimento di Swagger generato automaticamente offre una rapida
 
 Un breve riepilogo descrive l'API.
 
-[![Spavalderia in alto](media/how-to-use-swagger/swagger-management-top-img.png)](media/how-to-use-swagger/swagger-management-top-img.png#lightbox)
+[![Swagger Top](media/how-to-use-swagger/swagger-management-top-img.png)](media/how-to-use-swagger/swagger-management-top-img.png#lightbox)
 
 Sono elencati anche i modelli a oggetti dell'API Gestione.
 
-[![Modelli di spavalderia](media/how-to-use-swagger/swagger-management-models-img.png)](media/how-to-use-swagger/swagger-management-models-img.png#lightbox)
+[modelli ![Swagger](media/how-to-use-swagger/swagger-management-models-img.png)](media/how-to-use-swagger/swagger-management-models-img.png#lightbox)
 
 È possibile selezionare ogni modello a oggetti elencato per visualizzare un riepilogo più dettagliato degli attributi principali.
 
-[![Modello di spavalderia](media/how-to-use-swagger/swagger-management-model-img.png)](media/how-to-use-swagger/swagger-management-model-img.png#lightbox)
+[modello ![Swagger](media/how-to-use-swagger/swagger-management-model-img.png)](media/how-to-use-swagger/swagger-management-model-img.png#lightbox)
 
 I modelli a oggetti di Swagger generati sono utili per visualizzare tutti gli oggetti e le API di [Gemelli digitali di Azure](./concepts-objectmodel-spatialgraph.md) disponibili. Gli sviluppatori possono usare questa risorsa quando compilano soluzioni in Gemelli digitali di Azure.
 
@@ -64,7 +64,7 @@ Ogni endpoint elencato include anche le informazioni obbligatorie sulla richiest
 * I tipi di dati dei parametri obbligatori.
 * Metodo HTTP per l'accesso alla risorsa.
 
-[![Endpoint di spavalderia](media/how-to-use-swagger/swagger-management-endpoints-img.png)](media/how-to-use-swagger/swagger-management-endpoints-img.png#lightbox)
+[endpoint ![Swagger](media/how-to-use-swagger/swagger-management-endpoints-img.png)](media/how-to-use-swagger/swagger-management-endpoints-img.png#lightbox)
 
 È possibile fare clic su ogni risorsa per visualizzare una panoramica più dettagliata.
 
@@ -74,11 +74,11 @@ Una delle funzionalità più potenti offerte da Swagger è la possibilità di te
 
 Dopo aver selezionato un endpoint specifico, verrà visualizzato **Prova**.
 
-[![Tentativo di spavalderia](media/how-to-use-swagger/swagger-management-try-img.png)](media/how-to-use-swagger/swagger-management-try-img.png#lightbox)
+[@no__t 1Swagger try](media/how-to-use-swagger/swagger-management-try-img.png)](media/how-to-use-swagger/swagger-management-try-img.png#lightbox)
 
 Espandere la sezione per visualizzare i campi di input per ogni parametro obbligatorio e facoltativo. Immettere i valori corretti, quindi selezionare **Esegui**.
 
-[![Spavalderia ha provato](media/how-to-use-swagger/swagger-management-tried-img.png)](media/how-to-use-swagger/swagger-management-tried-img.png#lightbox)
+[![Swagger provato](media/how-to-use-swagger/swagger-management-tried-img.png)](media/how-to-use-swagger/swagger-management-tried-img.png#lightbox)
 
 Dopo l'esecuzione del test, è possibile convalidare i dati della risposta.
 
@@ -86,7 +86,7 @@ Dopo l'esecuzione del test, è possibile convalidare i dati della risposta.
 
 Ogni endpoint elencato include anche i dati del corpo della risposta per convalidare lo sviluppo e i test. Questi esempi includono il codice JSON e i codici di stato desiderati per le richieste HTTP riuscite.
 
-[![Risposta spavalderia](media/how-to-use-swagger/swagger-management-response-img.png)](media/how-to-use-swagger/swagger-management-response-img.png#lightbox)
+[risposta ![Swagger](media/how-to-use-swagger/swagger-management-response-img.png)](media/how-to-use-swagger/swagger-management-response-img.png#lightbox)
 
 Gli esempi includono anche i codici di errore per facilitare il debug o migliorare i test non superati.
 
@@ -102,7 +102,7 @@ Gli esempi includono anche i codici di errore per facilitare il debug o migliora
     ```plaintext
     https://YOUR_SWAGGER_URL/ui/oauth2-redirect-html
     ```
-    | Name  | Sostituire con | Esempio |
+    | Attività  | Sostituire con | Esempio |
     |---------|---------|---------|
     | YOUR_SWAGGER_URL | URL della documentazione dell'API REST di gestione trovato nel portale  | `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` |
 
@@ -112,15 +112,15 @@ Al termine della registrazione del Azure Active Directory:
 
 1. Selezionare il pulsante **autorizza** nella pagina spavalderia.
 
-    [![Selezionare il pulsante di autorizzazione di spavalderia](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
+    [![Selezionare pulsante di autorizzazione spavalderia](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
 
 1. Incollare l'ID applicazione nel campo **client_id** .
 
-    [![Campo client_id di spavalderia](media/how-to-use-swagger/swagger-auth-form.png)](media/how-to-use-swagger/swagger-auth-form.png#lightbox)
+    [![Swagger campo client_id](media/how-to-use-swagger/swagger-auth-form.png)](media/how-to-use-swagger/swagger-auth-form.png#lightbox)
 
 1. Si verrà quindi reindirizzati al seguente oggetto modale riuscito.
 
-    [![Modale Reindirizzamento di spavalderia](media/how-to-use-swagger/swagger-auth-redirect-img.png)](media/how-to-use-swagger/swagger-auth-redirect-img.png#lightbox)
+    [modalità di reindirizzamento ![Swagger](media/how-to-use-swagger/swagger-auth-redirect-img.png)](media/how-to-use-swagger/swagger-auth-redirect-img.png#lightbox)
 
 Per altre informazioni sul test interattivo delle richieste protette tramite OAuth 2.0, vedere la [documentazione ufficiale](https://swagger.io/docs/specification/authentication/oauth2/).
 

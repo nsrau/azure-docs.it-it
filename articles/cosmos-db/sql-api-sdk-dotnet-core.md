@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: c39db870e44d4e810817b70e2793b8805088180e
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 325e84ec4489eb2f1f530585af7d3c4bc4b201fc
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932535"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949559"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>.NET Core SDK di Azure Cosmos DB per l'API SQL: note sulla versione e risorse
 > [!div class="op_single_selector"]
@@ -44,6 +44,14 @@ ms.locfileid: "70932535"
 
 > [!NOTE]
 > Se si usa .NET Core, vedere la versione 3. x più recente di [.NET SDK](sql-api-sdk-dotnet-standard.md), che ha come destinazione .NET standard. 
+
+### <a name="a-name270270"></a><a name="2.7.0"/>2.7.0
+
+* Aggiunta del supporto per le matrici e gli oggetti nelle query Order by
+* Gestire i conflitti di chiave di partizione effettivi
+* Aggiunta del supporto LINQ per più operatori OrderBy con operatore ThenBy
+* Le impostazioni di serializzazione personalizzate ora vengono applicate a tutte le operazioni Upsert e Replace
+* Correzione del problema di deadlock AysncCache in modo che funzioni con un'utilità di pianificazione a thread singolo
 
 ### <a name="a-name260260"></a><a name="2.6.0"/>2.6.0
 
@@ -272,6 +280,7 @@ Qualsiasi richiesta inviata ad Azure Cosmos DB con un SDK ritirato viene rifiuta
 
 | Versione | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [2.7.0](#2.7.0) |23 settembre, 2019 |--- |
 | [2.6.0](#2.6.0) |30 agosto 2019 |--- |
 | [2.5.1](#2.5.1) |02 luglio 2019 |--- |
 | [2.4.1](#2.4.1) |20 giugno 2019 |--- |

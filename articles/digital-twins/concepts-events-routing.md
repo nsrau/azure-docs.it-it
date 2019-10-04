@@ -1,19 +1,19 @@
 ---
-title: Routing di eventi e messaggi con Gemelli digitali di Azure | Microsoft Docs
+title: Routing di eventi e messaggi-dispositivi gemelli digitali di Azure | Microsoft Docs
 description: Panoramica del routing di eventi e messaggi agli endpoint di servizio con Gemelli digitali di Azure
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.author: alinast
-ms.openlocfilehash: 81f2cc32ee10e891ffab127d6ecd7909eb75abd6
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 217a1d94a4a5235fc5886f34986ffcb3aef60873
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71177076"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949256"
 ---
 # <a name="routing-events-and-messages"></a>Routing di eventi e messaggi
 
@@ -29,7 +29,7 @@ I dispositivi gemelli digitali di Azure offrono due modi per connettere gli even
 
 Gli utenti possono specificare uno o più endpoint in uscita per inviare eventi o inoltrare messaggi. Eventi e messaggi verranno inviati agli endpoint in base a queste preferenze di routing predefinite. In altre parole, gli utenti possono specificare un determinato endpoint per ricevere gli eventi delle operazioni del grafico, un altro per ricevere gli eventi di telemetria dei dispositivi e così via.
 
-[![Routing degli eventi di dispositivi gemelli digitali di Azure](media/concepts/digital-twins-events-routing.png)](media/concepts/digital-twins-events-routing.png#lightbox)
+[routing degli eventi di 1Azure digitali gemelli @no__t](media/concepts/digital-twins-events-routing.png)](media/concepts/digital-twins-events-routing.png#lightbox)
 
 Il routing a Hub eventi mantiene l'ordine di invio dei messaggi di telemetria. I messaggi arrivano quindi nell'endpoint nello stesso ordine con cui sono stati originariamente ricevuti. Griglia di eventi e il bus di servizio non garantiscono che gli endpoint ricevano gli eventi nello stesso ordine in cui si sono verificati. Lo schema degli eventi include tuttavia un timestamp che è possibile usare per identificare l'ordine dopo che gli eventi raggiungono l'endpoint.
 

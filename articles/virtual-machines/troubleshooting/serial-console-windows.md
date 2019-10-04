@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: ebf7b712dda19b396b044235bf194a5dd402ffac
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 9fbe6768014550a3746085406e9039e83185c20f
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996426"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949690"
 ---
 # <a name="azure-serial-console-for-windows"></a>Console seriale di Azure per Windows
 
@@ -104,7 +104,7 @@ Se è necessario abilitare i prompt del caricatore di avvio di Windows da visual
 
 1.  Digitare `cmd` per creare un canale con un'istanza di CMD.
 
-1.  Immettere `ch -si 1` o premere `<esc>+<tab>` i tasti di scelta rapida per passare al canale che esegue l'istanza di cmd.
+1.  Immettere `ch -si 1` o premere i tasti di scelta rapida `<esc>+<tab>` per passare al canale in cui è in esecuzione l'istanza CMD.
 
 1.  Premere **Invio**, quindi immettere le credenziali di accesso con autorizzazioni amministrative.
 
@@ -124,7 +124,7 @@ La console seriale può essere usata per inviare un interrupt non mascherabile (
 Per informazioni sulla configurazione di Windows per creare un file dump di arresto anomalo del sistema quando riceve un NMI, vedere: [Come generare un file di dump di arresto anomalo del sistema usando un NMI](https://support.microsoft.com/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file).
 
 ### <a name="use-function-keys-in-serial-console"></a>Usare le chiavi di funzione nella console seriale
-Le chiavi di funzione sono abilitate per essere usate per la console seriale nelle macchine virtuali di Windows. L'opzione F8 nell'elenco a discesa della console seriale consente di accedere facilmente al menu delle impostazioni di avvio avanzate, ma la console seriale è compatibile con tutte le altre chiavi di funzione. Potrebbe essere necessario premere **FN** + **F1** (o F2, F3 e così via) sulla tastiera a seconda del computer in cui si usa la console seriale.
+Le chiavi di funzione sono abilitate per essere usate per la console seriale nelle macchine virtuali di Windows. L'opzione F8 nell'elenco a discesa della console seriale consente di accedere facilmente al menu delle impostazioni di avvio avanzate, ma la console seriale è compatibile con tutte le altre chiavi di funzione. Potrebbe essere necessario premere **Fn** + **F1** (o F2, F3 e così via) sulla tastiera a seconda del computer in cui si usa la console seriale.
 
 ### <a name="use-wsl-in-serial-console"></a>Usare WSL nella console seriale
 Windows Subsystem for Linux (WSL) è stato abilitato per Windows Server 2019 e versioni successive ed è quindi possibile abilitare WSL per l'utilizzo nella console seriale se si esegue Windows Server 2019 o versione successiva. Questa possibilità potrebbe essere particolarmente utile per gli utenti che hanno familiarità anche con i comandi Linux. Per istruzioni su come abilitare WSL per Windows Server, vedere la [Guida all'installazione](https://docs.microsoft.com/windows/wsl/install-on-server).
@@ -179,7 +179,7 @@ Sistema di blocco della rete | Accedere alla console seriale dal portale di Azur
 Interazione con bootloader | Accedere ai dati configurazione di avvio tramite console seriale. Per altre informazioni, vedere [Abilitare il menu di avvio di Windows nella console seriale](#enable-the-windows-boot-menu-in-the-serial-console).
 
 ## <a name="known-issues"></a>Problemi noti
-La console seriale presenta alcuni problemi. Di seguito è riportato un elenco dei problemi riscontrati e delle procedure necessarie per risolverli. Questi problemi e mitigazioni si applicano sia alle macchine virtuali che alle istanze dei set di scalabilità di macchine virtuali.
+Sono stati rilevati alcuni problemi con la console seriale e il sistema operativo della macchina virtuale. Ecco un elenco di questi problemi e i passaggi per la mitigazione delle macchine virtuali Windows. Questi problemi e mitigazioni si applicano sia alle macchine virtuali che alle istanze dei set di scalabilità di macchine virtuali. Se non corrispondono all'errore visualizzato, vedere gli errori comuni del servizio console seriale in caso di [errori comuni della console seriale](./serial-console-errors.md).
 
 Problema                             |   Attenuazione
 :---------------------------------|:--------------------------------------------|
@@ -189,8 +189,6 @@ Non è possibile digitare nel prompt SAC se è abilitato il debug del kernel. | 
 Incollare nei risultati SAC di PowerShell usando un terzo carattere se il contenuto originale aveva un carattere ripetuto. | Una soluzione alternativa consiste nell’eseguire `Remove-Module PSReadLine` per scaricare il modulo PSReadLine dalla sessione corrente. Questa azione non eliminerà o disinstallerà il modulo.
 Alcuni input della tastiera producono output di configurazione SAC particolari (ad esempio, **[A**, **[3~** ). | Le sequenze di escape [VT100](https://aka.ms/vtsequences) non sono supportate per il prompt SAC.
 L'operazione di incollare le stringhe lunghe non funziona. | La console seriale limita la lunghezza delle stringhe incollate nel terminale a 2048 caratteri per impedire il sovraccarico della larghezza di banda della porta seriale.
-Console seriale non funziona con un account di archiviazione usando Azure Data Lake Storage Gen2 con spazi dei nomi gerarchici. | Si tratta di un problema noto con gli spazi dei nomi gerarchici. Per attenuare, verificare che l'account di archiviazione della diagnostica di avvio della macchina virtuale non venga creato con Azure Data Lake Storage Gen2. Questa opzione può essere impostata solo al momento della creazione dell'account di archiviazione. Potrebbe essere necessario creare un account di archiviazione di diagnostica di avvio separato senza Azure Data Lake Storage Gen2 abilitato per attenuare questo problema.
-
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 

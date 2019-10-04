@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.topic: conceptual
 ms.workload: big-data
-ms.date: 08/08/2019
+ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: ce8c74e5c194dbd971ecb65659c4fc8a7150146d
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: cad57e3e7e52ec291819110bab9d8d79f51e5a2f
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882913"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958163"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Condividere una visualizzazione personalizzata usando un URL con parametri
 
@@ -55,18 +55,18 @@ Per un valore relativo, usare `relativeMillis=<value>`, dove *value* indica in m
 
 I valori accettati corrispondono al menu **ora rapido** Esplora Time Series Insights e includono:
 
-* `1800000`(Ultimi 30 minuti)
-* `3600000`(Ultimi 60 minuti)
-* `10800000`(Ultime 3 ore)
-* `21600000`(Ultime 6 ore)
-* `43200000`(Ultime 12 ore)
-* `86400000`(Ultime 24 ore)
-* `604800000`(Ultimi 7 giorni)
-* `2592000000`(Ultime 30 ore)
+* `1800000` (ultimi 30 minuti)
+* `3600000` (ultimi 60 minuti)
+* `10800000` (ultime 3 ore)
+* `21600000` (ultime 6 ore)
+* `43200000` (ultime 12 ore)
+* `86400000` (ultime 24 ore)
+* `604800000` (ultimi 7 giorni)
+* `2592000000` (ultime 30 ore)
 
 ### <a name="optional-parameters"></a>Parametri facoltativi
 
-Il `timeSeriesDefinitions=<collection of term objects>` parametro specifica i termini di una vista Time Series Insights:
+Il parametro `timeSeriesDefinitions=<collection of term objects>` specifica i termini di una visualizzazione Time Series Insights:
 
 | Parametro | Elemento URL | Descrizione |
 | --- | --- | --- |
@@ -74,17 +74,17 @@ Il `timeSeriesDefinitions=<collection of term objects>` parametro specifica i te
 | **splitBy** | `\<string>` | Nome della colonna *in base a cui dividere*. |
 | **measureName** | `\<string>` | Nome della colonna della *misura*. |
 | **predicate** | `\<string>` | Clausola *where* per i filtri lato server. |
-| **useSum** | `true` | Parametro facoltativo che specifica l'utilizzo di Sum per la misura. </br>  Si noti che `Events` , se è la misura selezionata, count è selezionato per impostazione predefinita.  </br>  Se `Events` non è selezionata, per impostazione predefinita viene selezionata l'opzione media. |
+| **useSum** | `true` | Parametro facoltativo che specifica l'utilizzo di Sum per la misura. </br>  Si noti che se `Events` è la misura selezionata, per impostazione predefinita viene selezionato Count.  </br>  Se `Events` non è selezionata, per impostazione predefinita viene selezionata l'opzione media. |
 
-* La `multiChartStack=<true/false>` coppia chiave-valore consente lo stacking nel grafico.
-* La `multiChartSameScale=<true/false>` coppia chiave-valore Abilita la stessa scala dell'asse Y in tutti i termini all'interno di un parametro facoltativo.  
-* `timeBucketUnit=<Unit>&timeBucketSize=<integer>` Consente di regolare il dispositivo di scorrimento intervallo per fornire una visualizzazione più granulare o più uniforme del grafico.  
-* Il `timezoneOffset=<integer>` parametro consente di impostare il fuso orario affinché il grafico venga visualizzato in come offset per l'ora UTC.
+* La coppia chiave-valore `multiChartStack=<true/false>` consente lo stacking nel grafico.
+* La coppia chiave-valore `multiChartSameScale=<true/false>` Abilita la stessa scala dell'asse Y in tutti i termini all'interno di un parametro facoltativo.  
+* Il `timeBucketUnit=<Unit>&timeBucketSize=<integer>` consente di regolare il dispositivo di scorrimento dell'intervallo per fornire una visualizzazione più granulare o più uniforme e più aggregata del grafico.  
+* Il parametro `timezoneOffset=<integer>` consente di impostare il fuso orario affinché il grafico venga visualizzato in come offset per l'ora UTC.
 
 | Coppie | Descrizione |
 | --- | --- |
-| `multiChartStack=false` | `true`è abilitata per impostazione predefinita `false` , quindi passa allo stack. |
-| `multiChartStack=false&multiChartSameScale=true` | È necessario abilitare l'impilamento per usare la stessa scala dell'asse Y in tutti i termini.  `false` Per impostazione predefinita, il passaggio di ' true ' Abilita questa funzionalità. |
+| `multiChartStack=false` | `true` è abilitato per impostazione predefinita, quindi passare `false` allo stack. |
+| `multiChartStack=false&multiChartSameScale=true` | È necessario abilitare l'impilamento per usare la stessa scala dell'asse Y in tutti i termini.  È `false` per impostazione predefinita, quindi il passaggio di ' true ' Abilita questa funzionalità. |
 | `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | Unità = giorni, ore, minuti, secondi, millisecondi.  Scrivere sempre in lettere maiuscole l'unità. </br> Definire il numero di unità, passando l'intero desiderato per timeBucketSize.  Si noti che l'arco temporale è di 7 giorni.  |
 | `timezoneOffset=-<integer>` | L'intero viene sempre espresso in millisecondi. </br> Si noti che questa funzionalità è leggermente diversa rispetto a quella consentita in Esplora Time Series Insights, in cui è possibile scegliere locale (tempo del browser) o ora UTC. |
 
@@ -114,11 +114,11 @@ https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0
 
 L'URL sopra riportato descrive e compila la visualizzazione Time Series Insights Explorer:
 
-[![Termini di Time Series Insights Explorer](media/parameterized-url/url1.png)](media/parameterized-url/url1.png#lightbox)
+[Termini di 1Time di Esplora informazioni dettagliate di serie @no__t](media/parameterized-url/url1.png)](media/parameterized-url/url1.png#lightbox)
 
 Visualizzazione completa (incluso il grafico):
 
-[![Visualizzazione grafico](media/parameterized-url/url2.png)](media/parameterized-url/url2.png#lightbox)
+[visualizzazione ![Chart](media/parameterized-url/url2.png)](media/parameterized-url/url2.png#lightbox)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

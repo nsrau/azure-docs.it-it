@@ -10,12 +10,12 @@ ms.workload: na
 ms.date: 04/05/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 7b5ee5bfe4b7498bc13ff0c8582b49fed8478e0a
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 1b53d8a15e6ca1d4fc5a8ed6d58e526fadd12466
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71337791"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949009"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Creare gruppi di gestione per la gestione e l'organizzazione delle risorse
 
@@ -31,9 +31,13 @@ La creazione del primo gruppo di gestione nella directory può richiedere fino a
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-1. Selezionare **Tutti i servizi** > **Gruppi di gestione**.
+1. Selezionare **tutti i servizi** > **gestione e governance**.
 
-1. Nella pagina principale selezionare **Nuovo Gruppo di gestione.**
+1. Selezionare **Gestione costi e fatturazione**
+
+1. Nella pagina Gestione costi e gruppi di gestione di fatturazione selezionare **gruppi di gestione**
+
+1. Selezionare **+ Aggiungi gruppo di gestione**.
 
    ![Pagina per l'utilizzo di gruppi di gestione](./media/main.png)
 

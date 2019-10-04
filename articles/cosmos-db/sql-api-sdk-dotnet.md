@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: 8017f02e694f5c9e2cd677c7b1f28c5de973d077
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: f8c38c46bd60834c166721f62088d8edb2c722a9
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932580"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949590"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>.NET SDK di Azure Cosmos DB per l'API SQL: download e note sulla versione
 > [!div class="op_single_selector"]
@@ -44,6 +44,14 @@ ms.locfileid: "70932580"
 
 > [!NOTE]
 > Se si usa .NET Framework, vedere la versione 3. x più recente di [.NET SDK](sql-api-sdk-dotnet-standard.md), che è destinata .NET standard. 
+
+### <a name="a-name270270"></a><a name="2.7.0"/>2.7.0
+
+* Aggiunta del supporto per le matrici e gli oggetti nelle query Order by
+* Gestire i conflitti di chiave di partizione effettivi
+* Aggiunta del supporto LINQ per più operatori OrderBy con operatore ThenBy
+* Le impostazioni di serializzazione personalizzate ora vengono applicate a tutte le operazioni Upsert e Replace
+* Correzione del problema di deadlock AysncCache in modo che funzioni con un'utilità di pianificazione a thread singolo
 
 ### <a name="a-name260260"></a><a name="2.6.0"/>2.6.0
 
@@ -348,7 +356,7 @@ ms.locfileid: "70932580"
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
 * Aggiunto il supporto per la modifica dei criteri di indicizzazione.
   * Nuovo metodo ReplaceDocumentCollectionAsync in DocumentClient
-  * Nuova proprietà IndexTransformationProgress in ResourceResponse\<T > per tenere traccia dello stato di avanzamento delle modifiche ai criteri di indice
+  * Nuova proprietà IndexTransformationProgress in ResourceResponse @ no__t-0T > per tenere traccia dello stato di avanzamento percentuale delle modifiche ai criteri di indice
   * DocumentCollection.IndexingPolicy è ora modificabile
 * Aggiunto il supporto per query e indicizzazione spaziali.
   * Nuovo spazio dei nomi Microsoft.Azure.Documents.Spatial per la serializzazione/deserializzazione di tipi di dati spaziali come point e polygon
@@ -390,6 +398,7 @@ Qualsiasi richiesta inviata ad Azure Cosmos DB con un SDK ritirato viene rifiuta
 
 | Versione | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [2.7.0](#2.7.0) |23 settembre, 2019 |--- |
 | [2.6.0](#2.6.0) |30 agosto 2019 |--- |
 | [2.5.1](#2.5.1) |02 luglio 2019 |--- |
 | [2.4.1](#2.4.1) |20 giugno 2019 |--- |

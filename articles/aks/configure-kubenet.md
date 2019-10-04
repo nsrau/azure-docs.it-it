@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: mlearned
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: e1279261de8e26b9e11f55100ce01277650e251b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b233c5dd639bb6652f201727748a081f6a8a4c64
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67615751"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950325"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Usare funzionalità di rete kubenet con i propri intervalli di indirizzi IP nel servizio Azure Kubernetes
 
@@ -38,9 +38,9 @@ Con *kubenet* solo i nodi ricevono un indirizzo IP nella subnet della rete virtu
 
 ![Modello di rete Kubenet con un cluster del servizio Azure Kubernetes](media/use-kubenet/kubenet-overview.png)
 
-Azure supporta un massimo di 400 route in un routing definito dall'utente, quindi un cluster del servizio Azure Kubernetes non può avere più di 400 nodi. Le funzionalità AKS, ad esempio i [nodi virtuali][virtual-nodes] o i criteri di rete, non sono supportate con *kubenet*.
+Azure supporta un massimo di 400 route in un routing definito dall'utente, quindi un cluster del servizio Azure Kubernetes non può avere più di 400 nodi. I [nodi virtuali][virtual-nodes] AKS e i criteri di rete di Azure non sono supportati con *kubenet*.  È possibile usare i [criteri di rete di calice][calico-network-policies], perché sono supportati con kubenet.
 
-Con *Azure CNI* ogni pod riceve un indirizzo IP nella subnet IP e può comunicare direttamente con altri pod e servizi. I cluster possono avere le stesse dimensioni dell'intervallo di indirizzi IP specificato. Questo intervallo deve però essere pianificato in anticipo e tutti gli indirizzi IP vengono utilizzati dai nodi del servizio Azure Kubernetes in base al numero massimo di pod che possono supportare. Le funzionalità e gli scenari di rete avanzati, ad esempio i [nodi virtuali][virtual-nodes] o i criteri di rete, sono supportati con *Azure CNI*.
+Con *Azure CNI* ogni pod riceve un indirizzo IP nella subnet IP e può comunicare direttamente con altri pod e servizi. I cluster possono avere le stesse dimensioni dell'intervallo di indirizzi IP specificato. Questo intervallo deve però essere pianificato in anticipo e tutti gli indirizzi IP vengono utilizzati dai nodi del servizio Azure Kubernetes in base al numero massimo di pod che possono supportare. Le funzionalità e gli scenari di rete avanzati, ad esempio i [nodi virtuali][virtual-nodes] o i criteri di rete (Azure o calice) sono supportati con *Azure CNI*.
 
 ### <a name="ip-address-availability-and-exhaustion"></a>Disponibilità ed esaurimento degli indirizzi IP
 
@@ -62,7 +62,7 @@ I seguenti calcoli di base mettono a confronto la differenza nei modelli di rete
 
 ### <a name="virtual-network-peering-and-expressroute-connections"></a>Peering di rete virtuale e connessioni ExpressRoute
 
-Per garantire la connettività locale, sia gli approcci di rete *kubenet* che *Azure-CNI* possono usare il peering di [rete virtuale di Azure][vnet-peering] o le [connessioni ExpressRoute][express-route]. Pianificare con attenzione gli intervalli di indirizzi IP per evitare sovrapposizioni ed errori di routing del traffico. Ad esempio, molte reti locali usano un intervallo di indirizzi *10.0.0.0/8* che viene annunciato sulla connessione ExpressRoute. È consigliabile creare i cluster AKS nelle subnet della rete virtuale di Azure al di fuori di questo intervallo di indirizzi, ad esempio *172.16.0.0/16*.
+Per garantire la connettività locale, sia gli approcci di rete *kubenet* che *Azure-CNI* possono usare il [peering di rete virtuale di Azure][vnet-peering] o le [connessioni ExpressRoute][express-route]. Pianificare con attenzione gli intervalli di indirizzi IP per evitare sovrapposizioni ed errori di routing del traffico. Ad esempio, molte reti locali usano un intervallo di indirizzi *10.0.0.0/8* che viene annunciato sulla connessione ExpressRoute. È consigliabile creare i cluster AKS nelle subnet della rete virtuale di Azure al di fuori di questo intervallo di indirizzi, ad esempio *172.16.0.0/16*.
 
 ### <a name="choose-a-network-model-to-use"></a>Scegliere un modello di rete da usare
 
@@ -72,19 +72,16 @@ Usare *kubenet* quando:
 
 - Lo spazio indirizzi IP è limitato.
 - La maggior parte delle comunicazioni dei pod avviene all'interno del cluster.
-- Non sono necessarie funzionalità di rete avanzate come i nodi virtuali o i criteri di rete.
+- Non sono necessarie funzionalità avanzate di AKS, ad esempio nodi virtuali o criteri di rete di Azure.  Usare i [criteri di rete di calice][calico-network-policies].
 
 Usare *Azure CNI* quando:
 
 - È disponibile uno spazio indirizzi IP adeguato.
 - La maggior parte delle comunicazioni dei pod avviene con risorse esterne al cluster.
 - Non si vogliono gestire i routing definiti dall'utente.
-- Sono necessarie funzionalità di rete avanzate come i nodi virtuali o i criteri di rete.
+- Sono necessarie funzionalità avanzate di AKS, ad esempio nodi virtuali o criteri di rete di Azure.  Usare i [criteri di rete di calice][calico-network-policies].
 
 Per ulteriori informazioni sulla scelta del modello di rete da utilizzare, vedere [confrontare i modelli di rete e il relativo ambito di supporto][network-comparisons].
-
-> [!NOTE]
-> Kuberouter rende possibile abilitare i criteri di rete quando si usa kubenet e può essere installato come daemonset in un cluster AKS. Tenere presente che Kube-router è ancora in versione beta e nessun supporto è offerto da Microsoft per il progetto.
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Creare una rete virtuale e una subnet
 
@@ -134,7 +131,7 @@ VNET_ID=$(az network vnet show --resource-group myResourceGroup --name myAKSVnet
 SUBNET_ID=$(az network vnet subnet show --resource-group myResourceGroup --vnet-name myAKSVnet --name myAKSSubnet --query id -o tsv)
 ```
 
-Assegnare ora l'entità servizio per le autorizzazioni di *collaboratore* del cluster AKS per la rete virtuale usando il comando [AZ Role Assignment create][az-role-assignment-create] . Specificare l'AppID > come illustrato nell'output del comando precedente per creare l'entità servizio:  *\<*
+Assegnare ora l'entità servizio per le autorizzazioni di *collaboratore* del cluster AKS per la rete virtuale usando il comando [AZ Role Assignment create][az-role-assignment-create] . Fornire il proprio *> \<appId* come illustrato nell'output del comando precedente per creare l'entità servizio:
 
 ```azurecli-interactive
 az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
@@ -142,7 +139,7 @@ az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>Creare un cluster del servizio Azure Kubernetes nella rete virtuale
 
-A questo punto sono state create una rete virtuale e una subnet e sono state create e assegnate le autorizzazioni per consentire a un'entità servizio di usare tali risorse di rete. Creare ora un cluster AKS nella rete virtuale e nella subnet usando il comando [AZ AKS create][az-aks-create] . Definire il  *\<> AppID* dell'entità servizio e  *\<la password >* , come illustrato nell'output del comando precedente per creare l'entità servizio.
+A questo punto sono state create una rete virtuale e una subnet e sono state create e assegnate le autorizzazioni per consentire a un'entità servizio di usare tali risorse di rete. Creare ora un cluster AKS nella rete virtuale e nella subnet usando il comando [AZ AKS create][az-aks-create] . Definire l'entità servizio *\<appId >* e *\<password >* , come illustrato nell'output del comando precedente per creare l'entità servizio.
 
 Durante il processo di creazione del cluster vengono definiti anche gli intervalli di indirizzi IP seguenti:
 
@@ -172,16 +169,35 @@ az aks create \
     --client-secret <password>
 ```
 
+> [!Note]
+> Se si vuole abilitare un cluster AKS per includere un [criterio di rete di calice][calico-network-policies] , è possibile usare il comando seguente.
+
+```azurecli-interactive
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --node-count 3 \
+    --network-plugin kubenet --network-policy calico \
+    --service-cidr 10.0.0.0/16 \
+    --dns-service-ip 10.0.0.10 \
+    --pod-cidr 10.244.0.0/16 \
+    --docker-bridge-address 172.17.0.1/16 \
+    --vnet-subnet-id $SUBNET_ID \
+    --service-principal <appId> \
+    --client-secret <password>
+```
+
 Quando si crea un cluster del servizio Azure Kubernetes, vengono creati un gruppo di sicurezza e una tabella di route. Queste risorse di rete sono gestite dal piano di controllo AKS. Il gruppo di sicurezza di rete viene associato automaticamente alle schede NIC virtuali nei nodi. La tabella di route viene associata automaticamente alla subnet della rete virtuale. Le regole e le tabelle di routing del gruppo di sicurezza di rete vengono aggiornate automaticamente durante la creazione e l'esposizione dei servizi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver distribuito un cluster del servizio Azure Kubernetes nella propria subnet di rete virtuale, è possibile usare il cluster come di consueto. Inizia a [creare app con Azure Dev Spaces][dev-spaces] o [con Draft][use-draft]oppure Distribuisci [app usando Helm][use-helm].
+Dopo aver distribuito un cluster del servizio Azure Kubernetes nella propria subnet di rete virtuale, è possibile usare il cluster come di consueto. Inizia a [creare app con Azure Dev Spaces][dev-spaces] o [con Draft][use-draft]oppure [Distribuisci app usando Helm][use-helm].
 
 <!-- LINKS - External -->
 [dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
+[Calico-network-policies]: https://docs.projectcalico.org/v3.9/security/calico-network-policy
 
 <!-- LINKS - Internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

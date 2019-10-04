@@ -10,14 +10,14 @@ reviewer: jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 66c79bed59c8966156d6f000e74e5300edc0245a
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 353e3463c2be552210847ac3fe17bbfe2cec58c7
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883916"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958123"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-ga-environment-using-c"></a>Eseguire query sui dati dall'ambiente Azure Time Series Insights GA usandoC#
 
@@ -31,11 +31,11 @@ L'esempio mostra alcuni esempi di base relativi all'uso dell'API Query:
 1. Come esempio della richiesta di Web Socket, vengono richiesti dati relativi alle aggregazioni di eventi per l'ambiente di interesse. Vengono richiesti dati per l'intero intervallo di tempo di disponibilità.
 
 > [!NOTE]
-> Il codice di esempio è disponibile [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample)all'indirizzo.
+> Il codice di esempio è disponibile in [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
 
 ## <a name="project-dependencies"></a>Dipendenze progetto
 
-Aggiungere i pacchetti `Microsoft.IdentityModel.Clients.ActiveDirectory` NuGet `Newtonsoft.Json`e.
+Aggiungere pacchetti NuGet `Microsoft.IdentityModel.Clients.ActiveDirectory` e `Newtonsoft.Json`.
 
 ## <a name="c-example"></a>Esempio in C#
 

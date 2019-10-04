@@ -3,7 +3,7 @@ title: Documentazione di Personalizza esperienze
 summary: Informazioni su come usare Personalizza esperienze per consentire all'applicazione di scegliere la migliore esperienza da mostrare agli utenti, apprendendo dal loro comportamento in tempo reale.
 metadata:
   ms.topic: landing-page
-  ms.date: 09/10/2019
+  ms.date: 10/03/2019
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
@@ -12,12 +12,12 @@ metadata:
   title: Documentazione di Personalizza esperienze
   titleSuffix: Azure Cognitive Services
   description: Personalizza esperienze di Azure è un servizio API basato sul cloud che consente di scegliere la migliore esperienza da mostrare agli utenti, apprendendo dal loro comportamento in tempo reale.
-  ms.openlocfilehash: fd1b4a7c093beeb8d33579accee9178744b6fe50
-  ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+  ms.openlocfilehash: f3ba5f5eef7885896d774fd8aab35784cfb6465e
+  ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 09/11/2019
-  ms.locfileid: "70882894"
+  ms.lasthandoff: 10/04/2019
+  ms.locfileid: "71950047"
 landingContent:
 - title: Informazioni su Personalizza esperienze
   linkLists:
@@ -25,6 +25,10 @@ landingContent:
     links:
     - text: Informazioni su Personalizza esperienze
       url: what-is-personalizer.md
+  - linkListType: whats-new
+    links:
+    - text: Novità
+      url: whats-new.md
   - linkListType: concept
     links:
     - text: Funzionamento di Personalizza esperienze

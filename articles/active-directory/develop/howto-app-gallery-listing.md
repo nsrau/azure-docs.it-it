@@ -18,16 +18,16 @@ ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88d74fe794f4de95b7ba8b0dd5575ca56d2016e5
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: a97c10303a1ce74e53f46c21176c876faed307e7
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71176919"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958645"
 ---
-# <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Procedura: Inserire l'applicazione nella raccolta di applicazioni di Azure Active Directory
+# <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Inserire l'applicazione nella raccolta di applicazioni di Azure Active Directory
 
-Questo articolo illustra come elencare un'applicazione nella raccolta di applicazioni di Azure AD, implementare l'accesso Single Sign-on (SSO) e gestire l'elenco.
+Questo articolo illustra come elencare un'applicazione nella raccolta di applicazioni Azure Active Directory (Azure AD), implementare Single Sign-On (SSO) e gestire l'elenco.
 
 ## <a name="what-is-the-azure-ad-application-gallery"></a>Definizione della raccolta di applicazioni di Azure AD
 
@@ -36,106 +36,102 @@ Questo articolo illustra come elencare un'applicazione nella raccolta di applica
 - Ricerca rapida per l'individuazione dell'applicazione nella raccolta.
 - Uso di questa integrazione per tutti i clienti con account Free, Basic e Premium di Azure AD.
 - Esercitazione dettagliata per la configurazione per i clienti reciproci.
-- Provisioning per la stessa app per i clienti che usano SCIM.
+- I clienti che usano il sistema per la gestione delle identità tra domini (SCIM) possono usare il provisioning per la stessa app.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Per le applicazioni federate (Open ID e SAML/WS-Fed), l'applicazione deve supportare il modello SaaS per entrare a far parte della raccolta di Azure AD. Le applicazioni della raccolta enterprise devono supportare più configurazioni dei clienti e non un cliente specifico.
-
-- Per Open ID Connect, l'applicazione deve essere multi-tenant e il [framework di consenso di Azure AD](consent-framework.md) deve essere implementato correttamente per l'applicazione. L'utente può inviare la richiesta di accesso all'endpoint comune, in modo che qualsiasi cliente possa fornire il consenso all'applicazione. È possibile controllare l'accesso utente in base all'ID del tenant e all'UPN dell'utente ricevuti nel token.
-
-- Per SAML 2.0/WS-Fed l'applicazione deve supportare l'integrazione SSO SAML/WS-Fed in modalità SP o IDP. Assicurarsi che questa funzioni correttamente prima di inviare la richiesta.
-
-- Per l'accesso SSO con password, assicurarsi che l'applicazione supporti l'autenticazione basata su modulo in modo che sia possibile eseguire l'insieme di credenziali delle password affinché l'accesso SSO funzioni come previsto.
-
-- È necessario un account permanente per il test con almeno 2 utenti registrati.
+- Per le applicazioni federate (Open ID e SAML/WS-Fed), l'applicazione deve supportare il modello SaaS (software-as-a-Service) per essere elencato nella raccolta di app Azure AD. Le applicazioni della raccolta Enterprise devono supportare più configurazioni dei clienti e non un cliente specifico.
+- Per Open ID Connect, l'applicazione deve essere multi-tenant e il [Framework di consenso Azure ad](consent-framework.md) deve essere implementato correttamente per l'applicazione. L'utente può inviare la richiesta di accesso a un endpoint comune in modo che qualsiasi cliente possa fornire il consenso all'applicazione. È possibile controllare l'accesso utente in base all'ID del tenant e all'UPN dell'utente ricevuti nel token.
+- Per SAML 2.0/WS-Fed, l'applicazione deve avere la possibilità di eseguire l'integrazione SSO SAML/WS-Fed in modalità SP o IDP. Verificare che questa funzionalità funzioni correttamente prima di inviare la richiesta.
+- Per l'accesso Single Sign-on basato su password, assicurarsi che l'applicazione supporti l'autenticazione basata su form, Single Sign-On in modo che l'insieme di credenziali delle password possa essere eseguito come previsto.
+- È necessario un account permanente per i test con almeno due utenti registrati.
 
 ## <a name="submit-the-request-in-the-portal"></a>Inviare la richiesta nel portale
 
-Dopo aver verificato il funzionamento dell'integrazione dell'applicazione con Azure AD, inviare la richiesta per l'accesso nel [portale di rete delle applicazioni](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Se si dispone di un account Office 365, usarlo per accedere a questo portale. In caso contrario, accedere con l'account Microsoft (ad esempio, Outlook o Hotmail).
+Dopo aver verificato che l'integrazione dell'applicazione funzioni con Azure AD, inviare la richiesta di accesso nel [portale di rete dell'applicazione](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Se si dispone di un account Office 365, usarlo per accedere a questo portale. In caso contrario, usare la account Microsoft, ad esempio Outlook o Hotmail, per accedere.
 
-Se dopo l'accesso viene visualizzata la pagina seguente, contattare il [team di integrazione SSO di Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) e specificare l'account e-mail che si vuole usare per inviare la richiesta. Il team di Azure AD aggiungerà quindi l'account nel portale di rete delle applicazioni Microsoft.
+Se viene visualizzata la pagina seguente dopo l'accesso, contattare il [team di integrazione di Azure ad SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Fornire l'account di posta elettronica che si vuole usare per l'invio della richiesta. Il team di Azure AD aggiungerà l'account nel portale di rete delle applicazioni Microsoft.
 
-![Richiesta di accesso nel portale di SharePoint](./media/howto-app-gallery-listing/errorimage.png)
+![Messaggio di richiesta di accesso nel portale di SharePoint](./media/howto-app-gallery-listing/errorimage.png)
 
 Dopo aver aggiunto l'account, è possibile accedere al portale di rete delle applicazioni Microsoft.
 
-Se dopo l'accesso viene visualizzata la pagina seguente, specificare una motivazione aziendale per la richiesta di accesso nella casella di testo e quindi selezionare **Richiedi accesso**.
+Se viene visualizzata la pagina seguente dopo l'accesso, fornire una giustificazione aziendale per la necessità di accesso nella casella di testo. Selezionare quindi **Richiedi accesso**.
 
-  ![Richiesta di accesso nel portale di SharePoint](./media/howto-app-gallery-listing/accessrequest.png)
+  ![Casella relativa alla motivazione aziendale nel portale di SharePoint](./media/howto-app-gallery-listing/accessrequest.png)
 
-Il team esamina i dettagli e fornisce l'accesso di conseguenza. Dopo l'approvazione della richiesta, è possibile accedere al portale e inviare la richiesta facendo clic sul riquadro **Submit Request (ISV)** (Invia richiesta - ISV) nella home page.
+Il team esamina i dettagli e fornisce l'accesso di conseguenza. Dopo che la richiesta è stata approvata, è possibile accedere al portale e inviare la richiesta selezionando il riquadro **Invia richiesta (ISV)** nella Home page.
 
-![Home page del portale SharePoint](./media/howto-app-gallery-listing/homepage.png)
+![Riquadro Invia richiesta (ISV) in home page](./media/howto-app-gallery-listing/homepage.png)
 
 > [!NOTE]
-> In caso di problemi di accesso, contattare il [team di integrazione SSO di Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+> In caso di problemi con l'accesso, contattare il [team di integrazione di Azure ad SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
-## <a name="implementing-sso-using-federation-protocol"></a>Implementazione dell'SSO usando il protocollo di federazione
+## <a name="implement-sso-by-using-the-federation-protocol"></a>Implementare SSO tramite il protocollo federativo
 
-Per inserire un'applicazione nella raccolta di app di Azure AD, è innanzitutto necessario implementare uno dei protocolli di federazione seguenti supportati da Azure AD e accettare i termini e condizioni della raccolta di applicazioni di Azure AD. Leggere [qui](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/) le condizioni della raccolta di applicazioni di Azure AD.
+Per inserire un'applicazione nella raccolta di app di Azure AD, è innanzitutto necessario implementare uno dei protocolli di federazione seguenti supportati da Azure AD. È anche necessario accettare i termini e le condizioni della raccolta di applicazioni Azure AD. Leggere i termini e le condizioni della raccolta di applicazioni Azure AD nel [sito Web](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/).
 
-- **OpenID Connect**: per integrare l'applicazione con Azure AD mediante il protocollo Open ID Connect, seguire le [istruzioni per gli sviluppatori](authentication-scenarios.md).
+- **OpenID Connect**: Per integrare l'applicazione con Azure AD usando il protocollo Open ID Connect, seguire le istruzioni per gli [sviluppatori](authentication-scenarios.md).
 
-    ![Sequenza temporale dell'inserimento di un'applicazione OpenID Connect nella raccolta](./media/howto-app-gallery-listing/openid.png)
+    ![Elenco di un'applicazione OpenID Connect nella raccolta](./media/howto-app-gallery-listing/openid.png)
 
-    * Se si desidera aggiungere l'applicazione all'elenco nella raccolta usando OpenID Connect, selezionare **OpenID Connect & OAuth 2.0** (OpenID Connect e OAuth 2.0) come indicato in precedenza.
-    * In caso di problemi di accesso, contattare il [team di integrazione SSO di Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+    * Per aggiungere l'applicazione all'elenco nella raccolta usando OpenID Connect, selezionare **OpenID connect & OAuth 2,0** come illustrato.
+    * In caso di problemi con l'accesso, contattare il [team di integrazione di Azure ad SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
-- **SAML 2.0** o **WS-Fed**: Se l'app supporta SAML 2.0, può essere integrata direttamente con un tenant di Azure AD usando le [istruzioni per l'aggiunta di un'applicazione personalizzata](../active-directory-saas-custom-apps.md).
+- **SAML 2.0** o **WS-Fed**: Se l'app supporta SAML 2,0, è possibile integrarla direttamente con un tenant di Azure AD seguendo le [istruzioni per l'aggiunta di un'applicazione personalizzata](../active-directory-saas-custom-apps.md).
 
-  ![Sequenza temporale per l'inserimento di un'applicazione SAML 2.0 o WS-Fed nella raccolta](./media/howto-app-gallery-listing/saml.png)
+  ![Elenco di un'applicazione SAML 2,0 o WS-Fed nella raccolta](./media/howto-app-gallery-listing/saml.png)
 
-  * Se si desidera aggiungere l'applicazione all'elenco nella raccolta usando **SAML 2.0** o **WS-Fed**, selezionare **SAMl 2.0/WS-Fed** come indicato in precedenza.
-  * In caso di problemi di accesso, contattare il [team di integrazione SSO di Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+  * Se si vuole aggiungere l'applicazione all'elenco nella raccolta con **saml 2,0** o **WS-Fed**, selezionare **SAML 2.0/WS-Fed** come illustrato.
+  * In caso di problemi con l'accesso, contattare il [team di integrazione di Azure ad SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
-## <a name="implementing-sso-using-password-sso"></a>Implementazione dell'SSO con l'accesso SSO con password
+## <a name="implement-sso-by-using-the-password-sso"></a>Implementare SSO tramite la password SSO
 
-Creare un'applicazione Web con una pagina di accesso HTML per configurare l'[accesso Single Sign-On basato su password](../manage-apps/what-is-single-sign-on.md). L'SSO basato su password, definito anche insieme di credenziali delle password, consente di gestire l'accesso degli utenti e le password per le applicazioni Web che non supportano la federazione delle identità. Risulta utile anche negli scenari in cui più utenti devono condividere un unico account, ad esempio agli account di app di social media dell'organizzazione.
+Creare un'applicazione Web con una pagina di accesso HTML per configurare l'[accesso Single Sign-On basato su password](../manage-apps/what-is-single-sign-on.md). L'SSO basato su password, definito anche insieme di credenziali delle password, consente di gestire l'accesso degli utenti e le password per le applicazioni Web che non supportano la federazione delle identità. È utile anche per gli scenari in cui più utenti devono condividere un singolo account, ad esempio gli account di app di social media dell'organizzazione.
 
-![Sequenza temporale per l'inserimento di un'applicazione SSO con password nella raccolta](./media/howto-app-gallery-listing/passwordsso.png)
+![Elenco di un'applicazione con password SSO nella raccolta](./media/howto-app-gallery-listing/passwordsso.png)
 
-* Se si desidera aggiungere l'applicazione all'elenco nella raccolta usando SSO con password selezionare **Password SSO** (SSO con password) come indicato in precedenza.
-* In caso di problemi di accesso, contattare il [team di integrazione SSO di Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+* Per aggiungere l'applicazione all'elenco della raccolta usando l'accesso SSO basato su password, selezionare **SSO con password** come illustrato.
+* In caso di problemi con l'accesso, contattare il [team di integrazione di Azure ad SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
-## <a name="requesting-for-user-provisioning"></a>Richiesta di provisioning utenti
+## <a name="request-for-user-provisioning"></a>Richiesta di provisioning utenti
 
-Seguire il processo seguente per richiedere il provisioning dell'utente-
+Per richiedere il provisioning degli utenti, seguire la procedura illustrata nell'immagine seguente.
 
-   ![Tempistica per la presentazione di un'applicazione SAML nella raccolta](./media/howto-app-gallery-listing/user-provisioning.png)
+   ![Richiesta di provisioning utenti](./media/howto-app-gallery-listing/user-provisioning.png)
 
-## <a name="updateremove-existing-listing"></a>Aggiornare e rimuovere un elenco esistente
+## <a name="update-or-remove-an-existing-listing"></a>Aggiornare o rimuovere un elenco esistente
 
-Per aggiornare o rimuovere un'applicazione esistente nella raccolta di app di Azure AD, è prima necessario inviare la richiesta nel [portale di rete delle applicazioni](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Se si dispone di un account Office 365, usarlo per accedere a questo portale. In caso contrario, accedere con l'account Microsoft (ad esempio, Outlook o Hotmail).
+Per aggiornare o rimuovere un'applicazione esistente nella raccolta Azure AD app, è necessario prima inviare la richiesta nel [portale di rete dell'applicazione](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Se si dispone di un account Office 365, usarlo per accedere a questo portale. In caso contrario, usare la account Microsoft, ad esempio Outlook o Hotmail, per accedere.
 
-- Selezionare l'opzione appropriata come illustrato nell'immagine seguente:
+- Selezionare l'opzione appropriata, come illustrato nella figura seguente.
 
-    ![Tempistica per la presentazione di un'applicazione SAML nella raccolta](./media/howto-app-gallery-listing/updateorremove.png)
+    ![Elenco di un'applicazione SAML nella raccolta](./media/howto-app-gallery-listing/updateorremove.png)
 
-    * Se si desidera aggiornare un'applicazione esistente, selezionare l'opzione appropriata in base ai requisiti.
-    * Se si vuole rimuovere un'applicazione esistente dalla raccolta di Azure AD, selezionare **Rimuovi l'elenco di applicazioni dalla raccolta**.
-    * In caso di problemi di accesso, contattare il [team di integrazione SSO di Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+    * Per aggiornare un'applicazione esistente, selezionare l'opzione appropriata in base ai requisiti.
+    * Per rimuovere un'applicazione esistente dalla raccolta di app Azure AD, selezionare **Rimuovi l'elenco di applicazioni dalla raccolta**.
+    * In caso di problemi con l'accesso, contattare il [team di integrazione di Azure ad SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
-## <a name="listing-requests-by-customers"></a>Elenco di richieste da clienti
+## <a name="list-requests-by-customers"></a>Elenca richieste per clienti
 
-I clienti possono inviare la richiesta di elencare un'applicazione facendo clic su **richieste di app da** -> parte dei clienti per**inviare una nuova richiesta**.
+I clienti possono inviare una richiesta per elencare un'applicazione selezionando **richieste di app da clienti** > **inviare una nuova richiesta**.
 
 ![Mostra il riquadro app richieste dal cliente](./media/howto-app-gallery-listing/customer-submit-request.png)
 
-Di seguito è riportato il flusso di applicazioni richieste dal cliente:
+Ecco il flusso delle applicazioni richieste dai clienti.
 
 ![Mostra il flusso delle app richieste dal cliente](./media/howto-app-gallery-listing/customer-request.png)
 
 ## <a name="timelines"></a>Tempistica
 
-La tempistica del processo di inserimento di un'applicazione SAML 2.0 o WS-Fed nella raccolta è di 7-10 giorni lavorativi.
+La sequenza temporale per il processo di visualizzazione di un'applicazione SAML 2,0 o WS-Fed nella raccolta è da 7 a 10 giorni lavorativi.
 
-  ![Sequenza temporale dell'elenco di applicazioni SAML nella raccolta](./media/howto-app-gallery-listing/timeline.png)
+  ![Sequenza temporale per l'elenco di un'applicazione SAML nella raccolta](./media/howto-app-gallery-listing/timeline.png)
 
-La tempistica del processo di inserimento di un'applicazione OpenID Connect nella raccolta è di 2-5 giorni lavorativi.
+La sequenza temporale per il processo di visualizzazione di un'applicazione OpenID Connect nella raccolta è di 2 a 5 giorni lavorativi.
 
-  ![Sequenza temporale dell'elenco di applicazioni SAML nella raccolta](./media/howto-app-gallery-listing/timeline2.png)
+  ![Sequenza temporale per l'elenco di un'applicazione OpenID Connect nella raccolta](./media/howto-app-gallery-listing/timeline2.png)
 
 ## <a name="escalations"></a>Escalation
 
-Per le escalation, inviare un messaggio di posta elettronica al [team di integrazione SSO di Azure AD](mailto:SaaSApplicationIntegrations@service.microsoft.com) (SaaSApplicationIntegrations@service.microsoft.com) che fornirà assistenza nel più breve tempo possibile.
+Per le escalation, inviare un messaggio di posta elettronica al [team di integrazione di Azure ad SSO](mailto:SaaSApplicationIntegrations@service.microsoft.com) all'SaaSApplicationIntegrations@service.microsoft.com e risponderemo il prima possibile.

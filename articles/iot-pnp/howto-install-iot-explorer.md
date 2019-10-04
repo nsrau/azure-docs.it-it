@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 4e23a440f46b52633a88d0212e08c7b584f61a38
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: f59e449589c7f3027dc8a9daf9d8d12f04831dd7
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932468"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960581"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Installare e usare Azure Internet Explorer
 
@@ -29,7 +29,7 @@ Questo articolo illustra come:
 Per usare lo strumento Azure Internet Explorer, è necessario:
 
 - Un hub IoT di Azure. Sono disponibili diversi modi per aggiungere un hub Internet alla sottoscrizione di Azure, ad esempio [la creazione di un hub Internet delle cose usando l'interfaccia della riga di comando di Azure](../iot-hub/iot-hub-create-using-cli.md). Per eseguire lo strumento Azure Internet Explorer è necessaria la stringa di connessione dell'hub Internet. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
-- Un dispositivo registrato nell'hub Internet. È possibile usare il comando dell'interfaccia della riga di comando di Azure seguente per registrare un dispositivo. Assicurarsi di sostituire i `{YourIoTHubName}` segnaposto e `{YourDeviceID}` con i valori seguenti:
+- Un dispositivo registrato nell'hub Internet. È possibile usare il comando dell'interfaccia della riga di comando di Azure seguente per registrare un dispositivo. Assicurarsi di sostituire i segnaposto `{YourIoTHubName}` e `{YourDeviceID}` con i valori seguenti:
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id {YourDeviceID}
@@ -65,29 +65,27 @@ Modificare le priorità di origine:
 
 È possibile trascinare e rilasciare una delle origini della definizione del modello in un rango diverso nell'elenco. Se si verifica un conflitto, le origini delle definizioni con rango più elevati eseguono l'override delle origini con rango inferiore.
 
-### <a name="overview-page"></a>Pagina di panoramica
+### <a name="view-devices"></a>Visualizzare i dispositivi
 
-#### <a name="device-overview"></a>Panoramica sul dispositivo
+Una volta che lo strumento si connette all'hub Internet, Visualizza la pagina di elenco dei **dispositivi** in cui sono elencate le identità del dispositivo registrate con l'hub Internet. È possibile espandere qualsiasi voce dell'elenco per visualizzare altre informazioni.
 
-Una volta che lo strumento si connette all'hub Internet, viene visualizzata una pagina di panoramica che elenca tutte le identità dei dispositivi registrate con l'hub Azure. Selezionare un dispositivo per visualizzare altri dettagli.
+Nella pagina dell'elenco dei **dispositivi** è possibile:
 
-#### <a name="device-management"></a>Gestione dei dispositivi
-
-- Per registrare un nuovo dispositivo con l'hub, selezionare **Aggiungi**. Immettere un ID dispositivo. Usare le impostazioni predefinite per generare automaticamente le chiavi di autenticazione e abilitare la connessione all'hub.
-- Per eliminare un'identità del dispositivo, selezionare **Elimina**. Esaminare i dettagli del dispositivo prima di completare questa azione per assicurarsi di eliminare l'identità del dispositivo corretta.
-- Lo strumento supporta l'esecuzione di `capabilityID` query `interfaceID`in base a e. Aggiungere il `capabilityID` o `interfaceID` come parametro per eseguire una query sui dispositivi.
+- Selezionare **Aggiungi** per registrare un nuovo dispositivo con l'hub. Immettere quindi un ID dispositivo. Usare le impostazioni predefinite per generare automaticamente le chiavi di autenticazione e abilitare la connessione all'hub.
+- Selezionare un dispositivo e quindi fare clic su **Elimina** per eliminare un'identità del dispositivo. Esaminare i dettagli del dispositivo prima di completare questa azione per assicurarsi di eliminare l'identità del dispositivo corretta.
+- Eseguire una query per `capabilityID` e `interfaceID`. Aggiungere il `capabilityID` o `interfaceID` come parametro per eseguire query sui dispositivi.
 
 ## <a name="interact-with-a-device"></a>Interagire con un dispositivo
 
-Fare doppio clic su un dispositivo nella pagina Panoramica per visualizzare il livello di dettaglio successivo. Sono disponibili due sezioni: **Dispositivi e dispositivi** **gemelli digitali**.
+Nella pagina elenco **dispositivi** selezionare un valore nella colonna **ID dispositivo** per visualizzare la pagina dei dettagli del dispositivo registrato. Per il dispositivo sono presenti due sezioni: **Dispositivi e dispositivi** **gemelli digitali**.
 
 ### <a name="device"></a>Dispositivo
 
-Questa sezione include le schede **identità del dispositivo**, **telemetria**e **dispositivi gemelli** .
+Questa sezione include le schede **identità dispositivo**, **dispositivo gemello**e **telemetria** .
 
-- È possibile visualizzare e aggiornare le informazioni sull'identità del dispositivo nella scheda **identità dispositivo** .
-- Se un dispositivo è connesso e invia attivamente dati, è possibile visualizzare i dati di telemetria nella scheda **telemetria** .
-- È possibile accedere alle informazioni sul dispositivo gemello nella scheda del **dispositivo gemello** .
+- È possibile visualizzare e aggiornare le informazioni sull' [identità del dispositivo](../iot-hub/iot-hub-devguide-identity-registry.md) nella scheda **identità dispositivo** .
+- È possibile accedere alle informazioni sul [dispositivo gemello](../iot-hub/iot-hub-devguide-device-twins.md) nella scheda del **dispositivo gemello** .
+- Se un dispositivo è connesso e invia attivamente dati, è possibile visualizzare i dati di [telemetria](../iot-hub/iot-hub-devguide-messages-read-builtin.md) nella scheda **telemetria** .
 
 ### <a name="digital-twin"></a>Gemello digitale
 

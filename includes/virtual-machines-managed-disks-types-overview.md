@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/15/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 87e130d3a4569971bffb9b1ac2e189babb900225
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 3dfc3c309fe3583ddd4307cbfe4e55bf6522ffc3
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70997647"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71955866"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quali tipi di dischi sono disponibili in Azure?
 
@@ -23,11 +23,11 @@ Azure Managed Disks offre attualmente quattro tipi di dischi, ciascuno dei quali
 
 La tabella seguente fornisce un confronto tra dischi Ultra, unità SSD Premium, unità SSD standard e unità disco rigido standard (HDD) per Managed disks che consentono di decidere cosa usare.
 
-|   | Disco Ultra   | Unità SSD Premium   | SSD Standard   | HDD Standard   |
+|   | Disco Ultra   | Unità SSD Premium   | Unità SSD Standard   | HDD Standard   |
 |---------|---------|---------|---------|---------|
 |Tipo di disco   |SSD   |SSD   |SSD   |HDD   |
 |Scenario   |Carichi di lavoro con I/O elevato come SAP HANA, database di alto livello (ad esempio SQL, Oracle) e altri carichi di lavoro con numerose transazioni.   |Carichi di lavoro di produzione su cui influiscono le prestazioni   |Server Web, applicazioni aziendali con un utilizzo non intensivo e sviluppo/test   |Backup, carichi di lavoro non critici, accesso poco frequente   |
-|Dimensioni disco   |65.536 gibibyte (GiB)    |32.767 GiB    |32.767 GiB   |32.767 GiB   |
+|Dimensioni massime del disco   |65.536 gibibyte (GiB)    |32.767 GiB    |32.767 GiB   |32.767 GiB   |
 |Velocità effettiva massima   |2\.000 MiB/s    |900 MiB/s   |750 MiB/s   |500 MiB/s   |
 |Numero massimo di operazioni di I/O al secondo   |160.000    |20.000   |6000   |2\.000   |
 

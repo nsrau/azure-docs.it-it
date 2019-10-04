@@ -1,19 +1,19 @@
 ---
 title: Traffico in uscita ed endpoint in Gemelli digitali di Azure | Microsoft Docs
 description: Linee guida sulla creazione di endpoint con Gemelli digitali di Azure.
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/12/2019
-ms.author: alinast
-ms.openlocfilehash: 3c33992ce3c130d6c06e0709a9c4ddcab4fff159
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.date: 10/02/2019
+ms.openlocfilehash: e7516fffb4aa8806062655e39c591e4691e779b1
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013929"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959107"
 ---
 # <a name="egress-and-endpoints"></a>Traffico in uscita ed endpoint
 
@@ -23,7 +23,7 @@ Gli eventi vengono indirizzati agli endpoint in base alle preferenze di routing 
 
 Per altre informazioni su eventi, routing e tipi di eventi, vedere [Routing di eventi e messaggi](./concepts-events-routing.md).
 
-## <a name="events"></a>Eventi
+## <a name="events"></a>Events
 
 Gli eventi vengono inviati da oggetti IoT, come dispositivi e sensori, per essere elaborati dai broker messaggi ed eventi di Azure. Gli eventi sono definiti dallo [schema di eventi di Griglia di eventi di Azure](../event-grid/event-schema.md) seguente.
 
@@ -51,7 +51,7 @@ Gli eventi vengono inviati da oggetti IoT, come dispositivi e sensori, per esser
 | --- | --- | --- |
 | id | string | Identificatore univoco dell'evento. |
 | subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
-| data | object | Dati dell'evento specifici del provider di risorse. |
+| dati | object | Dati dell'evento specifici del provider di risorse. |
 | eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
 | eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
 | dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
@@ -63,7 +63,7 @@ Per altre informazioni sullo schema di eventi di Griglia di eventi:
 - Vedere [Schema di eventi di Griglia di eventi di Azure](../event-grid/event-schema.md).
 - Vedere la documentazione di riferimento sull'[interfaccia EventGridEvent](https://docs.microsoft.com/javascript/api/azure-eventgrid/eventgridevent?view=azure-node-latest).
 
-## <a name="event-types"></a>Tipi di eventi
+## <a name="event-types"></a>Tipi di evento
 
 I tipi di eventi classificano la natura dell'evento e sono impostati nel campo **eventType**. Di seguito sono elencati i tipi di evento disponibili:
 

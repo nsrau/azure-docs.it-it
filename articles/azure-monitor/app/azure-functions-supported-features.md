@@ -3,7 +3,7 @@ title: Azure Application Insights - Funzionalità supportate di Funzioni di Azur
 description: Funzionalità supportate di Application Insights per Funzioni di Azure
 services: application-insights
 documentationcenter: .net
-author: MS-TimothyMothra
+author: TimothyMothra
 manager: ''
 ms.service: application-insights
 ms.workload: TBD
@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 4/23/2019
 ms.reviewer: mbullwin
 ms.author: tilee
-ms.openlocfilehash: 0199d8f0c4a76a10fffcab7cf2819643d0ac2d68
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cf39c8b5e204493380c095519e0ff25c3ce19f68
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075354"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959891"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Application Insights per le funzionalità supportate di Funzioni di Azure
 
@@ -53,7 +53,7 @@ Funzioni di Azure offre l'[integrazione predefinita](https://docs.microsoft.com/
 | &bull;Completamente configurabile.<br/>Per istruzioni, vedere [Funzioni di Azure](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852).<br/>Per tutte le opzioni, vedere [Asp.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration).               |                   | Yes                   | 
 
 
-## <a name="performance-counters"></a>Contatori delle prestazioni
+## <a name="performance-counters"></a>Contatori di prestazioni
 
 La raccolta automatica dei contatori delle prestazioni funziona solo sui computer Windows.
 
@@ -66,9 +66,9 @@ I criteri di filtri personalizzati specificati dall'utente vengono inviati al co
 
 Per impostazione predefinita, Funzioni di Azure abilita il campionamento durante la configurazione. Per altre informazioni, vedere [Configurare il campionamento](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#configure-sampling).
 
-Se il progetto abbia una dipendenza da Application Insights SDK per eseguire operazioni manuali dati di telemetria di rilevamento, se la configurazione di campionamento è diversa rispetto alla configurazione di campionamento di funzioni potrebbe verificarsi un comportamento anomalo. 
+Se il progetto prende una dipendenza da Application Insights SDK per eseguire il rilevamento manuale della telemetria, potrebbe verificarsi un comportamento strano se la configurazione del campionamento è diversa dalla configurazione del campionamento delle funzioni. 
 
-È consigliabile usare la stessa configurazione come funzioni. Con **funzioni v2**, è possibile ottenere la stessa configurazione usando l'inserimento delle dipendenze nel costruttore:
+È consigliabile usare la stessa configurazione delle funzioni. Con **funzioni V2**è possibile ottenere la stessa configurazione usando l'inserimento di dipendenze nel costruttore:
 
 ```csharp
 using Microsoft.ApplicationInsights;

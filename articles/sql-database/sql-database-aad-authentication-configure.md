@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: a14926dea576e0331cb8c0f8010f060f47faa3e7
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 11e3a9931d424433f2e3fd1f64e2e95a5835b65c
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991169"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960474"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Configurare e gestire l'autenticazione di Azure Active Directory con SQL
 
@@ -242,7 +242,7 @@ Remove-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -Se
 
 È anche possibile eseguire il provisioning di un admin Azure AD chiamando i comandi dell'interfaccia della riga di comando seguenti:
 
-| Comando | DESCRIZIONE |
+| Comando | Descrizione |
 | --- | --- |
 |[az sql server ad-admin create](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) |Esegue il provisioning di un amministratore di Azure Active Directory per il server di Azure SQL o per Azure SQL Data Warehouse. Deve far parte della sottoscrizione corrente. |
 |[az sql server ad-admin delete](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-delete) |Rimuove un amministratore di Azure Active Directory per il server di Azure SQL o per Azure SQL Data Warehouse. |
@@ -304,6 +304,9 @@ Per creare un utente di database indipendente che rappresenta un'applicazione ch
 CREATE USER [appName] FROM EXTERNAL PROVIDER;
 ```
 
+> [!NOTE]
+> Questo comando richiede che SQL Access Azure AD (il "provider esterno") per conto dell'utente connesso. Talvolta si verificheranno circostanze che determinano la restituzione di un'eccezione a SQL da parte di Azure AD. In questi casi, l'utente visualizzerà l'errore SQL 33134, che dovrebbe contenere il messaggio di errore specifico di AAD. Nella maggior parte dei casi, l'errore indicherà che l'accesso è stato negato o che l'utente deve registrarsi in multi-factor authentication per accedere alla risorsa o che l'accesso tra le applicazioni di terze parti deve essere gestito tramite la preautorizzazione. Nei primi due casi, il problema è in genere causato dai criteri di accesso condizionale impostati nel tenant AAD dell'utente: impediscono all'utente di accedere al provider esterno. L'aggiornamento dei criteri della CA per consentire l'accesso all'applicazione ' 00000002-0000-0000-C000-000000000000' (ID applicazione del API Graph AAD) dovrebbe risolvere il problema. Nel caso in cui l'errore indichi che l'accesso tra le applicazioni di terze parti deve essere gestito tramite la preautorizzazione, il problema è dovuto al fatto che l'utente ha eseguito l'accesso come entità servizio. Il comando deve avere esito positivo se viene eseguito da un utente.
+
 > [!TIP]
 > È possibile creare un utente direttamente da Azure Active Directory solo se si usa l'Azure Active Directory associata alla sottoscrizione di Azure. Tuttavia, i membri di altre directory di Active Directory che sono utenti importati nell'Active Directory associata (chiamati utenti esterni) possono essere aggiunti a un gruppo Active Directory nell'Active Directory tenant. Tramite la creazione di un utente del database indipendente per il gruppo AD, gli utenti dell'Active Directory esterna possono ottenere l'accesso al database SQL.
 
@@ -351,7 +354,7 @@ Usare questo metodo per connettersi con il nome dell'entità di Azure AD tramite
 Usare questo metodo per eseguire l'autenticazione al database/data warehouse SQL con Azure AD per utenti di Azure AD nativi o federati. Un utente nativo è un utente creato in modo esplicito in Azure AD e autenticato tramite nome utente e password, mentre un utente federato è un utente Windows il cui dominio è federato con Azure AD. Quest'ultimo metodo (tramite utente e password) può essere usato quando un utente vuole usare le credenziali di Windows, ma il computer locale non è aggiunto al dominio (ad esempio tramite accesso remoto). In questo caso un utente Windows può specificare il proprio account di dominio e la password ed eseguire l'autenticazione al database/data warehouse SQL tramite credenziali federate.
 
 1. Avviare Management Studio o Data Tools e nella finestra di dialogo **Connetti al server** (o **Connetti al motore di database**) e selezionare **Active Directory - Password** nella casella **Autenticazione**.
-2. Nella casella **nome utente** Digitare il nome utente Azure Active Directory nel formato **\@** nome utente Domain.com. I nomi utenti devono essere un account di Azure Active Directory o un account di un dominio federato con Azure Active Directory.
+2. Nella casella **nome utente** Digitare il nome utente Azure Active Directory nel formato **username\@domain.com**. I nomi utenti devono essere un account di Azure Active Directory o un account di un dominio federato con Azure Active Directory.
 3. Nella casella **Password** digitare la password utente dell'account Azure Active Directory o dell'account di dominio federato.
 
     ![Selezionare Autenticazione della password di Active Directory][12]
@@ -414,7 +417,7 @@ Per altre informazioni, vedere [SQL Server Security Blog](https://blogs.msdn.mic
 Le istruzioni seguenti eseguono la connessione usando la versione 13.1 di sqlcmd disponibile in [Download Center](https://go.microsoft.com/fwlink/?LinkID=825643).
 
 > [!NOTE]
-> `sqlcmd`con il `-G` comando non funziona con le identità di sistema e richiede un account di accesso dell'entità utente.
+> `sqlcmd` con il comando `-G` non funziona con le identità di sistema e richiede un account di accesso dell'entità utente.
 
 ```cmd
 sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net  -G  

@@ -53,7 +53,7 @@
           href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Sicurezza di Archiviazione di Azure
           href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Crittografia degli account di archiviazione
+        - name: Crittografia di Archiviazione di Azure
           href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Autenticazione di Azure AD tramite SMB
           href: storage-files-active-directory-overview.md

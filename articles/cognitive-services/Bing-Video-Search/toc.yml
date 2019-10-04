@@ -50,7 +50,8 @@
     - name: Ottenere video di tendenza
       href: trending-videos.md
     - name: Sfogliare i video
-      href: paging-videos.md
+      maintainContext: true
+      href: ../Bing-Web-Search/paging-search-results.md
     - name: Ridimensionare e ritagliare le anteprime
       maintainContext: true
       href: ../bing-web-search/resize-and-crop-thumbnails.md

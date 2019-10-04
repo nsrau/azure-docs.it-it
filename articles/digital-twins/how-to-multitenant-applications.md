@@ -1,19 +1,19 @@
 ---
 title: Abilitare le applicazioni multi-tenant con Gemelli digitali di Azure | Microsoft Docs
 description: Come configurare applicazioni multi-tenant di Azure Active Directory per Gemelli digitali di Azure.
-author: mavoge
+ms.author: alinast
+author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/12/2019
-ms.author: mavoge
-ms.openlocfilehash: 2ee3681640f68839c32e2963b34d5547abb6943b
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.date: 10/02/2019
+ms.openlocfilehash: 070b04b27982b84f101ee4d6f85f4e5b82760092
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976886"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958806"
 ---
 # <a name="enable-multitenant-applications-with-azure-digital-twins"></a>Abilitare le applicazioni multi-tenant con Gemelli digitali di Azure
 
@@ -57,20 +57,16 @@ Per risolvere il problema dello scenario precedente, è necessario eseguire le a
   1. Aprire **Sottoscrizioni**.
   1. Selezionare la sottoscrizione con il tenant di Azure Active Directory da usare nell'applicazione dello **SVILUPPATORE**.
 
-     ![Sottoscrizioni di Azure Active Directory][1]
+     [sottoscrizioni ![Azure Active Directory](media/multitenant/ad-subscriptions.png)](media/multitenant/ad-subscriptions.png#lightbox)
 
   1. Selezionare **Provider di risorse**.
   1. Cercare **Microsoft.IoTSpaces**.
   1. Selezionare **Registra**.
 
-     ![Provider di risorse di Azure Active Directory][2]
+     [provider di risorse ![Azure Active Directory](media/multitenant/ad-resource-providers.png)](media/multitenant/ad-resource-providers.png#lightbox)
   
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per altre informazioni su come usare le funzioni definite dall'utente con Gemelli digitali di Azure, vedere [Come creare funzioni definite dall'utente in Gemelli digitali di Azure](./how-to-user-defined-functions.md).
 
 - Per informazioni su come usare il controllo degli accessi in base al ruolo per proteggere ulteriormente l'applicazione con assegnazioni di ruolo, vedere [Come creare e gestire il controllo degli accessi in base al ruolo in Gemelli digitali di Azure](./security-create-manage-role-assignments.md).
-
-<!-- Images -->
-[1]: media/multitenant/ad-subscriptions.png
-[2]: media/multitenant/ad-resource-providers.png

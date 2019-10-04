@@ -54,7 +54,7 @@
     - name: Gestire l'evidenziazione dei risultati
       href: hit-highlighting.md
     - name: Sfogliare i risultati
-      href: paging-webpages.md
+      href: paging-search-results.md
     - name: Ridimensionare e ritagliare le anteprime
       href: resize-and-crop-thumbnails.md
     - name: Aggiornamento da v5 a v7

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 29a771b93e1d686f7972e7dc4d9e78e5858644d6
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 36465f016eeb066c0e12f6434deb98fd7b10966a
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899393"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958762"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Preparare la distribuzione della soluzione IoT Edge alla produzione
 
@@ -83,7 +83,7 @@ Una volta che il dispositivo IoT Edge si connette, assicurarsi di continuare a c
 
 ### <a name="be-consistent-with-upstream-protocol"></a>Essere coerenti con il protocollo upstream
 
-Se l'agente di IoT Edge è stato configurato nel dispositivo IoT Edge per usare un protocollo diverso da quello predefinito, è necessario dichiarare lo stesso protocollo in tutte le distribuzioni future (AMQP). Ad esempio, se il dispositivo IoT Edge si trova dietro un server proxy che blocca le porte AMQP,è probabile che il dispositivo sia stato configurato per connettersi tramite AMQP su WebSocket (AMQPWS). Quando si distribuiscono moduli al dispositivo, configurare lo stesso protocollo APQPWS per l'agente di IoT Edge e l'hub IoT Edge. in caso contrario, il valore predefinito di AMQP sostituirà le impostazioni e impedirà la connessione. 
+Se l'agente di IoT Edge è stato configurato nel dispositivo IoT Edge per usare un protocollo diverso da quello predefinito, è necessario dichiarare lo stesso protocollo in tutte le distribuzioni future (AMQP). Ad esempio, se il dispositivo IoT Edge si trova dietro un server proxy che blocca le porte AMQP,è probabile che il dispositivo sia stato configurato per connettersi tramite AMQP su WebSocket (AMQPWS). Quando si distribuiscono moduli al dispositivo, configurare lo stesso protocollo AMQPWS per l'agente di IoT Edge e l'hub IoT Edge. in caso contrario, il valore predefinito di AMQP sostituirà le impostazioni e impedirà la connessione. 
 
 È necessario configurare solo la variabile di ambiente UpstreamProtocol per l'agente IoT Edge e i moduli Hub IoT Edge. Tutti i moduli aggiuntivi adottano qualsiasi protocollo impostato nei moduli del runtime. 
 
@@ -205,9 +205,9 @@ Quando si esegue il test di una distribuzione di IoT Edge, è generalmente possi
 
 Per impostazione predefinita, il motore di contenitori di Moby non imposta limiti per le dimensioni del log del contenitore. Nel corso del tempo questo può compromettere il riempimento del dispositivo con i log e l'esaurimento dello spazio su disco. Per evitare questo problema, prendere in considerazione le opzioni seguenti:
 
-**Opzione Imposta i limiti globali che si applicano a tutti i moduli contenitore**
+**Option: Imposta i limiti globali che si applicano a tutti i moduli contenitore @ no__t-0
 
-È possibile limitare le dimensioni di tutti i file di log del contenitore nelle opzioni di log del motore di contenitori. Nell'esempio seguente il driver di `json-file` log viene impostato su (scelta consigliata) con limiti per le dimensioni e il numero di file:
+È possibile limitare le dimensioni di tutti i file di log del contenitore nelle opzioni di log del motore di contenitori. Nell'esempio seguente il driver di log viene impostato su `json-file` (scelta consigliata) con limiti per le dimensioni e il numero di file:
 
 ```JSON
 {
@@ -219,7 +219,7 @@ Per impostazione predefinita, il motore di contenitori di Moby non imposta limit
 }
 ```
 
-Aggiungere (o accodare) queste informazioni a un file `daemon.json` denominato e posizionarlo nella posizione corretta per la piattaforma del dispositivo.
+Aggiungere o accodare queste informazioni a un file denominato `daemon.json` e posizionarlo nella posizione corretta per la piattaforma del dispositivo.
 
 | Piattaforma | Location |
 | -------- | -------- |
@@ -228,9 +228,9 @@ Aggiungere (o accodare) queste informazioni a un file `daemon.json` denominato e
 
 Per rendere effettive le modifiche, è necessario riavviare il motore del contenitore.
 
-**Opzione Modificare le impostazioni del log per ogni modulo contenitore**
+**Option: Modificare le impostazioni del log per ogni modulo contenitore @ no__t-0
 
-Questa operazione può essere eseguita nella **createOptions** di ogni modulo. Ad esempio:
+Questa operazione può essere eseguita nella **createOptions** di ogni modulo. Esempio:
 
 ```yml
 "createOptions": {
@@ -248,7 +248,7 @@ Questa operazione può essere eseguita nella **createOptions** di ogni modulo. A
 
 **Opzioni aggiuntive nei sistemi Linux**
 
-* Configurare il motore di contenitori per inviare i `systemd` log al `journald` [Journal](https://docs.docker.com/config/containers/logging/journald/) impostando come driver di registrazione predefinito. 
+* Configurare il motore di contenitori per inviare i log al [journal](https://docs.docker.com/config/containers/logging/journald/) `systemd` impostando `journald` come driver di registrazione predefinito. 
 
 * Rimuovere periodicamente i log precedenti dal dispositivo installando uno strumento logrotate. Usare la specifica del file seguente: 
 

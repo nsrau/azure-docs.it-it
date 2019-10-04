@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: apimpm
-ms.openlocfilehash: c566dc28338a47c1bf24066436c21544eb7c5c7d
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 9c97723687484e8af82d63b6fb4999401a69fb2c
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072441"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958537"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure
 
@@ -152,7 +152,7 @@ dove:
 -   `subscriptionId`: ID della sottoscrizione contenente il servizio Gestione API di cui si sta tentando di eseguire il backup
 -   `resourceGroupName`: nome del gruppo di risorse del servizio Gestione API di Azure
 -   `serviceName` : il nome del servizio di Gestione API di cui sta eseguendo il backup specificato quando è stato creato
--   `api-version`-Sostituisci con`2018-06-01-preview`
+-   `api-version`-Sostituisci con `2018-06-01-preview`
 
 Nel corpo della richiesta, specificare il nome dell'account di archiviazione, la chiave di accesso, il nome del contenitore BLOB e il nome del backup di destinazione di Azure:
 
@@ -193,7 +193,7 @@ dove:
 -   `subscriptionId` : ID della sottoscrizione contenente il servizio di Gestione API in cui si sta ripristinando un backup
 -   `resourceGroupName`: nome del gruppo di risorse contenente il servizio di Gestione API in cui si sta ripristinando un backup
 -   `serviceName` : il nome del servizio di Gestione API in cui si sta effettuando il ripristino specificato quando è stato creato
--   `api-version`-Sostituisci con`2018-06-01-preview`
+-   `api-version`-Sostituisci con `2018-06-01-preview`
 
 Nel corpo della richiesta, specificare il percorso del file di backup. Ovvero, aggiungere il nome dell'account di archiviazione, la chiave di accesso, il nome del contenitore BLOB e il nome del backup di Azure:
 
@@ -218,7 +218,7 @@ Il ripristino è un'operazione a lunga esecuzione che potrebbe richiedere 30 min
 <!-- Dummy comment added to suppress markdown lint warning -->
 
 > [!NOTE]
-> Le operazioni di backup e ripristino possono essere eseguite anche con i comandi _backup-AzApiManagement_ e _Restore-AzApiManagement_ rispettivamente di PowerShell.
+> Le operazioni di backup e ripristino possono essere eseguite anche con i comandi [_backup-AzApiManagement_](/powershell/module/az.apimanagement/backup-azapimanagement) e [_Restore-AzApiManagement_](/powershell/module/az.apimanagement/restore-azapimanagement) rispettivamente di PowerShell.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

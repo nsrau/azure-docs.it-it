@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 829054064a21b2fb8da2bd975501bfcd0840e7eb
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: dab4b4c6f41a95623a40e5d3fd859f9613afac27
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624576"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949604"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>Funzionalità di elenco di frasi nell'app LUIS
 
@@ -46,14 +46,7 @@ Gli elenchi di frasi non sono collegati a una finalità o a un'entità specifica
 
 Dopo aver immesso alcuni parole o frasi, usare la caratteristica **Recommend** (Consiglia) per trovare i valori correlati. Verificare i valori correlati prima di aggiungerli ai valori dell'elenco di frasi.
 
-|Tipo elenco|Scopo|
-|--|--|
-|Intercambiabile|Sinonimi o parole che, quando usati al posto di un'altra parola nell'elenco hanno la stessa finalità ed estrazione di entità.|
-|Non intercambiabile|Vocabolario dell'app, specifico per l'app più di altre parole in generale in tale lingua.|
-
-### <a name="interchangeable-lists"></a>Elenchi intercambiabili
-
-Un elenco di frasi *intercambiabile* è progettato per valori che sono sinonimi. Ad esempio, se si vogliono trovare tutti i corpi d'acqua e sono disponibili espressioni di esempio come le seguenti: 
+Un elenco di frasi è per i valori che sono sinonimi. Ad esempio, se si vogliono trovare tutti i corpi d'acqua e sono disponibili espressioni di esempio come le seguenti: 
 
 * Quali città sono vicine ai Grandi Laghi? 
 * Quale strada costeggia il Lago di Como?
@@ -65,17 +58,7 @@ Ogni espressione deve essere determinata sia per la finalità che per le entità
 * Quale strada costeggia [corpoDiAcqua]?
 * Dove inizia e finisce [corpoDiAcqua]? 
 
-Dal momento che le parole o le frasi per il corpo d'acqua sono sinonimi e possono essere usate in modo intercambiabile nelle espressioni, usare l'impostazione **intercambiabile** nell'elenco di frasi. 
-
-### <a name="non-interchangeable-lists"></a>Elenchi non intercambiabili
-
-Un elenco di frasi non intercambiabile è un segnale che potenzia il rilevamento per LUIS. L'elenco di frasi indica parole o frasi più significative di altre parole. Ciò è utile sia per la determinazione della finalità che per il rilevamento delle entità. Ad esempio, si supponga di usare il dominio di interesse Viaggi globale, ovvero valido per più impostazioni cultura, ma comunque in una sola lingua. Sono presenti parole e frasi che sono importanti per l'app, ma non sono sinonimi. 
-
-Sempre a titolo di esempio, si potrebbe usare un elenco di frasi non intercambiabile anche per le parole rare, brevettate e straniere. LUIS potrebbe non essere in grado di riconoscere le parole rare e brevettate, nonché le parole straniere (diverse rispetto alla impostazioni cultura dell'app). L'impostazione di non intercambiabilità indica che il set di parole rare forma una classe che LUIS deve imparare a riconoscere, ma che queste parole non sono sinonimi o intercambiabili tra loro.
-
-Non aggiungere ogni possibile parola o frase all'elenco di frasi, ma aggiungere alcune parole o frasi alla volta e quindi ripetere il training e pubblicare. 
-
-Man mano che le dimensioni dell'elenco di frasi aumentano nel tempo, si potrebbe riscontrare che alcuni termini hanno molte forme (sinonimi). Suddividere questi casi in un altro elenco di frasi intercambiabile. 
+Poiché le parole o le frasi per il corpo dell'acqua sono sinonimi e possono essere usate in modo intercambiabile nelle espressioni. 
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: c9ae01b3a8f49b210c363fea20bc3c221d9e837a
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
-ms.translationtype: HT
+ms.openlocfilehash: 83f10eb9dadfda5b87f1da287718f59da17c5110
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71839623"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947607"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Distribuire lo strumento di diagnostica
 
@@ -51,14 +51,22 @@ Questa sezione illustra come usare PowerShell per creare l'app Azure Active Dire
 >Le autorizzazioni API sono desktop virtuali di Windows, Log Analytics e Microsoft Graph le autorizzazioni API vengono aggiunte all'applicazione Azure Active Directory.
 
 1. Aprire PowerShell come amministratore.
-2. Passare al [repository di GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) per i modelli di Servizi Desktop remoto ed eseguire lo script **create ad app Registration for Diagnostics. ps1** in PowerShell.
-3.  Quando lo script richiede di assegnare un nome all'app, immettere un nome univoco per l'app.
-4.  Lo script richiederà quindi di accedere con un account amministrativo. Immettere le credenziali di un utente con [accesso amministratore delegato](delegated-access-virtual-desktop.md). L'amministratore deve disporre dei diritti di proprietario o di collaboratore Servizi Desktop remoto.
+2. Accedere ad Azure con un account con autorizzazioni di proprietario o collaboratore nella sottoscrizione di Azure che si vuole usare per lo strumento di diagnostica:
+   ```powershell
+   Login-AzAccount
+   ```
+3. Accedere a Azure AD con lo stesso account:
+   ```powershell
+   Connect-AzureAD
+   ```
+4. Passare al [repository di GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) per i modelli di Servizi Desktop remoto ed eseguire lo script **CreateADAppRegistrationforDiagnostics. ps1** in PowerShell.
+5.  Quando lo script richiede di assegnare un nome all'app, immettere un nome univoco per l'app.
+
 
 Dopo che lo script è stato eseguito correttamente, nel relativo output dovrebbe essere visualizzato quanto segue:
 
 -  Un messaggio che conferma che l'app dispone ora di un'assegnazione di ruolo dell'entità servizio.
--  ID client di stampa e chiave privata client necessari per la distribuzione dello strumento di diagnostica.
+-  ID client e chiave privata client necessari per la distribuzione dello strumento di diagnostica.
 
 Ora che l'app è stata registrata, è necessario configurare l'area di lavoro Log Analytics.
 
@@ -76,7 +84,7 @@ Per la migliore esperienza possibile, è consigliabile configurare l'area di lav
 Per eseguire lo script di PowerShell:
 
 1.  Aprire PowerShell come amministratore.
-2.  Passare al [repository di GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) per i modelli di Servizi Desktop remoto ed eseguire lo script **create LogAnalyticsWorkspace for Diagnostics. ps1** in PowerShell.
+2.  Passare al [repository di GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) per i modelli di Servizi Desktop remoto ed eseguire lo script **CreateLogAnalyticsWorkspaceforDiagnostics. ps1** in PowerShell.
 3. Per i parametri inserire i valori seguenti:
 
     - Per **ResourceGroupName**, immettere il nome del gruppo di risorse.

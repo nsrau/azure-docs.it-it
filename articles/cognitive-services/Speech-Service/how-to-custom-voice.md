@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 9bb654f37ecc4fda46171e859adac0236b51e4b2
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 636c397001a3130c60fc2bf498339ad058aca374
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881487"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959403"
 ---
 # <a name="get-started-with-custom-voice"></a>Introduzione a Voce personalizzata
 
@@ -59,6 +59,6 @@ Per creare il primo progetto, selezionare la scheda **voce vocale/voce personali
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Preparare i dati vocali personalizzati](how-to-custom-voice.md)
+- [Preparare i dati vocali personalizzati](how-to-custom-voice-prepare-data.md)
 - [Creare una voce personalizzata](how-to-custom-voice-create-voice.md)
-- [Guida Registrare gli esempi di Voice](record-custom-voice-samples.md)
+- [Guide: Registrare gli esempi di voce @ no__t-0

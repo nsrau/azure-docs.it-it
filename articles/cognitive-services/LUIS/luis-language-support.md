@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: 94f019205959d63a05ed3d90ede59fece3c05901
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: bd1e665114fff4d5b7b0b2dca267207bdeebab56
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316360"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949553"
 ---
 # <a name="language-and-region-support-for-luis"></a>Supporto di lingua e area geografica per LUIS
 
@@ -54,7 +54,7 @@ Le lingue supportate variano per [entità predefinite](luis-reference-prebuilt-e
 
  - Nella cultura `zh-cn`, LUIS prevede il set di caratteri semplificato cinese al posto del set di caratteri tradizionale.
  - I nomi di finalità, entità, funzioni ed espressioni regolari possono essere in caratteri cinesi o romani.
- - Per informazioni sui domini predefiniti supportati nelle `zh-cn` impostazioni cultura, vedere il riferimento ai [domini predefiniti](luis-reference-prebuilt-domains.md) .
+ - Per informazioni sui domini predefiniti supportati nelle impostazioni cultura `zh-cn`, vedere il [riferimento ai domini predefiniti](luis-reference-prebuilt-domains.md) .
 <!--- When writing regular expressions in Chinese, do not insert whitespace between Chinese characters.-->
 
 ### <a name="japanese-support-notes"></a>*Note sul supporto giapponese
@@ -73,7 +73,9 @@ Vedere [Lingue supportate](https://docs.microsoft.com/azure/cognitive-services/S
 Per un elenco delle lingue e dello stato supportati, vedere [ Lingue supportate](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages) per il Controllo ortografico Bing.
 
 ## <a name="rare-or-foreign-words-in-an-application"></a>Parole rare o in lingua straniera in un'applicazione
-Nelle impostazioni cultura `en-us`, LUIS impara a distinguere la maggior parte delle parole inglesi, compreso lo slang. Nelle impostazioni cultura `zh-cn`, LUIS impara a distinguere la maggior parte dei caratteri cinesi. Se si utilizza una parola rara in `en-us` o un carattere in `zh-cn`, e si nota che LUIS non sembra in grado di distinguere tale parola o carattere, è possibile aggiungere tale parola o carattere a una [funzione dell'elenco di frasi](luis-how-to-add-features.md). Ad esempio, le parole al di fuori della cultura dell'applicazione, ovvero le parole straniere, dovrebbero essere aggiunte a una funzione dell'elenco di frasi. Tale elenco deve essere contrassegnato come non intercambiabile per indicare che il set di parole rare costituisce una classe che LUIS dovrebbe imparare a riconoscere, ma tali parole non sono sinonimi o non sono intercambiabili tra loro.
+Nelle impostazioni cultura `en-us`, LUIS impara a distinguere la maggior parte delle parole inglesi, compreso lo slang. Nelle impostazioni cultura `zh-cn`, LUIS impara a distinguere la maggior parte dei caratteri cinesi. Se si utilizza una parola rara in `en-us` o un carattere in `zh-cn`, e si nota che LUIS non sembra in grado di distinguere tale parola o carattere, è possibile aggiungere tale parola o carattere a una [funzione dell'elenco di frasi](luis-how-to-add-features.md). Ad esempio, le parole al di fuori della cultura dell'applicazione, ovvero le parole straniere, dovrebbero essere aggiunte a una funzione dell'elenco di frasi. 
+
+<!--This phrase list should be marked non-interchangeable, to indicate that the set of rare words forms a class that LUIS should learn to recognize, but they are not synonyms or interchangeable with each other.-->
 
 ### <a name="hybrid-languages"></a>Lingue ibride
 Le lingue ibride combinano parole di due culture come l'inglese e il cinese. Queste lingue non sono supportate in LUIS perché un'applicazione è basata su un'unica cultura.
@@ -103,7 +105,7 @@ Le impostazioni cultura seguenti includono versioni Tokenizer personalizzate:
 
 |Impostazioni cultura|Versione|Scopo|
 |--|--|--|
-|Tedesco<br>`de-de`|1.0.0|Suddivide in token le parole suddividendo le parole usando un tokenizer basato su Machine Learning che tenta di suddividere le parole composite nei singoli componenti.<br>Se un utente immette `Ich fahre einen krankenwagen` come espressione, viene convertito in. `Ich fahre einen kranken wagen` Consentire il contrassegno di `kranken` e `wagen` in modo indipendente come entità diverse.|
+|Tedesco<br>`de-de`|1.0.0|Suddivide in token le parole suddividendo le parole usando un tokenizer basato su Machine Learning che tenta di suddividere le parole composite nei singoli componenti.<br>Se un utente immette `Ich fahre einen krankenwagen` come espressione, viene convertito in `Ich fahre einen kranken wagen`. Consente di contrassegnare `kranken` e `wagen` in modo indipendente come entità diverse.|
 |Tedesco<br>`de-de`|1.0.2|Suddivide in token le parole suddividendo gli spazi in spazi.<br> Se un utente immette `Ich fahre einen krankenwagen` come espressione, rimane un singolo token. Pertanto `krankenwagen` è contrassegnato come una singola entità. |
 
 ### <a name="migrating-between-tokenizer-versions"></a>Migrazione tra versioni di Tokenizer

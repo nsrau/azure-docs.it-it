@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 412bfee12e50b66a780f33b2bca8c4ecc61d83f7
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 8fee8692b2e09f9e4f5580d60d2f7a5a5cea2858
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219345"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950352"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -169,7 +169,10 @@ questo ruolo è disponibile per l'assegnazione solo come amministratore locale a
 
 ### <a name="directory-readersdirectory-readers-permissions"></a>[Lettori di directory](#directory-readers-permissions)
 
-Si tratta di un ruolo che deve essere assegnato solo alle applicazioni legacy che non supportano il [Framework di consenso](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Non assegnarlo agli utenti.
+Gli utenti con questo ruolo possono leggere le informazioni di base sulla directory. Questo ruolo deve essere usato per:
+* Concessione dell'accesso in lettura a un set specifico di utenti Guest anziché concederlo a tutti gli utenti guest.
+* Concessione di un set specifico di utenti non amministratori che accedono al portale di Azure quando "limita l'accesso al portale di Azure AD solo agli amministratori" è impostato su "Sì".
+* Concessione dell'accesso alle entità servizio alla directory in cui directory. Read. All non è un'opzione.
 
 ### <a name="directory-synchronization-accountsdirectory-synchronization-accounts-permissions"></a>[Account di sincronizzazione della directory](#directory-synchronization-accounts-permissions)
 

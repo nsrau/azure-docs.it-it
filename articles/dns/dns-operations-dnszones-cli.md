@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: victorh
-ms.openlocfilehash: df741b34e1268c547723af87401760197d395780
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 14d0512a10329f36872d111825261ebc5ef71976
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61293830"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959390"
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli"></a>Come gestire le zone DNS in DNS di Azure DNS usando l'interfaccia della riga di comando di Azure
 
@@ -68,8 +68,8 @@ Scegliere quali sottoscrizioni Azure usare.
 az account set --subscription "subscription name"
 ```
 
-### <a name="optional-to-installuse-azure-dns-private-zones-feature-public-preview"></a>Facoltativo: Per installare/usare la funzionalità Zone private di DNS di Azure (anteprima pubblica)
-La funzionalità Zone private di DNS di Azure viene rilasciata in anteprima pubblica tramite un'estensione dell'interfaccia della riga di comando di Azure. Installare l'estensione "dns" dell'interfaccia della riga di comando di Azure 
+### <a name="optional-to-installuse-azure-dns-private-zones-feature"></a>Facoltativo: Per installare/utilizzare Zone private di DNS di Azure funzionalità
+La funzionalità zona privata di DNS di Azure è disponibile tramite un'estensione dell'interfaccia della riga di comando di Azure. Installare l'estensione "dns" dell'interfaccia della riga di comando di Azure 
 ```
 az extension add --name dns
 ``` 
@@ -84,9 +84,9 @@ Se si usa un gruppo di risorse esistente, è possibile ignorare questo passaggio
 az group create --name myresourcegroup --location "West US"
 ```
 
-## <a name="getting-help"></a>Risorse della Guida
+## <a name="getting-help"></a>Richiesta di assistenza
 
-Tutti i comandi dell'interfaccia della riga di comando di Azure relativi a DNS di Azure iniziano con `az network dns`. Sono disponibili informazioni per ogni comando tramite l'opzione `--help` (forma breve `-h`).  Ad esempio:
+Tutti i comandi dell'interfaccia della riga di comando di Azure relativi a DNS di Azure iniziano con `az network dns`. Sono disponibili informazioni per ogni comando tramite l'opzione `--help` (forma breve `-h`).  Esempio:
 
 ```azurecli
 az network dns --help

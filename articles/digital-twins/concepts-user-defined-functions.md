@@ -1,19 +1,19 @@
 ---
-title: Elaborazione dei dati e funzioni definite dall'utente con Gemelli digitali di Azure | Microsoft Docs
+title: Elaborazione dei dati e funzioni definite dall'utente-dispositivi gemelli digitali di Azure | Microsoft Docs
 description: Panoramica dell'elaborazione dei dati, dei matcher e delle funzioni definite dall'utente con Gemelli digitali di Azure.
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.author: alinast
-ms.openlocfilehash: 07facf06702a63df8ea93d43b9896b72322b209f
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: b8ea5c54afd4b1e2c212422417688e528367d44f
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178261"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949984"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Elaborazione dati e funzioni definite dall'utente
 
@@ -23,7 +23,7 @@ Gemelli digitali di Azure offre funzionalità di calcolo avanzate. Gli sviluppat
 
 Quando i dispositivi inviano dati di telemetria a Gemelli digitali di Azure, gli sviluppatori possono elaborare i dati in quattro fasi: *convalida*, *associazione*, *calcolo* e *invio*.
 
-[![Flusso di elaborazione dati dei gemelli digitali di Azure](media/concepts/digital-twins-data-processing-flow.png)](media/concepts/digital-twins-data-processing-flow.png#lightbox)
+[flusso di elaborazione dati 1Azure digitali gemelli @no__t](media/concepts/digital-twins-data-processing-flow.png)](media/concepts/digital-twins-data-processing-flow.png#lightbox)
 
 1. La fase di convalida trasforma il messaggio di telemetria in ingresso in un formato di [oggetto di trasferimento dati](https://docs.microsoft.com/aspnet/web-api/overview/data/using-web-api-with-entity-framework/part-5) comunemente riconoscibile. Questa fase esegue anche la convalida di dispositivi e sensori.
 1. La fase di associazione trova le funzioni definite dall'utente appropriate da eseguire. I matcher predefiniti trovano le funzioni definite dall'utente in base alle informazioni su dispositivi, sensori e spazi dal messaggio di telemetria in ingresso.
@@ -34,7 +34,7 @@ Quando i dispositivi inviano dati di telemetria a Gemelli digitali di Azure, gli
 
 L'elaborazione dei dati in Gemelli digitali di Azure consiste nella definizione di tre oggetti: *matcher*, *funzioni definite dall'utente* e *assegnazioni di ruolo*.
 
-[![Oggetti di elaborazione dati di dispositivi gemelli digitali di Azure](media/concepts/digital-twins-user-defined-functions.png)](media/concepts/digital-twins-user-defined-functions.png#lightbox)
+[oggetti di elaborazione dati 1Azure digitali gemelli @no__t](media/concepts/digital-twins-user-defined-functions.png)](media/concepts/digital-twins-user-defined-functions.png#lightbox)
 
 ### <a name="matchers"></a>Matcher
 

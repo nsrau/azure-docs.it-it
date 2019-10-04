@@ -6,14 +6,14 @@ manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 10/03/2019
 ms.author: heidist
-ms.openlocfilehash: fd65bb134d9057246a1b8c5cc2986e979713d20b
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 2d3b74476def5bdf46a6292996f0af9162b20b43
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327157"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947773"
 ---
 # <a name="service-limits-in-azure-search"></a>Limiti dei servizi in Ricerca di Azure
 I limiti massimi per archiviazione, carichi di lavoro e quantità di indici, documenti e altri oggetti variano a seconda che venga effettuato il [provisioning di ricerca di Azure](search-create-service-portal.md) in base ai piani tariffari **gratuiti**, **Basic**, **standard**o **ottimizzati** per l'archiviazione.
@@ -84,7 +84,7 @@ Per i servizi soggetti a limiti per i documenti, si applicano i limiti massimi s
 
 |  Gratuito | Basic | S1 | S2 | S3 | S3&nbsp;HD |
 |-------|-------|----|----|----|-------|
-|  10,000 |1&nbsp;milione |15 milioni per partizione o 180 milioni per servizio |60 milioni per partizione o 720 milioni per servizio |120 milioni per partizione o 1,4 miliardi per servizio |1 milione per indice o 200 milioni per partizione |
+|  10,000 |1 @ no__t-0million |15 milioni per partizione o 180 milioni per servizio |60 milioni per partizione o 720 milioni per servizio |120 milioni per partizione o 1,4 miliardi per servizio |1 milione per indice o 200 milioni per partizione |
 
 Se il servizio ha dei limiti che costituiscono un blocco, creare un nuovo servizio e pubblicarvi nuovamente tutti i contenuti. Non è previsto alcun meccanismo automatico per eseguire nuovamente il provisioning del servizio nel nuovo hardware in background.
 
@@ -115,7 +115,7 @@ Sono disponibili tempi di esecuzione massimi per fornire bilanciamento e stabili
 | Tempo massimo di esecuzione <sup>5</sup> | 1-3 minuti |24 ore |24 ore |24 ore |24 ore |N/D  |24 ore |24 ore |
 | Tempo massimo di esecuzione per set di competenze di ricerca cognitiva o indicizzazione BLOB con analisi delle immagini <sup>5</sup> | 3-10 minuti |2 ore |2 ore |2 ore |2 ore |N/D  |2 ore |2 ore |
 | Indicizzatore BLOB: dimensioni massime per un BLOB, MB |16 |16 |128 |256 |256 |N/D  |256 |256 |
-| Indicizzatore BLOB: numero massimo di caratteri di contenuto estratti da un BLOB |32.000 |64.000 |4&nbsp;milioni |4&nbsp;milioni |4&nbsp;milioni |N/D |4&nbsp;milioni |4&nbsp;milioni |
+| Indicizzatore BLOB: numero massimo di caratteri di contenuto estratti da un BLOB |32.000 |64.000 |4 @ no__t-0million |4 @ no__t-0million |4 @ no__t-0million |N/D |4 @ no__t-0million |4 @ no__t-0million |
 
 <sup>1</sup> I servizi del livello Gratuito hanno un tempo massimo di esecuzione degli indicizzatori di 3 minuti per le origini BLOB e di 1 minuto per tutte le altre origini dati. Per l'indicizzazione di intelligenza artificiale che effettua chiamate in Servizi cognitivi, i servizi gratuiti sono limitati a 20 transazioni gratuite al giorno, in cui una transazione viene definita come documento che passa correttamente attraverso la pipeline di arricchimento.
 
@@ -146,7 +146,19 @@ Per i livelli ottimizzati per l'archiviazione è necessario prevedere una veloci
 
 ## <a name="data-limits-cognitive-search"></a>Limiti dei dati (ricerca cognitiva)
 
-Una [pipeline di ricerca cognitiva](cognitive-search-concept-intro.md) che effettua chiamate a una risorsa di Analisi del testo per il [riconoscimento di entità](cognitive-search-skill-entity-recognition.md), l'[estrazione di frasi chiave](cognitive-search-skill-keyphrases.md), l'[analisi della valutazione ](cognitive-search-skill-sentiment.md) e il [rilevamento della lingua](cognitive-search-skill-language-detection.md) è soggetta a limiti dei dati. La dimensione massima di un record deve essere di 50.000 caratteri misurata [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)da. Se è necessario suddividere i dati prima di inviarli all'analizzatore di valutazione, usare la [competenza cognitiva di divisione del testo](cognitive-search-skill-textsplit.md).
+Una [pipeline di ricerca cognitiva](cognitive-search-concept-intro.md) che effettua chiamate a una risorsa di Analisi del testo per il [riconoscimento di entità](cognitive-search-skill-entity-recognition.md), l'[estrazione di frasi chiave](cognitive-search-skill-keyphrases.md), l'[analisi della valutazione ](cognitive-search-skill-sentiment.md) e il [rilevamento della lingua](cognitive-search-skill-language-detection.md) è soggetta a limiti dei dati. La dimensione massima di un record deve essere di 50.000 caratteri misurata da [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Se è necessario suddividere i dati prima di inviarli all'analizzatore di valutazione, usare la [competenza cognitiva di divisione del testo](cognitive-search-skill-textsplit.md).
+
+## <a name="throttling-limits"></a>Limiti di limitazione
+
+Le richieste di ricerca e di indicizzazione sono limitate perché il sistema si avvicina alla capacità massima. La limitazione delle richieste si comporta in modo diverso per le diverse API. Le API di query (ricerca/suggerimenti/Completamento automatico) e le API di indicizzazione vengono limitate in modo dinamico in base al carico del servizio. Le API di indice hanno limiti di frequenza delle richieste statiche. 
+
+Limiti di richieste di frequenza statica per le operazioni correlate a un indice:
+
++ Elenca gli indici (GET/indexes): 5 al secondo per unità di ricerca
++ Ottenere l'indice (GET/Indexes/myIndex): 10 al secondo per unità di ricerca
++ Create index (POST/indexes): 12 al minuto per unità di ricerca
++ Crea o Aggiorna indice (PUT/Indexes/myIndex): 6 al secondo per unità di ricerca
++ Elimina indice (Elimina/Indexes/myIndex): 12 al minuto per unità di ricerca 
 
 ## <a name="api-request-limits"></a>Limiti delle richieste API
 * 16 MB al massimo per <sup>1</sup> richiesta

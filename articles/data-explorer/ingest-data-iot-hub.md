@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 83f5339dbc4f093ba0b7287b53c053e319f928c9
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
-ms.translationtype: HT
+ms.openlocfilehash: 327fd5352a3f067638c7f9ceb51e2de9e284d845
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937379"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947839"
 ---
 # <a name="ingest-data-from-iot-hub-into-azure-data-explorer-preview"></a>Inserire i dati dall'hub Internet in Esplora dati di Azure (anteprima)
 
@@ -76,11 +76,11 @@ A questo punto è possibile connettersi all'hub Internet delle cose da Azure Esp
 
     **Impostazione** | **Descrizione campo**
     |---|---|
-    | Nome connessione dati | Nome della connessione da creare in Esplora dati di Azure.
-    | Hub IoT | Nome dell'hub Internet. |
-    | Criteri di accesso condiviso | Nome dei criteri di accesso condiviso. Deve disporre delle autorizzazioni di lettura. |
-    | Gruppo di consumer |  Il gruppo di consumer definito nell'endpoint predefinito dell'hub Internet. |
-    | Proprietà del sistema per gli eventi | Proprietà del sistema di eventi dell'hub Internet. Se sono presenti più record per ogni messaggio di evento, le proprietà di sistema verranno aggiunte alla prima. |
+    | Nome connessione dati | Nome della connessione che si vuole creare in Azure Esplora dati
+    | Hub IoT | Nome dell'hub IoT |
+    | Criteri di accesso condiviso | Nome dei criteri di accesso condiviso. Deve disporre delle autorizzazioni di lettura |
+    | Gruppo di consumer |  Il gruppo di consumer definito nell'endpoint predefinito dell'hub Internet |
+    | Proprietà del sistema per gli eventi | Se sono presenti più record per ogni messaggio di evento, le proprietà del sistema di [eventi dell'hub](/azure/iot-hub/iot-hub-devguide-messages-construct#system-properties-of-d2c-iot-hub-messages) Internet verranno aggiunte alla prima.|
     | | 
 
     > [!NOTE]
@@ -94,7 +94,7 @@ A questo punto è possibile connettersi all'hub Internet delle cose da Azure Esp
      **Impostazione** | **Valore consigliato** | **Descrizione campo**
     |---|---|---|
     | Tabella | *TestTable* | Tabella creata in **TestDB**. |
-    | Formato dati | *JSON* | I formati supportati sono Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV e TXT. |
+    | Formato dati | *JSON* | I formati supportati sono Avro, CSV, JSON, multiriga JSON, PSV, SOHSV, SCSV, TSV, TSVE e TXT. |
     | Mapping colonne | *TestMapping* | Il mapping creato in **TestDB**, che esegue il mapping dei dati JSON in ingresso ai nomi di colonna e ai tipi di dati di **TestDB**. Obbligatorio per JSON, multiriga JSON e AVRO e facoltativo per altri formati.|
     | | |
 

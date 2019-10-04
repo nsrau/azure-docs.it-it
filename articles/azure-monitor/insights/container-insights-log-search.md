@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/12/2019
 ms.author: magoedte
-ms.openlocfilehash: d6e65331db53be5ba13a75e6b03b271f1071716d
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: ae8dd4cccb6795faa02e6705404644f6ccc24864
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67989823"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71948057"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Come eseguire query sui log da monitoraggio di Azure per i contenitori
 
@@ -42,7 +42,7 @@ La tabella seguente mostra esempi di record raccolti da Monitoraggio di Azure pe
 | Metriche delle prestazioni per la parte dei contenitori del cluster Kubernetes | Perf &#124; where ObjectName == “K8SContainer” | CounterName &#40; CpuRequestNanoCores, MemoryRequestBytes, CpuLimitNanoCores, MemoryWorkingSetBytes, restartTimeEpoch, CpuUsageNanoCores, memoryRssBytes&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
 | Metriche personalizzate |`InsightsMetrics` | Computer, nome, spazio dei nomi, origine, SourceSystem, tag<sup>1</sup>, TimeGenerated, tipo, va, _ResourceId | 
 
-<sup>1</sup> la proprietà *Tags* rappresenta [più dimensioni](../platform/data-platform-metrics.md#multi-dimensional-metrics) per la metrica corrispondente. Per altre informazioni sulle metriche raccolte e archiviate nella `InsightsMetrics` tabella e una descrizione delle proprietà dei record, vedere Panoramica di [InsightsMetrics](https://github.com/microsoft/OMS-docker/blob/vishwa/june19agentrel/docs/InsightsMetrics.md).
+<sup>1</sup> la proprietà *Tags* rappresenta [più dimensioni](../platform/data-platform-metrics.md#multi-dimensional-metrics) per la metrica corrispondente. Per altre informazioni sulle metriche raccolte e archiviate nella tabella `InsightsMetrics` e una descrizione delle proprietà dei record, vedere Panoramica di [InsightsMetrics](https://github.com/microsoft/OMS-docker/blob/vishwa/june19agentrel/docs/InsightsMetrics.md).
 
 >[!NOTE]
 >Il supporto per Prometheus è una funzionalità di anteprima pubblica al momento.
@@ -69,6 +69,7 @@ Spesso è utile creare una query a partire da qualche esempio e quindi modificar
 | ContainerImageInventory<br> &#124; summarize AggregatedValue = count() by Image, ImageTag, Running | Inventario delle immagini | 
 | **Selezionare l'opzione di visualizzazione corrispondente al grafico a linee**:<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "cpuUsageNanoCores" &#124; summarize AvgCPUUsageNanoCores = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | CPU del contenitore | 
 | **Selezionare l'opzione di visualizzazione corrispondente al grafico a linee**:<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "memoryRssBytes" &#124; summarize AvgUsedRssMemoryBytes = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | Memoria del contenitore |
+| InsightsMetrics<br> &#124;dove name = = "requests_count"<br> &#124;riepilogare Val = any (Val) by TimeGenerated = bin (TimeGenerated, 1m)<br> &#124;Ordina per TimeGenerated ASC<br> &#124;Project RequestsPerMinute = Val-Prev (Val), TimeGenerated <br> &#124;Barchart di rendering  | Richieste al minuto con metriche personalizzate |
 
 L'esempio seguente è una query di metrica Prometeo. Le metriche raccolte sono conteggi e per determinare il numero di errori che si sono verificati in un periodo di tempo specifico, è necessario sottrarre dal conteggio. Il set di dati è partizionato da *partitionKey*, ovvero per ogni set univoco di *nome, nome* *host*e *OperationType*, viene eseguita una sottoquery sul set che ordina i log in base a *TimeGenerated*, un processo che rende possibile trovare i *TimeGenerated* precedenti e il conteggio registrato per quel periodo di tempo, per determinare una frequenza.
 

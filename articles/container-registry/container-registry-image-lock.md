@@ -6,14 +6,14 @@ author: dlepow
 manager: gwallace
 ms.service: container-registry
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 09/30/2019
 ms.author: danlep
-ms.openlocfilehash: 7a313353ee1c7afae10fd7af84570565037e40ab
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 1ef6d5366e5db07a7f03bac251c24b1ff76a13e9
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310656"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949513"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>Bloccare un'immagine del contenitore in un registro contenitori di Azure
 
@@ -21,11 +21,14 @@ In un registro contenitori di Azure è possibile bloccare una versione dell'imma
 
 Per questo articolo è necessario eseguire l'interfaccia della riga di comando di Azure in Azure Cloud Shell o in locale (versione 2.0.55 o successiva consigliata). Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli].
 
+> [!IMPORTANT]
+> Questo articolo non si applica al blocco di un intero registro, ad esempio usando **le impostazioni > i blocchi** nel portale di Azure o i comandi di `az lock` nell'interfaccia della riga di comando di Azure. Il blocco di una risorsa del registro di sistema non impedisce la creazione, l'aggiornamento o l'eliminazione dei dati nei repository. Il blocco di un registro influiscono solo sulle operazioni di gestione, ad esempio l'aggiunta o l'eliminazione di repliche o l'eliminazione del registro di sistema. Altre informazioni in [bloccare le risorse per impedire modifiche impreviste](../azure-resource-manager/resource-group-lock-resources.md).
+
 ## <a name="scenarios"></a>Scenari
 
-Per impostazione predefinita, un'immagine con tag in Azurecontainer Registry è modificabile, quindi, con le autorizzazioni appropriate, è possibile aggiornare ripetutamente ed effettuare il push di un'immagine con lo stesso tag a un registro. Le immagini del contenitore possono anche essere [eliminate](container-registry-delete.md) in base alle esigenze. Questo comportamento è utile quando si sviluppano immagini ed è necessario mantenere una dimensione per il registro.
+Per impostazione predefinita, un'immagine con tag in Azure Container Registry è *modificabile*, quindi, con le autorizzazioni appropriate, è possibile aggiornare ripetutamente ed effettuare il push di un'immagine con lo stesso tag a un registro. Le immagini del contenitore possono anche essere [eliminate](container-registry-delete.md) in base alle esigenze. Questo comportamento è utile quando si sviluppano immagini ed è necessario mantenere una dimensione per il registro.
 
-Tuttavia, quando si distribuisce un'immagine del contenitore in produzione, potrebbe essere necessaria un'immagine del contenitore non modificabile. Un'immagine non modificabile non può essere eliminata o sovrascritta accidentalmente. Usare il comando [AZ ACR repository update][az-acr-repository-update] per impostare gli attributi del repository, in modo da poter:
+Tuttavia, quando si distribuisce un'immagine del contenitore in produzione, potrebbe essere necessaria un'immagine del contenitore non *modificabile* . Un'immagine non modificabile non può essere eliminata o sovrascritta accidentalmente. Usare il comando [AZ ACR repository update][az-acr-repository-update] per impostare gli attributi del repository, in modo da poter:
 
 * Bloccare una versione dell'immagine o un intero repository
 
@@ -67,7 +70,7 @@ az acr repository update \
 
 ### <a name="lock-an-image-by-manifest-digest"></a>Blocca un'immagine in base al digest del manifesto
 
-Eseguire il comando seguente per bloccare un'immagine di *repository/immagine* identificata dal digest del manifesto (hash SHA `sha256:...`-256, rappresentato come). (Per trovare il digest del manifesto associato a uno o più tag di immagine, eseguire il comando [AZ ACR repository Show-manifests][az-acr-repository-show-manifests] ).
+Eseguire il comando seguente per bloccare un'immagine di *repository/immagine* identificata dal digest del manifesto (hash SHA-256, rappresentato come `sha256:...`). (Per trovare il digest del manifesto associato a uno o più tag di immagine, eseguire il comando [AZ ACR repository Show-manifests][az-acr-repository-show-manifests] ).
 
 ```azurecli
 az acr repository update \

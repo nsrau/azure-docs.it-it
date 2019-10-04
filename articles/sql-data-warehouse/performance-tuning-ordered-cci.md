@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 7adf43110cffdc669b39632521c69ed5d3723257
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
-ms.translationtype: HT
+ms.openlocfilehash: ca0ac228bfe10992b658796d123c8dfbed74947f
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71845720"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71948169"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Ottimizzazione delle prestazioni con indice columnstore cluster ordinato  
 
@@ -44,6 +44,43 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 
 > [!NOTE] 
 > In una tabella CCI ordinata, i nuovi dati risultanti da operazioni di caricamento dati o DML non vengono ordinati automaticamente.  Gli utenti possono ricompilare la CCI ordinata per ordinare tutti i dati nella tabella.  
+
+## <a name="query-performance"></a>Prestazioni delle query
+
+Il miglioramento delle prestazioni di una query da una CCI ordinata dipende dai modelli di query, dalle dimensioni dei dati, dall'ordinamento dei dati, dalla struttura fisica dei segmenti e dalla classe di risorse e DWU scelta per l'esecuzione della query.  Gli utenti devono esaminare tutti questi fattori prima di scegliere le colonne di ordinamento durante la progettazione di una tabella CCI ordinata.
+
+Le query con tutti questi modelli vengono in genere eseguite più velocemente con le CCI ordinate.  
+1. Le query hanno predicati di uguaglianza, disuguaglianza o di intervallo
+1. Le colonne del predicato e le colonne CCI ordinate sono le stesse.  
+1. Le colonne del predicato vengono utilizzate nello stesso ordine dell'ordinale di colonna delle colonne CCI ordinate.  
+ 
+In questo esempio, la tabella T1 include un indice columnstore cluster ordinato nella sequenza di Col_C, Col_B e Col_A.
+
+```sql
+
+CREATE CLUSTERED COLUMNSTORE INDEX MyOrderedCCI ON  T1
+ORDER (Col_C, Col_B, Col_A)
+
+```
+
+Le prestazioni di query 1 possono trarre vantaggio dall'CCI ordinata rispetto alle altre 3 query. 
+
+```sql
+-- Query #1: 
+
+SELECT * FROM T1 WHERE Col_C = 'c' AND Col_B = 'b' AND Col_A = 'a';
+
+-- Query #2
+
+SELECT * FROM T1 WHERE Col_B = 'b' AND Col_C = 'c' AND Col_A = 'a';
+
+-- Query #3
+SELECT * FROM T1 WHERE Col_B = 'b' AND Col_A = 'a';
+
+-- Query #4
+SELECT * FROM T1 WHERE Col_A = 'a' AND Col_C = 'c';
+
+```
 
 ## <a name="data-loading-performance"></a>Prestazioni di caricamento dei dati
 
@@ -85,7 +122,7 @@ La creazione di una CCI ordinata è un'operazione offline.  Per le tabelle senza
 
 ## <a name="examples"></a>Esempi
 
-**A. Per verificare la presenza di colonne ordinate e ordinale:**
+**A. Per verificare la presenza di colonne e ordinali ordinati:**
 ```sql
 SELECT object_name(c.object_id) table_name, c.name column_name, i.column_store_order_ordinal 
 FROM sys.index_columns i 

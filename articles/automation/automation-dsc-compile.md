@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 10ddb7272de164e6f92022a6f512df31753f7e31
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 58aa310316a31eb63ca8dd614b60fb4bad73d997
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265136"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959998"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Compilazione di configurazioni DSC in Configurazione stato di Automazione di Azure
 
@@ -56,7 +56,7 @@ per visualizzarne i flussi (output). Il codice di esempio seguente avvia la comp
 ```powershell
 $CompilationJob = Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'MyAutomationAccount' -ConfigurationName 'SampleConfig'
 
-while($CompilationJob.EndTime –eq $null -and $CompilationJob.Exception –eq $null)
+while($null -eq $CompilationJob.EndTime -and $null -eq $CompilationJob.Exception)
 {
     $CompilationJob = $CompilationJob | Get-AzureRmAutomationDscCompilationJob
     Start-Sleep -Seconds 3
