@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 38fdbbf76806325e457f066e6b469a531c27b038
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1e0bc4647476cd5c6aa0f38456ef8890b4ddcaa5
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102220"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828768"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Come effettuare il provisioning di una macchina virtuale Windows di SQL Server nel portale di Azure
 
@@ -36,9 +36,9 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Quando si crea una macchina virtuale di SQL Server, è possibile selezionare una delle numerose immagini configurate in precedenza dalla raccolta delle macchine virtuali. La procedura seguente spiega come selezionare una delle immagini di SQL Server 2017.
 
-1. Selezionare **Azure SQL** nel menu a sinistra nel portale di Azure. Se **SQL di Azure** non è presente nell'elenco, selezionare **tutti i servizi**, quindi digitare Azure SQL nella casella di ricerca. Opzionale Selezionare la stella accanto a **SQL di Azure** per favorirla e aggiungerla come elemento nel menu di spostamento a sinistra. 
-1. Selezionare **+ Aggiungi** per aprire la pagina **Seleziona opzione distribuzione SQL** . È possibile visualizzare informazioni aggiuntive selezionando **Mostra dettagli**. 
-1. Digitare `2017` nella casella di ricerca SQL Server immagine del riquadro **macchine virtuali SQL** e quindi selezionare **Free SQL Server License: SQL Server 2017 Developer su Windows Server 2016** dall'elenco a discesa. 
+1. Selezionare **Azure SQL** nel menu a sinistra nel portale di Azure. Se **SQL di Azure** non è presente nell'elenco, selezionare **tutti i servizi**, quindi digitare Azure SQL nella casella di ricerca. (Facoltativo) Selezionare la stella accanto ad **Azure SQL** per aggiungerlo ai Preferiti e come elemento del riquadro di spostamento sinistro. 
+1. Selezionare **+ Aggiungi** per aprire la pagina **Selezionare l'opzione di distribuzione SQL**. È possibile visualizzare informazioni aggiuntive selezionando **Mostra dettagli**. 
+1. Digitare `2017` nella casella di ricerca immagine SQL Server nel riquadro **macchine virtuali SQL** e quindi selezionare **Free SQL Server License: SQL Server 2017 Developer in Windows Server 2016 @ no__t-0 dall'elenco a discesa. 
 
 
    ![Selezionare l'immagine di macchina virtuale SQL](media/virtual-machines-windows-portal-sql-server-provision/select-sql-vm-image-portal.png)
@@ -54,17 +54,6 @@ Quando si crea una macchina virtuale di SQL Server, è possibile selezionare una
 
 1. Selezionare **Create**.
 
-
-## <a id="configure"></a> Opzioni di configurazione
-
-Sono disponibili più schede per la configurazione di una macchina virtuale SQL Server. Ai fini di questa guida, si concentrerà sugli elementi seguenti: 
-
-| Passaggio | DESCRIZIONE |
-| --- | --- |
-| **Nozioni di base** |[Configurare le impostazioni di base](#1-configure-basic-settings) |
-| **Funzionalità facoltative** |[Configurare le funzionalità facoltative](#2-configure-optional-features) |
-| **Impostazioni di SQL Server** |[Configurare le impostazioni di SQL Server](#3-configure-sql-server-settings) |
-| **Verifica + crea** | [Esaminare il riepilogo](#4-review--create) |
 
 ## <a name="1-configure-basic-settings"></a>1. Configura le impostazioni di base
 
@@ -142,8 +131,6 @@ Nella scheda **monitoraggio** configurare il monitoraggio e l'arresto automatico
 
 Nella scheda **impostazioni SQL Server** configurare impostazioni e ottimizzazioni specifiche per SQL Server. Di seguito sono riportate le impostazioni che è possibile configurare per SQL Server:
 
-
-
 | Impostazione |
 | --- |
 | [Connettività](#connectivity) |
@@ -206,26 +193,21 @@ La tabella seguente include l'elenco dei parametri necessari per configurare l'i
 
 Per altre informazioni, vedere [Configurare l'integrazione dell'insieme di credenziali delle chiavi di Azure per SQL Server in macchine virtuali di Azure (Resource Manager)](virtual-machines-windows-ps-sql-keyvault.md).
 
-### <a name="storage-configuration"></a>Configurazione dell'archiviazione
+### <a name="storage-configuration"></a>Configurazione archiviazione
 
-Nella scheda **impostazioni SQL Server** in **Configurazione archiviazione**Selezionare **modifica configurazione** per specificare i requisiti di archiviazione.
+Nella scheda **impostazioni SQL Server** in **Configurazione archiviazione**Selezionare **modifica configurazione** per aprire la pagina Configurazione dell'archiviazione ottimizzata per le prestazioni e specificare i requisiti di archiviazione.
 
-
-> [!NOTE]
-> Se la VM è stata configurata manualmente per usare l'archiviazione Standard, questa opzione non è disponibile. L'ottimizzazione automatica delle risorse di archiviazione è disponibile solo per l'Archiviazione Premium.
-
-> [!TIP]
-> Il numero di cursori e il limite massimo di ogni dispositivo di scorrimento dipendono dalle dimensioni di VM selezionate. Per una VM più grande e potente è possibile aumentare le prestazioni in misura maggiore.
-
-È possibile specificare requisiti come operazioni di I/O al secondo, velocità effettiva in Mbps e dimensioni di archiviazione totali. Configurare questi valori usando i dispositivi di scorrimento. È possibile modificare queste impostazioni di archiviazione in base al carico di lavoro. Il portale calcola automaticamente il numero di dischi da collegare e configurare in base a questi requisiti.
+![Configurazione dell'archiviazione delle macchine virtuali SQL](media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
 In **Ottimizzazione dell'archiviazione**selezionare una delle opzioni seguenti:
 
 * **Generale** : è l'impostazione predefinita e supporta la maggior parte dei carichi di lavoro.
-* **Elaborazione transazionale** : ottimizza l'archiviazione per carichi di lavoro OLTP di database tradizionali.
+* L' **elaborazione transazionale** ottimizza l'archiviazione per carichi di lavoro OLTP di database tradizionali.
 * **Data warehousing** : ottimizza l'archiviazione per i carichi di lavoro di analisi e creazione di report.
 
-![Configurazione dell'archiviazione delle macchine virtuali SQL](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-storage-configuration.png)
+![Configurazione dell'archiviazione delle macchine virtuali SQL](media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration.png)
+
+È possibile scegliere di lasciare i valori predefiniti oppure è possibile modificare manualmente la topologia di archiviazione in base alle esigenze di IOPS. Per altre informazioni, vedere [configurazione dell'archiviazione](virtual-machines-windows-sql-server-storage-configuration.md). 
 
 ### <a name="sql-server-license"></a>Licenza SQL Server
 Se sei un cliente di Software Assurance, puoi usare il [vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/) per ottenere la tua licenza SQL Server e risparmiare sulle risorse. 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 39395c9d082bc40836c14ee4c0d328341f96edca
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 228ca0f43322c271b1a6db55a37c852ca1f66799
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/02/2019
-ms.locfileid: "71816108"
+ms.locfileid: "71828912"
 ---
 # <a name="quickstart---create-azure-vmware-solution-by-cloudsimple-service"></a>Guida introduttiva-creare una soluzione VMware di Azure tramite il servizio CloudSimple
 
@@ -77,7 +77,7 @@ Per configurare la capacità con pagamento in base al consumo per un ambiente cl
 7. Immettere il prefisso per identificare i nodi.
 8. Selezionare il percorso per le risorse del nodo.
 9. Selezionare il percorso dedicato per ospitare le risorse del nodo.
-10. Selezionare il tipo di nodo. È possibile scegliere l' [opzione CS28 o CS36](cloudsimple-node.md). La seconda opzione include la capacità di calcolo e di memoria massima.
+10. Selezionare il [tipo di nodo](cloudsimple-node.md).
 11. Selezionare il numero di nodi di cui eseguire il provisioning.
 12. Selezionare **Rivedi e crea**.
 13. Esaminare le impostazioni. Per modificare le impostazioni, fare clic su **indietro**.

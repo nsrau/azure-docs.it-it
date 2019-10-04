@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/05/2017
 ms.author: mathoma
-ms.openlocfilehash: 2705b42849922ce7e3650162b8f1ff78723685c2
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 57a325dd297955296a94db134b6a2a6d58a37f03
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309250"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828604"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configurazione dell'archiviazione per le VM di SQL Server
 
@@ -42,9 +42,28 @@ Le sezioni seguenti descrivono come configurare l'archiviazione per le nuove mac
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-Durante il provisioning di una VM di Azure con un'immagine della raccolta di SQL Server è possibile scegliere di configurare automaticamente l'archiviazione per la nuova VM. È necessario specificare le dimensioni dell'archiviazione, i limiti per le prestazioni e il tipo di carico di lavoro. Lo screenshot seguente mostra il pannello Configurazione dell'archiviazione usato durante il provisioning di VM di SQL Server.
+Quando si esegue il provisioning di una macchina virtuale di Azure usando un'immagine della raccolta di SQL Server, selezionare **modifica configurazione** nella scheda **Impostazioni SQL Server** per aprire la pagina di configurazione dell'archiviazione ottimizzata per le prestazioni. È possibile lasciare i valori predefiniti o modificare il tipo di configurazione del disco più adatta alle proprie esigenze in base al carico di lavoro. 
 
 ![Configurazione dell'archiviazione per le VM di SQL Server durante il provisioning](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-provisioning.png)
+
+Selezionare il tipo di carico di lavoro in cui si distribuiscono i SQL Server per l' **ottimizzazione dell'archiviazione**. Con l'opzione di ottimizzazione **generale** , per impostazione predefinita si disporrà di un disco dati con 5000 di IOPS Max e si utilizzerà la stessa unità per i dati, il log delle transazioni e l'archiviazione tempdb. Se si seleziona **elaborazione transazionale** (OLTP) o **data warehousing** , viene creato un disco separato per i dati, un disco separato per il log delle transazioni e viene utilizzata l'unità SSD locale per tempdb. Non vi sono differenze di archiviazione tra **elaborazione transazionale** e **data warehousing**, ma modifica la configurazione dello [striping e i flag di traccia](#workload-optimization-settings). Se si sceglie archiviazione Premium, la memorizzazione nella cache viene impostata su *ReadOnly* per l'unità dati e *Nessuna* per l'unità di log in base alle [procedure consigliate per le prestazioni della macchina virtuale SQL Server](virtual-machines-windows-sql-performance.md). 
+
+![Configurazione dell'archiviazione per le VM di SQL Server durante il provisioning](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration.png)
+
+La configurazione del disco è completamente personalizzabile, in modo che sia possibile configurare la topologia di archiviazione, il tipo di disco e gli IOPs necessari per il carico di lavoro della macchina virtuale SQL Server. È anche possibile usare UltraSSD (anteprima) come opzione per il **tipo di disco** se la macchina virtuale SQL Server si trova in una delle aree supportate (Stati Uniti orientali 2, Asia sudorientale ed Europa settentrionale) e sono stati abilitati i [dischi ultra per la sottoscrizione](/azure/virtual-machines/windows/disks-enable-ultra-ssd).  
+
+Inoltre, è possibile impostare la memorizzazione nella cache per i dischi. Le macchine virtuali di Azure dispongono di una tecnologia di memorizzazione nella cache a più livelli denominata [cache BLOB](/azure/virtual-machines/windows/premium-storage-performance#disk-caching) se usata con [dischi Premium](/azure/virtual-machines/windows/disks-types#premium-ssd). La cache BLOB usa una combinazione della RAM della macchina virtuale e dell'unità SSD locale per la memorizzazione nella cache. 
+
+La memorizzazione nella cache del disco per SSD Premium può essere *ReadOnly*, *ReadWrite* o *None*. 
+
+- La memorizzazione nella cache di *ReadOnly* è molto utile per i file di dati SQL Server archiviati nell'archiviazione Premium. La memorizzazione nella cache *ReadOnly* comporta bassa latenza di lettura, operazioni di i/o al secondo e velocità effettiva di lettura, che vengono eseguite dalla cache, ovvero dal sistema operativo nella memoria della VM e nell'unità SSD locale. Queste letture sono molto più veloci delle letture dal disco dati, ovvero dall'archiviazione BLOB di Azure. Archiviazione Premium non conta le letture gestite dalla cache per i IOPS e la velocità effettiva del disco. Pertanto, l'applicazione è in grado di ottenere una velocità effettiva totale di IOPS. 
+- *Nessuna* configurazione della cache deve essere utilizzata per i dischi che ospitano SQL Server file di log perché il file di log viene scritto in sequenza e non trae vantaggio dalla memorizzazione nella cache di *ReadOnly* . 
+- Non è consigliabile usare la memorizzazione nella cache *ReadWrite* per ospitare i file di SQL Server perché SQL Server non supporta la coerenza dei dati con la cache *ReadWrite* . Scrive la capacità di spreco della cache BLOB di sola *lettura* e le latenze aumentano leggermente se le Scritture *passano attraverso i* livelli della cache del BLOB di 
+
+
+   > [!TIP]
+   > Assicurarsi che la configurazione di archiviazione corrisponda alle limitazioni imposte dalle dimensioni della macchina virtuale selezionata. Se si scelgono i parametri di archiviazione che superano il limite di prestazioni delle dimensioni della macchina virtuale, verrà generato un errore: `The desired performance might not be reached due to the maximum virtual machine disk performance cap.`. Ridurre le operazioni di i/o al secondo cambiando il tipo di disco o aumentare la limitazione delle prestazioni aumentando le dimensioni della macchina virtuale. 
+
 
 A seconda delle scelte effettuate, Azure esegue le seguenti attività di configurazione dell'archiviazione dopo la creazione della VM:
 
@@ -64,6 +83,13 @@ Se si usano i modelli di Resource Manager seguenti, vengono collegati per impost
 * [Creare una VM con l'applicazione automatica delle patch](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autopatching)
 * [Creare una VM con l'integrazione di AKV](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-keyvault)
 
+### <a name="quickstart-template"></a>Modello di avvio rapido
+
+È possibile usare il modello di avvio rapido seguente per distribuire una macchina virtuale SQL Server usando l'ottimizzazione dell'archiviazione. 
+
+* [Creare una VM con ottimizzazione dell'archiviazione](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-new-storage/)
+* [Creare una macchina virtuale usando UltraSSD](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-new-storage-ultrassd)
+
 ## <a name="existing-vms"></a>VM esistenti
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
@@ -79,34 +105,13 @@ Per modificare le impostazioni di archiviazione, selezionare **Configura** in **
 
 ![Configurare l'archiviazione per le VM di SQL Server esistenti](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-existing.png)
 
-Le opzioni di configurazione visualizzate variano a seconda che la funzionalità sia stata usata o meno in precedenza. Per il primo utilizzo è possibile specificare i requisiti di archiviazione per una nuova unità. Se questa funzionalità è stata usata in precedenza per creare un'unità, è possibile scegliere di estendere l'archiviazione dell'unità.
+È possibile modificare le impostazioni del disco per le unità che sono state configurate durante il processo di creazione della macchina virtuale SQL Server. Selezionando **Estendi unità** viene visualizzata la pagina modifica unità, che consente di modificare il tipo di disco, nonché aggiungere altri dischi. 
 
-### <a name="use-for-the-first-time"></a>Primo utilizzo
+![Configurare l'archiviazione per le VM di SQL Server esistenti](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-extend-drive.png)
 
-Se si usa questa funzionalità per la prima volta, è possibile specificare le dimensioni dell'archiviazione e i limiti di prestazioni per una nuova unità. Questa esperienza è simile a quella disponibile in fase di provisioning. La differenza principale è che non è consentito specificare il tipo di carico di lavoro. Questa restrizione impedisce di compromettere eventuali configurazioni di SQL Server esistenti nella macchina virtuale.
 
-Azure crea una nuova unità in base alle specifiche. In questo scenario, Azure esegue le seguenti attività di configurazione dell'archiviazione:
 
-* Crea e collega i dischi dati di archiviazione Premium alla macchina virtuale.
-* Configura i dischi dati in modo che siano accessibili per SQL Server.
-* Configura i dischi dati in un pool di archiviazione in base ai requisiti specificati per dimensioni e prestazioni (operazioni di I/O al secondo e velocità effettiva).
-* Associa il pool di archiviazione a una nuova unità nella macchina virtuale.
-
-Per ulteriori dettagli su come vengono configurate le impostazioni dell'archiviazione da Azure, vedere la [sezione Configurazione dell'archiviazione](#storage-configuration).
-
-### <a name="add-a-new-drive"></a>Aggiungere una nuova unità
-
-Se l'archiviazione è già stata configurata nella VM di SQL Server, per l'espansione dell'archiviazione diventano disponibili due nuove opzioni. La prima opzione prevede l'aggiunta di una nuova unità, aumentando potenzialmente il livello di prestazioni della VM.
-
-Dopo aver aggiunto l'unità, tuttavia, è necessario eseguire alcune configurazioni aggiuntive manuali per ottenere il miglioramento delle prestazioni.
-
-### <a name="extend-the-drive"></a>Estendere l'unità
-
-L'altra opzione per l'espansione dell'archiviazione prevede l'estensione dell'unità esistente. Questa opzione aumenta l'archiviazione disponibile per l'unità, ma non incrementa le prestazioni. Con i pool di archiviazione non è possibile modificare il numero di colonne dopo la creazione del pool. Il numero di colonne determina il numero di scritture parallele di cui è possibile eseguire lo striping sui dischi dati. Di conseguenza, qualsiasi disco dati aggiunto non consente di aumentare le prestazioni. L'aggiunta di dischi dati consente esclusivamente di ottenere più spazio di archiviazione per i dati da scrivere. Questa limitazione significa anche che, in caso di estensione dell'unità, il numero di colonne determina il numero minimo di dischi dati che è possibile aggiungere. Se si crea un pool di archiviazione con quattro dischi dati, quindi, anche il numero di colonne è quattro. Ogni volta che si estende lo spazio di archiviazione, è necessario aggiungere almeno quattro dischi dati.
-
-![Estendere un'unità per una VM di SQL](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-extend-a-drive.png)
-
-## <a name="storage-configuration"></a>Configurazione dell'archiviazione
+## <a name="storage-configuration"></a>Configurazione archiviazione
 
 Questa sezione fornisce un riferimento per le modifiche di configurazione dell'archiviazione eseguite automaticamente da Azure durante il provisioning o la configurazione di macchine virtuali SQL nel portale di Azure.
 
@@ -119,11 +124,11 @@ Per informazioni sui prezzi, vedere la pagina [Prezzi di archiviazione](https://
 
 Azure usa le impostazioni seguenti per creare il pool di archiviazione nelle VM di SQL.
 
-| Impostazione | Valore |
+| Impostazione | Value |
 | --- | --- |
 | Dimensioni di striping |256 KB (data warehousing); 64 KB (transazionale) |
 | Dimensione disco |1 TB ciascuno |
-| Cache |Lettura |
+| Cache |Leggi |
 | Dimensioni allocazione |Dimensioni delle unità di allocazione NTFS = 64 KB |
 | Inizializzazione file immediata |Enabled |
 | Blocco di pagine in memoria |Enabled |

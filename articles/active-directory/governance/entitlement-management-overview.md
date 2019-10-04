@@ -16,12 +16,12 @@ ms.date: 09/03/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c99ee1987b592a2e8314d529b118fb26945271e
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 07a51b9f21d32fb3efdfef7c7f74cb3a1088115a
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241703"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827148"
 ---
 # <a name="what-is-azure-ad-entitlement-management-preview"></a>Cos'è Gestione entitlement di Azure AD? (Anteprima)
 
@@ -46,7 +46,7 @@ Le organizzazioni aziendali spesso affrontano problemi durante la gestione dell'
 - È possibile che gli utenti abbiano difficoltà nell'individuare gli individui giusti o le risorse giuste
 - Una volta che gli utenti trovano e ricevono l'accesso a una risorsa, possono mantenere l'accesso più a lungo di quanto richiesto per scopi aziendali
 
-Questi problemi sono composti per gli utenti che necessitano dell'accesso da un'altra directory, ad esempio gli utenti esterni che appartengono a organizzazioni di supply chain o altri partner commerciali. Ad esempio:
+Questi problemi sono composti per gli utenti che necessitano dell'accesso da un'altra directory, ad esempio gli utenti esterni che appartengono a organizzazioni di supply chain o altri partner commerciali. Esempio:
 
 - È possibile che le organizzazioni non conoscano tutti gli utenti specifici di altre directory per poterli invitare
 - Anche se le organizzazioni erano in grado di invitare questi utenti, le organizzazioni potrebbero non ricordare di gestire tutti gli accessi degli utenti in modo coerente
@@ -77,7 +77,7 @@ Di seguito sono riportati i tipi di risorse a cui è possibile gestire l'accesso
 - Azure AD applicazioni aziendali, tra cui applicazioni SaaS e applicazioni personalizzate che supportano la Federazione o il provisioning
 - Siti e raccolte di siti di SharePoint Online
 
-È anche possibile controllare l'accesso ad altre risorse che si basano su Azure AD gruppi di sicurezza o gruppi di Office 365.  Ad esempio:
+È anche possibile controllare l'accesso ad altre risorse che si basano su Azure AD gruppi di sicurezza o gruppi di Office 365.  Esempio:
 
 - È possibile concedere agli utenti le licenze per Microsoft Office 365 usando un gruppo di sicurezza Azure AD in un pacchetto di accesso e configurando le [licenze basate sui gruppi](../users-groups-roles/licensing-groups-assign.md) per quel gruppo
 - È possibile concedere agli utenti l'accesso per gestire le risorse di Azure usando un gruppo di sicurezza Azure AD in un pacchetto di accesso e creando un' [assegnazione di ruolo di Azure](../../role-based-access-control/role-assignments-portal.md) per quel gruppo
@@ -122,8 +122,8 @@ Per comprendere meglio la gestione dei diritti e la relativa documentazione, è 
 | Termine o concetto | Descrizione |
 | --- | --- |
 | gestione dei diritti | Servizio che assegna, revoca e amministra i pacchetti di accesso. |
-| pacchetto di accesso | Raccolta di autorizzazioni e criteri per le risorse che gli utenti possono richiedere. Un pacchetto di accesso è sempre contenuto in un catalogo. |
-| richiesta di accesso | Richiesta di accesso a un pacchetto di accesso. Una richiesta viene in genere attraversata da un flusso di lavoro. |
+| pacchetto di accesso | Un bundle di risorse necessarie a un team o a un progetto e viene regolato con i criteri. Un pacchetto di accesso è sempre contenuto in un catalogo. |
+| richiesta di accesso | Richiesta di accesso alle risorse in un pacchetto di accesso. Una richiesta viene in genere attraversata da un flusso di lavoro. |
 | policy | Set di regole che definisce il ciclo di vita dell'accesso, ad esempio il modo in cui gli utenti ottengono l'accesso, gli utenti che possono approvare e il tempo di accesso degli utenti. I criteri di esempio includono l'accesso dei dipendenti e l'accesso esterno. |
 | catalogo | Contenitore di risorse correlate e pacchetti di accesso. |
 | Catalogo generale | Catalogo incorporato che è sempre disponibile. Per aggiungere risorse al catalogo generale, è necessario disporre di determinate autorizzazioni. |
@@ -132,7 +132,7 @@ Per comprendere meglio la gestione dei diritti e la relativa documentazione, è 
 | ruolo risorsa | Raccolta di autorizzazioni associate a una risorsa. |
 | Directory delle risorse | Una directory che dispone di una o più risorse da condividere. |
 | utenti assegnati | Assegnazione di un pacchetto di accesso a un utente, in modo che l'utente disponga di tutti i ruoli delle risorse del pacchetto di accesso. |
-| enable | Il processo di creazione di un pacchetto di accesso disponibile per gli utenti da richiedere. |
+| abilita | Il processo di creazione di un pacchetto di accesso disponibile per gli utenti da richiedere. |
 
 ## <a name="license-requirements"></a>Requisiti relativi alle licenze
 

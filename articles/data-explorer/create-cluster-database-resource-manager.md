@@ -7,12 +7,12 @@ ms.reviewer: oflipman
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.openlocfilehash: dfc0cd6686ac4ea1af2beb34edeadd17e4c952e1
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: b8aa87b871b86a8dab3b1984b638366a42708483
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329435"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936901"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-an-azure-resource-manager-template"></a>Creare un cluster e un database di Azure Esplora dati usando un modello di Azure Resource Manager
 
@@ -110,7 +110,7 @@ Per trovare altri esempi di modelli, vedere [modelli di avvio rapido di Azure](h
 
     ![Distribuisci in Azure](media/create-cluster-database-resource-manager/deploy-2-azure.png)
 
-È possibile [modificare e distribuire il modello nel portale di Azure](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) usando il modulo.
+    È possibile [modificare e distribuire il modello nel portale di Azure](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) usando il modulo.
 
 1. Sezioni di **base** e **Impostazioni** complete. Selezionare i nomi di cluster e database univoci.
 Sono necessari alcuni minuti per creare un cluster e un database di Azure Esplora dati.
@@ -142,7 +142,7 @@ Sono necessari alcuni minuti per creare un cluster e un database di Azure Esplor
 
 #### <a name="verify-the-deployment-using-powershell"></a>Verificare la distribuzione tramite PowerShell
 
-Per verificare la distribuzione, usare lo script di Azure PowerShell seguente.  Se cloud Shell è ancora aperto, non è necessario copiare/eseguire la prima riga (read-host). Per altre informazioni sulla gestione delle risorse di Azure Esplora dati in PowerShell, vedere [AZ. kusto](/powershell/module/az.kusto/?view=azps-2.7.0). Apportare modifiche rilevanti
+Per verificare la distribuzione, usare lo script di Azure PowerShell seguente.  Se il Cloud Shell è ancora aperto, non è necessario copiare/eseguire la prima riga (read-host). Per altre informazioni sulla gestione delle risorse di Azure Esplora dati in PowerShell, vedere [AZ. kusto](/powershell/module/az.kusto/?view=azps-2.7.0). 
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
@@ -163,9 +163,9 @@ Quando non sono più necessarie, eseguire la pulizia delle risorse di Azure dist
 
 Eliminare le risorse nella portale di Azure seguendo la procedura descritta in [pulire le risorse](create-cluster-database-portal.md#clean-up-resources).
 
-### <a name="clean-up-resources-using-powershell"></a>Pulire le risorse con PowerShell
+### <a name="clean-up-resources-using-powershell"></a>Pulire le risorse usando PowerShell
 
-Se cloud Shell è ancora aperto, non è necessario copiare/eseguire la prima riga (read-host).
+Se il Cloud Shell è ancora aperto, non è necessario copiare/eseguire la prima riga (read-host).
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"

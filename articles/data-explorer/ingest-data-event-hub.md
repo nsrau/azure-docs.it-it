@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: e52ce4411a2fa1969db196ba2e32bb485f71f8b6
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
-ms.translationtype: MT
+ms.openlocfilehash: 2dbb900d297f1acf05e77dca3e1753745e9b2b38
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931239"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937409"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Inserire dati dall'hub eventi in Esplora dati di Azure
 
@@ -42,7 +42,7 @@ In questo articolo vengono generati dati di esempio e inviati a un hub eventi. I
 
     Il pulsante **Distribuzione in Azure** consente di passare al portale di Azure per compilare un modulo di distribuzione.
 
-    ![Distribuire in Azure](media/ingest-data-event-hub/deploy-to-azure.png)
+    ![Distribuisci in Azure](media/ingest-data-event-hub/deploy-to-azure.png)
 
 1. Selezionare la sottoscrizione in cui si vuole creare l'hub eventi e creare un gruppo di risorse denominato *test-hub-rg*.
 
@@ -56,7 +56,7 @@ In questo articolo vengono generati dati di esempio e inviati a un hub eventi. I
 
     **Impostazione** | **Valore consigliato** | **Descrizione campo**
     |---|---|---|
-    | Sottoscrizione | Sottoscrizione | Selezionare la sottoscrizione di Azure da usare per l'hub eventi.|
+    | Sottoscrizione | Sottoscrizione in uso | Selezionare la sottoscrizione di Azure da usare per l'hub eventi.|
     | Gruppo di risorse | *test-hub-rg* | Creare un nuovo gruppo di risorse. |
     | Location | *Stati Uniti occidentali* | Per questo articolo, selezionare *Stati Uniti occidentali* . Per un sistema di produzione, selezionare l'area più appropriata in base alle esigenze. Per prestazioni ottimali creare lo spazio dei nomi dell'hub eventi nella stessa località del cluster Kusto (più importante per spazi dei nomi dell'hub eventi con velocità effettiva elevata).
     | Nome spazio dei nomi | Nome dello spazio dei nomi univoco | Scegliere un nome univoco per identificare lo spazio dei nomi. Ad esempio, *spazionomitest*. Il nome di dominio *servicebus.windows.net* viene accodato al nome specificato. Il nome può contenere solo lettere, numeri e trattini. Il nome deve iniziare con una lettera e deve terminare con una lettera o un numero. La lunghezza del valore deve essere compresa tra 6 e 50 caratteri.
@@ -110,7 +110,7 @@ A questo punto è possibile connettersi all'hub eventi da Esplora dati di Azure.
 
     **Impostazione** | **Valore consigliato** | **Descrizione campo**
     |---|---|---|
-    | Data connection name (Nome connessione dati) | *test-hub-connection* | Nome della connessione da creare in Esplora dati di Azure.|
+    | Nome connessione dati | *test-hub-connection* | Nome della connessione da creare in Esplora dati di Azure.|
     | Spazio dei nomi dell'hub eventi | Nome dello spazio dei nomi univoco | Nome scelto in precedenza che identifica lo spazio dei nomi. |
     | Hub eventi | *test-hub* | Hub eventi creato. |
     | Gruppo di consumer | *test-group* | Gruppo di consumer definito nell'hub eventi creato. |
@@ -125,11 +125,12 @@ A questo punto è possibile connettersi all'hub eventi da Esplora dati di Azure.
     |---|---|---|
     | Tabella | *TestTable* | Tabella creata in **TestDatabase**. |
     | Formato dati | *JSON* | I formati supportati sono Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV e TXT. Opzioni di compressione supportate: GZip |
-    | Mapping di colonne | *TestMapping* | Mapping creato in **TestDatabase** che esegue il mapping dei dati JSON in ingresso ai nomi di colonna e ai tipi di dati di **TestTable**. Obbligatorio per JSON, MULTILINE JSON o AVRO e facoltativo per gli altri formati.|
+    | Mapping colonne | *TestMapping* | Mapping creato in **TestDatabase** che esegue il mapping dei dati JSON in ingresso ai nomi di colonna e ai tipi di dati di **TestTable**. Obbligatorio per JSON, MULTILINE JSON o AVRO e facoltativo per gli altri formati.|
     | | |
 
     > [!NOTE]
-    > Selezionare **My data includes routing info** (I miei dati includono le informazioni di routing) per usare il routing dinamico, in cui i dati includono le informazioni di routing necessarie come illustrato nei commenti dell'[app di esempio](https://github.com/Azure-Samples/event-hubs-dotnet-ingest). Se vengono impostate proprietà sia statiche che dinamiche, le proprietà dinamiche eseguono l'override di quelle statiche. 
+    > * Selezionare **My data includes routing info** (I miei dati includono le informazioni di routing) per usare il routing dinamico, in cui i dati includono le informazioni di routing necessarie come illustrato nei commenti dell'[app di esempio](https://github.com/Azure-Samples/event-hubs-dotnet-ingest). Se vengono impostate proprietà sia statiche che dinamiche, le proprietà dinamiche eseguono l'override di quelle statiche. 
+    > * Vengono inseriti solo gli eventi accodati dopo la creazione della connessione dati.
 
 ## <a name="copy-the-connection-string"></a>Copia della stringa di connessione
 
@@ -197,7 +198,7 @@ Se non si prevede di usare nuovamente l'hub eventi, eliminare **test-hub-rg**, p
 
 1. Nel portale di Azure selezionare **Gruppi di risorse** all'estrema sinistra e quindi selezionare il gruppo di risorse creato.  
 
-    Se il menu a sinistra è compresso, selezionare ![pulsante Espandi](media/ingest-data-event-hub/expand.png) per espanderlo.
+    Se il menu a sinistra è compresso, selezionare ![Pulsante Espandi](media/ingest-data-event-hub/expand.png) per espanderlo.
 
    ![Selezionare il gruppo di risorse da eliminare](media/ingest-data-event-hub/delete-resources-select.png)
 

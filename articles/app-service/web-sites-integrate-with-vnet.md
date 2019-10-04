@@ -13,15 +13,15 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 3a014bab0252667c3c70e56399a72de4e5771a86
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: d4b7733ce3ac6db4c39f632401661eefce11d20c
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210107"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827569"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrare un'app in una rete virtuale di Azure
-Questo documento descrive la funzionalità di integrazione della rete virtuale del servizio app Azure e come configurarla con le app nel [servizio app Azure](https://go.microsoft.com/fwlink/?LinkId=529714). [Reti virtuali di Azure][VNETOverview] (Reti virtuali) consente di inserire molte delle risorse di Azure in una rete instradabile non Internet.  
+Questo documento descrive la funzionalità di integrazione della rete virtuale del servizio app Azure e come configurarla con le app nel [servizio app Azure](https://go.microsoft.com/fwlink/?LinkId=529714). Le [reti virtuali di Azure][VNETOverview] (reti virtuali) consentono di inserire molte delle risorse di Azure in una rete instradabile non Internet.  
 
 Il servizio app Azure presenta due varianti. 
 
@@ -226,7 +226,7 @@ Le app possono accedere alle risorse locali grazie all'integrazione con le reti 
 Non è necessaria alcuna configurazione aggiuntiva per la funzionalità di integrazione VNet a livello di area tramite VNet e in locale. È sufficiente connettere la VNet al sito locale usando ExpressRoute o una VPN da sito a sito. 
 
 > [!NOTE]
-> La funzionalità di integrazione VNet necessaria per il gateway non integra un'app con una VNet che dispone di un gateway ExpressRoute. Anche se il gateway ExpressRoute è configurato in [modalità][VPNERCoex] di coesistenza, l'integrazione di VNet non funziona. Se è necessario accedere alle risorse tramite una connessione ExpressRoute, è possibile usare la funzionalità di integrazione VNet a livello di area o un [ambiente del servizio app][ASE], che viene eseguito nel VNet. 
+> La funzionalità di integrazione VNet necessaria per il gateway non integra un'app con una VNet che dispone di un gateway ExpressRoute. Anche se il gateway ExpressRoute è configurato in [modalità di coesistenza][VPNERCoex] , l'integrazione di VNet non funziona. Se è necessario accedere alle risorse tramite una connessione ExpressRoute, è possibile usare la funzionalità di integrazione VNet a livello di area o un [ambiente del servizio app][ASE], che viene eseguito nel VNet. 
 > 
 > 
 
@@ -277,13 +277,13 @@ Se tali elementi non rispondono ai problemi, cercare prima di tutto, ad esempio:
 **Integrazione VNet a livello di area**
 * è la destinazione un indirizzo RFC 1918
 * è presente un blocco NSG in uscita dalla subnet di integrazione
-* Se si passa attraverso ExpressRoute o una VPN, è il gateway locale configurato per instradare il traffico al backup in Azure? Se è possibile raggiungere gli endpoint in VNet ma non in locale, è opportuno controllarlo.
+* Se si passa attraverso ExpressRoute o una VPN, il gateway locale è configurato per instradare il traffico al backup in Azure? Se è possibile raggiungere gli endpoint in VNet ma non in locale, è opportuno controllarlo.
 
 **Integrazione VNet necessaria per il gateway**
 * l'intervallo di indirizzi da punto a sito è compreso negli intervalli RFC 1918 (10.0.0.0-10.255.255.255/172.16.0.0-172.31.255.255/192.168.0.0-192.168.255.255)?
 * Il gateway viene visualizzato come attivo nel portale? Se il gateway è inattivo, è necessario riattivarlo.
 * I certificati vengono visualizzati come sincronizzati o si ritiene che la configurazione di rete sia stata modificata?  Se i certificati non sono sincronizzati o si ritiene che sia stata apportata una modifica alla configurazione di VNet che non è stata sincronizzata con gli ASP, fare clic su "Sincronizza rete".
-* Se si passa attraverso ExpressRoute o una VPN, è il gateway locale configurato per instradare il traffico al backup in Azure? Se è possibile raggiungere gli endpoint in VNet ma non in locale, è opportuno controllarlo.
+* Se si passa attraverso ExpressRoute o una VPN, il gateway locale è configurato per instradare il traffico al backup in Azure? Se è possibile raggiungere gli endpoint in VNet ma non in locale, è opportuno controllarlo.
 
 Il debug dei problemi di rete è una sfida perché non è possibile vedere che cosa blocca l'accesso a una combinazione host: porta specifica. Tra le cause possibili:
 
@@ -343,6 +343,6 @@ Se la macchina virtuale ospitata nella rete virtuale può raggiungere il sistema
 [V2VNETPortal]: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md
 [VPNERCoex]: ../expressroute/expressroute-howto-coexist-resource-manager.md
 [ASE]: environment/intro.md
-[creategatewaysubnet]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#gatewaysubnet
+[creategatewaysubnet]: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#creategw
 [creategateway]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#creategw
 [setp2saddresses]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#addresspool

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 4750ba55c08ebac244e7515cae4e998155a79599
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 893e8de5efc523df34e2c1e139082d2b471cb63e
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60628882"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828537"
 ---
 # <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple per Cloud Solutions Provider Program: Domande frequenti
 
@@ -63,7 +63,7 @@ Sono disponibili più soluzioni:
 - I partner possono anche scoprire nuovi modelli aziendali fornendo servizi gestiti.
 
 ### <a name="what-are-the-incentives-available-for-storsimple-csp-partners-do-i-qualify-for-any-csp-program-incentives"></a>Quali sono gli incentivi disponibili per i partner StorSimple CSP? Come si diventa idonei a tali incentivi?
-Per informazioni sugli incentivi, visitare [incentivi](https://partner.microsoft.com/en-US/cloud-solution-provider/program-details).
+Per informazioni sugli incentivi, vedere incentivi per il [programma CSP](https://partner.microsoft.com/en-US/cloud-solution-provider/program-details).
 
 
 ## <a name="deploy-and-manage-storsimple-as-a-partner"></a>Distribuire e gestire StorSimple come partner
@@ -89,7 +89,7 @@ Sì. Il responsabile vendite partner e il team dell'account cliente per il clien
 È possibile visitare StorSimple nel forum CSP per ottenere risposte ad alcune domande frequenti. È necessario prima unirsi al [gruppo Azure Advisors su Yammer](https://www.yammer.com/azureadvisors). Una volta fatto, cercare e unirsi al gruppo **StorSimple Partner Advisors**.
 
 ### <a name="how-does-the-support-work-for-storsimple-for-csp"></a>Come funziona il supporto per StorSimple per CSP? 
-Il modello di supporto di StorSimple per CSP è identico a quello di altri servizi di Azure in CSP. Per altre informazioni, vedere [Supporto tecnico per CSP](https://msdn.microsoft.com/partner-center/customer-support). 
+Il modello di supporto di StorSimple per CSP è identico a quello di altri servizi di Azure in CSP. Per altre informazioni, vedere [Supporto tecnico per CSP](/partner-center/csp-overview).
 
 Per altre informazioni su StorSimple per CSP, visitare:
 

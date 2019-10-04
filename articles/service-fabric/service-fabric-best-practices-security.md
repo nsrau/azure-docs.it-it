@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 19ccd44888d64967baf82568c1cbb2540f3b3f68
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 75edb385a86be849ec7c165759d3b451eab804f6
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780333"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828518"
 ---
 # <a name="azure-service-fabric-security"></a>Sicurezza di Azure Service Fabric 
 
@@ -152,6 +152,18 @@ user@linux:$ openssl smime -encrypt -in plaintext_UTF-16.txt -binary -outform de
 
 Dopo aver crittografato i valori protetti [specificare i segreti crittografati nell'applicazione di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management#specify-encrypted-secrets-in-an-application) e [decrittografare i segreti crittografati dal codice del servizio](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management#decrypt-encrypted-secrets-from-service-code).
 
+## <a name="include-certificate-in-service-fabric-applications"></a>Includi certificato nelle applicazioni Service Fabric
+
+Per consentire all'applicazione di accedere ai segreti, includere il certificato aggiungendo un elemento **SecretsCertificate** al manifesto dell'applicazione.
+
+```xml
+<ApplicationManifest … >
+  ...
+  <Certificates>
+    <SecretsCertificate Name="MyCert" X509FindType="FindByThumbprint" X509FindValue="[YourCertThumbrint]"/>
+  </Certificates>
+</ApplicationManifest>
+```
 ## <a name="authenticate-service-fabric-applications-to-azure-resources-using-managed-service-identity-msi"></a>Autenticare le applicazioni di Service Fabric per le risorse di Azure usando l'identità del servizio gestita
 
 Per informazioni sulle identità gestite per le risorse di Azure, vedere [Informazioni sulle identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#how-does-it-work).
@@ -205,7 +217,7 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 Si [consiglia di implementare una configurazione standard del settore che sia ampiamente nota e ben collaudata, ad esempio le linee di base della sicurezza Microsoft, anziché creare manualmente una baseline](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines). un'opzione per il provisioning di questi nei set di scalabilità di macchine virtuali consiste nell'usare il gestore estensioni DSC (Desired state Configuration) di Azure per configurare le macchine virtuali in linea, in modo che eseguano il software di produzione.
 
 ## <a name="azure-firewall"></a>Firewall di Azure
-[Il firewall di Azure è un servizio di sicurezza di rete gestito e basato sul cloud che protegge le risorse della rete virtuale di Azure. Si tratta di un firewall completamente con stato come servizio con disponibilità elevata incorporata e scalabilità illimitata del cloud. ](https://docs.microsoft.com/azure/firewall/overview)questa funzionalità consente di limitare il traffico HTTP/S in uscita a un elenco specificato di nomi di dominio completi (FQDN), inclusi i caratteri jolly. Questa funzionalità non richiede la terminazione SSL. Si consiglia di usare i [tag FQDN del firewall di Azure](https://docs.microsoft.com/azure/firewall/fqdn-tags) per gli aggiornamenti di Windows e di abilitare il traffico di rete verso gli endpoint di Microsoft Windows Update possono attraversare il firewall. [Distribuire il firewall di Azure con un modello](https://docs.microsoft.com/azure/firewall/deploy-template) fornisce un esempio per la definizione del modello di risorsa Microsoft. Network/azureFirewalls. Le regole del firewall comuni alle applicazioni Service Fabric consentono di eseguire le operazioni seguenti per la rete virtuale dei cluster:
+[Azure firewall è un servizio di sicurezza di rete gestito e basato sul cloud che protegge le risorse della rete virtuale di Azure. Si tratta di un firewall completamente con stato come servizio con disponibilità elevata incorporata e scalabilità illimitata del cloud. ](https://docs.microsoft.com/azure/firewall/overview); in questo modo è possibile limitare il traffico HTTP/S in uscita a un elenco specificato di nomi di dominio completi (FQDN), inclusi i caratteri jolly. Questa funzionalità non richiede la terminazione SSL. Si consiglia di usare i [tag FQDN del firewall di Azure](https://docs.microsoft.com/azure/firewall/fqdn-tags) per gli aggiornamenti di Windows e di abilitare il traffico di rete verso gli endpoint di Microsoft Windows Update possono attraversare il firewall. [Distribuire il firewall di Azure con un modello](https://docs.microsoft.com/azure/firewall/deploy-template) fornisce un esempio per la definizione del modello di risorsa Microsoft. Network/azureFirewalls. Le regole del firewall comuni alle applicazioni Service Fabric consentono di eseguire le operazioni seguenti per la rete virtuale dei cluster:
 
 - \* download.microsoft.com
 - *servicefabric.azure.com

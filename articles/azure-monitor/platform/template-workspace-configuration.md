@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.author: magoedte
-ms.openlocfilehash: 3ac5d5d31bb54ce87859a6eec52dbe5948864d4c
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 810ecbd4421eec8e8e809b429270601a0c94d623
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147334"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71840907"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gestire Log Analytics area di lavoro con modelli di Azure Resource Manager
 
@@ -44,12 +44,12 @@ Questo articolo presenta esempi di modelli che illustrano alcune configurazioni 
 
 La tabella seguente elenca la versione dell'API per le risorse usate in questo esempio.
 
-| Risorsa | Tipo di risorsa | Versione dell'API |
+| Resource | Tipo di risorsa | Versione API |
 |:---|:---|:---|
 | Area di lavoro   | aree di lavoro    | 2017-03-15-preview |
-| Ricerca      | savedSearches | 2015-03-20 |
+| Cerca      | savedSearches | 2015-03-20 |
 | Origine dati | datasources   | 2015-11-01-preview |
-| Soluzione    | solutions     | 2015-11-01-preview |
+| Soluzione    | soluzioni     | 2015-11-01-preview |
 
 ## <a name="create-a-log-analytics-workspace"></a>Creare un'area di lavoro Log Analytics
 
@@ -121,7 +121,7 @@ L'esempio seguente crea un'area di lavoro usando un modello dal computer locale.
 
 2. Modificare il modello in base alle esigenze. Rivedere il riferimento del [modello Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) per informazioni sulle proprietà e sui valori supportati. 
 3. Salvare questo file come **deploylaworkspacetemplate.json** in una cartella locale.
-4. A questo punto è possibile distribuire il modello. Usare PowerShell o la riga di comando per creare l'area di lavoro, specificando il nome e la posizione dell'area di lavoro come parte del comando.
+4. A questo punto è possibile distribuire il modello. Usare PowerShell o la riga di comando per creare l'area di lavoro, specificando il nome e la posizione dell'area di lavoro come parte del comando. Il nome dell'area di lavoro deve essere univoco a livello globale in tutte le sottoscrizioni di Azure.
 
    * Per PowerShell usare i comandi seguenti dalla cartella che contiene il modello:
    
@@ -619,8 +619,8 @@ La raccolta dei modelli di avvio rapido di Azure include alcuni modelli di Log A
 
 * [Distribuire una macchina virtuale che esegue Windows con l'estensione della VM di Log Analytics](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
 * [Distribuire una macchina virtuale che esegue Linux con l'estensione della VM di Log Analytics](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
-* [Monitorare Azure Site Recovery tramite un'area di lavoro esistente di Log Analytics](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
-* [Monitorare le app Web di Azure tramite un'area di lavoro esistente di Log Analytics](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
+* [Monitorare Azure Site Recovery tramite un'area di lavoro Log Analytics esistente](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
+* [Monitorare le app Web di Azure tramite un'area di lavoro Log Analytics esistente](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
 * [Aggiungere un account di archiviazione esistente a Log Analytics](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 03/25/2019
+ms.date: 09/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: bd51e70122a5457c8dcf1bd8f2061fe25943e87f
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 551918373f8292d798980600d6e0d43add55bd18
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "71224503"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828279"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Prerequisiti di Crittografia dischi di Azure
 
@@ -70,6 +70,7 @@ Le distribuzioni di server Linux che non sono approvate da Azure non supportano 
 | Ubuntu | 18,04| Disco del sistema operativo e dati |
 | Ubuntu | 16.04| Disco del sistema operativo e dati |
 | Ubuntu | 14.04.5</br>[con il kernel ottimizzato per Azure aggiornato alla versione 4.15 o successiva](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | Disco del sistema operativo e dati |
+| RHEL | 7,7 | Sistema operativo e disco dati (vedere la nota di seguito) |
 | RHEL | 7.6 | Sistema operativo e disco dati (vedere la nota di seguito) |
 | RHEL | 7.5 | Sistema operativo e disco dati (vedere la nota di seguito) |
 | RHEL | 7.4 | Sistema operativo e disco dati (vedere la nota di seguito) |
@@ -77,6 +78,7 @@ Le distribuzioni di server Linux che non sono approvate da Azure non supportano 
 | RHEL | 7.2 | Sistema operativo e disco dati (vedere la nota di seguito) |
 | RHEL | 6.8 | Disco dati (vedere la nota di seguito) |
 | RHEL | 6.7 | Disco dati (vedere la nota di seguito) |
+| CentOS | 7,7 | Disco del sistema operativo e dati |
 | CentOS | 7.6 | Disco del sistema operativo e dati |
 | CentOS | 7.5 | Disco del sistema operativo e dati |
 | CentOS | 7.4 | Disco del sistema operativo e dati |
@@ -181,7 +183,7 @@ L'[interfaccia della riga di comando di Azure 2.0](/cli/azure) è uno strumento 
 
 
 ## <a name="prerequisite-workflow-for-key-vault"></a>Flusso di lavoro dei prerequisiti per Key Vault
-Se si ha già familiarità con i prerequisiti di Key Vault e Azure AD per Crittografia dischi di Azure, è possibile usare lo [script di PowerShell per i prerequisiti di Crittografia dischi di Azure](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Per altre informazioni sull'uso degli script dei prerequisiti, vedere [Codifica di una macchina virtuale a avvio rapido](azure-disk-encryption-linux-powershell-quickstart.md) e l'[Appendice Crittografia dischi di Azure](azure-security-disk-encryption-appendix.md#bkmk_prereq-script). 
+Se si ha già familiarità con i prerequisiti di Key Vault e Azure AD per Crittografia dischi di Azure, è possibile usare lo [script di PowerShell per i prerequisiti di Crittografia dischi di Azure](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Per altre informazioni sull'uso degli script dei prerequisiti, vedere [Codifica di una macchina virtuale a avvio rapido](../virtual-machines/linux/disk-encryption-powershell-quickstart.md) e l'[Appendice Crittografia dischi di Azure](azure-security-disk-encryption-appendix.md#bkmk_prereq-script). 
 
 1. Se necessario, creare un gruppo di risorse.
 2. Creare un insieme di credenziali delle chiavi. 

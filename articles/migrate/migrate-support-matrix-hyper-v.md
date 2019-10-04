@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: raynew
-ms.openlocfilehash: 0d0329be0b7f864edbfc3c2aabc08f1742359670
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 004010983b87c333adeb4b20abbe851581917a3a
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066769"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937443"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Matrice di supporto per la valutazione e la migrazione di Hyper-V
 
@@ -41,8 +41,8 @@ Geografia | È possibile creare progetti Azure Migrate in diverse aree geografic
 
   **Area geografica** | **Posizione di archiviazione dei metadati**
   --- | ---
-  Azure per enti pubblici | US Gov Virginia
-  Asia/Pacifico | Asia orientale o Asia sud-orientale
+  Azure Government | US Gov Virginia
+  Asia Pacifico | Asia orientale o Asia sud-orientale
   Australia | Australia orientale o Australia sudorientale
   Brasile | Brasile meridionale
   Canada | Canada centrale o Canada orientale
@@ -50,7 +50,7 @@ Geografia | È possibile creare progetti Azure Migrate in diverse aree geografic
   Francia | Francia centrale
   India | India centrale o India meridionale
   Giappone |  Giappone orientale o Giappone occidentale
-  Corea del Sud | Corea centrale o Corea del sud
+  Corea | Corea centrale o Corea del sud
   Regno Unito | Regno Unito meridionale o Regno Unito occidentale
   Stati Uniti | Stati Uniti centrali o Stati Uniti occidentali 2
 
@@ -145,7 +145,8 @@ Nella tabella seguente sono riepilogati i requisiti di porta per la valutazione.
 | **Integration Services**       | Per acquisire le informazioni sul sistema operativo, è necessario che [Hyper-V Integration Services](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/integration-services) sia in esecuzione in macchine virtuali valutate. |
 | **Modifiche necessarie per Azure** | Alcune macchine virtuali potrebbero richiedere modifiche in modo che possano essere eseguite in Azure. Azure Migrate apporta automaticamente queste modifiche per i sistemi operativi seguenti:<br/> -Red Hat Enterprise Linux 6.5 +, 7.0 +<br/> -CentOS 6.5 +, 7.0 +</br> -SUSE Linux Enterprise Server 12 SP1 +<br/> -Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8<br/><br/> Per altri sistemi operativi, è necessario apportare modifiche manualmente prima della migrazione. Gli articoli pertinenti contengono istruzioni su come eseguire questa operazione. |
 | **Avvio di Linux**                 | Se/boot si trova in una partizione dedicata, deve risiedere nel disco del sistema operativo e non essere distribuito tra più dischi.<br/> Se/boot fa parte della partizione radice (/), la partizione '/' deve trovarsi nel disco del sistema operativo e non si estende su altri dischi. |
-| **Avvio UEFI**                  | Le macchine virtuali con avvio UEFI non sono supportate per la migrazione.  |
+| **Avvio UEFI**                  | La macchina virtuale di cui è stata eseguita la migrazione in Azure verrà automaticamente convertita in una macchina virtuale di avvio BIOS. Nella macchina virtuale deve essere in esecuzione solo Windows Server 2012 e versioni successive. Il disco del sistema operativo deve avere fino a cinque partizioni o meno e la dimensione del disco del sistema operativo deve essere inferiore a 300 GB.
+  |
 | **Dimensioni disco**                  | 2 TB per il disco del sistema operativo, 4 TB per i dischi dati.
 | **Numero disco** | Un massimo di 16 dischi per macchina virtuale.
 | **Dischi/volumi crittografati**    | Non supportato per la migrazione. |

@@ -1,51 +1,55 @@
 ---
-title: Come monitorare l'anteprima di condivisione dei dati in Azure
-description: Come monitorare l'anteprima di condivisione dei dati in Azure
+title: Come monitorare l'anteprima della condivisione dati di Azure
+description: Come monitorare l'anteprima della condivisione dati di Azure
 author: joannapea
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: 869c1ed41d7f78df184461bc1d8cab6c6eb8d426
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: fbc6847dd86b7687d477b2bae0deab1389dc8491
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67789098"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827070"
 ---
-# <a name="monitor-azure-data-share-preview"></a>Anteprima di condivisione dei dati di Azure monitor 
+# <a name="monitor-azure-data-share-preview"></a>Monitorare l'anteprima della condivisione dati di Azure 
 
-Questo articolo illustra come è possibile monitorare le condivisioni dati usando l'anteprima di condivisione dei dati in Azure. Come provider di dati, si è in grado di monitorare diversi aspetti di condivisione delle relazioni dei dati. I dettagli, ad esempio se il consumer di dati hanno accettato l'invito alla condivisione di dati, anche se non appena hanno creato una sottoscrizione di condivisione e iniziato a usare i dati sono tutti disponibili per il monitoraggio. 
+Questo articolo illustra come è possibile monitorare le condivisioni dati usando l'anteprima di condivisione dati di Azure. Come provider di dati, è possibile monitorare diversi aspetti delle relazioni di condivisione dei dati. I dettagli, ad esempio se i consumer di dati hanno accettato l'invito alla condivisione dati, nonché se hanno creato una sottoscrizione di condivisione e iniziato a usare i dati sono tutti disponibili per il monitoraggio. 
 
-Come un consumer di dati, è possibile monitorare gli snapshot che sono stati generati nella sottoscrizione di Azure. 
+In qualità di consumer di dati, è possibile monitorare gli snapshot attivati nella sottoscrizione di Azure. 
 
-## <a name="monitor-invitation-status"></a>Monitorare lo stato di invito
+## <a name="monitor-invitation-status"></a>Monitorare lo stato degli inviti
 
-Visualizza lo stato degli inviti di condivisione dei dati, passare alle condivisioni inviati -> gli inviti. 
+Per visualizzare lo stato degli inviti alla condivisione dati, passare a condivisioni inviate-> inviti. 
 
-![Lo stato dell'invito](./media/invitation-status.png "lo stato dell'invito") 
+![](./media/invitation-status.png "Stato invito") stato invito 
 
-Esistono tre stati in cui l'invito può essere:
+È possibile che l'invito si trovi in tre stati:
 
-* In sospeso - destinatario di condivisione dei dati non ha ancora accettato l'invito.
-* Accettato - destinatario di condivisione dei dati ha accettato l'invito.
-* Rifiutato - destinatario di condivisione dei dati ha rifiutato l'invito.
+* In sospeso: il destinatario della condivisione dati non ha ancora accettato l'invito.
+* Accettato: il destinatario della condivisione dati ha accettato l'invito.
+* Rifiutato: il destinatario della condivisione dati ha rifiutato l'invito.
 
 > [!IMPORTANT]
-> Se si elimina un invito dopo che è già stato accettato, non è equivalente alla revoca dell'accesso. Se si desidera arrestare futuri degli snapshot venga copiato nell'account di archiviazione consumer di dati, è necessario revocare l'accesso tramite il *condividere gli abbonamenti* scheda. 
+> Se si elimina un invito dopo che è già stato accettato, non è equivalente alla revoca dell'accesso. Se si desidera arrestare la copia degli snapshot futuri nell'account di archiviazione dei consumer di dati, è necessario revocare l'accesso tramite la scheda *Condividi sottoscrizioni* . 
 
-## <a name="monitor-share-subscriptions"></a>Monitorare le sottoscrizioni
+## <a name="monitor-share-subscriptions"></a>Monitorare le sottoscrizioni di condivisione
 
-Visualizza lo stato delle sottoscrizioni di condivisione passando alle condivisioni inviati -> sottoscrizioni condividono. Questo fornirà informazioni dettagliate sulle sottoscrizioni attive create dai consumer di dati dopo aver accettato l'invito. È possibile interrompere gli aggiornamenti futuri per i consumer di dati, selezionando la sottoscrizione di condivisione e selezionando *revocare*. 
+Per visualizzare lo stato delle sottoscrizioni di condivisione, passare a condivisioni inviate > sottoscrizioni di condivisione. In questo modo sarà possibile ottenere informazioni dettagliate sulle sottoscrizioni attive create dai consumer di dati dopo aver accettato l'invito. È possibile arrestare gli aggiornamenti futuri al consumer di dati selezionando la sottoscrizione di condivisione e selezionando *revoca*. 
 
-## <a name="snapshot-history"></a>Snapshot della cronologia 
+## <a name="snapshot-history"></a>Cronologia snapshot 
 
-Nella scheda Cronologia, si è in grado di visualizzare gli snapshot che sono stati copiati nel tenant del consumer di dati. Si è in grado di monitorare la frequenza e durata di ogni intervallo di snapshot. 
+Nella scheda cronologia è possibile visualizzare gli snapshot che sono stati copiati nel tenant del consumer di dati. È possibile monitorare la frequenza e la durata di ogni intervallo di snapshot. 
 
-![Per gli snapshot della cronologia](./media/sent-shares.png "Snapshot della cronologia") 
+![](./media/sent-shares.png "Cronologia snapshot") cronologia snapshot 
 
-È possibile visualizzare altri dettagli su ogni esecuzione, fare clic sulla data di inizio dell'esecuzione dello snapshot. 
+È possibile visualizzare altri dettagli su ogni esecuzione di snapshot facendo clic sulla data di inizio dell'esecuzione. 
 
-## <a name="next-steps"></a>Fasi successive 
+Per impostazione predefinita, vengono visualizzati fino a 30 giorni di cronologia snapshot. Se è necessario visualizzare la cronologia di più di 30 giorni, passare a monitoraggio-> impostazioni di diagnostica e selezionare **Aggiungi**impostazioni di diagnostica. Verrà richiesto di selezionare un account di archiviazione in cui archiviare questi log. 
 
-Altre informazioni su [terminologia di condivisione dei dati di Azure](terminology.md)
+(./media/diagnostic-settings.png "Impostazioni di diagnostica") ![cronologia snapshot] 
+
+## <a name="next-steps"></a>Passaggi successivi 
+
+Scopri di più sulla [terminologia di condivisione dati di Azure](terminology.md)

@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 846f0ecdd49fc1c501893209b60fa9acc8a32ed2
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: b28d02dd0ca375451f6ff75b1253ae8874bf2ab4
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70242340"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828239"
 ---
 # <a name="frequently-asked-questions"></a>Domande frequenti
 Hai domande? Per ulteriori informazioni, vedere le domande frequenti seguenti.
@@ -48,7 +48,7 @@ Nella maggior parte dei casi, le attività di compilazione di Azure DevOps sono 
 
 Differenze evidenti:
 
-- Gli strumenti vengono eseguiti dalla cartella di origine dell'agente $ (Build. SourcesDirectory) o da% BUILD_SOURCESDIRECTORY%. Un esempio è C:\agent\_work\1\s.
+- Gli strumenti vengono eseguiti dalla cartella di origine dell'agente $ (Build. SourcesDirectory) o da% BUILD_SOURCESDIRECTORY%. Un esempio è C:\agent @ no__t-0work\1\s.
 - I percorsi negli argomenti possono essere relativi alla radice della directory di origine elencata in precedenza. I percorsi possono anche essere assoluti. È possibile ottenere percorsi assoluti usando le variabili di compilazione di Azure DevOps o eseguendo un agente locale con i percorsi di distribuzione noti delle risorse locali.
 - Gli strumenti forniscono automaticamente un percorso o una cartella di file di output. Se si fornisce un percorso di output per un'attività di compilazione, tale percorso viene sostituito con un percorso del percorso noto dei log nell'agente di compilazione
 - Alcuni argomenti aggiuntivi della riga di comando sono stati modificati per alcuni strumenti. Un esempio è l'aggiunta o la rimozione di opzioni che assicurano che non venga avviata alcuna GUI.
@@ -63,7 +63,7 @@ Le attività di compilazione filtrano l'input dell'utente. Per questa domanda, i
 
 ### <a name="where-are-the-output-files-generated-by-the-tools-saved"></a>Dove vengono salvati i file di output generati dagli strumenti? 
 
-Le attività di compilazione aggiungono automaticamente i percorsi di output a questo percorso noto nell'agente di compilazione: $ (Agent.\_BuildDirectory) sdt\logs. Poiché si standardizza in questa posizione, tutti i team che producono o utilizzano log di analisi del codice hanno accesso all'output.
+Le attività di compilazione aggiungono automaticamente i percorsi di output a questo percorso noto nell'agente di compilazione: $ (Agent. BuildDirectory) \_sdt \ Logs. Poiché si standardizza in questa posizione, tutti i team che producono o utilizzano log di analisi del codice hanno accesso all'output.
 
 ### <a name="can-i-queue-a-build-to-run-these-tasks-on-a-hosted-build-agent"></a>È possibile accodare una compilazione per eseguire queste attività in un agente di compilazione ospitato? 
 
@@ -123,7 +123,7 @@ La chiave hash del segreto dal file di output CredScan è obbligatoria come illu
 
 L'espressione di file può essere un nome di file. Può anche essere la parte baseName di un percorso di file completo o un nome di file. I caratteri jolly non sono supportati.
 
-Gli esempi seguenti illustrano come escludere il \<file inputPath > \src\JS\lib\angular.js
+Gli esempi seguenti illustrano come escludere il file \<InputPath > \src\JS\lib\angular.js
 
 Esempi di regole di eliminazione valide:
 
@@ -152,12 +152,6 @@ Esempi di regole di eliminazione valide:
 
 #### <a name="what-are-recommended-guidelines-for-managing-secrets"></a>Quali sono le linee guida consigliate per la gestione dei segreti?
 
-È utile rilevare rapidamente i segreti hardcoded e attenuare i rischi. Ma evitare che i segreti vengano archiviati è ancora meglio.
-
-A tale scopo, Microsoft ha rilasciato una prima anteprima di Credential Scanner Code Analyzer come parte dell' [estensione Microsoft DevLabs](https://marketplace.visualstudio.com/items?itemName=VSIDEDevOpsMSFT.ContinuousDeliveryToolsforVisualStudio) per Visual Studio. L'analizzatore è una versione di anteprima anticipata. Offre agli sviluppatori un'esperienza inline per il rilevamento di potenziali segreti nel codice. In questo modo, l'analizzatore offre agli sviluppatori anche la possibilità di risolvere questi problemi in tempo reale.
-
-Per altre informazioni, vedere il post di Blog sulla [gestione dei segreti in modo sicuro nel cloud](https://devblogs.microsoft.com/visualstudio/managing-secrets-securely-in-the-cloud/).
-
 Le risorse seguenti consentono di gestire in modo sicuro i segreti e accedere a informazioni sensibili dalle applicazioni:
 
  - [Insieme di credenziali chiave Azure](../../key-vault/index.yml)
@@ -166,6 +160,9 @@ Le risorse seguenti consentono di gestire in modo sicuro i segreti e accedere a 
  - [Identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md)
  - [Identità gestite nel servizio app Azure e funzioni di Azure](../../app-service/overview-managed-identity.md)
  - [Libreria AppAuthentication](../../key-vault/service-to-service-authentication.md)
+
+
+Per altre informazioni, vedere il post di Blog sulla [gestione dei segreti in modo sicuro nel cloud](https://devblogs.microsoft.com/visualstudio/managing-secrets-securely-in-the-cloud/).
 
 #### <a name="can-i-write-my-own-custom-searchers"></a>È possibile scrivere ricerche personalizzate?
 
@@ -176,7 +173,7 @@ Un ricercatore di contenuti viene definito come segue:
 - **Nome**: Nome descrittivo del ricercatore da usare nei file di output dello scanner delle credenziali. Si consiglia di usare la convenzione di denominazione dei casi di cammello per i nomi di ricerca.
 - **RuleId**: ID opaco stabile del ricercatore:
     - A un ricercatore predefinito di Credential scanner viene assegnato un valore **RuleId** come CSCAN0010, CSCAN0020 o CSCAN0030. L'ultima cifra è riservata per potenzialmente unire o dividere i gruppi di ricerca tramite espressioni regolari (Regex).
-    - Il valore **RuleId** per un ricercatore personalizzato deve avere il proprio spazio dei nomi. Gli esempi includono CsCAN\<-\>namespace 0010, CsCAN\<-\>namespace 0020 e CsCAN-\<Namespace\>0030.
+    - Il valore **RuleId** per un ricercatore personalizzato deve avere il proprio spazio dei nomi. Gli esempi includono CSCAN-\<Namespace @ no__t-10010, CSCAN-\<Namespace @ no__t-30020 e CSCAN-\<Namespace @ no__t-50030.
     - Un nome di ricerca completo è la combinazione di un valore **RuleId** e di un nome di ricerca. Gli esempi includono CSCAN0010. KeyStoreFiles e CSCAN0020. Base64EncodedCertificate.
 - **ResourceMatchPattern**: Espressione regolare delle estensioni di file da controllare rispetto al Cercatore.
 - **ContentSearchPatterns**: Matrice di stringhe contenente le istruzioni Regex per le quali trovare una corrispondenza. Se non sono definiti criteri di ricerca, vengono restituiti tutti i file corrispondenti al valore **ResourceMatchPattern** .
@@ -205,13 +202,13 @@ Un passaggio tra i passaggi principali per la compilazione e l'analizzatore Rosl
 
 Messaggio di errore completo:
 
-"' CSC. exe ' terminato con codice di errore 1. Impossibile creare un'istanza dell'analizzatore *aaaa* da C:\\*bbbb*. dll: Impossibile caricare il file o l'assembly ' Microsoft. CodeAnalysis, Version =*x.x.* x. x, Culture = neutral, PublicKeyToken = 31bf3856ad364e35' o una delle relative dipendenze. The system cannot find the file specified" (Valore 'cwd' '/src' non valido. Impossibile trovare il file specificato)
+"' CSC. exe ' terminato con codice di errore 1. Impossibile creare un'istanza dell'analizzatore *aaaa* da C: \\*bbbb*. dll: Impossibile caricare il file o l'assembly ' Microsoft. CodeAnalysis, Version =*x.x.* x. x, Culture = neutral, PublicKeyToken = 31bf3856ad364e35' o una delle relative dipendenze. The system cannot find the file specified" (Valore 'cwd' '/src' non valido. Impossibile trovare il file specificato)
 
 Verificare che il compilatore supporti gli analizzatori Roslyn. L'esecuzione del comando **csc. exe/version** dovrebbe indicare un valore di versione 2,6 o successiva.
 
 A volte un file con estensione csproj può sostituire l'installazione di Visual Studio del computer di compilazione facendo riferimento a un pacchetto di Microsoft.Net. Compilers. Se non si prevede di usare una versione specifica del compilatore, rimuovere i riferimenti a Microsoft.Net. Compilers. In caso contrario, verificare che anche la versione del pacchetto a cui si fa riferimento sia 2,6 o successiva.
 
-Provare a ottenere il percorso del log degli errori, specificato nell'opzione **/ErrorLog di CSC. exe** . L'opzione e il percorso vengono visualizzati nel log per l'attività di compilazione analizzatori Roslyn. Potrebbero avere un aspetto simile a **/ErrorLog: f:\ts-Services-\_123 work\456\s\Some\Project\Code\Code.csproj.Sarif**
+Provare a ottenere il percorso del log degli errori, specificato nell'opzione **/ErrorLog di CSC. exe** . L'opzione e il percorso vengono visualizzati nel log per l'attività di compilazione analizzatori Roslyn. Potrebbero avere un aspetto simile a **/ErrorLog: F:\ts-Services-123 @ no__t-1work\456\s\Some\Project\Code\Code.csproj.Sarif**
 
 ##### <a name="the-c-compiler-version-isnt-recent-enough"></a>La C# versione del compilatore non è abbastanza recente
 

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: 386dc737bb45eec031aaa1a0c55f4478b8302c54
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 05bb8b75fb09f3b8df0a6775874e72bdb04fc65e
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173575"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937533"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Informazioni sugli output di Analisi di flusso di Azure
 
@@ -52,21 +52,20 @@ La tabella seguente elenca i nomi delle proprietà e le relative descrizioni per
 
 È possibile usare il [database SQL di Azure](https://azure.microsoft.com/services/sql-database/) come output per i dati di natura relazionale o per applicazioni che dipendono dal contenuto ospitato in un database relazionale. I processi di analisi di flusso scrivono in una tabella esistente del database SQL. Lo schema della tabella deve corrispondere esattamente ai campi e ai relativi tipi nell'output del processo. È anche possibile specificare [Azure SQL data warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) come output tramite l'opzione di output del database SQL. Per informazioni sui modi per migliorare la velocità effettiva di scrittura, vedere l'articolo [analisi di flusso con database SQL di Azure come output](stream-analytics-sql-output-perf.md) .
 
+È anche possibile usare [istanza gestita di database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) come output. È necessario [configurare l'endpoint pubblico in istanza gestita di database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) e quindi configurare manualmente le impostazioni seguenti in analisi di flusso di Azure. La macchina virtuale di Azure che esegue SQL Server con un database collegato è supportata anche dalla configurazione manuale delle impostazioni riportate di seguito.
+
 La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per la creazione di un output del database SQL.
 
 | Nome proprietà | DESCRIZIONE |
 | --- | --- |
 | Alias di output |Nome descrittivo usato nelle query per indirizzare l'output delle query a questo database. |
 | Database | Nome del database in cui si sta inviando l'output. |
-| Nome del server | Nome del server di database SQL. |
+| Nome del server | Nome del server di database SQL. Per Istanza gestita di database SQL di Azure, è necessario specificare la porta 3342. Ad esempio, *sampleserver. public. database. Windows. NET, 3342* |
 | Nome utente | Nome utente con accesso in scrittura al database. Analisi di flusso supporta solo l'autenticazione SQL. |
 | Password | Password per la connessione al database. |
 | Tabella | Nome della tabella in cui viene scritto l'output. Il nome della tabella fa distinzione tra maiuscole e minuscole. Lo schema di questa tabella deve corrispondere esattamente al numero di campi e ai relativi tipi generati dall'output del processo. |
 |Eredita schema di partizione| Opzione per l'ereditarietà dello schema di partizionamento del passaggio precedente della query, per consentire la topologia completamente parallela con più writer alla tabella. Per altre informazioni, consultare [Output di Analisi di flusso di Azure in Database SQL di Azure](stream-analytics-sql-output-perf.md).|
 |Numero massimo di batch| Limite superiore consigliato per il numero di record inviati con ogni transazione di inserimento bulk.|
-
-> [!NOTE]
-> L'offerta del database SQL di Azure è supportata per l'output di un processo in analisi di flusso, ma una macchina virtuale di Azure che esegue SQL Server con un database collegato o in una SQL Azure Istanza gestita non è ancora supportata. Questo comportamento sarà soggetto a modifiche nelle versioni future.
 
 ## <a name="blob-storage-and-azure-data-lake-gen2"></a>Archiviazione BLOB e Azure Data Lake Gen2
 

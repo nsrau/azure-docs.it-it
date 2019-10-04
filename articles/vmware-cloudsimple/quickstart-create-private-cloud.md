@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e5cea36760746eaa63451c9e9955368c71ba4472
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 1bd84a40236b54d799efcf04eae707aea9c6c945
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/02/2019
-ms.locfileid: "71816136"
+ms.locfileid: "71828935"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Guida introduttiva-configurare un ambiente cloud privato
 
@@ -42,7 +42,7 @@ I cloud privati vengono gestiti tramite il portale CloudSimple. Hanno il proprio
 
 5. Nel portale di CloudSimple specificare un nome per il cloud privato.
 6. Selezionare la **località** del cloud privato.
-7. Selezionare il **tipo di nodo**, coerente con quello acquistato in Azure. È possibile scegliere l' [opzione CS28 o CS36](cloudsimple-node.md#vmware-solution-by-cloudsimple-nodes-sku). La seconda opzione include la capacità di calcolo e di memoria massima.
+7. Selezionare il **tipo di nodo**, coerente con quello acquistato in Azure.
 8. Specificare il **numero di nodi**.  Per creare un cloud privato sono necessari almeno tre nodi.
 
     ![Creare un cloud privato-informazioni di base](media/create-private-cloud-basic-info.png)

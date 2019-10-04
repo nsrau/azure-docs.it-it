@@ -5,16 +5,16 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: f0d847596ef21af67973b6572737e27e1d015991
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 932fbe6814df8ec324dd3360bcacfcbcf1c19b62
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676495"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71842776"
 ---
-# <a name="automatically-scale-session-hosts"></a>Ridimensionare automaticamente gli host della sessione
+# <a name="scale-session-hosts-dynamically"></a>Ridimensionare gli host di sessione in modo dinamico
 
 Per molte distribuzioni di desktop virtuali Windows in Azure, i costi della macchina virtuale rappresentano una parte significativa del costo totale per la distribuzione di desktop virtuali Windows. Per ridurre i costi, è preferibile arrestare e deallocare le macchine virtuali (VM) host della sessione durante le ore di minore utilizzo, quindi riavviarle durante le ore di picco di utilizzo.
 

@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.openlocfilehash: 53bed3fe50afef260ac44f73a9f82e6894015c90
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: e6767c1e03b074f43993e449ca81af951c579090
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349003"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937313"
 ---
 # <a name="best-practices-for-using-power-bi-to-query-and-visualize-azure-data-explorer-data"></a>Procedure consigliate per l'uso di Power BI per eseguire query e visualizzare i dati di Azure Esplora dati
 
@@ -28,13 +28,13 @@ Quando si utilizzano terabyte di dati non elaborati aggiornati, attenersi alle l
 
 * Modalità di **importazione rispetto alla modalità DirectQuery** : usare la modalità di **importazione** per l'interazione di set di dati più piccoli. Utilizzare la modalità **DirectQuery** per set di dati di grandi dimensioni e aggiornati di frequente. Ad esempio, creare tabelle delle dimensioni usando la modalità di **importazione** poiché sono di piccole dimensioni e non cambiano spesso. Impostare l'intervallo di aggiornamento in base alla frequenza prevista di aggiornamenti dei dati. Creare tabelle dei fatti usando la modalità **DirectQuery** poiché le tabelle sono di grandi dimensioni e contengono dati non elaborati. Utilizzare queste tabelle per presentare i dati filtrati utilizzando Power BI [drill-through](https://docs.microsoft.com/power-bi/desktop-drillthrough).
 
-* **Parallelismo** : Esplora dati di Azure è una piattaforma dati scalabile linearmente, pertanto è possibile migliorare le prestazioni del rendering del dashboard aumentando il parallelismo del flusso end-to-end come indicato di seguito:
+* **Parallelismo** : Azure Esplora dati è una piattaforma di dati scalabile linearmente, pertanto è possibile migliorare le prestazioni del rendering del dashboard aumentando il parallelismo del flusso end-to-end come indicato di seguito:
 
    * Aumentare il numero di [connessioni simultanee in DirectQuery in Power bi](https://docs.microsoft.com/power-bi/desktop-directquery-about#maximum-number-of-connections-option-for-directquery).
 
    * Usare la [coerenza debole per migliorare il parallelismo](/azure/kusto/concepts/queryconsistency). Questo può influisca sull'aggiornamento dei dati.
 
-* **Sezionamenti effettivi** : è possibile usare i filtri dei dati di [sincronizzazione](https://docs.microsoft.com/power-bi/visuals/power-bi-visualization-slicers#sync-and-use-slicers-on-other-pages) per impedire ai report di caricare i dati prima di essere pronti. Dopo aver strutturato il set di dati, inserire tutti gli oggetti visivi e contrassegnare tutti i filtri dei dati, è possibile selezionare il filtro dei dati di sincronizzazione per caricare solo i dati necessari.
+* **Sezionamenti effettivi** : usare i filtri dei dati di [sincronizzazione](https://docs.microsoft.com/power-bi/visuals/power-bi-visualization-slicers#sync-and-use-slicers-on-other-pages) per impedire ai report di caricare i dati prima di essere pronti. Dopo aver strutturato il set di dati, inserire tutti gli oggetti visivi e contrassegnare tutti i filtri dei dati, è possibile selezionare il filtro dei dati di sincronizzazione per caricare solo i dati necessari.
 
 * **Usare i filtri** : usare il maggior numero possibile di filtri Power BI per concentrare la ricerca di Azure Esplora dati sulle partizioni di dati rilevanti.
 
@@ -104,7 +104,7 @@ Nella finestra **modifica query** **Home** > **Editor avanzato**
     Source = Kusto.Contents("Help", "Samples", "StormEvents | where State == 'ALABAMA' | take 100", [])
     ```
 
-1. Sostituire la parte pertinente della query con il parametro. Suddividere la query in più parti e concatenarle usando il segno di &, insieme al parametro.
+1. Sostituire la parte pertinente della query con il parametro. Suddividere la query in più parti e concatenarle usando una e commerciale (&) insieme al parametro.
 
    Nella query precedente, ad esempio, `State == 'ALABAMA'` si prenderà la parte e la si suddividerà in: `State == '` e `'` e il `State` parametro verrà inserito tra di essi:
    
@@ -138,7 +138,7 @@ Nella finestra **modifica query** **Home** > **Editor avanzato**
 
 ### <a name="dont-use-power-bi-data-refresh-scheduler-to-issue-control-commands-to-kusto"></a>Non usare Power BI utilità di pianificazione dell'aggiornamento dati per inviare comandi di controllo a kusto
 
-Power BI include un'utilità di pianificazione dell'aggiornamento dati che consente di eseguire periodicamente query su un'origine dati. Questo meccanismo non deve essere utilizzato per pianificare i comandi di controllo in kusto, poiché Power BI presuppone che tutte le query siano di sola lettura.
+Power BI include un'utilità di pianificazione dell'aggiornamento dati che consente di eseguire periodicamente query su un'origine dati. Questo meccanismo non deve essere utilizzato per pianificare i comandi di controllo in kusto perché Power BI presuppone che tutte le query siano di sola lettura.
 
 ### <a name="power-bi-can-send-only-short-lt2000-characters-queries-to-kusto"></a>Power BI possibile inviare query brevi (&lt;2000 caratteri) a kusto
 

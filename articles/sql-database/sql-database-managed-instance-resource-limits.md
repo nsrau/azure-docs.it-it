@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 09/16/2019
-ms.openlocfilehash: 5eaade975adac86b6842d1d8f9f9b8f522d15bca
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.date: 10/02/2019
+ms.openlocfilehash: a360d836f1ef09b0bb87e2af39aeab0460034cd4
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71816088"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71935615"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Panoramica dei limiti delle risorse dell'istanza gestita di database SQL di Azure
 
@@ -25,13 +25,9 @@ Questo articolo fornisce una panoramica delle caratteristiche tecniche e dei lim
 > [!NOTE]
 > Per informazioni sulle differenze nelle funzionalità e nelle istruzioni T-SQL supportate, vedere [Confronto tra le funzionalità](sql-database-features.md) e [Differenze T-SQL tra Istanza gestita del database SQL di Azure e SQL Server](sql-database-managed-instance-transact-sql-information.md). Per differenze generali tra i livelli di servizio nel database singolo e nell'istanza gestita, vedere [confronto tra livelli di servizio](sql-database-service-tiers-general-purpose-business-critical.md#service-tier-comparison).
 
-## <a name="instance-level-resource-limits"></a>Limiti delle risorse a livello di istanza
+## <a name="hardware-generation-characteristics"></a>Caratteristiche delle generazioni dell'hardware
 
-L'istanza gestita presenta le caratteristiche e i limiti delle risorse che dipendono dall'infrastruttura e dall'architettura sottostanti. I limiti dipendono dalla generazione dell'hardware e dal livello di servizio.
-
-### <a name="hardware-generation-characteristics"></a>Caratteristiche delle generazioni dell'hardware
-
-Istanza gestita di database SQL di Azure può essere distribuita in due generazioni hardware: Gen4 e quinta generazione. Le generazioni hardware hanno caratteristiche diverse, come descritto nella tabella seguente:
+L'istanza gestita presenta le caratteristiche e i limiti delle risorse che dipendono dall'infrastruttura e dall'architettura sottostanti. Istanza gestita di database SQL di Azure può essere distribuita in due generazioni hardware: Gen4 e quinta generazione. Le generazioni hardware hanno caratteristiche diverse, come descritto nella tabella seguente:
 
 |   | **Quarta generazione** | **Quinta generazione** |
 | --- | --- | --- |
@@ -45,22 +41,22 @@ Istanza gestita di database SQL di Azure può essere distribuita in due generazi
 > - L'hardware Gen4 è in fase di eliminazione. È consigliabile distribuire nuove istanze gestite nell'hardware quinta generazione.
 > - L'hardware Gen4 al momento è ancora disponibile solo nelle aree seguenti: Europa settentrionale, Europa occidentale, Stati Uniti orientali, Stati Uniti centro-meridionali, Stati Uniti centro-settentrionali, Stati Uniti occidentali 2, Stati Uniti centrali, Canada centrale, India meridionale, Asia sudorientale e Corea centrale.
 
-#### <a name="in-memory-oltp-available-space"></a>Spazio disponibile OLTP in memoria 
+### <a name="in-memory-oltp-available-space"></a>Spazio disponibile OLTP in memoria 
 
-La quantità di spazio di OLTP in memoria dipende dal numero di Vcore e dalla generazione dell'hardware. Nella tabella seguente sono elencati i limiti di memoria che possono essere utilizzati per gli oggetti OLTP in memoria.
+La quantità di spazio di OLTP in memoria in [business critical](sql-database-service-tier-business-critical.md) livello di servizio dipende dal numero di Vcore e dalla generazione dell'hardware. Nella tabella seguente sono elencati i limiti di memoria che possono essere utilizzati per gli oggetti OLTP in memoria.
 
-| Spazio OLTP in memoria per ogni vCore    | **Quinta generazione** | **Quarta generazione** |
+| Spazio OLTP in memoria  | **Quinta generazione** | **Quarta generazione** |
 | --- | --- | --- |
-| 4 | 3,14 GB | |   
-| 8 | 6,28 GB | 8 GB |
-| 16    | 15,77 GB | 20 GB |
-| 24    | 25,25 GB | 36 GB |
-| 32    | 37,94 GB | |
-| 40    | 52,23 GB | |
-| 64    | 99,9 GB   | |
-| 80    | 131,68 GB| |
+| 4 vCore  | 3,14 GB | |   
+| 8 vCore  | 6,28 GB | 8 GB |
+| 16 vcore | 15,77 GB | 20 GB |
+| 24 vcore | 25,25 GB | 36 GB |
+| 32 vcore | 37,94 GB | |
+| 40 vcore | 52,23 GB | |
+| 64 vcore | 99,9 GB    | |
+| 80 vcore | 131,68 GB| |
 
-### <a name="service-tier-characteristics"></a>Caratteristiche del livello di servizio
+## <a name="service-tier-characteristics"></a>Caratteristiche del livello di servizio
 
 Istanza gestita ha due livelli di servizio: [Per utilizzo generico](sql-database-service-tier-general-purpose.md) e [business critical](sql-database-service-tier-business-critical.md). Questi livelli forniscono [funzionalità diverse](sql-database-service-tiers-general-purpose-business-critical.md), come descritto nella tabella seguente:
 
@@ -75,7 +71,7 @@ Istanza gestita ha due livelli di servizio: [Per utilizzo generico](sql-database
 | Numero massimo di file di database per istanza | Fino a 280, a meno che non sia stata raggiunta la dimensione di archiviazione dell'istanza o il limite di [spazio di allocazione di archiviazione su disco Premium](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files) | 32.767 file per database, a meno che non sia stato raggiunto il limite delle dimensioni di archiviazione dell'istanza. |
 | Dimensioni massime file di dati | Limitato alle dimensioni di archiviazione delle istanze attualmente disponibili (max 2 TB-8 TB) e [allo spazio di allocazione dell'archiviazione su disco Premium di Azure](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files). | Limitato alle dimensioni di archiviazione delle istanze attualmente disponibili (fino a 1 TB-4 TB). |
 | Dimensioni massime file di log | Limitato a 2 TB e alle dimensioni di archiviazione dell'istanza attualmente disponibili. | Limitato a 2 TB e alle dimensioni di archiviazione dell'istanza attualmente disponibili. |
-| Dati/Log di IOPS (approssimativi) | 500 - 7.500 per file<br/>\*[Aumentare le dimensioni del file per ottenere più IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 5,5 k-110 K (1375/vCore)<br/>Aggiungere altri Vcore per ottenere prestazioni di i/o migliori. |
+| Dati/Log di IOPS (approssimativi) | Fino a 30-40 K IOPS per istanza *, 500-7500 per file<br/>\*[Aumentare le dimensioni del file per ottenere più IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 5,5 k-110 K (1375 IOPS/vCore)<br/>Aggiungere altri Vcore per ottenere prestazioni di i/o migliori. |
 | Limite velocità effettiva scrittura log (per istanza) | 3 MB/s per ogni vCore<br/>Massimo 22 MB/s | 4 MB/s per vCore<br/>Max 48 MB/s |
 | Dati effettivi (approssimativi) | 100 - 250 MB/s per ogni file<br/>\*[Aumentare le dimensioni del file per ottenere prestazioni di i/o migliori](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | Non limitato. |
 | Latenza IO di archiviazione (approssimativa) | 5-10 ms | 1-2 ms |
@@ -88,9 +84,23 @@ Istanza gestita ha due livelli di servizio: [Per utilizzo generico](sql-database
 > - La dimensione di archiviazione dell'istanza, che viene confrontata con la dimensione massima di archiviazione, include la dimensione dei dati e dei file di log presenti sia nel database utenti che in quello di sistema. Usare la vista di sistema <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> per determinare lo spazio totale usato dai database. I log degli errori non vengono salvati in modo permanente e non sono inclusi nella dimensione. I backup non sono inclusi nella dimensione di archiviazione.
 > - La velocità effettiva e IOPS dipendono anche dalle dimensioni di pagina non esplicitamente limitate dall'istanza gestita.
 > È possibile creare un'altra replica leggibile in un'area di Azure diversa usando i gruppi di failover automatico.
+> - Il numero massimo di IOPS dell'istanza dipende dal layout del file e dalla distribuzione del carico di lavoro. Ad esempio, se si crea un file da 7 x 1 GB con numero massimo di 5 GB di IOPS ciascuno e 7 piccoli file (inferiori a 128 GB) con 500 IOPS ciascuno, è possibile ottenere 38500 IOPS per istanza (7x5000 + 7x500) se il carico di lavoro può usare tutti i file. Si noti che per i backup automatici viene usata anche una certa quantità di IOPS.
 
 > [!NOTE]
 > Altre informazioni sui [limiti delle risorse nei pool di istanze gestite sono disponibili in questo articolo](sql-database-instance-pools.md#instance-pools-resource-limitations).
+
+### <a name="file-io-characteristics-in-general-purpose-tier"></a>Caratteristiche di i/o del file nel livello per utilizzo generico
+
+In per utilizzo generico livello di servizio ogni file di database sta ottenendo IOPS e velocità effettiva dedicati che dipendono dalle dimensioni del file. I file più grandi ricevono un numero maggiore di IOPS e velocità effettiva. Le caratteristiche di i/o dei file di database sono illustrate nella tabella seguente:
+
+| Dimensione file           | GiB 0-128 | 128-256 GiB | 256-512 GiB | 0,5-1 TiB    | 1-2 TiB    | 2-4 TiB | 4-8 TiB |
+|---------------------|-------|-------|-------|-------|-------|-------|-------|
+| IOPS per file       | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12.500   |
+| Velocità effettiva per file | 100 MiB/s | 125 MiB/s | 150 MiB/s | 200 MiB/s | 250 MiB/s | 250 MiB/s | 480 MiB/s | 
+
+Se si nota una latenza di i/o elevata per un file di database o si osserva che IOPS/velocità effettiva sta raggiungendo il limite, è possibile migliorare [le prestazioni aumentando le dimensioni del file](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Increase-data-file-size-to-improve-HammerDB-workload-performance/ba-p/823337).
+
+Esistono anche limiti a livello di istanza, come la velocità effettiva massima di scrittura del log di 22 MB/s, quindi potrebbe non essere possibile raggiungere il file nel file di log perché si raggiunge il limite della velocità effettiva dell'istanza.
 
 ## <a name="supported-regions"></a>Aree supportate
 

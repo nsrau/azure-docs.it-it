@@ -8,14 +8,14 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: aacdb57c312946a9ec2b17a8d41aa9150efc277d
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: a6e3d466321fcd8f32f46359c97f67400a8f86c6
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640978"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828166"
 ---
-# <a name="create-a-cloudsimple-private-cloud"></a>Creare un cloud privato CloudSimple
+# <a name="create-a-cloudsimple-private-cloud"></a>Crea un cloud privato CloudSimple
 
 Un cloud privato è uno stack VMware isolato che supporta host ESXi, vCenter, rete VSAN e NSX. I cloud privati vengono gestiti tramite il portale CloudSimple. Hanno il proprio server vCenter nel proprio dominio di gestione. Lo stack viene eseguito su nodi dedicati e nodi hardware bare metal isolati.
 
@@ -46,7 +46,7 @@ Accedere al [portale di CloudSimple](access-cloudsimple-portal.md).
 
 5. Nel portale di CloudSimple specificare un nome per il cloud privato.
 6. Selezionare la **località** per il cloud privato.
-7. Selezionare il **tipo di nodo**, coerente con quello acquistato in Azure.  È possibile scegliere l' [opzione CS28 o CS36](cloudsimple-node.md#vmware-solution-by-cloudsimple-nodes-sku). La seconda opzione include la capacità di calcolo e di memoria massima.
+7. Selezionare il **tipo di nodo**, coerente con quello acquistato in Azure.
 8. Specificare il **numero di nodi**.  Per creare un cloud privato sono necessari almeno tre nodi.
 
     ![Creare un cloud privato-informazioni di base](media/create-private-cloud-basic-info.png)

@@ -9,12 +9,12 @@ manager: rkarlin
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: c8608a980c405f1f9fdd5aa274a9a21d801a59ed
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 00753d885985e2734f0d87fdad9f219f44277d5a
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70886780"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828339"
 ---
 # <a name="security-controls-for-linux-virtual-machines"></a>Controlli di sicurezza per macchine virtuali Linux
 
@@ -27,7 +27,7 @@ Questo articolo descrive i controlli di sicurezza incorporati in macchine virtua
 | Controllo di sicurezza | Sì/No | Note |
 |---|---|--|
 | Supporto per endpoint di servizio| Sì | |
-| Supporto di VNet Injection| Sì | |
+| Supporto di VNet Injection| Yes | |
 | Isolamento rete e supporto del firewall| Sì |  |
 | Supporto del tunneling forzato| Yes | Vedere [configurare il tunneling forzato usando il modello di distribuzione Azure Resource Manager](/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm). |
 
@@ -35,7 +35,7 @@ Questo articolo descrive i controlli di sicurezza incorporati in macchine virtua
 
 | Controllo di sicurezza | Sì/No | Note|
 |---|---|--|
-| Supporto di monitoraggio di Azure (log Analytics, Application Insights e così via)| Yes | Vedere [monitorare e aggiornare una macchina virtuale Linux in Azure](/azure/virtual-machines/linux/tutorial-monitoring) e [monitorare e aggiornare una macchina virtuale Windows in Azure](/azure/virtual-machines/windows/tutorial-monitoring). |
+| Supporto di monitoraggio di Azure (log Analytics, Application Insights e così via)| Yes | Vedere [monitorare e aggiornare una macchina virtuale Linux in Azure](/azure/virtual-machines/linux/tutorial-monitoring). |
 | Registrazione e controllo del piano di gestione e controllo| Yes |  |
 | Registrazione e controllo del piano dati | No |  |
 
@@ -44,15 +44,15 @@ Questo articolo descrive i controlli di sicurezza incorporati in macchine virtua
 | Controllo di sicurezza | Sì/No | Note|
 |---|---|--|
 | Authentication| Sì |  |
-| Authorization| Sì |  |
+| Authorization| Yes |  |
 
-## <a name="data-protection"></a>Protezione dati
+## <a name="data-protection"></a>Protezione dei dati
 
 | Controllo di sicurezza | Sì/No | Note |
 |---|---|--|
-| Crittografia lato server: Chiavi gestite da Microsoft | Yes | Vedere [come crittografare una macchina virtuale Linux in Azure](/azure/virtual-machines/linux/encrypt-disks) e [crittografare i dischi virtuali in una VM Windows](/azure/virtual-machines/windows/encrypt-disks). |
+| Crittografia lato server: Chiavi gestite da Microsoft | Yes | Vedere [crittografia dischi di Azure per macchine virtuali Linux](disk-encryption-overview.md). |
 | Crittografia in transito (ad esempio crittografia ExpressRoute, crittografia VNet e crittografia VNet-VNet)| Sì | Macchine virtuali di Azure supporta la crittografia [ExpressRoute](/azure/expressroute) e VNet. Vedere [crittografia in transito nelle VM](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms). |
-| Crittografia lato server inattiva: chiavi gestite dal cliente (BYOK) | Sì | Chiavi gestite dal cliente è uno scenario di crittografia di Azure supportato. vedere [Panoramica di crittografia di Azure](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms).|
+| Crittografia lato server inattiva: chiavi gestite dal cliente (BYOK) | Yes | Chiavi gestite dal cliente è uno scenario di crittografia di Azure supportato. vedere [Panoramica di crittografia di Azure](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms).|
 | Crittografia a livello di colonna (servizi dati di Azure)| N/D | |
 | Chiamate API crittografate| Sì | Tramite HTTPS e SSL. |
 
@@ -60,7 +60,7 @@ Questo articolo descrive i controlli di sicurezza incorporati in macchine virtua
 
 | Controllo di sicurezza | Sì/No | Note|
 |---|---|--|
-| Supporto per la gestione della configurazione (controllo delle versioni della configurazione e così via)| Sì |  | 
+| Supporto per la gestione della configurazione (controllo delle versioni della configurazione e così via)| Yes |  | 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

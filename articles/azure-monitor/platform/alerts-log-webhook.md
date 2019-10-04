@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 3e29bdf41b0421aa4461b11fbf9bc0535179486d
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 3a072ae64104f8fded49ff6a00f5b58902c39903
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677760"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71838577"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Azioni webhook per le regole di avviso relative ai log
 Quando [viene creato un avviso del log in Azure](alerts-log.md), è possibile configurarlo [usando i gruppi di azioni](action-groups.md) per eseguire una o più azioni. Questo articolo descrive le diverse azioni webhook disponibili e Mostra come configurare un webhook basato su JSON personalizzato.
 
 > [!NOTE]
-> È anche possibile usare lo [schema di avviso comune](https://aka.ms/commonAlertSchemaDocs) per le integrazioni del webhook. Lo schema di avviso comune offre il vantaggio di avere un singolo payload di avviso estendibile e unificato in tutti i servizi Alert di monitoraggio di Azure. [Informazioni sulle definizioni comuni dello schema di avviso.](https://aka.ms/commonAlertSchemaDefinitions)
+> È anche possibile usare lo [schema di avviso comune](https://aka.ms/commonAlertSchemaDocs) per le integrazioni del webhook. Lo schema di avviso comune offre il vantaggio di avere un singolo payload di avvisi estendibile e unificato in tutti i servizi Alert di monitoraggio di Azure. si noti che lo schema di avviso comune non rispetta l'opzione JSON personalizzata per gli avvisi del log. Viene rinviato il payload dello schema di avviso comune se selezionato indipendentemente dalla personalizzazione che è possibile eseguire a livello di regola di avviso. [Informazioni sulle definizioni comuni dello schema di avviso.](https://aka.ms/commonAlertSchemaDefinitions)
 
 ## <a name="webhook-actions"></a>Azioni webhook
 

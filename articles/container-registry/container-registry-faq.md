@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: 293f2a704fecb04bc6b65e49743ea80905f2394f
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: b365c914db0ce43da5dac4c5b889c854c0ea0639
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142679"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827414"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Domande frequenti su Azure Container Registry
 
@@ -260,6 +260,7 @@ La quarantena delle immagini è attualmente una funzionalità di anteprima di AC
 - [Le nuove autorizzazioni utente potrebbero non essere valide immediatamente dopo l'aggiornamento](#new-user-permissions-may-not-be-effective-immediately-after-updating)
 - [Le informazioni di autenticazione non sono specificate nel formato corretto sulle chiamate API REST dirette](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
 - [Perché il portale di Azure non elenca tutti i repository o i tag?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
+- [Perché il portale di Azure non riesce a recuperare i repository o i tag?](#why-does-the-azure-portal-fail-to-fetch-repositories-or-tags)
 - [Ricerca per categorie raccogliere tracce http in Windows?](#how-do-i-collect-http-traces-on-windows)
 
 ### <a name="check-health-with-az-acr-check-health"></a>Controllare l'integrità con`az acr check-health`
@@ -409,6 +410,17 @@ curl $redirect_url
 ### <a name="why-does-the-azure-portal-not-list-all-my-repositories-or-tags"></a>Perché il portale di Azure non elenca tutti i repository o i tag? 
 
 Se si usa il browser Microsoft Edge/IE, è possibile visualizzare al massimo 100 repository o tag. Se il registro di sistema contiene più di 100 repository o tag, è consigliabile usare il browser Firefox o Chrome per elencarli tutti.
+
+### <a name="why-does-the-azure-portal-fail-to-fetch-repositories-or-tags"></a>Perché il portale di Azure non riesce a recuperare i repository o i tag?
+
+Il browser potrebbe non essere in grado di inviare la richiesta di recupero dei repository o dei tag al server. Potrebbero essere presenti diversi motivi, ad esempio:
+
+* Mancanza di connettività di rete
+* Firewall
+* Blocchi ad
+* Errori DNS
+
+Contattare l'amministratore di rete o verificare la configurazione e la connettività di rete. Inoltre, è anche possibile provare una sessione in incognito o privata nel browser per evitare la cache o i cookie del browser obsoleti.
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>Ricerca per categorie raccogliere tracce http in Windows?
 

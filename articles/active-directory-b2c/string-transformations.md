@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 83379cc194f23ebff977babc7124a7bc90f4bc60
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 77f0b196777ae0f2ff0b870eac0a01b11854190b
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063448"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936804"
 ---
 # <a name="string-claims-transformations"></a>Trasformazioni di attestazioni di stringa
 
@@ -29,8 +29,8 @@ Confronta due attestazioni e genera un'eccezione se non sono uguali in base agli
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim1 | string | Tipo della prima attestazione di cui eseguire il confronto. |
-| inputClaim | inputClaim2 | string | Tipo della seconda attestazione di cui eseguire il confronto. |
+| InputClaim | inputClaim1 | string | Tipo della prima attestazione di cui eseguire il confronto. |
+| InputClaim | inputClaim2 | string | Tipo della seconda attestazione di cui eseguire il confronto. |
 | InputParameter | stringComparison | string | Confronto tra le stringhe con valore Ordinal o OrdinalIgnoreCase. |
 
 La trasformazione dell'asserzione **AssertStringClaimsAreEqual** viene sempre eseguita da un [profilo tecnico di convalida](validation-technical-profile.md) chiamato da un [profilo tecnico autocertificato](self-asserted-technical-profile.md). I metadati del profilo tecnico autocertificato **UserMessageIfClaimsTransformationStringsAreNotEqual** controllano il messaggio di errore inviato all'utente.
@@ -154,9 +154,9 @@ Determina se un'attestazione di stringa è uguale a un'altra. Il risultato è un
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim1 | string | Tipo della prima attestazione di cui eseguire il confronto. |
-| inputClaim | inputClaim2 | string | Tipo della seconda attestazione di cui eseguire il confronto. |
-| InputParameter | operator | string | I valori possibili sono: `EQUAL` o `NOT EQUAL`. |
+| InputClaim | inputClaim1 | string | Tipo della prima attestazione di cui eseguire il confronto. |
+| InputClaim | inputClaim2 | string | Tipo della seconda attestazione di cui eseguire il confronto. |
+| InputParameter | Operatore | string | I valori possibili sono: `EQUAL` o `NOT EQUAL`. |
 | InputParameter | ignoreCase | boolean | Specifica se il confronto deve ignorare l'uso di maiuscole e minuscole nelle stringhe da confrontare. |
 | OutputClaim | outputClaim | boolean | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. |
 
@@ -195,8 +195,8 @@ Determina se un valore di attestazione è uguale al valore del parametro di inpu
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim1 | string | Tipo della prima attestazione di cui eseguire il confronto. |
-| InputParameter | operator | string | I valori possibili sono: `EQUAL` o `NOT EQUAL`. |
+| InputClaim | inputClaim1 | string | Tipo della prima attestazione di cui eseguire il confronto. |
+| InputParameter | Operatore | string | I valori possibili sono: `EQUAL` o `NOT EQUAL`. |
 | InputParameter | compareTo | string | Confronto tra le stringhe con valore Ordinal o OrdinalIgnoreCase. |
 | InputParameter | ignoreCase | boolean | Specifica se il confronto deve ignorare l'uso di maiuscole e minuscole nelle stringhe da confrontare. |
 | OutputClaim | outputClaim | boolean | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. |
@@ -504,7 +504,7 @@ Verifica che un'attestazione di stringa e il parametro di input `matchTo` siano 
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim | string | Tipo dell'attestazione di cui eseguire il confronto. |
+| InputClaim | inputClaim | string | Tipo dell'attestazione di cui eseguire il confronto. |
 | InputParameter | matchTo | string | Stringa da confrontare con `inputClaim`. |
 | InputParameter | stringComparison | string | I valori possibili sono: `Ordinal` o `OrdinalIgnoreCase`. |
 | InputParameter | stringMatchMsg | string | Primo valore da impostare se le stringhe sono uguali. |
@@ -553,7 +553,7 @@ Verifica che un'attestazione di stringa e il parametro di input `matchTo` siano 
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | claimToMatch | string | Tipo dell'attestazione di cui eseguire il confronto. |
+| InputClaim | claimToMatch | string | Tipo dell'attestazione di cui eseguire il confronto. |
 | InputParameter | matchTo | string | Stringa da confrontare con inputClaim. |
 | InputParameter | stringComparison | string | I valori possibili sono: `Ordinal` o `OrdinalIgnoreCase`. |
 | InputParameter | outputClaimIfMatched | string | Valore da impostare se le stringhe sono uguali. |

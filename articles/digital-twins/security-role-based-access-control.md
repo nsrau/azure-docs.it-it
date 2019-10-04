@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 09/30/2019
 ms.author: lyhughes
-ms.openlocfilehash: 4e29cb488c9b491ec551ead1873e8cfd2d33a93b
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
-ms.translationtype: MT
+ms.openlocfilehash: a5953aab179a62d4a8e37b7f5c7659318628918e
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71336741"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827024"
 ---
 # <a name="role-based-access-control-in-azure-digital-twins"></a>Controllo degli accessi in base al ruolo in Gemelli digitali di Azure
 

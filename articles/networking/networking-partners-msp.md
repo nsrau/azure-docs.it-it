@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: sukishen
-ms.openlocfilehash: 8d71863406eb6e8b032a78f65ab5be97cca91bd7
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: bf62e62e1235c7a37c092e79df57ca518e07ff4b
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212878"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828196"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Informazioni sui partner MSP di rete di Azure
 
@@ -46,6 +46,8 @@ Usare i collegamenti in questa sezione per altre informazioni sui servizi di ret
 
 [ixreach](https://www.ixreach.com/)
 
+[KINX](https://www.kinx.net/service/cloud/?lang=en)
+
 [Megaport](https://www.megaport.com/services/microsoft-expressroute/)
 
 [Servizi cloud di Oncore]( https://www.oncore.cloud/services/ue-for-expressroute/)
@@ -54,7 +56,9 @@ Usare i collegamenti in questa sezione per altre informazioni sui servizi di ret
 
 [Comunicazioni tata](https://www.tatacommunications.com/about/our-alliances/microsoft-alliance/)
 
-[Vandis](https://www.vandis.com/services/azure-migration/)
+[Vandis](https://www.vandis.com/microsoft-azure-practice/)
+
+[Attento](https://vigilant.it/manage-cloud-service/)
 
 ## <a name="expressroute"></a>Partner ExpressRoute
 

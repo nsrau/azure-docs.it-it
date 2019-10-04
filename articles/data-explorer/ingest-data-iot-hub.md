@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: cbe9aa2ea664d97df6008de05d6cb84da9771bcc
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
-ms.translationtype: MT
+ms.openlocfilehash: 83f5339dbc4f093ba0b7287b53c053e319f928c9
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70166550"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937379"
 ---
 # <a name="ingest-data-from-iot-hub-into-azure-data-explorer-preview"></a>Inserire i dati dall'hub Internet in Esplora dati di Azure (anteprima)
 
@@ -76,11 +76,11 @@ A questo punto è possibile connettersi all'hub Internet delle cose da Azure Esp
 
     **Impostazione** | **Descrizione campo**
     |---|---|
-    | Data connection name (Nome connessione dati) | Nome della connessione che si vuole creare in Azure Esplora dati
-    | Hub IoT | Nome dell'hub IoT |
-    | Criteri di accesso condiviso | Nome dei criteri di accesso condiviso. Deve disporre delle autorizzazioni di lettura |
-    | Gruppo di consumer |  Il gruppo di consumer definito nell'endpoint predefinito dell'hub Internet |
-    | Proprietà del sistema eventi | Proprietà del sistema di eventi dell'hub Internet |
+    | Nome connessione dati | Nome della connessione da creare in Esplora dati di Azure.
+    | Hub IoT | Nome dell'hub Internet. |
+    | Criteri di accesso condiviso | Nome dei criteri di accesso condiviso. Deve disporre delle autorizzazioni di lettura. |
+    | Gruppo di consumer |  Il gruppo di consumer definito nell'endpoint predefinito dell'hub Internet. |
+    | Proprietà del sistema per gli eventi | Proprietà del sistema di eventi dell'hub Internet. Se sono presenti più record per ogni messaggio di evento, le proprietà di sistema verranno aggiunte alla prima. |
     | | 
 
     > [!NOTE]
@@ -95,11 +95,12 @@ A questo punto è possibile connettersi all'hub Internet delle cose da Azure Esp
     |---|---|---|
     | Tabella | *TestTable* | Tabella creata in **TestDB**. |
     | Formato dati | *JSON* | I formati supportati sono Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV e TXT. |
-    | Mapping di colonne | *TestMapping* | Il mapping creato in **TestDB**, che esegue il mapping dei dati JSON in ingresso ai nomi di colonna e ai tipi di dati di **TestDB**. Obbligatorio per JSON, multiriga JSON e AVRO e facoltativo per altri formati.|
+    | Mapping colonne | *TestMapping* | Il mapping creato in **TestDB**, che esegue il mapping dei dati JSON in ingresso ai nomi di colonna e ai tipi di dati di **TestDB**. Obbligatorio per JSON, multiriga JSON e AVRO e facoltativo per altri formati.|
     | | |
 
-    > [!TIP]
-    > Selezionare **My data includes routing info** (I miei dati includono le informazioni di routing) per usare il routing dinamico, in cui i dati includono le informazioni di routing necessarie come illustrato nei commenti dell'[app di esempio](https://github.com/Azure-Samples/event-hubs-dotnet-ingest). Se vengono impostate proprietà sia statiche che dinamiche, le proprietà dinamiche eseguono l'override di quelle statiche. 
+    > [!NOTE]
+    > * Selezionare **My data includes routing info** (I miei dati includono le informazioni di routing) per usare il routing dinamico, in cui i dati includono le informazioni di routing necessarie come illustrato nei commenti dell'[app di esempio](https://github.com/Azure-Samples/event-hubs-dotnet-ingest). Se vengono impostate proprietà sia statiche che dinamiche, le proprietà dinamiche eseguono l'override di quelle statiche. 
+    > * Vengono inseriti solo gli eventi accodati dopo la creazione della connessione dati.
 
 ## <a name="generate-sample-data-for-testing"></a>Genera dati di esempio per il test
 
@@ -111,7 +112,7 @@ L'applicazione del dispositivo simulato si connette a un endpoint specifico del 
 
 1. Aprire il file **SimulatedDevice.cs** in un editor di testo di propria scelta.
 
-    Sostituire il valore della `s_connectionString` variabile con la stringa di connessione del dispositivo da [registra un dispositivo all'hub](#register-a-device-to-the-iot-hub). Salvare quindi le modifiche nel file **SimulatedDevice.cs**.
+    Sostituire il valore della variabile `s_connectionString` con la stringa di connessione del dispositivo da [registrare un dispositivo nell'hub](#register-a-device-to-the-iot-hub). Salvare quindi le modifiche nel file **SimulatedDevice.cs**.
 
 1. Nella finestra del terminale locale eseguire i comandi seguenti per installare i pacchetti necessari per l'applicazione del dispositivo simulato:
 
@@ -164,7 +165,7 @@ Se non si prevede di usare di nuovo l'hub delle cose, pulire **test-Hub-RG**, pe
 
 1. Nel portale di Azure selezionare **Gruppi di risorse** all'estrema sinistra e quindi selezionare il gruppo di risorse creato.  
 
-    Se il menu a sinistra è compresso, selezionare ![pulsante Espandi](media/ingest-data-event-hub/expand.png) per espanderlo.
+    Se il menu a sinistra è compresso, selezionare ![Pulsante Espandi](media/ingest-data-event-hub/expand.png) per espanderlo.
 
    ![Selezionare il gruppo di risorse da eliminare](media/ingest-data-event-hub/delete-resources-select.png)
 

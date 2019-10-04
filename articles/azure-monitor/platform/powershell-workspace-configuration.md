@@ -8,18 +8,18 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 05/19/2019
 ms.author: bwren
-ms.openlocfilehash: ec72b0b9f2cdc932c7fb0c8a6fd8daecbc470c09
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 16cad34290ecc518e95ec1a0ce0950722cfe0780
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779966"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71836150"
 ---
 # <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Gestire Log Analytics area di lavoro in monitoraggio di Azure con PowerShell
 
 È possibile usare i [cmdlet di PowerShell log Analytics](https://docs.microsoft.com/powershell/module/az.operationalinsights/) per eseguire varie funzioni in un'area di lavoro log Analytics in monitoraggio di Azure da una riga di comando o come parte di uno script.  Esempi di attività che è possibile eseguire con PowerShell:
 
-* Creare un'area di lavoro
+* Crea un'area di lavoro
 * Aggiungere o rimuovere una soluzione
 * Importare ed esportare ricerche salvate
 * Creare un gruppo di computer
@@ -45,7 +45,7 @@ Questi esempi funzionano con la versione 1.0.0 o successiva del modulo AZ. Opera
 ## <a name="create-and-configure-a-log-analytics-workspace"></a>Creare e configurare un'area di lavoro Log Analytics
 Lo script di esempio seguente illustra come:
 
-1. Creare un'area di lavoro
+1. Crea un'area di lavoro
 2. Elencare le soluzioni disponibili
 3. Aggiungere soluzioni all'area di lavoro
 4. Importare le ricerche salvate
@@ -61,7 +61,7 @@ Lo script di esempio seguente illustra come:
 ```powershell
 
 $ResourceGroup = "oms-example"
-$WorkspaceName = "log-analytics-" + (Get-Random -Maximum 99999) # workspace names need to be unique - Get-Random helps with this for the example code
+$WorkspaceName = "log-analytics-" + (Get-Random -Maximum 99999) # workspace names need to be unique across all Azure subscriptions - Get-Random helps with this for the example code
 $Location = "westeurope"
 
 # List of solutions to enable
@@ -180,7 +180,7 @@ New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -
 ```
 Nell'esempio precedente regexDelimiter è stato definito come "\\n" per la nuova riga. Il delimitatore di log può anche essere un timestamp.  Questi sono i formati supportati:
 
-| Format | Il formato RegEx JSON usa due \\ per ogni \ in un'espressione RegEx standard, quindi in caso di test in un'app RegEx ridurre \\ a \ | | |
+| Formato | Il formato RegEx JSON usa due \\ per ogni \ in un'espressione RegEx standard, quindi in caso di test in un'app RegEx ridurre \\ a \ | | |
 | --- | --- | --- | --- |
 | `YYYY-MM-DD HH:MM:SS` | `((\\d{2})|(\\d{4}))-([0-1]\\d)-(([0-3]\\d)|(\\d))\\s((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9]` | | |
 | `M/D/YYYY HH:MM:SS AM/PM` | `(([0-1]\\d)|[0-9])/(([0-3]\\d)|(\\d))/((\\d{2})|(\\d{4}))\\s((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9]\\s(AM|PM|am|pm)` | | |
@@ -197,26 +197,26 @@ Nell'esempio precedente regexDelimiter è stato definito come "\\n" per la nuova
 ## <a name="configuring-log-analytics-to-send-azure-diagnostics"></a>Configurazione di Log Analytics per l'invio di diagnostica di Azure
 Per il monitoraggio senza agenti delle risorse di Azure, in queste ultime la diagnostica di Azure deve essere abilitata e configurata per la scrittura in un'area di lavoro Log Analytics. Questo approccio invia i dati direttamente all'area di lavoro e non richiede la scrittura di dati in un account di archiviazione. Le risorse supportate includono:
 
-| Tipo di risorsa | Log | Metriche |
+| Tipo di risorsa | Log | metrics |
 | --- | --- | --- |
-| Gateway applicazione    | Sì | Sì |
-| Account di Automazione     | Sì | |
-| Account Batch          | Sì | Sì |
-| Data Lake Analytics     | Sì | |
-| Data Lake Store         | Sì | |
-| Pool SQL elastico        |     | Sì |
-| Spazio dei nomi dell'hub eventi     |     | Sì |
-| Hub IoT                |     | Sì |
-| Key Vault               | Sì | |
-| Servizi di bilanciamento del carico          | Sì | |
-| App per la logica              | Sì | Sì |
-| Gruppi di sicurezza di rete | Sì | |
-| Cache Redis di Azure             |     | Sì |
-| Servizi di ricerca         | Sì | Sì |
-| Spazio dei nomi del bus di servizio   |     | Sì |
-| SQL (versione 12)               |     | Sì |
-| Microsoft Azure               |     | Sì |
-| Server farm Web        |     | Sì |
+| Gateway applicazione    | Yes | Yes |
+| Account di Automazione     | Yes | |
+| Account Batch          | Yes | Yes |
+| Data Lake Analytics     | Yes | |
+| Data Lake Store         | Yes | |
+| Pool SQL elastico        |     | Yes |
+| Spazio dei nomi dell'hub eventi     |     | Yes |
+| Hub IoT                |     | Yes |
+| Key Vault               | Yes | |
+| Servizi di bilanciamento del carico          | Yes | |
+| App per la logica              | Yes | Yes |
+| Gruppi di sicurezza di rete | Yes | |
+| Cache Redis di Azure             |     | Yes |
+| Servizi di ricerca         | Yes | Yes |
+| Spazio dei nomi del bus di servizio   |     | Yes |
+| SQL (versione 12)               |     | Yes |
+| Siti Web               |     | Yes |
+| Server farm Web        |     | Yes |
 
 Per informazioni dettagliate sulle metriche disponibili, vedere [Metriche supportate con il monitoraggio di Azure](../../azure-monitor/platform/metrics-supported.md).
 

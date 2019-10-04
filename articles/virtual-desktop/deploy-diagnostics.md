@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/14/2019
+ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: 07a45f54eb7c00e20abcfb05979e24493e5b9604
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
-ms.translationtype: MT
+ms.openlocfilehash: c9ae01b3a8f49b210c363fea20bc3c221d9e837a
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676664"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71839623"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Distribuire lo strumento di diagnostica
 
@@ -203,7 +203,7 @@ Dopo aver effettuato l'accesso al proprio account usando le informazioni ricevut
 
 ### <a name="how-to-read-activity-search-results"></a>Come leggere i risultati della ricerca di attività
 
-Le attività sono ordinate in base al timestamp, con l'attività più recente. Se i risultati restituiscono un errore, controllare innanzitutto se si tratta di un errore del servizio. Per gli errori del servizio, creare un ticket di supporto con le informazioni sulle attività che consentono di eseguire il debug del problema. Tutti gli altri tipi di errore possono in genere essere risolti dall'utente o dall'amministratore. Per un elenco degli scenari di errore più comuni e per informazioni su come risolverli, vedere [identificare i problemi con la funzionalità di diagnostica](diagnostics-role-service.md#common-error-scenarios).
+Le attività sono ordinate in base al timestamp, con l'attività più recente. Se i risultati restituiscono un errore, controllare innanzitutto se si tratta di un errore del servizio. Per gli errori del servizio, creare un ticket di supporto con le informazioni sulle attività che consentono di eseguire il debug del problema. Tutti gli altri tipi di errore possono in genere essere risolti dall'utente o dall'amministratore. Per un elenco degli scenari di errore più comuni e per informazioni su come risolverli, vedere [identificare e diagnosticare i problemi](diagnostics-role-service.md#common-error-scenarios).
 
 >[!NOTE]
 >Gli errori del servizio sono detti "errori esterni" nella documentazione collegata. Questo verrà modificato quando si aggiorna il riferimento a PowerShell.

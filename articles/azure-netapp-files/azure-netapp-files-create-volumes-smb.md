@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 9/25/2019
+ms.date: 10/02/2019
 ms.author: b-juche
-ms.openlocfilehash: 3d34caba9512dc0c0b20cf10476f5c38a2fab8ce
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: bd00c04ecfc211ae4ed410e886c0fe6553bea241
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299659"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827517"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Creare un volume SMB per Azure NetApp Files
 
@@ -68,7 +68,11 @@ Azure NetApp Files supporta i volumi NFS e SMBv3. L'utilizzo della capacità di 
 
     Vedere [linee guida per la pianificazione della rete Azure NetApp files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies) per le topologie di rete supportate.
 
-    I gruppi di sicurezza di rete (gruppi) e i firewall devono disporre di regole configurate in modo appropriato per consentire le richieste di traffico Active Directory e DNS.
+    I gruppi di sicurezza di rete (gruppi) e i firewall devono disporre di regole configurate in modo appropriato per consentire le richieste di traffico Active Directory e DNS. 
+
+* Il Azure NetApp Files subnet delegata deve essere in grado di raggiungere tutti i Active Directory Domain Services (aggiunge) controller di dominio nel dominio, inclusi tutti i controller di dominio locali e remoti. In caso contrario, può verificarsi un'interruzione del servizio.  
+
+    Se si dispone di controller di dominio irraggiungibili tramite la Azure NetApp Files subnet delegata, è possibile inviare una richiesta di supporto di Azure per modificare l'ambito da **globale** (impostazione predefinita) a **sito**.  Azure NetApp Files necessario comunicare solo con i controller di dominio nel sito in cui risiede lo spazio degli indirizzi della subnet delegata Azure NetApp Files.
 
     Vedere [progettazione della topologia del sito](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology) sui siti e servizi di Active Directory. 
 

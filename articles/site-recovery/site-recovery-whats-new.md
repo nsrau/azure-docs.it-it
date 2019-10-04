@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: raynew
-ms.openlocfilehash: c54273e0ca8c88a6fe47d5611950acd38f50b4c0
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 8e034153a2e98a101527f411c78ace6e46b01b29
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212804"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937516"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novità di Site Recovery
 
@@ -73,7 +73,7 @@ Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.
 
 **Funzionalità** | **Dettagli**
 --- | ---
-Account di archiviazione | Site Recovery supporta ora l'uso di account di archiviazione con firewall abilitato per il ripristino di emergenza da Hyper-V ad Azure.  È possibile selezionare account di archiviazione abilitati per il firewall come account di destinazione o per l'archiviazione nella cache. Se si usa l'account abilitato per il firewall, assicurarsi di abilitare l'opzione per consentire i servizi Microsoft attendibili.
+Account di archiviazione | Site Recovery supporta ora l'uso di account di archiviazione con firewall abilitato per il ripristino di emergenza da Hyper-V ad Azure.  È possibile selezionare account di archiviazione abilitati per il firewall come account di destinazione o per l'archiviazione nella cache. Se si usa l'account abilitato per il firewall, assicurarsi di abilitare l'opzione per consentire i servizi Microsoft attendibili.<br/><br/> Questa operazione è supportata per le VM Hyper-V con o senza System Center VMM.
 
 
 ## <a name="updates-august-2019"></a>Aggiornamenti (2019 agosto)

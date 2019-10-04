@@ -11,16 +11,16 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: 9508ce927ef03c83f1c4ef7bf28d2fc02b831a99
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: f877306170b45d65a52a4c76afd7f064e83f240a
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879933"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937298"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migrazione di un'istanza di SQL Server a un'istanza gestita di database SQL di Azure
 
-Questo articolo illustra i metodi disponibili per eseguire la migrazione di un'istanza di SQL Server 2005 o versione successiva a un'[istanza gestita di database SQL di Azure](sql-database-managed-instance.md). Per informazioni sulla migrazione a un database singolo o a un pool elastico, vedere [Migrate to a single or pooled database](sql-database-cloud-migrate.md) (Eseguire la migrazione a un database singolo o in pool). Per informazioni sulla migrazione da altre piattaforme, vedere [Guida alla migrazione di database di Azure](https://datamigration.microsoft.com/).
+Questo articolo illustra i metodi disponibili per eseguire la migrazione di un'istanza di SQL Server 2005 o versione successiva a un'[istanza gestita di database SQL di Azure](sql-database-managed-instance.md). Per informazioni sulla migrazione a un database singolo o a un pool elastico, vedere [Migrate to a single or pooled database](sql-database-cloud-migrate.md) (Eseguire la migrazione a un database singolo o in pool). Per informazioni sulla migrazione da altre piattaforme, vedere [Azure Database Migration Guide](https://datamigration.microsoft.com/) (Guida alla migrazione di database di Azure).
 
 > [!NOTE]
 > Se si desidera avviare rapidamente e provare Istanza gestita, è possibile passare alla [Guida](sql-database-managed-instance-quickstart-guide.md) introduttiva invece di questa pagina. 
@@ -127,7 +127,7 @@ Il diagramma seguente offre una panoramica di alto livello del processo:
 
 La tabella seguente contiene altre informazioni sul metodo che è possibile usare a seconda della versione di SQL Server di origine eseguita:
 
-|Passaggio|Versione e motore SQL|Metodo di backup/ripristino|
+|Procedi|Versione e motore SQL|Metodo di backup/ripristino|
 |---|---|---|
 |Inserire il backup in Archiviazione di Azure|Precedente SQL 2012 SP1 CU2|Caricamento diretto del file con estensione bak in Archiviazione di Azure|
 ||2012 SP1 CU2 - 2016|Backup diretto con sintassi [con credenziali](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql) deprecata|
@@ -169,7 +169,7 @@ Di conseguenza, è consigliabile confrontare i parametri delle prestazioni con l
 Il risultato del confronto delle prestazioni potrebbe essere:
 - Le prestazioni dei carichi di lavoro su Istanza gestita sono allineate o migliori rispetto alle prestazioni del carico di lavoro in SQL Server In questo caso è stato confermato che la migrazione è stata completata correttamente.
 - La maggior parte dei parametri delle prestazioni e delle query nel carico di lavoro funziona correttamente, con alcune eccezioni con prestazioni ridotte. In questo caso, è necessario identificare le differenze e la loro importanza. Se sono presenti alcune query importanti con prestazioni ridotte, è necessario esaminare i piani SQL sottostanti modificati o le query che raggiungono alcuni limiti di risorse. In questo caso la mitigazione può essere l'applicazione di alcuni suggerimenti sulle query critiche, ad esempio il livello di compatibilità modificato, lo strumento di stima della cardinalità legacy, direttamente o utilizzando guide di piano, ricompilare o creare statistiche e indici che potrebbero influire sui piani. 
-- La maggior parte delle query è più lenta in Istanza gestita rispetto al SQL Server di origine. In questo caso, provare a identificare le cause principali della differenza, ad esempio il raggiungimento di [un limite di risorse]( sql-database-managed-instance-resource-limits.md#instance-level-resource-limits) , ad esempio i limiti di i/o, il limite di memoria, il limite di frequenza dei log delle Se non sono previsti limiti per le risorse che possono causare la differenza, provare a modificare il livello di compatibilità del database o modificare le impostazioni del database, ad esempio la stima della cardinalità legacy e riavviare il test. Esaminare le raccomandazioni fornite dalle viste Istanza gestita o Query Store per identificare le query che hanno reimpostato le prestazioni.
+- La maggior parte delle query è più lenta in Istanza gestita rispetto al SQL Server di origine. In questo caso, provare a identificare le cause principali della differenza, ad esempio il raggiungimento di [un limite di risorse]( sql-database-managed-instance-resource-limits.md#service-tier-characteristics) , ad esempio i limiti di i/o, il limite di memoria, il limite di frequenza dei log delle Se non sono previsti limiti per le risorse che possono causare la differenza, provare a modificare il livello di compatibilità del database o modificare le impostazioni del database, ad esempio la stima della cardinalità legacy e riavviare il test. Esaminare le raccomandazioni fornite dalle viste Istanza gestita o Query Store per identificare le query che hanno reimpostato le prestazioni.
 
 > [!IMPORTANT]
 > Istanza gestita dispone di funzionalità predefinite di correzione automatica dei piani abilitata per impostazione predefinita. Questa funzionalità garantisce che le query che hanno funzionato correttamente nell'Incolla non peggiorano in futuro. Verificare che questa funzionalità sia abilitata e che il carico di lavoro sia stato eseguito abbastanza a lungo con le impostazioni precedenti prima di modificare le nuove impostazioni per consentire Istanza gestita di ottenere informazioni sulle prestazioni e sui piani di base.

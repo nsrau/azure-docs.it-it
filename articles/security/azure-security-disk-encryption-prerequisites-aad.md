@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 03/15/2019
+ms.date: 09/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: da3cb81eaeaa3b1609ffe67b2aea92a69b6bb47a
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 07db6c5cecf2b8dec803e73d5775edef3f8906fa
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726258"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828620"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Prerequisiti di Crittografia dischi di Azure (versione precedente)
 
@@ -42,17 +42,18 @@ Prima di abilitare Crittografia dischi di Azure nelle macchine virtuali IaaS di 
 
 ### <a name="linux"></a>Linux 
 
-Crittografia dischi di Azure è supportata in un subset di [distribuzioni Linux](../virtual-machines/linux/endorsed-distros.md)approvate per Azure, che è a sua volta un subset di tutte le distribuzioni di server Linux possibili.
+Crittografia dischi di Azure è supportata in un subset di [distribuzioni Linux approvate per Azure](../virtual-machines/linux/endorsed-distros.md), che è a sua volta un subset di tutte le distribuzioni di server Linux possibili.
 
 ![Diagramma di Venn di distribuzioni di server Linux che supportano crittografia dischi di Azure](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
 
 Le distribuzioni di server Linux che non sono approvate da Azure non supportano crittografia dischi di Azure e, di quelle approvate, solo le distribuzioni e le versioni seguenti supportano crittografia dischi di Azure:
 
-| Distribuzione Linux | Version | Tipo di volume supportato per la crittografia|
+| Distribuzione Linux | Versione | Tipo di volume supportato per la crittografia|
 | --- | --- |--- |
 | Ubuntu | 18,04| Disco del sistema operativo e dati |
 | Ubuntu | 16.04| Disco del sistema operativo e dati |
 | Ubuntu | 14.04.5</br>[con il kernel ottimizzato per Azure aggiornato alla versione 4.15 o successiva](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | Disco del sistema operativo e dati |
+| RHEL | 7,7 | Sistema operativo e disco dati (vedere la nota di seguito) |
 | RHEL | 7.6 | Sistema operativo e disco dati (vedere la nota di seguito) |
 | RHEL | 7.5 | Sistema operativo e disco dati (vedere la nota di seguito) |
 | RHEL | 7.4 | Sistema operativo e disco dati (vedere la nota di seguito) |
@@ -60,6 +61,7 @@ Le distribuzioni di server Linux che non sono approvate da Azure non supportano 
 | RHEL | 7.2 | Sistema operativo e disco dati (vedere la nota di seguito) |
 | RHEL | 6.8 | Disco dati (vedere la nota di seguito) |
 | RHEL | 6.7 | Disco dati (vedere la nota di seguito) |
+| CentOS | 7,7 | Disco del sistema operativo e dati |
 | CentOS | 7.6 | Disco del sistema operativo e dati |
 | CentOS | 7.5 | Disco del sistema operativo e dati |
 | CentOS | 7.4 | Disco del sistema operativo e dati |
@@ -380,7 +382,7 @@ Usare [az keyvault update](/cli/azure/keyvault#az-keyvault-update) per abilitare
 1. Selezionare l'insieme di credenziali delle chiavi, passare a **Criteri di accesso** e **Fare clic per visualizzare i criteri di accesso avanzati**.
 2. Selezionare la casella **Abilita l'accesso a Crittografia dischi di Azure per la crittografia dei volumi**.
 3. Selezionare **Abilita l'accesso alle macchine virtuali di Azure per la distribuzione** e/o **Abilita l'accesso ad Azure Resource Manager per la distribuzione dei modelli**, se necessario. 
-4. Fare clic su **Save**.
+4. Fare clic su **Salva**.
 
 ![Criteri di accesso avanzati per l'insieme di credenziali delle chiavi di Azure](./media/azure-security-disk-encryption/keyvault-portal-fig4.png)
 

@@ -5,15 +5,15 @@ services: digital-twins
 author: kingdomofends
 ms.service: digital-twins
 ms.topic: include
-ms.date: 08/12/2019
+ms.date: 09/30/2019
 ms.author: v-adgera
 ms.custom: include file
-ms.openlocfilehash: 10161d6b1d944857aa45d5152c77e107a208d98d
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
-ms.translationtype: MT
+ms.openlocfilehash: f9b9341be32e5707ef646bd6d08d9d7ec92a8575
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "69012169"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827692"
 ---
 La tabella seguente descrive i ruoli disponibili in Gemelli digitali di Azure:
 
@@ -21,7 +21,7 @@ La tabella seguente descrive i ruoli disponibili in Gemelli digitali di Azure:
 | --- | --- | --- |
 | Amministratore dello spazio | Autorizzazioni di *CREAZIONE*, *LETTURA*, *AGGIORNAMENTO* ed *ELIMINAZIONE* per lo spazio specificato e tutti i nodi sottostanti. Autorizzazione globale. | 98e44ad7-28d4-4007-853b-b9968ad132d1 |
 | Amministratore utenti| Autorizzazioni di *CREAZIONE*, *LETTURA*, *AGGIORNAMENTO* ed *ELIMINAZIONE* per gli utenti e gli oggetti correlati agli utenti. Autorizzazione di *LETTURA* per gli spazi. | dfaac54c-f583-4dd2-b45d-8d4bbc0aa1ac |
-| Amministratore dispositivo | Autorizzazioni di *CREAZIONE*, *LETTURA*, *AGGIORNAMENTO* ed *ELIMINAZIONE* per i dispositivi e gli oggetti correlati ai dispositivi. Autorizzazione di *LETTURA* per gli spazi. | 3cdfde07-bc16-40d9-bed3-66d49a8f52ae |
+| Amministratore del dispositivo | Autorizzazioni di *CREAZIONE*, *LETTURA*, *AGGIORNAMENTO* ed *ELIMINAZIONE* per i dispositivi e gli oggetti correlati ai dispositivi. Autorizzazione di *LETTURA* per gli spazi. | 3cdfde07-bc16-40d9-bed3-66d49a8f52ae |
 | Amministratore delle chiavi | Autorizzazioni di *CREAZIONE*, *LETTURA*, *AGGIORNAMENTO* ed *ELIMINAZIONE* per le chiavi di accesso. Autorizzazione di *LETTURA* per gli spazi. | 5a0b1afc-e118-4068-969f-b50efb8e5da6 |
 | Amministratore dei token |  Autorizzazioni di *LETTURA* e *AGGIORNAMENTO* per le chiavi di accesso. Autorizzazione di *LETTURA* per gli spazi. | 38a3bb21-5424-43b4-b0bf-78ee228840c3 |
 | Utente |  Autorizzazione di *LETTURA* per gli spazi, i sensori e gli utenti, inclusi gli oggetti correlati corrispondenti. | b1ffdb77-c635-4e7e-ad25-948237d85b30 |

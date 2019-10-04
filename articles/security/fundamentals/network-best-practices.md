@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/05/2019
+ms.date: 10/02/2019
 ms.author: TomSh
-ms.openlocfilehash: 4bc4e8e02c5b44c63ee531a295f2b59e91c056bd
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 85e1ebc05ad4ebe1d58716981c0688df0126efb0
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900473"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937238"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Procedure consigliate di Azure per la sicurezza di rete
 Questo articolo illustra una raccolta di procedure consigliate di Azure per migliorare la sicurezza della rete. derivate dalla nostra esperienza con la rete di Azure e dalle esperienze di altri clienti.
@@ -63,13 +63,13 @@ Quando si usano gruppi di sicurezza di rete per il controllo di accesso alla ret
 **Procedura consigliata**: Evitare reti virtuali e subnet di piccole dimensioni per garantire semplicità e flessibilità.   
 **Dettagli**: La maggior parte delle organizzazioni aggiunge più risorse rispetto a quelle pianificate inizialmente e la riallocazione degli indirizzi è un lavoro intensivo. L'uso di subnet di piccole dimensioni aggiunge un valore di sicurezza limitato e il mapping di un gruppo di sicurezza di rete a ogni subnet comporta un sovraccarico. Definire le subnet in modo esteso per garantire la flessibilità necessaria per la crescita.
 
-**Procedura consigliata**: Semplificare la gestione delle regole del gruppo di sicurezza di rete definendo [gruppi di sicurezza delle applicazioni](https://docs.microsoft.com/rest/api/virtualnetwork/applicationsecuritygroups).  
+**Procedura consigliata**: Semplificare la gestione delle regole del gruppo di sicurezza di rete definendo [gruppi di sicurezza delle applicazioni](https://azure.microsoft.com/blog/applicationsecuritygroups/).  
 **Dettagli**: Definire un gruppo di sicurezza delle applicazioni per gli elenchi di indirizzi IP che si ritiene potrebbero cambiare in futuro o essere usati in molti gruppi di sicurezza di rete. Assicurarsi di assegnare un nome chiaro ai gruppi di sicurezza delle applicazioni in modo che altri utenti possano comprenderne il contenuto e lo scopo.
 
 ## <a name="adopt-a-zero-trust-approach"></a>Adottare un approccio con attendibilità zero
 Le reti basate sul perimetro operano sul presupposto che tutti i sistemi all'interno di una rete possano essere considerati attendibili. Tuttavia, i dipendenti di oggi accedono alle risorse dell'organizzazione da qualsiasi posizione in un'ampia gamma di dispositivi e app, rendendo irrilevanti i controlli di sicurezza perimetrali. I criteri di controllo degli accessi che si concentrano solo su chi può accedere a una risorsa non sono sufficienti. Per padroneggiare il saldo tra sicurezza e produttività, gli amministratori della sicurezza devono anche calcolare la *modalità* di accesso a una risorsa.
 
-Le reti devono evolversi dalle difese tradizionali perché le reti potrebbero essere vulnerabili alle violazioni: un utente malintenzionato può compromettere un singolo endpoint entro il limite attendibile e quindi espandere rapidamente un punto di appoggio nell'intera rete. [Zero](https://www.microsoft.com/security/blog/2018/06/14/building-zero-trust-networks-with-microsoft-365/) reti attendibili eliminano il concetto di attendibilità in base alla posizione di rete all'interno di un perimetro. Al contrario, le architetture con attendibilità del dispositivo e dell'utente vengono usate per controllare l'accesso ai dati e alle risorse aziendali. Per nuove iniziative, adottare approcci di trust zero che convalidano l'attendibilità al momento dell'accesso.
+Le reti devono evolversi dalle difese tradizionali perché le reti potrebbero essere vulnerabili alle violazioni: un utente malintenzionato può compromettere un singolo endpoint entro il limite attendibile e quindi espandere rapidamente un punto di appoggio nell'intera rete. [Zero reti attendibili](https://www.microsoft.com/security/blog/2018/06/14/building-zero-trust-networks-with-microsoft-365/) eliminano il concetto di attendibilità in base alla posizione di rete all'interno di un perimetro. Al contrario, le architetture con attendibilità del dispositivo e dell'utente vengono usate per controllare l'accesso ai dati e alle risorse aziendali. Per nuove iniziative, adottare approcci di trust zero che convalidano l'attendibilità al momento dell'accesso.
 
 Le procedure consigliate sono:
 

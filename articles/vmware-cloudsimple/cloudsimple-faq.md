@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d1cbca20b9f1ee1d5f7eefb760ed60fa4d019050
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 95d8c2974ea372dd59d15a9f2cc31ed171acd932
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972866"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828926"
 ---
 # <a name="frequently-asked-questions-about-vmware-solution-by-cloudsimple"></a>Domande frequenti sulla soluzione VMware di CloudSimple
 
@@ -29,11 +29,11 @@ Un cloud privato CloudSimple è un cloud privato e dedicato costituito da un amb
 
 **Dove è disponibile il servizio CloudSimple?**
 
-CloudSimple è disponibile nelle aree Stati Uniti orientali e Stati Uniti occidentali con aree aggiuntive presto disponibili.
+CloudSimple è disponibile nelle aree Stati Uniti orientali, Stati Uniti occidentali ed Europa occidentale con aree aggiuntive presto disponibili.
 
 **Ricerca per categorie abilitare la sottoscrizione per CloudSimple?**
 
-Per abilitare la sottoscrizione per il servizio [azurevmwaresales@microsoft.com](mailto:azurevmwaresales@microsoft.com) CloudSimple, è possibile contattare il rappresentante del account Microsoft. Fornire l'ID sottoscrizione nel messaggio di posta elettronica per cui si vuole abilitare il servizio CloudSimple.  
+Per abilitare la sottoscrizione per il servizio CloudSimple, è possibile contattare il rappresentante del account Microsoft al [azurevmwaresales@microsoft.com](mailto:azurevmwaresales@microsoft.com) . Fornire l'ID sottoscrizione nel messaggio di posta elettronica per cui si vuole abilitare il servizio CloudSimple.  
 
 **Ricerca per categorie accedere al portale di CloudSimple?**
 
@@ -68,7 +68,7 @@ CloudSimple fornisce le opzioni di connettività seguenti per la connessione all
 
 Un circuito ExpressRoute di Azure è una connessione sicura a bassa latenza e ad alta velocità.  CloudSimple fornisce un circuito ExpressRoute dedicato per area per cliente.  Con questo circuito è possibile stabilire una connessione sicura da locale o dalla sottoscrizione di Azure.
 
-**Quali sono i costi di rete per la connessione a CloudSimple?  Si applicano addebiti in uscita tra CloudSimple e Azure o tra aree?**
+@no__t 0What sono i costi di rete per la connessione a CloudSimple?  Si applicano addebiti in uscita tra CloudSimple e Azure o tra aree? **
 
 Non sono previsti addebiti per CloudSimple per l'uscita dalla rete.  Le tariffe standard di Azure si applicano a qualsiasi traffico in uscita dalla rete virtuale o dal circuito ExpressRoute locale.
 
@@ -106,8 +106,9 @@ CloudSimple fornisce le seguenti funzionalità di sicurezza per la protezione de
 
 CloudSimple offre i tipi di host seguenti:
 
-* **Nodo CS28:** CPU: 2x 2,2 GHz, totale 28 core, 48 HT.  RAM: 256 GB.  Archiviazione: 1600 GB di cache NVMe, 5760 GB di dati (tutti i flash). Rete: SCHEDA di interfaccia di rete 2x25Gbe
-* **Nodo CS36:** CPU 2x 2,3 GHz, totale 36 core, 72 HT.  RAM: 512 GB.  Archiviazione: 3200 GB NVMe cache 11520 GB di dati (tutti i flash).  Rete: SCHEDA di interfaccia di rete 2x25Gbe
+* **Nodo CS28:** CPU: 2x 2,2 GHz, totale 28 core, 48 HT.  RAM: 256 GB.  Archiviazione: 1600 GB di cache NVMe, 5760 GB di dati (tutti i flash). Rete: SCHEDA di interfaccia di rete 4x25Gbe
+* **Nodo CS36:** CPU 2x 2,3 GHz, totale 36 core, 72 HT.  RAM: 512 GB.  Archiviazione: 3200 GB NVMe cache 11520 GB di dati (tutti i flash).  Rete: SCHEDA di interfaccia di rete 4x25Gbe
+* **Nodo CS36m:** CPU 2x 2,3 GHz, totale 36 core, 72 HT.  RAM: 576 GB.  Archiviazione: 3200 GB NVMe cache 13360 GB di dati (tutti i flash).  Rete: SCHEDA di interfaccia di rete 4x25Gbe
 
 **In che modo vengono gestiti gli errori hardware?**
 

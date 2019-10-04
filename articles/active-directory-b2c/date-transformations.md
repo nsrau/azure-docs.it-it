@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 077915705c242805d3709b5d52d445288fa5336a
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 13c3f3aaf54bc3fb8ef656b5c1ce227fa70cee0b
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064344"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936794"
 ---
 # <a name="date-claims-transformations"></a>Trasformazioni delle attestazioni di data
 
@@ -29,8 +29,8 @@ Verifica che un'attestazione di data e ora (tipo di dati stringa) sia successiva
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | leftOperand | string | Tipo della prima attestazione, che deve essere successiva alla seconda attestazione. |
-| inputClaim | rightOperand | string | Tipo della seconda attestazione, che deve essere precedente alla prima attestazione. |
+| InputClaim | leftOperand | string | Tipo della prima attestazione, che deve essere successiva alla seconda attestazione. |
+| InputClaim | rightOperand | string | Tipo della seconda attestazione, che deve essere precedente alla prima attestazione. |
 | InputParameter | AssertIfEqualTo | boolean | Specifica se questa asserzione debba passare se l'operando sinistro è uguale all'operando destro. |
 | InputParameter | AssertIfRightOperandIsNotPresent | boolean | Specifica se questa asserzione debba passare se l'operando destro è assente. |
 | InputParameter | TreatAsEqualIfWithinMillseconds | int | Specifica il numero di millisecondi che devono trascorrere tra le due date e ore affinché le ore vengano considerate uguali (ad esempio, per tenere conto di un eventuale sfasamento di orario). |
@@ -143,7 +143,7 @@ Determinare se un valore dateTime è successivo, precedente o uguale a un altro.
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | firstDateTime | dateTime | Il primo valore dateTime da confrontare per verificare se è precedente o successivo al secondo valore dateTime. I valori Null generano un'eccezione. |
 | InputClaim | secondDateTime | dateTime | Il secondo valore dateTime da confrontare per verificare se è precedente o successivo al primo valore dateTime. Il valore Null viene considerato come il valore dateTime corrente. |
-| InputParameter | operator | string | Uno dei seguenti valori: uguale, successiva a o precedente a. |
+| InputParameter | Operatore | string | Uno dei seguenti valori: uguale, successiva a o precedente a. |
 | InputParameter | timeSpanInSeconds | int | Aggiungere l'intervallo di tempo al primo valore datetime. |
 | OutputClaim | risultato | boolean | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. |
 

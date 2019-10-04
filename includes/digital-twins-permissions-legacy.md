@@ -8,26 +8,26 @@ ms.topic: include
 ms.date: 08/16/2019
 ms.author: alinast
 ms.custom: include file
-ms.openlocfilehash: ef6b395aeff18a63f52f58e2477679b48a19b002
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
-ms.translationtype: MT
+ms.openlocfilehash: fcb4b3d54e1e62a7f197f2f499e2b176bb707fd8
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624758"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71843819"
 ---
 1. Nel [portale di Azure](https://portal.azure.com) aprire **Azure Active Directory** nel riquadro sinistro e quindi aprire il riquadro **Proprietà**. Copia il valore di **ID directory** in un file temporaneo. Questo valore verrà usato per configurare un'applicazione di esempio nella sezione successiva.
 
-    ![ID directory di Azure Active Directory](./media/digital-twins-permissions-legacy/aad-app-reg-tenant.png)
+    [ID directory Active Directory ![Azure](./media/digital-twins-permissions-legacy/aad-app-reg-tenant.png)](./media/digital-twins-permissions-legacy/aad-app-reg-tenant.png#lightbox)
 
 1. Nel [portale di Azure](https://portal.azure.com)aprire **Azure Active Directory** dal riquadro sinistro, quindi aprire il riquadro **registrazioni app (legacy)** . Selezionare il pulsante **nuova registrazione applicazione** .
 
 1. Assegnare un nome descrittivo a questa registrazione app nella casella **Nome**. Scegliere **Nativa** per **Tipo di applicazione** e `https://microsoft.com` per **URI di reindirizzamento**. Selezionare **Create**.
 
-    ![Riquadro Crea](./media/digital-twins-permissions-legacy/aad-app-reg-create.png)
+    [![Riquadro Crea](./media/digital-twins-permissions-legacy/aad-app-reg-create.png)](./media/digital-twins-permissions-legacy/aad-app-reg-create.png#lightbox)
 
 1.  Aprire l'app registrata e copiare il valore del campo **ID applicazione** in un file temporaneo. Questo valore identifica l'app di Azure Active Directory. L'ID applicazione verrà usato per configurare l'applicazione di esempio nelle sezioni seguenti.
 
-    ![ID dell'applicazione Azure Active Directory](./media/digital-twins-permissions-legacy/aad-app-reg-app-id.png)
+    [![ID dell'applicazione Azure Active Directory](./media/digital-twins-permissions-legacy/aad-app-reg-app-id.png)](./media/digital-twins-permissions-legacy/aad-app-reg-app-id.png#lightbox)
 
 1. Aprire il riquadro Registrazioni app. Selezionare **Impostazioni** > **Autorizzazioni necessarie** e quindi:
 
@@ -43,6 +43,6 @@ ms.locfileid: "69624758"
 
    f. Nel riquadro **autorizzazioni necessarie** selezionare il pulsante **Concedi autorizzazioni** e accettare il riconoscimento visualizzato. Se l'autorizzazione non viene concessa per questa API, contattare l'amministratore.
 
-      ![Riquadro Autorizzazioni necessarie](./media/digital-twins-permissions-legacy/aad-app-req-permissions.png)
+      [riquadro autorizzazioni ![Required](./media/digital-twins-permissions-legacy/aad-app-req-permissions.png)](./media/digital-twins-permissions-legacy/aad-app-req-permissions.png#lightbox)
 
  

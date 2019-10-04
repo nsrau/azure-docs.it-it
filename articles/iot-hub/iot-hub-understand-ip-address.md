@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 9c9d02eeead4ccbed372e9a55d9b551da83caa39
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 7af40404550fb78af891563d8256f23620781b24
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68642293"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71841539"
 ---
 # <a name="understanding-the-ip-address-of-your-iot-hub"></a>Informazioni sull'indirizzo IP dell'hub Internet delle cose
 
@@ -34,3 +34,6 @@ Questo indirizzo IP può cambiare senza preavviso. In uno scenario di failover o
 
 Provare a creare regole del firewall e filtrare in base al nome host o al dominio dell'hub Internet. Se è possibile consentire il traffico in uscita solo a indirizzi specifici, eseguire regolarmente il polling dell'indirizzo IP dell'hub Internet e aggiornare le regole del firewall.
 
+## <a name="support-for-ipv6"></a>Supporto per IPv6 
+
+IPv6 non è attualmente supportato nell'hub Internet delle cose.

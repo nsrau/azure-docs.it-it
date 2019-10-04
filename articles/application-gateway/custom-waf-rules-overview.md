@@ -7,12 +7,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: 9c04f805cf410d2306eda76c84a201a67b022b84
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 154317e558c2c9a22f569f569684cced467900d5
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716631"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937472"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2"></a>Regole personalizzate per il Web Application Firewall V2
 
@@ -37,7 +37,7 @@ Le espressioni regolari sono supportate anche nelle regole personalizzate, esatt
 
 Consentire e bloccare il traffico è semplice con regole personalizzate. Ad esempio, è possibile bloccare tutto il traffico proveniente da un intervallo di indirizzi IP. È possibile creare un'altra regola per consentire il traffico se la richiesta deriva da un browser specifico.
 
-Per consentire un elemento, verificare che `-Action` il parametro sia impostato su **Consenti**. Per bloccare un elemento, verificare che `-Action` il parametro sia impostato su **blocco**.
+Per consentire un elemento, verificare che il parametro `-Action` sia impostato su **Consenti**. Per bloccare un elemento, verificare che il parametro `-Action` sia impostato su **Block**.
 
 ```azurepowershell
 $AllowRule = New-AzApplicationGatewayFirewallCustomRule `
@@ -55,7 +55,7 @@ $BlockRule = New-AzApplicationGatewayFirewallCustomRule `
    -Action Block
 ```
 
-Il precedente `$BlockRule` esegue il mapping alla regola personalizzata seguente in Azure Resource Manager:
+Il `$BlockRule` precedente esegue il mapping alla seguente regola personalizzata in Azure Resource Manager:
 
 ```json
 "customRules": [
@@ -96,8 +96,8 @@ Si tratta del nome della regola. Questo nome viene visualizzato nei log.
 
 ### <a name="priority-required"></a>Priority [obbligatorio]
 
-- Determina l'ordine in cui vengono valutate le regole. Più basso è il valore, precedente è la valutazione della regola.
--Deve essere univoco tra tutte le regole personalizzate. Una regola con priorità 100 verrà valutata prima di una regola con priorità 200.
+- Determina l'ordine in cui vengono valutate le regole. Più basso è il valore, precedente è la valutazione della regola. L'intervallo consentito è compreso tra 1-100. 
+- Deve essere univoco tra tutte le regole personalizzate. Una regola con priorità 40 verrà valutata prima di una regola con priorità 80.
 
 ### <a name="rule-type-required"></a>Tipo di regola [obbligatorio]
 
@@ -128,7 +128,7 @@ Deve essere uno degli operatori seguenti:
 - Uguale a: l'input corrisponde a MatchValue
 - Contiene
 - MinoreDi
-- GreaterThan
+- MaggioreDi
 - LessThanOrEqual
 - GreaterThanOrEqual
 - Inizia con
@@ -144,7 +144,7 @@ Nega la condizione corrente.
 Elenco di stringhe con i nomi delle trasformazioni da eseguire prima che venga tentata la corrispondenza. Queste possono essere le trasformazioni seguenti:
 
 - Minuscolo
-- Taglio
+- Taglia
 - UrlDecode
 - UrlEncode 
 - RemoveNulls

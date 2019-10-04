@@ -1,23 +1,23 @@
 ---
 title: Ottimizzare i processi Spark per ottenere prestazioni ottimali - Azure HDInsight
 description: Mostra strategie comuni per ottenere prestazioni ottimali per i cluster Apache Spark in Azure HDInsight.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/03/2019
-ms.openlocfilehash: 64dfd26e02526664a4edb204521f7a47a4463a12
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.date: 10/01/2019
+ms.openlocfilehash: aa5329c6321866fd26e393b581702a392f510108
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181069"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936835"
 ---
 # <a name="optimize-apache-spark-jobs-in-hdinsight"></a>Ottimizzare i processi di Apache Spark in HDInsight
 
-Informazioni su come ottimizzare la configurazione del cluster [Apache Spark](https://spark.apache.org/) per carichi di lavoro specifici.  Il problema più comune è legato a un carico eccessivo sulla memoria, causato da configurazioni non corrette (in particolare, a executor di dimensioni errate), operazioni con esecuzione prolungata e attività che generano operazioni cartesiane. È possibile velocizzare i processi con una memorizzazione nella cache appropriata e consentendo l'[asimmetria dei dati](#optimize-joins-and-shuffles). Per ottenere prestazioni ottimali, monitorare e analizzare i processi Spark che comportano un'esecuzione prolungata e un consumo eccessivo di risorse.
+Informazioni su come ottimizzare la configurazione del cluster [Apache Spark](https://spark.apache.org/) per carichi di lavoro specifici.  La sfida più comune è la pressione della memoria, a causa di configurazioni non corrette (in particolare esecutori di dimensioni errate), operazioni con esecuzione prolungata e attività che generano operazioni cartesiane. È possibile velocizzare i processi con una memorizzazione nella cache appropriata e consentendo l'[asimmetria dei dati](#optimize-joins-and-shuffles). Per ottenere prestazioni ottimali, monitorare e analizzare i processi Spark che comportano un'esecuzione prolungata e un consumo eccessivo di risorse.
 
 Le sezioni seguenti descrivono alcune raccomandazioni e procedure di ottimizzazione comuni per i processi Spark.
 
@@ -55,22 +55,23 @@ Il formato migliore per le prestazioni è Parquet con *compressione Snappy*, ovv
 
 ## <a name="select-default-storage"></a>Selezionare la risorsa di archiviazione predefinita
 
-Quando si crea un nuovo cluster Spark, è possibile selezionare Archiviazione BLOB di Azure o Azure Data Lake Storage come spazio di archiviazione del cluster predefinito. Entrambe le opzioni offrono il vantaggio di una risorsa di archiviazione a lungo termine per i cluster temporanei; pertanto, i dati non vengono eliminati automaticamente quando si elimina il cluster. È possibile ricreare un cluster temporaneo e accedere comunque ai dati.
+Quando si crea un nuovo cluster Spark, è possibile selezionare archiviazione BLOB di Azure o Azure Data Lake Storage come risorsa di archiviazione predefinita del cluster. Entrambe le opzioni offrono il vantaggio di un'archiviazione a lungo termine per i cluster temporanei, in modo che i dati non vengano eliminati automaticamente quando si elimina il cluster. È possibile ricreare un cluster temporaneo e accedere comunque ai dati.
 
 | Tipo di store | File system | Velocità | Temporaneo | Casi d'uso |
 | --- | --- | --- | --- | --- |
 | Archivio BLOB di Azure | **wasb:** //url/ | **Standard** | Yes | Cluster temporaneo |
+| Archiviazione BLOB di Azure (sicurezza) | **wasbs:** //URL/ | **Standard** | Yes | Cluster temporaneo |
 | Azure Data Lake Storage generazione 2| **ABFS:** //URL/ | **Più rapido** | Yes | Cluster temporaneo |
 | Azure Data Lake Storage Gen 1| **adl:** //url/ | **Più rapido** | Yes | Cluster temporaneo |
 | Hadoop Distributed File System locale | **hdfs:** //url/ | **Il più rapido** | No | Cluster interattivo 24/7 |
 
 ## <a name="use-the-cache"></a>Usare la cache
 
-Spark offre meccanismi di memorizzazione nella cache nativi che possono essere usati con metodi diversi, ad esempio `.persist()`, `.cache()` e `CACHE TABLE`. La memorizzazione nella cache nativa è efficace con set di dati di piccole dimensioni, così come con pipeline ETL, in cui è necessario memorizzare nella cache i risultati intermedi. Tuttavia, la memorizzazione nella cache nativa in Spark attualmente non funziona in modo ottimale con il partizionamento, poiché le tabelle memorizzate nella cache non conservano il partizionamento dei dati. Una tecnica di memorizzazione nella cache più generica e affidabile è la *memorizzazione nella cache a livello di archiviazione*.
+Spark offre meccanismi di memorizzazione nella cache nativi che possono essere usati con metodi diversi, ad esempio `.persist()`, `.cache()` e `CACHE TABLE`. La memorizzazione nella cache nativa è efficace con set di dati di piccole dimensioni, così come con pipeline ETL, in cui è necessario memorizzare nella cache i risultati intermedi. Tuttavia, la memorizzazione nella cache nativa di Spark attualmente non funziona bene con il partizionamento, perché una tabella memorizzata nella cache non mantiene i dati di partizionamento. Una tecnica di memorizzazione nella cache più generica e affidabile è la *memorizzazione nella cache a livello di archiviazione*.
 
 * Memorizzazione nella cache nativa di Spark (non consigliata)
     * Adatta per set di dati di piccole dimensioni.
-    * Non funziona con il partizionamento, ma potrebbe cambiare nelle future versioni di Spark.
+    * Non funziona con il partizionamento, che può cambiare nelle future versioni di Spark.
 
 * Memorizzazione nella cache a livello di archiviazione (consigliata)
     * Può essere implementata usando [Alluxio](https://www.alluxio.org/).
@@ -94,7 +95,7 @@ La struttura della memoria Spark e alcuni parametri di memoria dell'executor chi
 
 ### <a name="spark-memory-considerations"></a>Considerazioni sulla memoria Spark
 
-Se si usa [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), questo controlla la quantità complessiva massima di memoria usata da tutti i contenitori in ogni nodo Spark.  Il diagramma seguente mostra gli oggetti chiave e le relative relazioni.
+Se si usa [Apache Hadoop Yarn](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), Yarn controlla la somma massima della memoria usata da tutti i contenitori in ogni nodo Spark.  Il diagramma seguente mostra gli oggetti chiave e le relative relazioni.
 
 ![Gestione della memoria Spark in YARN](./media/apache-spark-perf/apache-yarn-spark-memory.png)
 
@@ -127,7 +128,7 @@ Ecco alcune funzionalità bucket avanzate:
 
 ## <a name="optimize-joins-and-shuffles"></a>Ottimizzare join e riproduzioni con sequenza casuale
 
-Se sono presenti processi lenti in un'operazione Join o di riproduzione casuale, la causa è probabilmente dovuta a un'*asimmetria dei dati*, ovvero nei dati del processo. Ad esempio, un processo di mapping può richiedere 20 secondi, mentre l'esecuzione di un processo in cui i dati vengono uniti in Join o aggiunti o selezionati in ordine casuale richiede ore.   Per correggere l'asimmetria dei dati è consigliabile archiviare in valori salt l'intera chiave o usare un *salt isolato* soltanto per alcuni subset di chiavi.  Se si usa un salt isolato, è necessario filtrare ulteriormente per isolare il subset di chiavi archiviate in salt nei join di mappatura. È anche possibile introdurre una colonna di bucket ed eseguire una prima aggregazione in bucket.
+Se sono presenti processi lenti in un'operazione Join o di riproduzione casuale, la causa è probabilmente dovuta a un'*asimmetria dei dati*, ovvero nei dati del processo. Ad esempio, un processo di mapping può richiedere 20 secondi, mentre l'esecuzione di un processo in cui i dati vengono uniti in Join o aggiunti o selezionati in ordine casuale richiede ore. Per correggere l'asimmetria dei dati è consigliabile archiviare in valori salt l'intera chiave o usare un *salt isolato* soltanto per alcuni subset di chiavi. Se si usa un Salt isolato, è necessario filtrare ulteriormente per isolare il subset di chiavi con salting nei join della mappa. È anche possibile introdurre una colonna di bucket ed eseguire una prima aggregazione in bucket.
 
 Un altro fattore che può causare join lenti è il tipo di join. Per impostazione predefinita, Spark usa il tipo di join `SortMerge`. Questo tipo di join è ideale per grandi set di dati, mentre in caso contrario risulta oneroso, perché è necessario innanzitutto ordinare i lati sinistro e destro dei dati prima di unirli.
 
@@ -144,14 +145,15 @@ val df1 = spark.table("FactTableA")
 val df2 = spark.table("dimMP")
 df1.join(broadcast(df2), Seq("PK")).
     createOrReplaceTempView("V_JOIN")
+
 sql("SELECT col1, col2 FROM V_JOIN")
 ```
 
-Se si usano delle tabelle inserite in bucket, si dispone di un terzo tipo di join, il join `Merge`. Un set di dati correttamente pre-partizionato e preordinato ignorerà la fase costosa di ordinamento da un join `SortMerge`.
+Se si usano tabelle con bucket, si ha un terzo tipo di join, il join `Merge`. Un set di dati correttamente pre-partizionato e preordinato ignorerà la fase costosa di ordinamento da un join `SortMerge`.
 
 L'ordine dei join è importante, in particolare nelle query più complesse. Iniziare con i join più selettivi. Laddove possibile, spostare anche i join che aumentano il numero di righe dopo le aggregazioni.
 
-Per gestire il parallelismo, in particolare nel caso di join cartesiani, è possibile aggiungere strutture annidate, windowing e talvolta anche ignorare uno o più passaggi nel processo Spark.
+Per gestire il parallelismo per i join cartesiani, è possibile aggiungere strutture annidate, Windowing e probabilmente ignorare uno o più passaggi nel processo Spark.
 
 ## <a name="customize-cluster-configuration"></a>Personalizzare la configurazione del cluster
 
@@ -179,17 +181,17 @@ Quando si sceglie la configurazione dell'executor, prendere in considerazione l'
     5. Facoltativo: aumentare la concorrenza e l'uso mediante sovrascrittura della CPU.
 
 Come regola empirica generale quando si selezionano le dimensioni dell'executor:
-    
+
 1. Iniziare con 30 GB per executor e distribuire i core disponibili sul computer.
 2. Aumentare il numero di core per executor per i cluster di grandi dimensioni (> 100 executor).
-3. Aumentare o diminuire le dimensioni in base alle esecuzioni di prova e ai fattori precedenti, ad esempio l'overhead di Garbage Collection.
+3. Modificare le dimensioni in base alle esecuzioni della versione di valutazione e ai fattori precedenti, ad esempio sovraccarico GC.
 
 Durante l'esecuzione di query simultanee, considerare quanto segue:
 
 1. Iniziare con 30 GB per ogni executor e per tutti i core del computer.
 2. Creare più applicazioni Spark parallele sovrascrivendo la CPU (miglioramento della latenza di circa il 30%).
 3. Distribuire le query tra applicazioni parallele.
-4. Aumentare o diminuire le dimensioni in base alle esecuzioni di prova e ai fattori precedenti, ad esempio l'overhead di Garbage Collection.
+4. Modificare le dimensioni in base alle esecuzioni della versione di valutazione e ai fattori precedenti, ad esempio sovraccarico GC.
 
 Monitorare le prestazioni della query per gli outlier o altri problemi di prestazioni osservando la visualizzazione della sequenza temporale, il grafico SQL, le statistiche dei processi e così via. In alcuni casi, uno o più executor possono rivelarsi più lenti rispetto ad altri e richiedere molto più tempo per eseguire le attività. Ciò si verifica spesso nei cluster di dimensioni maggiori (> 30 nodi). In questo caso, suddividere il lavoro in un numero maggiore di attività, in modo che l'utilità di pianificazione riesca a compensare l'effetto di rallentamento delle attività. Ad esempio, prevedere almeno il doppio di attività rispetto al numero di core degli executor nell'applicazione. È anche possibile abilitare l'esecuzione speculativa delle attività con `conf: spark.speculation = true`.
 

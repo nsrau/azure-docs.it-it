@@ -4,20 +4,20 @@ description: Descrive come usare i modelli collegati in un modello di Azure Reso
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 10/02/2019
 ms.author: tomfitz
-ms.openlocfilehash: b48988c04f6b387a8124a812a836e2b92a9d3ada
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 59af553f4080ca86e964b75234e4d812297d8541
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194377"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827340"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso di modelli collegati e annidati nella distribuzione di risorse di Azure
 
-Per distribuire la soluzione, è possibile usare un modello singolo o un modello principale con molti modelli correlati. Il modello correlato può essere un file separato collegato dal modello principale o un modello che viene annidato all'interno del modello principale.
+Per distribuire la soluzione, è possibile usare un modello singolo o un modello principale con molti modelli correlati. I modelli correlati possono essere file separati collegati al modello principale o modelli annidati all'interno del modello principale.
 
-Per le piccole e medie soluzioni, un modello singolo è più facile da comprendere e gestire. È possibile vedere tutti i valori e le risorse in un unico file. Per gli scenari avanzati, i modelli collegati consentono di suddividere la soluzione in componenti di destinazione, oltre che di riutilizzare i modelli.
+Per le piccole e medie soluzioni, un modello singolo è più facile da comprendere e gestire. È possibile vedere tutti i valori e le risorse in un unico file. Per gli scenari avanzati, i modelli collegati consentono di suddividere la soluzione in componenti di destinazione. È possibile riutilizzare facilmente questi modelli per altri scenari.
 
 Quando si usano modelli collegati, si crea un modello principale che riceve i valori dei parametri durante la distribuzione. Il modello principale contiene tutti i modelli collegati e passa i valori a tali modelli in base alle esigenze.
 
@@ -27,7 +27,7 @@ Per un'esercitazione, vedere [Esercitazione: Creare modelli collegati di Azure R
 > Per modelli collegati o annidati, è possibile usare solo la modalità di distribuzione [Incrementale](deployment-modes.md).
 >
 
-## <a name="link-or-nest-a-template"></a>Collegare o annidare un modello
+## <a name="deployments-resource"></a>Risorsa distribuzioni
 
 Per stabilire un collegamento a un altro modello, aggiungere una risorsa **deployments** al modello principale.
 
@@ -47,7 +47,7 @@ Per stabilire un collegamento a un altro modello, aggiungere una risorsa **deplo
 
 Le proprietà fornite per la risorsa di distribuzione variano in base al fatto che si stia stabilendo un collegamento a un modello esterno o annidando un modello inline nel modello principale.
 
-### <a name="nested-template"></a>Modello annidato
+## <a name="nested-template"></a>Modello annidato
 
 Per annidare il modello all'interno del modello principale, usare la proprietà **template** e specificare la sintassi del modello.
 
@@ -94,9 +94,17 @@ Per annidare il modello all'interno del modello principale, usare la proprietà 
 
 Per il modello annidato è necessario specificare le [stesse proprietà](resource-group-authoring-templates.md) del modello standard.
 
-### <a name="external-template-and-external-parameters"></a>Modello esterno e parametri esterni
+## <a name="external-template"></a>Modello esterno
 
-Per collegare un modello esterno e un file di parametri, usare **templateLink** e **parametersLink**. Quando si stabilisce un collegamento a un modello, il servizio Resource Manager deve potervi accedere. Non è possibile specificare un file locale o un file disponibile solo nella rete locale. È possibile fornire solo un valore URI che includa **http** o **https**. È possibile inserire il modello collegato in un account di archiviazione e usare l'URI per tale elemento.
+Per eseguire il collegamento a un modello esterno, usare la proprietà **templateLink** . Non è possibile specificare un file locale o un file disponibile solo nella rete locale. È possibile fornire solo un valore URI che includa **http** o **https**. Gestione risorse deve essere in grado di accedere al modello.
+
+È possibile inserire il modello collegato in un account di archiviazione e usare l'URI per tale elemento.
+
+È possibile specificare i parametri per il modello esterno in un file esterno o inline.
+
+### <a name="external-parameters"></a>Parametri esterni
+
+Quando si specifica un file di parametri esterno, utilizzare la proprietà **parametersLink** :
 
 ```json
 "resources": [
@@ -105,15 +113,15 @@ Per collegare un modello esterno e un file di parametri, usare **templateLink** 
     "apiVersion": "2018-05-01",
     "name": "linkedTemplate",
     "properties": {
-    "mode": "Incremental",
-    "templateLink": {
+      "mode": "Incremental",
+      "templateLink": {
         "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
         "contentVersion":"1.0.0.0"
-    },
-    "parametersLink": {
+      },
+      "parametersLink": {
         "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.parameters.json",
         "contentVersion":"1.0.0.0"
-    }
+      }
     }
   }
 ]
@@ -121,11 +129,11 @@ Per collegare un modello esterno e un file di parametri, usare **templateLink** 
 
 Non è necessario specificare la proprietà `contentVersion` per il modello o i parametri. Se non si specifica un valore per la versione del contenuto, viene distribuita la versione corrente del modello. Se si specifica un valore per la versione del contenuto, questa deve corrispondere alla versione del modello collegato. In caso contrario, la distribuzione ha esito negativo con un errore.
 
-### <a name="external-template-and-inline-parameters"></a>Modello esterno e parametri inline
+### <a name="inline-parameters"></a>Parametri inline
 
 In alternativa, è possibile fornire il parametro inline. Non è possibile usare i parametri inline e un collegamento a un file di parametri. La distribuzione ha esito negativo con un errore quando vengono specificati sia `parametersLink` che `parameters`.
 
-Per passare un valore dal modello principale al modello collegato, usare **parameters**.
+Per passare un valore dal modello principale al modello collegato, usare la proprietà **Parameters** .
 
 ```json
 "resources": [
@@ -269,7 +277,7 @@ Il modello principale distribuisce il modello collegato e ottiene il valore rest
 }
 ```
 
-Come altri tipi di risorse, è possibile impostare le dipendenze tra il modello collegato e altre risorse. Pertanto, quando le altre risorse richiedono un valore di output presente nel modello collegato, accertarsi di distribuire il modello collegato prima di queste risorse. Viceversa, quando il modello collegato dipende da altre risorse, accertarsi di distribuire le altre risorse prima di questo modello.
+Come altri tipi di risorse, è possibile impostare le dipendenze tra il modello collegato e altre risorse. Quando altre risorse richiedono un valore di output dal modello collegato, verificare che il modello collegato venga distribuito prima. Viceversa, quando il modello collegato dipende da altre risorse, accertarsi di distribuire le altre risorse prima di questo modello.
 
 L'esempio seguente mostra un modello che distribuisce un indirizzo IP pubblico e restituisce l'ID di risorsa:
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2019
+ms.date: 10/03/2019
 ms.author: mlottner
-ms.openlocfilehash: a9de9924b851024dd36c848203cc3ada2cde208c
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: b0f5696b36082375a29e99298395cf16734d5bb4
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329409"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937150"
 ---
 # <a name="azure-security-center-for-iot-baseline-and-custom-checks"></a>Centro sicurezza di Azure per la baseline e i controlli personalizzati
 
@@ -32,7 +32,7 @@ Una linea di base stabilisce un comportamento standard per ogni dispositivo e re
 
 ## <a name="baseline-custom-checks"></a>Controlli personalizzati di base
 
-I controlli personalizzati di base stabiliscono un elenco personalizzato di controlli per ogni linea di base del dispositivo usando il modulo identità gemello del dispositivo. 
+I controlli personalizzati di base stabiliscono un elenco personalizzato di controlli per ogni linea di base del dispositivo usando il **modulo identità gemello** del dispositivo. 
 
 ## <a name="setting-baseline-properties"></a>Impostazione delle proprietà della linea di base
 
@@ -67,8 +67,8 @@ Per configurare i controlli personalizzati della linea di base:
 | Attività| Stato | Valori validi| Valori predefiniti| Descrizione |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
 |baselineCustomChecksEnabled|Obbligatorio: true |Valori validi:  **Boolean** |Valore predefinito: **false** |Intervallo di tempo massimo prima dell'invio dei messaggi con priorità alta.|
-|baselineCustomChecksFilePath |Obbligatorio: true|Valori validi:  **Stringa**, **null** |Valore predefinito: **PT5H** |Percorso completo della configurazione XML di base|
-|baselineCustomChecksFileHash |Obbligatorio: true|Valori validi:  **Stringa**, **null** |Valore predefinito: **PT5H** |`sha256sum` del file di configurazione XML. Per ulteriori informazioni, utilizzare il [riferimento sha256sum](https://linux.die.net/man/1/sha256sum) . |
+|baselineCustomChecksFilePath |Obbligatorio: true|Valori validi:  **Stringa**, **null** |Valore predefinito: **null** |Percorso completo della configurazione XML di base|
+|baselineCustomChecksFileHash |Obbligatorio: true|Valori validi:  **Stringa**, **null** |Valore predefinito: **null** |`sha256sum` del file di configurazione XML. Per ulteriori informazioni, utilizzare il [riferimento sha256sum](https://linux.die.net/man/1/sha256sum) . |
 
 Per esaminare esempi di base aggiuntivi, vedere [esempio di Baseline personalizzato-1](https://ascforiot.blob.core.windows.net/public/custom_baseline_example_hyperv_ubuntu1804.xml) e [esempio di Baseline personalizzato-2](https://ascforiot.blob.core.windows.net/public/oms_audits.xml).
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 9c750522123995685191001988ae0081d9454ccf
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 090242cde79f6c31b0f70e1a75240778dca89fa7
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728369"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828572"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Infrastruttura di sicurezza: sicurezza della comunicazione - Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
@@ -289,7 +289,7 @@ namespace CertificatePinningExample
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | .NET Framework 3 |
 | **Attributes (Attributi)**              | N/D  |
-| **Riferimenti**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_transport_security_enabled) |
+| **Riferimenti**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_transport_security_enabled) |
 | **Passaggi** | La configurazione dell'applicazione deve garantire l'uso di HTTPS per tutti gli accessi a informazioni riservate.<ul><li>**SPIEGAZIONE:** se un'applicazione che gestisce informazioni riservate non usa la crittografia a livello di messaggio, all'applicazione deve essere consentita la comunicazione solo tramite un canale di trasporto crittografato.</li><li>**RACCOMANDAZIONI:** verificare che il trasporto HTTP sia disabilitato e abilitare invece il trasporto HTTPS. Ad esempio, sostituire il tag `<httpTransport/>` con il tag `<httpsTransport/>`. Non basarsi su una configurazione di rete (firewall) per garantire che l'applicazione sia accessibile solo tramite un canale sicuro. Da un punto di vista teorico, l'applicazione non deve dipendere dalla rete per la sicurezza.</li></ul><p>Da un punto di vista pratico, le persone responsabili della protezione della rete non sempre tengono traccia dell'evoluzione dei requisiti di sicurezza dell'applicazione.</p>|
 
 ## <a id="message-protection"></a>WCF: impostare il livello di protezione per la sicurezza dei messaggi su EncryptAndSign
@@ -301,7 +301,7 @@ namespace CertificatePinningExample
 | **Tecnologie applicabili** | .NET Framework 3 |
 | **Attributes (Attributi)**              | N/D  |
 | **Riferimenti**              | [MSDN](https://msdn.microsoft.com/library/ff650862.aspx) |
-| **Passaggi** | <ul><li>**SPIEGAZIONE:** quando il livello di protezione è impostato su "None", la protezione dei messaggi verrà disabilitata. La riservatezza e l'integrità si ottengono con il livello di impostazione appropriato.</li><li>**RACCOMANDAZIONI:**<ul><li>Quando `Mode=None`, la protezione dei messaggi è disabilitata</li><li>Quando `Mode=Sign`, il messaggio viene firmato ma non crittografato. Questa impostazione deve essere usata quando è importante l'integrità dei dati</li><li>Quando `Mode=EncryptAndSign`, il messaggio viene firmato e crittografato</li></ul></li></ul><p>Quando è sufficiente convalidare l'integrità delle informazioni senza problemi di riservatezza, valutare la possibilità di disattivare la crittografia e limitarsi alla firma del messaggio. Questo può risultare utile per contratti di operazione o di servizio in cui è necessario convalidare il mittente originale ma non vengono trasmessi dati sensibili. Quando si riduce il livello di protezione, assicurarsi che il messaggio non contenga informazioni personali.</p>|
+| **Passaggi** | <ul><li>**SPIEGAZIONE:** quando il livello di protezione è impostato su "None", la protezione dei messaggi verrà disabilitata. La riservatezza e l'integrità si ottengono con il livello di impostazione appropriato.</li><li>**RACCOMANDAZIONI:**<ul><li>Quando `Mode=None`, la protezione dei messaggi è disabilitata</li><li>Quando `Mode=Sign`, il messaggio viene firmato ma non crittografato. Questa impostazione deve essere usata quando è importante l'integrità dei dati</li><li>Quando `Mode=EncryptAndSign`, il messaggio viene firmato e crittografato</li></ul></li></ul><p>Quando è sufficiente convalidare l'integrità delle informazioni senza problemi di riservatezza, valutare la possibilità di disattivare la crittografia e limitarsi alla firma del messaggio. Questo può risultare utile per contratti di operazione o di servizio in cui è necessario convalidare il mittente originale ma non vengono trasmessi dati sensibili. Quando si riduce il livello di protezione, prestare attenzione che il messaggio non contenga dati personali.</p>|
 
 ### <a name="example"></a>Esempio
 Gli esempi seguenti illustrano la configurazione del servizio e dell'operazione per la sola firma del messaggio. Esempio di contratto di servizio con `ProtectionLevel.Sign`: di seguito è riportato un esempio dell'uso di ProtectionLevel.Sign a livello di contratto di servizio. 

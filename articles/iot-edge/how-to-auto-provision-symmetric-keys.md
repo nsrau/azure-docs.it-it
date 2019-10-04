@@ -1,21 +1,20 @@
 ---
-title: Eseguire il provisioning automatico dei dispositivi con DPS usando l'attestazione della chiave simmetrica-Azure IoT Edge | Microsoft Docs
+title: Eseguire automaticamente il provisioning dei dispositivi con DPS usando l'attestazione della chiave simmetrica-Azure IoT Edge | Microsoft Docs
 description: Usare l'attestazione della chiave simmetrica per testare il provisioning automatico dei dispositivi per Azure IoT Edge con il servizio Device provisioning
 author: kgremban
 manager: philmea
 ms.author: kgremban
 ms.reviewer: mrohera
-ms.date: 07/10/2019
+ms.date: 10/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
-ms.openlocfilehash: 5a7e7fa011c0287d5e97ad7a8cd2e3ba77f298dd
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 53b1abca25119f4168aaf12a66c4347c53ed0a62
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299854"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828070"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Creare ed effettuare il provisioning di un dispositivo IoT Edge usando l'attestazione della chiave simmetrica
 
@@ -27,7 +26,7 @@ Questo articolo illustra come creare un servizio Device provisioning singola reg
 * Creare una singola registrazione per il dispositivo.
 * Installare il runtime di IoT Edge e connettersi all'hub Internet.
 
-L'attestazione con chiave simmetrica costituisce un approccio semplice per autenticare un dispositivo con un'istanza del servizio Device Provisioning. Questo metodo di attestazione rappresenta un'esperienza di "Hello World" per gli sviluppatori che non hanno familiarità con il provisioning dei dispositivi o che non possiedono requisiti di sicurezza restrittivi. L'attestazione del dispositivo che usa un [TPM](../iot-dps/concepts-tpm-attestation.md) è più sicura e deve essere usata per requisiti di sicurezza più rigorosi.
+L'attestazione con chiave simmetrica costituisce un approccio semplice per autenticare un dispositivo con un'istanza del servizio Device Provisioning. Questo metodo di attestazione rappresenta un'esperienza di "Hello World" per gli sviluppatori che non hanno familiarità con il provisioning dei dispositivi o che non possiedono requisiti di sicurezza restrittivi. L'attestazione del dispositivo che usa un [TPM](../iot-dps/concepts-tpm-attestation.md) o [certificati X. 509](../iot-dps/concepts-security.md#x509-certificates) è più sicura e deve essere usata per requisiti di sicurezza più rigorosi.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -191,9 +190,29 @@ Sostituire i valori segnaposto `{scope_id}`per `{registration_id}`, e `{symmetri
 
 ### <a name="windows-device"></a>Dispositivo Windows
 
-Seguire le istruzioni per installare il runtime di IoT Edge nel dispositivo per cui è stata generata una chiave del dispositivo derivato. Assicurarsi di configurare il runtime IoT Edge per il provisioning automatico, non manuale.
+Installare il runtime di IoT Edge nel dispositivo per cui è stata generata una chiave del dispositivo derivata. Il runtime di IoT Edge verrà configurato per il provisioning automatico, non manuale.
 
-[Installare ed eseguire automaticamente il provisioning di IoT Edge in Windows](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
+Per informazioni più dettagliate sull'installazione di IoT Edge in Windows, inclusi i prerequisiti e le istruzioni per attività come la gestione dei contenitori e l'aggiornamento IoT Edge, vedere [installare il Azure IOT Edge Runtime in Windows](how-to-install-iot-edge-windows.md).
+
+1. Aprire una finestra di PowerShell in modalità amministratore. Assicurarsi di usare una sessione AMD64 di PowerShell durante l'installazione di IoT Edge, non di PowerShell (x86).
+
+1. Il comando **deploy-IoTEdge** verifica che il computer Windows si trovi in una versione supportata, attiva la funzionalità contenitori e quindi Scarica il runtime di Moby e il IOT Edge Runtime. Per impostazione predefinita, il comando usa i contenitori di Windows.
+
+   ```powershell
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
+   Deploy-IoTEdge
+   ```
+
+1. A questo punto, i dispositivi core per le cose possono riavviarsi automaticamente. Altri dispositivi Windows 10 o Windows Server possono richiedere il riavvio. In tal caso, riavviare il dispositivo ora. Quando il dispositivo è pronto, eseguire di nuovo PowerShell come amministratore.
+
+1. Il comando **Initialize-IoTEdge** configura il runtime IoT Edge nel computer. Per impostazione predefinita, il comando esegue il provisioning manuale con i contenitori di Windows a meno che non si usi il flag `-Dps` per usare il provisioning automatico.
+
+   Sostituire i valori segnaposto `{scope_id}`per `{registration_id}`, e `{symmetric_key}` con i dati raccolti in precedenza.
+
+   ```powershell
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
+   Initialize-IoTEdge -Dps -ScopeId {scope ID} -RegistrationId {registration ID} -SymmetricKey {symmetric key}
+   ```
 
 ## <a name="verify-successful-installation"></a>Verificare l'esito positivo dell'installazione
 

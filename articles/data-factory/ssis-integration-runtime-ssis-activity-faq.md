@@ -12,12 +12,12 @@ author: wenjiefu
 ms.author: wenjiefu
 ms.reviewer: sawinark
 manager: craigg
-ms.openlocfilehash: 8e800ec8a7a2dd52e052547efa51deaad8c9bb45
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: ec5a3ab0a2498e7d9bb24bed1bc0a37194e38e9e
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104911"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936959"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Risolvere i problemi di esecuzione del pacchetto in SSIS Integration Runtime
 
@@ -121,12 +121,17 @@ Questo errore si verifica quando SSIS Integration Runtime non è in grado di acc
 ### <a name="error-message-microsoft-ole-db-provider-for-analysis-services-hresult-0x80004005-description-com-error-com-error-mscorlib-exception-has-been-thrown-by-the-target-of-an-invocation"></a>Messaggio di errore: "Provider Microsoft OLE DB per Analysis Services. HRESULT Descrizione di 0x80004005:' Errore COM: Errore COM: mscorlib; Eccezione generata dalla destinazione di una chiamata "
 
 Una delle possibili cause è che il nome utente o la password con Azure Multi-Factor Authentication abilitato è configurato per l'autenticazione Azure Analysis Services. Questa autenticazione non è supportata in SSIS Integration Runtime. Provare a usare un'entità servizio per l'autenticazione Azure Analysis Services:
+
 1. Preparare un'entità servizio come descritto in [automazione con entità servizio](https://docs.microsoft.com/azure/analysis-services/analysis-services-service-principal).
 2. In gestione connessione configurare **Usa nome utente e password specifici**: impostare **AppID** come nome utente e **clientSecret** come password.
 
 ### <a name="error-message-adonet-source-has-failed-to-acquire-the-connection-guid-with-the-following-error-message-login-failed-for-user-nt-authorityanonymous-logon-when-using-a-managed-identity"></a>Messaggio di errore: "L'origine ADONET non è riuscita ad acquisire la connessione {GUID} con il messaggio di errore seguente: Accesso non riuscito per l'utente ' NT AUTHORITY\ANONYMOUS LOGON ' "quando si usa un'identità gestita
 
 Assicurarsi di non configurare il metodo di autenticazione di gestione connessione come **Active Directory autenticazione della password** quando il parametro *ConnectUsingManagedIdentity* è **true**. In alternativa, è possibile configurarlo come **autenticazione SQL** , che viene ignorato se è impostato *ConnectUsingManagedIdentity* .
+
+### <a name="error-message-0xc020801f-at--odata-source--cannot-acquire-a-managed-connection-from-the-run-time-connection-manager"></a>Messaggio di errore: "0xC020801F at..., OData Source [...]: Impossibile acquisire una connessione gestita dalla gestione connessione di run-time "
+
+Una causa potenziale è che il Transport Layer Security (TLS) non è abilitato nel runtime di integrazione SSIS, che è richiesto dall'origine OData. È possibile abilitare TLS nel runtime di integrazione SSIS usando Personalizza installazione. Altre informazioni sono disponibili in non è possibile [connettere il progetto OData di Azure da SSIS](https://docs.microsoft.com/office365/troubleshoot/cant-connect-project-online-odata-from-ssis) e [personalizzare l'installazione per il runtime di integrazione Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md).
 
 ### <a name="error-message-request-staging-task-with-operation-guid--fail-since-error-failed-to-dispatch-staging-operation-with-error-message-microsoftsqlserverintegrationservicesaisagentcoreaisagentexception-failed-to-load-data-proxy"></a>Messaggio di errore: "Richiedi attività di gestione temporanea con GUID operazione... esito negativo a partire dall'errore: Impossibile inviare l'operazione di gestione temporanea con il messaggio di errore: Microsoft. SqlServer. IntegrationServices. AisAgentCore. AisAgentException: Non è stato possibile caricare il proxy dati ".
 

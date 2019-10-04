@@ -1,20 +1,20 @@
 ---
-title: Creazione di tenant e pool host nel desktop virtuale di Windows-Azure
-description: Come risolvere i problemi quando si configura un tenant e una macchina virtuale host della sessione in un ambiente desktop virtuale di Windows.
+title: Configurazione della macchina virtuale host sessione-Azure
+description: Come risolvere i problemi durante la configurazione di macchine virtuali host sessione desktop virtuale di Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 09/20/2019
+ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: d163bbf50193743b6602bc9ec3d330df4c14ebcc
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 4c684a2db02b7587b6d81eaf2f034540250fc001
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676427"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71841301"
 ---
-# <a name="tenant-and-host-pool-creation"></a>Creazione di pool di host e tenant
+# <a name="session-host-virtual-machine-configuration"></a>Configurazione di macchine virtuali nell'host sessione
 
 Usare questo articolo per risolvere i problemi che si verificano durante la configurazione delle macchine virtuali (VM) host sessione desktop virtuale di Windows.
 

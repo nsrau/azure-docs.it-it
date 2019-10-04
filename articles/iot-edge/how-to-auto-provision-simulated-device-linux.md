@@ -9,30 +9,37 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: b48455b6ea9c1cd74e94c10d8f9f938c20512c02
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 228851a0d528bfb222e5aa19880f856424e95ad1
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414568"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828117"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Creare ed effettuare il provisioning di un dispositivo IoT Edge con un TPM virtuale in una macchina virtuale Linux
 
-È possibile eseguire il provisioning automatico dei dispositivi Azure IoT Edge usando il [servizio Device](../iot-dps/index.yml)provisioning. Se non si ha familiarità con il processo di provisioning automatico, vedere [Concetti relativi al provisioning automatico](../iot-dps/concepts-auto-provisioning.md) prima di continuare. 
+È possibile eseguire il provisioning automatico dei dispositivi Azure IoT Edge usando il [servizio Device](../iot-dps/index.yml)provisioning. Se non si ha familiarità con il processo di provisioning automatico, vedere [Concetti relativi al provisioning automatico](../iot-dps/concepts-auto-provisioning.md) prima di continuare.
 
-Questo articolo illustra come testare il provisioning automatico in un dispositivo IoT Edge simulato con i passaggi seguenti: 
+Questo articolo illustra come testare il provisioning automatico in un dispositivo IoT Edge simulato con i passaggi seguenti:
 
 * Creare una macchina virtuale (VM) Linux in Hyper-V con un Trusted Platform Module (TPM) simulato per la sicurezza dell'hardware.
 * Creare un'istanza del servizio Device Provisioning in hub IoT.
 * Creare una singola registrazione per il dispositivo.
 * Installare il runtime IoT Edge e connettere il dispositivo all'hub IoT.
 
-I passaggi descritti in questo articolo sono studiati per finalità di test.
+> [!NOTE]
+> Il TPM 2,0 è obbligatorio quando si usa l'attestazione TPM con DPS e può essere usato solo per creare registrazioni individuali, non di gruppo.
 
-## <a name="prerequisites"></a>prerequisiti
+> [!TIP]
+> Questo articolo descrive come testare il provisioning DPS usando un simulatore TPM, ma la maggior parte di esso si applica a hardware TPM fisico, ad esempio [Infineon OPTIGA @ no__t-1 TPM](https://catalog.azureiotsolutions.com/details?title=OPTIGA-TPM-SLB-9670-Iridium-Board), un dispositivo Azure Certified per le cose.
+>
+> Se si usa un dispositivo fisico, è possibile passare alla sezione recuperare le [informazioni di provisioning da un dispositivo fisico](#retrieve-provisioning-information-from-a-physical-device) in questo articolo.
 
-* Un computer di sviluppo Windows con [Hyper-V abilitato](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v). Questo articolo usa Windows 10 in cui è in esecuzione una macchina virtuale Ubuntu Server. 
-* Un hub IoT attivo. 
+## <a name="prerequisites"></a>Prerequisiti
+
+* Un computer di sviluppo Windows con [Hyper-V abilitato](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v). Questo articolo usa Windows 10 in cui è in esecuzione una macchina virtuale Ubuntu Server.
+* Un hub IoT attivo.
+* Se si usa un TPM simulato, [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 o versione successiva con il carico di lavoro [' sviluppo di applicazioni desktop C++con '](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) abilitato.
 
 ## <a name="create-a-linux-virtual-machine-with-a-virtual-tpm"></a>Creare una macchina virtuale Linux con un TPM virtuale
 
@@ -72,7 +79,7 @@ La creazione della macchina virtuale può richiedere alcuni minuti.
 
 ### <a name="enable-virtual-tpm"></a>Abilitare il TPM virtuale
 
-Una volta creata la macchina virtuale, aprire le impostazioni per abilitare il modulo TPM (Trusted Platform Module) virtuale che consente di effettuare il provisioning automatico del dispositivo. 
+Una volta creata la macchina virtuale, aprire le impostazioni per abilitare il modulo TPM (Trusted Platform Module) virtuale che consente di effettuare il provisioning automatico del dispositivo.
 
 1. Selezionare la macchina virtuale e quindi aprire le relative **Impostazioni**.
 
@@ -86,18 +93,48 @@ Una volta creata la macchina virtuale, aprire le impostazioni per abilitare il m
 
 ### <a name="start-the-virtual-machine-and-collect-tpm-data"></a>Avviare la macchina virtuale e raccogliere i dati del modulo TPM
 
-Nella macchina virtuale compilare uno strumento C SDK che è possibile usare per recuperare i valori di **ID registrazione** e **Chiave di approvazione** del dispositivo. 
+Nella macchina virtuale creare uno strumento che è possibile usare per recuperare l' **ID di registrazione** e la **chiave**di verifica dell'autenticità del dispositivo.
 
 1. Avviare la macchina virtuale e connettersi.
 
-2. Seguire le istruzioni all'interno della macchina virtuale per completare il processo di installazione e riavviare il computer. 
+1. Seguire le istruzioni all'interno della macchina virtuale per completare il processo di installazione e riavviare il computer.
 
-3. Accedere alla macchina virtuale, quindi seguire la procedura descritta in [configurare un ambiente di sviluppo Linux](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) per installare e compilare l'SDK per dispositivi Azure per dispositivi per C. 
+1. Accedere alla macchina virtuale, quindi seguire la procedura descritta in [configurare un ambiente di sviluppo Linux](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) per installare e compilare l'SDK per dispositivi Azure per dispositivi per C.
 
    >[!TIP]
-   >Nel corso di questo articolo verranno copiati e incollati dalla macchina virtuale, che non è facile tramite l'applicazione di connessione alla console di gestione di Hyper-V. Potrebbe essere necessario connettersi alla macchina virtuale tramite la console di gestione di Hyper-V una volta per recuperare `ifconfig`il relativo indirizzo IP:. Quindi, è possibile usare l'indirizzo IP per connettersi tramite SSH: `ssh <username>@<ipaddress>`.
+   >Nel corso di questo articolo verranno copiati e incollati dalla macchina virtuale, che non è facile tramite l'applicazione di connessione alla console di gestione di Hyper-V. Potrebbe essere necessario connettersi alla macchina virtuale tramite la console di gestione di Hyper-V una volta per recuperare il relativo indirizzo IP: `ifconfig`. Quindi, è possibile usare l'indirizzo IP per connettersi tramite SSH: `ssh <username>@<ipaddress>`.
 
-4. Eseguire i comandi seguenti per creare uno strumento C SDK che consenta di recuperare le informazioni di provisioning del dispositivo. 
+1. Eseguire i comandi seguenti per compilare lo strumento SDK che recupera le informazioni sul provisioning dei dispositivi dal simulatore TPM.
+
+   ```bash
+   cd azure-iot-sdk-c/cmake
+   cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
+   cd provisioning_client/tools/tpm_device_provision
+   make
+   sudo ./tpm_device_provision
+   ```
+
+1. Da una finestra di comando passare alla directory `azure-iot-sdk-c` ed eseguire il simulatore TPM. che è in ascolto di un socket sulle porte 2321 e 2322. Non chiudere questa finestra di comando; è necessario lasciare che questo simulatore sia in esecuzione.
+
+   Dalla directory `azure-iot-sdk-c`, eseguire il comando seguente per avviare il simulatore:
+
+   ```bash
+   ./provisioning_client/deps/utpm/tools/tpm_simulator/Simulator.exe
+   ```
+
+1. Usando Visual Studio, aprire la soluzione generata nella directory `cmake` denominata `azure_iot_sdks.sln` e compilarla usando il comando **Compila soluzione** del menu **Compila** .
+
+1. Nel riquadro **Esplora soluzioni** di Visual Studio passare alla cartella **Provision\_Tools**. Fare clic con il pulsante destro del mouse sul progetto **tpm_device_provision** e scegliere **Imposta come progetto di avvio**.
+
+1. Eseguire la soluzione usando uno dei comandi **Avvia** del menu **debug** . La finestra di output Visualizza l'ID di **registrazione** del simulatore TPM e la **chiave**di verifica dell'autenticità, che è necessario copiare per l'uso in seguito quando si crea una registrazione singola per il dispositivo in è possibile chiudere questa finestra (con ID registrazione e Chiave di verifica dell'autenticità, ma lasciare la finestra del simulatore TPM in esecuzione.
+
+## <a name="retrieve-provisioning-information-from-a-physical-device"></a>Recuperare le informazioni di provisioning da un dispositivo fisico
+
+Nel dispositivo compilare uno strumento che è possibile usare per recuperare le informazioni sul provisioning del dispositivo.
+
+1. Seguire i passaggi descritti in [configurare un ambiente di sviluppo Linux](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) per installare e compilare l'SDK per dispositivi Azure per dispositivi per C.
+
+1. Eseguire i comandi seguenti per compilare lo strumento SDK che recupera le informazioni sul provisioning dei dispositivi dal dispositivo TPM.
 
    ```bash
    cd azure-iot-sdk-c/cmake
@@ -106,10 +143,8 @@ Nella macchina virtuale compilare uno strumento C SDK che è possibile usare per
    make
    sudo ./tpm_device_provision
    ```
-   >[!TIP]
-   >Se si esegue il test con il simulatore TPM, è necessario inserire un parametro `-Duse_tpm_simulator:BOOL=ON` aggiuntivo per abilitarlo. Il comando completo sarà `cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..`.
 
-5. Copiare i valori per **ID registrazione** e **Chiave di approvazione**. Usare questi valori per creare una registrazione singola per il dispositivo nel servizio Device Provisioning. 
+1. Copiare i valori per l' **ID registrazione** e la **chiave**di verifica dell'autenticità. Usare questi valori per creare una registrazione singola per il dispositivo nel servizio Device Provisioning.
 
 ## <a name="set-up-the-iot-hub-device-provisioning-service"></a>Configurare il servizio Device Provisioning in hub IoT di Azure
 
@@ -130,16 +165,19 @@ Quando si crea una registrazione nel servizio Device Provisioning, si ha la poss
 3. Selezionare **Aggiungi registrazione singola**, quindi completare la procedura seguente per configurare la registrazione:  
 
    1. In **Meccanismo** selezionare **TPM**. 
-   
+
    2. Fornire la **chiave** di verifica dell'autenticità e l' **ID di registrazione** copiati dalla macchina virtuale.
-   
+
+      > [!TIP]
+      > Se si usa un dispositivo TPM fisico, è necessario determinare la **chiave**di verifica dell'autenticità, che è univoca per ogni chip TPM ed è ottenuta dal produttore del chip TPM associato. È possibile derivare un **ID di registrazione** univoco per il dispositivo TPM, ad esempio creando un hash SHA-256 della chiave di verifica dell'autenticità.
+
    3. Selezionare **true** per dichiarare che questa macchina virtuale è un dispositivo IOT Edge. 
-   
+
    4. Scegliere l'**hub IoT** collegato a cui si vuole connettere il dispositivo. È possibile scegliere più hub e il dispositivo verrà assegnato a uno di essi in base ai criteri di allocazione selezionati. 
-   
+
    5. Se si desidera, specificare un ID per il dispositivo. È possibile usare gli ID dispositivo per identificare come destinazione un singolo dispositivo per la distribuzione di moduli. Se non si specifica un ID dispositivo, viene usato l'ID di registrazione.
-   
-   6. Aggiungere un valore di tag allo **stato dispositivo gemello iniziale**, se si desidera. È possibile usare tag per identificare come destinazione gruppi di dispositivi per la distribuzione di moduli. Ad esempio: 
+
+   6. Aggiungere un valore di tag allo **stato dispositivo gemello iniziale**, se si desidera. È possibile usare tag per identificare come destinazione gruppi di dispositivi per la distribuzione di moduli. Esempio: 
 
       ```json
       {
@@ -216,35 +254,6 @@ Affinché possa eseguire il provisioning automaticamente del dispositivo, il run
    ```
 
    Se si riscontra che non state applicate le autorizzazioni corrette, provare a riavviare la macchina per aggiornare udev. 
-
-8. Aprire il file di override del runtime IoT Edge. 
-
-   ```bash
-   sudo systemctl edit iotedge.service
-   ```
-
-9. Aggiungere il codice seguente per definire una variabile di ambiente del TPM.
-
-   ```input
-   [Service]
-   Environment=IOTEDGE_USE_TPM_DEVICE=ON
-   ```
-
-10. Salvare e chiudere il file.
-
-11. Verificare che la sostituzione sia stata eseguita correttamente.
-
-    ```bash
-    sudo systemctl cat iotedge.service
-    ```
-
-    L'output positivo visualizza le variabili di servizio predefinite di **iotedge** e quindi visualizza la variabile di ambiente impostata in **override.conf**. 
-
-12. Ricaricare le impostazioni.
-
-    ```bash
-    sudo systemctl daemon-reload
-    ```
 
 ## <a name="restart-the-iot-edge-runtime"></a>Riavviare il runtime IoT Edge
 

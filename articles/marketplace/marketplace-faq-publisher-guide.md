@@ -5,14 +5,14 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 9/26/2019
+ms.date: 10/2/2019
 ms.author: ellacroi
-ms.openlocfilehash: abc3b3a6be5f8c61c07fb29a6f168c8738733099
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 4096b9201afc98f6e5eb239cf9e6883ac69b6e79
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350393"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827994"
 ---
 # <a name="microsoft-commercial-marketplace-faqs"></a>Domande frequenti sul Marketplace commerciale Microsoft
 
@@ -155,7 +155,7 @@ Ecco le opzioni più comuni per ogni tipo di offerta:
 
 **Quali tipi di test sono supportati?**
 
-Le offerte di valutazione gratuite sono elenchi con una chiamata a Action per avviare una versione di valutazione. Questi conducono il cliente a un sito Web definito dall'editore per configurare l'esperienza di valutazione. Le versioni di valutazione possono essere aggiunte anche alle offerte a pagamento dove il primo mese è gratuito. 
+Gli editori possono aggiungere un mese gratuito per le offerte SaaS a pagamento e uno o tre mesi di utilizzo gratuiti per le immagini di macchina virtuale. Le offerte di valutazione gratuite sono elenchi con una chiamata a Action per avviare una versione di valutazione. Questi conducono il cliente a un sito Web definito dall'editore per configurare l'esperienza di valutazione. Le versioni di valutazione possono essere aggiunte anche alle offerte a pagamento dove il primo mese è gratuito. 
 
 **È necessario avere registrato uno strumento di pagamento (ad esempio una carta di credito) per distribuire offerte del livello gratuito o Bring Your Own License (BYOL)?**
 
@@ -169,6 +169,10 @@ I clienti indiretti con contratto Enterprise Agreement devono rivolgersi al loro
 
 Sì, per i clienti con contratto Enterprise Agreement l'amministratore delle registrazioni può disattivare i privilegi di acquisto per tutti gli account della registrazione e riattivarli per il tempo necessario per effettuare un acquisto. Inoltre, tutti i clienti possono usare Criteri di Azure per limitare le opzioni di distribuzione per le sottoscrizioni di Azure, inclusa la gestione delle risorse di Azure Marketplace.
 
+**Quali metodi di pagamento sono supportati per gli acquisti nel Marketplace commerciale?**
+
+I clienti possono acquistare offerte da Azure Marketplace e Microsoft AppSource usando carte di credito. Se si dispone di una sottoscrizione di Azure esistente, gli acquisti da Azure Marketplace utilizzeranno il metodo di pagamento configurato per l'account e verranno visualizzati nella stessa fattura di una voce separata. Alcune offerte usano l'impegno monetario di Azure, ma la maggior parte degli acquisti in ommercial Marketplace non inducono Enterprise Agreement impegni anche se il consumo dell'infrastruttura di Azure.
+
 **È possibile applicare i crediti della sottoscrizione di Azure o i fondi dell'impegno monetario dell'account alle offerte di Azure Marketplace?**
 
 Alcune offerte specifiche di Azure Marketplace possono usare i crediti delle sottoscrizioni di Azure o i fondi dell'impegno monetario. Per un elenco completo dei prodotti che partecipano al programma, vedere la pagina relativa all'[impegno monetario di Azure](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/). Queste offerte non includono le opzioni BYOL e BYOS. Tutte le altre offerte di Azure Marketplace non possono usare i crediti della sottoscrizione di Azure o l'impegno monetario: come il credito di valutazione gratuito di un mese, i crediti MSDN mensili, i crediti delle promozioni di Azure, i saldi degli impegni monetari e qualsiasi altro credito gratuito fornito da Azure.
@@ -176,12 +180,6 @@ Alcune offerte specifiche di Azure Marketplace possono usare i crediti delle sot
 **Gli sconti per i contratti multilicenza si applicano agli acquisti in Azure Marketplace?**
 
 No. I prezzi vengono stabiliti dall'editore proprietario delle soluzioni in Azure Marketplace.  Gli sconti standard per contratti multilicenza Microsoft non sono applicabili agli acquisti in Azure Marketplace.
-
-**Quali sono le modalità di pagamento di queste sottoscrizioni? Gli acquisti di Azure Marketplace vengono indicati nella fattura di Azure o in una fattura separata?**
-
-MOSP-i clienti di [Microsoft Online Subscription Program](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) (ad esempio Web-Direct) vengono addebitati sulla stessa carta di credito che si trova in un file per il proprio profilo di sottoscrizione di Azure. Se non è stata registrata alcuna carta di credito, non è possibile acquistare da Azure Marketplace. In questo caso, è stata ricevuta una deroga speciale per la fatturazione dei costi di Azure.
-
-Per i clienti con contratto Enterprise Agreement l'addebito viene effettuato sul contratto. Le offerte specifiche di Azure Marketplace indicate vengono prima dedotte dall'eventuale impegno monetario disponibile e quindi vengono fatturate come eccedenza in una singola fattura trimestrale. I clienti indiretti con contratto Enterprise Agreement, gli istituti di istruzione e gli enti pubblici ricevono la fattura dal relativo Licensing Solution Provider (LSP).
 
 **Dove è possibile visualizzare i dettagli della sottoscrizione di Azure Marketplace e le informazioni di fatturazione?**
 
@@ -197,7 +195,7 @@ Poiché il componente aggiuntivo è associato alla macchina virtuale di Azure, p
 
 **Qual è la frequenza di emissione delle fatture per gli acquisti di Azure Marketplace?**
 
-Enterprise Agreement clienti, per i servizi specifici delineati, hanno per prima cosa i fondi degli impegni monetari disponibili ridotti in base al costo totale per questi servizi nel mese in cui vengono utilizzati. Per tutte le offerte di Azure Marketplace non deducibili dall'impegno monetario, la fatturazione viene effettuata ogni mese in modo posticipato. Le sottoscrizioni SaaS annuali vengono fatturate una volta per i servizi di un anno completo.
+Per tutte le offerte di Azure Marketplace non deducibili dall'impegno monetario, la fatturazione viene effettuata ogni mese in modo posticipato. Le sottoscrizioni SaaS annuali vengono fatturate una volta per i servizi di un anno completo.
 
 MOSP-ai clienti di [Microsoft Online Subscription Program](https://azure.microsoft.com/support/legal/subscription-agreement/) (Web Direct) viene addebitato un importo mensile rispetto alla stessa carta di credito che si trova nel file per il proprio profilo di sottoscrizione di Azure. Le sottoscrizioni SaaS annuali vengono fatturate una volta per i servizi di un anno completo.
 
@@ -210,10 +208,6 @@ Per eseguire la migrazione di altri servizi acquistati da Azure Marketplace a un
 **Qual è la differenza tra *Prezzo*, *prezzo software*e *prezzo totale* nella struttura dei costi per le offerte di macchine virtuali in Azure Marketplace?**
 
 Il *Prezzo* si riferisce al costo della macchina virtuale di Azure per l'esecuzione del software. Il *prezzo software* si riferisce al costo del software dell'editore del Marketplace in esecuzione in una macchina virtuale di Azure. Il *prezzo totale* si riferisce al costo totale combinato della macchina virtuale di Azure e del software dell'editore del Marketplace in esecuzione in una macchina virtuale di Azure.
-
-**È possibile applicare i crediti della sottoscrizione o i fondi dell'impegno monetario di Azure disponibili nell'account a prodotti e servizi di Azure necessari per l'esecuzione delle offerte di Azure Marketplace?**
-
-Sì. I crediti della sottoscrizione o i fondi dell'impegno monetario di Azure disponibili nell'account possono essere applicati ai prodotti di Azure e alle offerte di Azure Marketplace. Ad esempio, i fondi degli impegni monetari di Azure possono essere applicati per il componente *Prezzo* di un'offerta di macchina virtuale in Azure Marketplace. Tuttavia, i crediti della sottoscrizione di Azure e i fondi degli impegni monetari possono essere applicati solo a determinati software per gli editori del Marketplace (*prezzo software*) in esecuzione in una macchina virtuale di Azure.
 
 **Come è possibile verificare la quantità di acquisti effettuati in Azure Marketplace?**
 

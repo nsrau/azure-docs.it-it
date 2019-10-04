@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 983cf250f3a7188741c41386aac256bfdb28749b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 512da03e6b473055e3a14d64a9ac0e25b8efca56
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097334"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71838907"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Trigger e associazioni HTTP di Funzioni di Azure
 
@@ -436,7 +436,7 @@ Questo esempio legge il corpo di una richiesta POST, come ```String```, e lo usa
 
 #### <a name="read-parameter-from-a-route-java"></a>Leggere un parametro da una route (Java)  
 
-Questo esempio legge un parametro obbligatorio, denominato ```id```, e un parametro facoltativo ```name``` dal percorso della route e usa tali parametri per creare un documento JSON restituito al client, con tipo di contenuto ```application/json```. T
+Questo esempio legge un parametro obbligatorio, denominato ```id```, e un parametro facoltativo ```name``` dal percorso della route e usa tali parametri per creare un documento JSON restituito al client, con tipo di contenuto ```application/json```. M
 
 ```java
     @FunctionName("TriggerStringRoute")
@@ -557,7 +557,7 @@ Per un esempio completo, vedere [Trigger - esempio in C#](#trigger---c-example).
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `HttpTrigger`.
 
-|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
+|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
 | **type** | n/d| Obbligatoria. Deve essere impostata su `httpTrigger`. |
 | **direction** | n/d| Obbligatoria. Deve essere impostata su `in`. |
@@ -727,7 +727,7 @@ Le chiavi vengono archiviate come parte dell'app per le funzioni in Azure e crit
 
 ![Gestire le chiavi di funzione nel portale.](./media/functions-bindings-http-webhook/manage-function-keys.png)
 
-È possibile ottenere chiavi di funzione a livello di codice tramite l' [API di gestione delle chiavi](https://github.com/Azure/azure-functions-host/wiki/Key-management-API).
+È possibile ottenere le chiavi della funzione a livello di codice usando le [API di gestione delle chiavi](https://github.com/Azure/azure-functions-host/wiki/Key-management-API).
 
 ### <a name="api-key-authorization"></a>Autorizzazione della chiave API
 
@@ -740,8 +740,7 @@ La chiave può essere inclusa in una variabile della stringa di query denominata
 È possibile consentire le richieste anonime, che non richiedono chiavi. È anche possibile richiedere l'uso della chiave master. Per modificare il livello di autorizzazione predefinito, usare la proprietà `authLevel` nel file JSON di binding. Per altre informazioni, vedere [Trigger - configurazione](#trigger---configuration)
 
 > [!NOTE]
-> Quando si eseguono funzioni localmente, l'autorizzazione viene disabilitata indipendentemente dall'impostazione del livello di autenticazione specificata. Dopo la pubblicazione in Azure, viene applicata l'impostazione `authLevel` del trigger.
-
+> Quando si eseguono funzioni localmente, l'autorizzazione viene disabilitata indipendentemente dall'impostazione del livello di autenticazione specificata. Dopo la pubblicazione in Azure, viene applicata l'impostazione `authLevel` del trigger. Le chiavi sono comunque necessarie quando si esegue [localmente in un contenitore](functions-create-function-linux-custom-image.md#run-the-image-locally).
 
 
 ### <a name="secure-an-http-endpoint-in-production"></a>Proteggere un endpoint HTTP nell'ambiente di produzione

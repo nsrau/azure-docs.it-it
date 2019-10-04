@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 74a1a2218020718a05c9d01de96ddf4fccb35eb4
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
-ms.translationtype: MT
+ms.openlocfilehash: 7adf43110cffdc669b39632521c69ed5d3723257
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802574"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71845720"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Ottimizzazione delle prestazioni con indice columnstore cluster ordinato  
 
@@ -24,7 +24,7 @@ Quando gli utenti eseguono una query su una tabella columnstore in Azure SQL Dat
 ## <a name="ordered-vs-non-ordered-clustered-columnstore-index"></a>Confronto tra indice columnstore cluster ordinato e non ordinato 
 Per impostazione predefinita, per ogni tabella data warehouse di Azure creata senza un'opzione di indice, un componente interno (Generatore di indici) crea un indice columnstore cluster non ordinato (CCI).  I dati in ogni colonna vengono compressi in un segmento CCI rowgroup separato.  Sono presenti metadati nell'intervallo di valori di ogni segmento, quindi i segmenti che non rientrano nei limiti del predicato della query non vengono letti dal disco durante l'esecuzione della query.  CCI offre il massimo livello di compressione dei dati e riduce le dimensioni dei segmenti da leggere, in modo che le query possano essere eseguite più velocemente. Tuttavia, poiché il generatore di indici non Ordina i dati prima di comprimerli in segmenti, è possibile che si verifichino segmenti con intervalli di valori sovrapposti, facendo in modo che le query leggano più segmenti dal disco e imprendano più tempo.  
 
-Quando si crea una CCI ordinata, il motore di Azure SQL Data Warehouse Ordina i dati in memoria in base alle chiavi degli ordini prima che il generatore di indici lo comprime in segmenti di indice.  Con i dati ordinati, la sovrapposizione dei segmenti è ridotta, consentendo alle query di avere un'eliminazione più efficiente del segmento e quindi prestazioni più veloci perché il numero di segmenti da leggere dal disco è inferiore.  Se tutti i dati possono essere ordinati in memoria contemporaneamente, è possibile evitare la sovrapposizione del segmento.  Date le grandi dimensioni dei dati nelle tabelle data warehouse, questo scenario non si verifica spesso.  
+Quando si crea una CCI ordinata, il motore di Azure SQL Data Warehouse Ordina i dati esistenti in memoria in base alle chiavi degli ordini prima che il generatore di indici li comprime in segmenti di indice.  Con i dati ordinati, la sovrapposizione dei segmenti è ridotta, consentendo alle query di avere un'eliminazione più efficiente del segmento e quindi prestazioni più veloci perché il numero di segmenti da leggere dal disco è inferiore.  Se tutti i dati possono essere ordinati in memoria contemporaneamente, è possibile evitare la sovrapposizione del segmento.  Date le grandi dimensioni dei dati nelle tabelle data warehouse, questo scenario non si verifica spesso.  
 
 Per verificare gli intervalli di segmenti per una colonna, eseguire questo comando con il nome della tabella e il nome della colonna:
 
@@ -42,6 +42,9 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 
 ```
 
+> [!NOTE] 
+> In una tabella CCI ordinata, i nuovi dati risultanti da operazioni di caricamento dati o DML non vengono ordinati automaticamente.  Gli utenti possono ricompilare la CCI ordinata per ordinare tutti i dati nella tabella.  
+
 ## <a name="data-loading-performance"></a>Prestazioni di caricamento dei dati
 
 Le prestazioni del caricamento dei dati in una tabella CCI ordinata sono simili al caricamento dei dati in una tabella partizionata.  
@@ -51,12 +54,24 @@ Di seguito è riportato un esempio di confronto delle prestazioni di caricamento
 ![Performance_comparison_data_loading @ no__t-1
  
 ## <a name="reduce-segment-overlapping"></a>Riduzione della sovrapposizione del segmento
-Di seguito sono riportate le opzioni per ridurre ulteriormente la sovrapposizione dei segmenti quando si crea un'CCI ordinata in una nuova tabella tramite CTAS o in una tabella esistente con dati:
 
-- Usare una classe di risorse più grande per consentire l'ordinamento di più dati in una sola volta in memoria prima che il generatore di indici li comprime in segmenti.  Una volta in un segmento di indice, la posizione fisica dei dati non può essere modificata.  Nessun ordinamento dei dati in un segmento o in più segmenti.  
+Il numero di segmenti sovrapposti dipende dalle dimensioni dei dati da ordinare, dalla memoria disponibile e dall'impostazione del grado massimo di parallelismo (MAXDOP) durante la creazione di CCI ordinata. Di seguito sono riportate le opzioni per ridurre la sovrapposizione del segmento durante la creazione di CCI ordinati.
 
-- Usare un grado di parallelismo inferiore (ad esempio, DOP = 1).  Ogni thread usato per la creazione di CCI ordinati funziona su un subset di dati e lo ordina localmente.  Non esiste alcun ordinamento globale tra i dati ordinati in base a thread diversi.  L'uso di thread paralleli può ridurre il tempo necessario per creare un'CCI ordinata, ma genererà più segmenti sovrapposti rispetto all'uso di un singolo thread. 
+- Usare la classe di risorse xlargerc in un DWU superiore per consentire una maggiore quantità di memoria per l'ordinamento dei dati prima che il generatore di indici comprime i dati in segmenti.  Una volta in un segmento di indice, la posizione fisica dei dati non può essere modificata.  Nessun ordinamento dei dati in un segmento o in più segmenti.  
+
+- Creare una CCI ordinata con MAXDOP = 1.  Ogni thread usato per la creazione di CCI ordinati funziona su un subset di dati e lo ordina localmente.  Non esiste alcun ordinamento globale tra i dati ordinati in base a thread diversi.  L'uso di thread paralleli può ridurre il tempo necessario per creare un'CCI ordinata, ma genererà più segmenti sovrapposti rispetto all'uso di un singolo thread.  Attualmente, l'opzione MAXDOP è supportata solo per la creazione di una tabella CCI ordinata usando CREATE TABLE come comando SELECT.  La creazione di una CCI ordinata tramite i comandi CREATE INDEX o CREATE TABLE non supporta l'opzione MAXDOP. Ad esempio,
+
+```sql
+CREATE TABLE Table1 WITH (DISTRIBUTION = HASH(c1), CLUSTERED COLUMNSTORE INDEX ORDER(c1) )
+AS SELECT * FROM ExampleTable
+OPTION (MAXDOP 1);
+```
 - Pre-ordinare i dati in base alle chiavi di ordinamento prima di caricarli in tabelle Azure SQL Data Warehouse.
+
+
+Di seguito è riportato un esempio di una distribuzione della tabella CCI ordinata con un segmento zero che si sovrappone alle raccomandazioni precedenti. La tabella CCI ordinata viene creata in un database DWU1000c tramite CTAS da una tabella heap 20 GB con MAXDOP 1 e xlargerc.  Il valore CCI viene ordinato in una colonna BIGINT senza duplicati.  
+
+![Segment_No_Overlapping](media/performance-tuning-ordered-cci/perfect-sorting-example.png)
 
 ## <a name="create-ordered-cci-on-large-tables"></a>Creare CCI ordinati in tabelle di grandi dimensioni
 La creazione di una CCI ordinata è un'operazione offline.  Per le tabelle senza partizioni, i dati non saranno accessibili agli utenti fino al completamento del processo di creazione di CCI ordinato.   Per le tabelle partizionate, poiché il motore crea la partizione CCI ordinata per partizione, gli utenti possono comunque accedere ai dati nelle partizioni in cui la creazione di CCI ordinata non è in corso.   È possibile utilizzare questa opzione per ridurre al minimo il tempo di inattività durante la creazione di CCI ordinata su tabelle di grandi dimensioni: 

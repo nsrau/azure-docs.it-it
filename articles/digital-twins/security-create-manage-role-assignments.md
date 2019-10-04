@@ -1,20 +1,20 @@
 ---
-title: Creare e gestire assegnazioni di ruolo in Gemelli digitali di Azure | Microsoft Docs
-description: Creare e gestire assegnazioni di ruolo in Gemelli digitali di Azure.
+title: Creare e gestire le assegnazioni di ruolo-dispositivi gemelli digitali di Azure | Microsoft Docs
+description: Informazioni su come creare e gestire le assegnazioni di ruolo in dispositivi gemelli digitali di Azure.
 author: lyrana
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/02/2019
 ms.author: lyhughes
 ms.custom: seodec18
-ms.openlocfilehash: 2c43dd7c0700efdd2fbf2f16c57c9c9dc69d3c6b
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
-ms.translationtype: MT
+ms.openlocfilehash: 9a9f3398df099eca7d83b38595364956e6b3b76b
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703359"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827712"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Creare e gestire assegnazioni di ruolo in Gemelli digitali di Azure
 
@@ -165,8 +165,8 @@ YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH
 | --- | --- | --- | --- |
 | YOUR_USER_ID |  True | Stringa |   objectId dell'objectIdType UserId. |
 | YOUR_PATH | True | Stringa |   Percorso per cui verificare l'accesso. |
-| YOUR_ACCESS_TYPE |  True | Stringa |   Tipo di accesso da verificare. |
-| YOUR_RESOURCE_TYPE | True | Stringa |  Risorsa da controllare. |
+| YOUR_ACCESS_TYPE |  True | Stringa |   *Lettura*, *creazione*, *aggiornamento*o *eliminazione* |
+| YOUR_RESOURCE_TYPE | True | Stringa |  *Device*, *DeviceBlobMetadata*, *DeviceExtendedProperty*, *ExtendedPropertyKey*, *ExtendedType*, *endpoint*, *keystore*, *Matcher*, *ontologia*, *report*,  *RoleDefinition*, *Sensor*, *SensorExtendedProperty*, *Space*, *SpaceBlobMetadata*, *SpaceExtendedProperty*, *SpaceResource*, *SpaceRoleAssignment*, *System* , *UerDefinedFunction*, *User*, *UserBlobMetadata*o *UserExtendedProperty* |
 
 Una richiesta riuscita restituirà un valore booleano `true` o `false` per indicare se il tipo di accesso è stato assegnato all'utente per il percorso e la risorsa specificati.
 
@@ -198,7 +198,7 @@ Una richiesta riuscita restituirà una matrice JSON con ogni assegnazione di ruo
 
 ### <a name="revoke-a-permission"></a>Revocare un'autorizzazione
 
-Per revocare un'autorizzazione a un destinatario, eliminare l'assegnazione di ruolo inviando una richiesta HTTP DELETE autenticata:
+Per revocare un'autorizzazione da un destinatario, eliminare l'assegnazione di ruolo effettuando una richiesta di eliminazione HTTP autenticata:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ASSIGNMENT_ID

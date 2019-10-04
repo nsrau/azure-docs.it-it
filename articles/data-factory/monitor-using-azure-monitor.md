@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: 2a707eda6a7e32a95666dd70e196c8da3c3b7834
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 6f5472e42b7ef43123698f01ee76fb0e691aa45e
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815953"
+ms.locfileid: "71827796"
 ---
 # <a name="alert-and-monitor-data-factories-by-using-azure-monitor"></a>Avvisi e monitoraggio di data factory con monitoraggio di Azure
 
@@ -472,7 +472,7 @@ Dopo qualche istante, la nuova impostazione viene visualizzata nell'elenco delle
 * In modalità _diagnostica di Azure_ , i log di diagnostica scorrono nella tabella _AzureDiagnostics_
 
 > [!NOTE]
-> Poiché una tabella dei log di Azure non può contenere più di 500 colonne, è consigliabile selezionare la modalità specifica della risorsa. Per ulteriori informazioni, vedere [log Analytics limitazioni note](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#known-limitation-column-limit-in-azurediagnostics).
+> Poiché una tabella dei log di Azure non può contenere più di 500 colonne, è consigliabile selezionare la modalità specifica della risorsa. Per ulteriori informazioni, vedere [log Analytics limitazioni note](../azure-monitor/platform/resource-logs-collect-workspace.md#column-limit-in-azurediagnostics).
 
 ### <a name="install-azure-data-factory-analytics-from-azure-marketplace"></a>Installare il pacchetto di Azure Data Factory Analytics dal Marketplace di Azure
 

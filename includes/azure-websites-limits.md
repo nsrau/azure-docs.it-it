@@ -4,14 +4,14 @@ ms.service: billing
 ms.topic: include
 ms.date: 08/09/2019
 ms.author: jroth
-ms.openlocfilehash: 1080e3488483610af0f0c9afadaf000895021821
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 8cdfe82888cca471aa5aae6717a16f62000c4ad5
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "69657805"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71839211"
 ---
-| Risorsa | Gratuito | Condiviso | Basic | Standard | Premium (v2) | Isolato </th> |
+| Resource | Gratuito | Condiviso | Basic | Standard | Premium (v2) | Isolato </th> |
 | --- | --- | --- | --- | --- | --- | --- |
 | [App Web, per dispositivi mobili o](https://azure.microsoft.com/services/app-service/) per le API per [app Azure piano di servizio](../articles/app-service/overview-hosting-plans.md)<sup>1</sup> |10 |100 |Illimitato<sup>2</sup> |Illimitato<sup>2</sup> |Illimitato<sup>2</sup> |Illimitato<sup>2</sup>|
 | [Piano di servizio app](../articles/app-service/overview-hosting-plans.md) |10 per area |10 per gruppo di risorse. |100 per gruppo di risorse |100 per gruppo di risorse |100 per gruppo di risorse |100 per gruppo di risorse|
@@ -28,13 +28,13 @@ ms.locfileid: "69657805"
 | Certificati del servizio app per sottoscrizione<sup>10</sup>| Non supportate | Non supportate |10 |10 |10 |10 |
 | Domini personalizzati per applicazione</a> |0 (solo sottodominio azurewebsites.net)|500 |500 |500 |500 |500 |
 | Supporto per il dominio personalizzato [SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |Non supportato. il certificato con caratteri jolly per *. azurewebsites.net è disponibile per impostazione predefinita|Non supportato. il certificato con caratteri jolly per *. azurewebsites.net è disponibile per impostazione predefinita|Connessioni SNI SSL senza limiti |Connessioni SNI SSL senza limiti e 1 connessione IP SSL incluse |Connessioni SNI SSL senza limiti e 1 connessione IP SSL incluse | Connessioni SNI SSL senza limiti e 1 connessione IP SSL incluse|
-| Bilanciamento del carico integrato | |x |X |X |X |X<sup>9</sup> |
-| [Always On](../articles/app-service/configure-common.md) | | |X |X |X |X |
+| Bilanciamento del carico integrato | |x |X |X |x |X<sup>9</sup> |
+| [Always On](../articles/app-service/configure-common.md) | | |x |X |X |x |
 | [Backup pianificati](../articles/app-service/manage-backup.md) | | | | Backup pianificati ogni 2 ore, un massimo di 12 backup al giorno (manuale + pianificato) | Backup pianificati ogni ora, un massimo di 50 backup al giorno (manuale + pianificato) | Backup pianificati ogni ora, un massimo di 50 backup al giorno (manuale + pianificato) |
-| [Autoscale](../articles/app-service/manage-scale-up.md) | | | |X |X |X |
-| [Processi Web](../articles/app-service/webjobs-create.md)<sup>8</sup> |X |X |X |X |X |X |
-| [Utilità di pianificazione di Azure](https://azure.microsoft.com/services/scheduler/) | |x |X |X |X |X |
-| [Monitoraggio endpoint](../articles/app-service/web-sites-monitor.md) | | |X |X |X |X |
+| [Autoscale](../articles/app-service/manage-scale-up.md) | | | |x |X |x |
+| [Processi Web](../articles/app-service/webjobs-create.md)<sup>8</sup> |x |X |X |X |X |x |
+| [Utilità di pianificazione di Azure](https://azure.microsoft.com/services/scheduler/) | |x |X |X |X |x |
+| [Monitoraggio endpoint](../articles/app-service/web-sites-monitor.md) | | |x |X |X |x |
 | [Slot di staging](../articles/app-service/deploy-staging-slots.md) | | | |5 |20 |20 |
 | Contratto di servizio | |  |99,95%|99,95%|99,95%|99,95%|  
 
@@ -42,7 +42,7 @@ ms.locfileid: "69657805"
 <sup>2</sup>Il numero di app effettivo che è possibile ospitare in questi computer dipende dall'attività delle app, dalle dimensioni delle istanze del computer e dall'uso delle risorse corrispondente.  
 <sup>3</sup>Le istanze dedicate possono essere di dimensioni diverse. Per altre informazioni, vedere [Prezzi del Servizio app](https://azure.microsoft.com/pricing/details/app-service/).  
 <sup>4</sup> Sono consentite altre richieste su richiesta.  
-<sup>5</sup>Il limite di archiviazione è la dimensione totale del contenuto tra tutte le applicazioni nello stesso piano di servizio dell'applicazione.  
+<sup>5</sup> Il limite di archiviazione è la dimensione totale del contenuto in tutte le app nello stesso piano di servizio app. La dimensione totale del contenuto di tutte le app in tutti i piani di servizio app in un singolo gruppo di risorse e nell'area non può essere superiore a 500 GB.  
 <sup>6</sup>Queste risorse sono vincolate dalle risorse fisiche nelle istanze dedicate (la dimensione dell'istanza e il numero di istanze).  
 <sup>7</sup>Se si scala un'applicazione di livello base per due istanze, sono presenti 350 connessioni simultanee per ognuna delle due istanze. Per il livello standard e versioni successive, non esistono limiti teorici per i socket Web, ma altri fattori possono limitare il numero di socket Web. Ad esempio, il numero massimo di richieste simultanee `maxConcurrentRequestsPerCpu`consentite (definite da) è: 7.500 per macchina virtuale di piccole dimensioni, 15.000 per macchina virtuale media (7.500 x 2 Core) e 75.000 per macchina virtuale di grandi dimensioni (18.750 x 4 core).  
 <sup>8</sup>Eseguire gli eseguibili e/o gli script personalizzati su richiesta, in base a una pianificazione, oppure continuamente come attività in background nell'istanza del servizio app. Always On è richiesto per l'esecuzione continua di Processi Web. L'utilità di pianificazione di Azure di livello Free o Standard è richiesta per la funzionalità Processi Web pianificata. Non esiste un limite predefinito per il numero di processi Web che possono essere eseguiti in un'istanza del servizio app. Esistono limiti pratici che dipendono dal codice dell'applicazione che sta tentando di eseguire.  

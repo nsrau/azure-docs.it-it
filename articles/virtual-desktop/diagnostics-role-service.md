@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: f041889f1594ef3852c8f2393be93bb7a6513b4c
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 5401260921aee5fc54b50c1222188a6b244a0c5a
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676642"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71840137"
 ---
-# <a name="identify-issues-with-the-diagnostics-feature"></a>Identificare i problemi con la funzionalità di diagnostica
+# <a name="identify-and-diagnose-issues"></a>Identificare e diagnosticare i problemi
 
 Desktop virtuale di Windows offre una funzionalità di diagnostica che consente all'amministratore di identificare i problemi tramite un'unica interfaccia. I ruoli desktop virtuale di Windows registrano un'attività di diagnostica ogni volta che un utente interagisce con il sistema. Ogni log contiene informazioni rilevanti, ad esempio i ruoli desktop virtuale di Windows interessati dalla transazione, i messaggi di errore, le informazioni sul tenant e le informazioni sull'utente. Le attività di diagnostica vengono create sia dall'utente finale che dalle azioni amministrative e possono essere categorizzate in tre bucket principali:
 

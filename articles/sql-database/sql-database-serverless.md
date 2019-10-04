@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: 04e3881b553f639bb2df948b6ad1154f86f1c9da
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 86c03554f5faa1ebb40faa20b6a271f5310ccd4f
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123094"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828224"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Database SQL di Azure senza server (anteprima)
 
@@ -126,7 +126,7 @@ La ripresa automatica viene attivata se si verifica una delle condizioni seguent
 
 |Funzionalità|Trigger di ripresa automatica|
 |---|---|
-|Autenticazione e autorizzazione|Accedi|
+|Autenticazione e autorizzazione|Account di accesso|
 |Rilevamento delle minacce|Abilitazione o disabilitazione delle impostazioni di rilevamento delle minacce a livello di database o di server.<br>Modifica delle impostazioni di rilevamento delle minacce a livello di database o di server.|
 |Individuazione e classificazione dei dati|Aggiunta, modifica, eliminazione o visualizzazione delle etichette di riservatezza|
 |Controllo|Visualizzazione dei record di controllo<br>Aggiornamento o visualizzazione dei criteri di controllo.|
@@ -171,7 +171,7 @@ La creazione di un nuovo database o lo trasferimento di un database esistente in
 
    |Parametro|Valori disponibili|Valore predefinito|
    |---|---|---|---|
-   |Numero minimo vCore|Uno qualsiasi tra {0,5, 1, 2, 4} purché non superi il numero massimo di vCore|0,5 vCore|
+   |Numero minimo vCore|Dipende dal numero massimo di Vcore configurati. vedere [limiti delle risorse](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).|0,5 vCore|
    |Ritardo di sospensione automatica|Minimo: 60 minuti (1 ora)<br>Massimo 10080 minuti (7 giorni)<br>Incrementi: 60 minuti<br>Disabilita la sospensione automatica: -1|60 minuti|
 
 > [!NOTE]

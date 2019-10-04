@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
-ms.openlocfilehash: 54686a96385532e17fe0ac6e59058b91b40c1342
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: b02e819255db0cdf8b9d241f2ec0d41df7494162
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742557"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71844351"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Risolvere i problemi di replica per macchine virtuali VMware e server fisici
 
@@ -55,35 +55,15 @@ Quando si tenta di scegliere la macchina di origine per cui abilitare la replica
 
 Le macchine virtuali replicate in Site Recovery non sono disponibili nel portale di Azure se nel sistema sono presenti voci duplicate. Per informazioni su come eliminare le voci non aggiornate e risolvere il problema, vedere [Azure Site Recovery VMware-to-Azure: How to clean up duplicate or stale entries](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx) (Da VMware ad Azure con Azure Site Recovery: come eseguire la pulizia delle voci duplicate o non aggiornate).
 
-## <a name="common-errors-and-solutions"></a>Errori e soluzioni comuni
+## <a name="no-crash-consistent-recovery-point-available-for-the-vm-in-the-last-xxx-minutes"></a>Nessun punto di ripristino coerente con l'arresto anomalo del sistema disponibile per la macchina virtuale negli ultimi minuti ' XXX '
+
+Di seguito sono elencati alcuni dei problemi più comuni.
 
 ### <a name="initial-replication-issues-error-78169"></a>Problemi di replica iniziale [errore 78169]
 
 In precedenza, assicurandosi che non siano presenti problemi di connettività, larghezza di banda o sincronizzazione dell'ora, assicurarsi che:
 
 - Nessun software antivirus sta bloccando Azure Site Recovery. Per [altre](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) informazioni, vedere esclusioni di cartelle necessarie per Azure Site Recovery.
-
-### <a name="missing-app-consistent-recovery-points-error-78144"></a>Punti di ripristino coerenti con l'app mancanti [errore 78144]
-
- Questa situazione si verifica a causa di problemi relativi al servizio Copia Shadow del volume (VSS). Per risolvere il problema: 
- 
-- Verificare che la versione installata dell'agente di Azure Site Recovery sia almeno 9.22.2. 
-- Verificare che il provider VSS sia installato come servizio nei servizi Windows e verificare anche il servizio componente MMC per verificare che sia elencato Azure Site Recovery provider VSS.
-- Se il provider VSS non è installato, vedere l' [articolo sulla risoluzione dei problemi di installazione](vmware-azure-troubleshoot-push-install.md#vss-installation-failures).
-
-- Se il servizio Copia Shadow del volume è disabilitato,
-    - Verificare che il tipo di avvio del servizio provider VSS sia impostato su **automatico**.
-    - Riavviare i servizi seguenti:
-        - Servizio VSS
-        - Provider VSS di Azure Site Recovery
-        - Servizio VDS
-
-- Se si eseguono carichi di lavoro SQL o Exchange, controllare i log di questi writer di applicazioni per individuare eventuali errori. Negli articoli seguenti vengono acquisiti gli errori frequenti e la relativa risoluzione:
-    -  [L'opzione di chiusura automatica di SQL Server database è impostata su TRUE](https://support.microsoft.com/help/4504104)
-    - [SQL Server 2008 R2 che genera un errore non irreversibile](https://support.microsoft.com/help/4504103)
-    - [Problema noto in SQL Server 2016 e 2017](https://support.microsoft.com/help/4493364)
-    - [Problema comune con i server Exchange 2013 e 2016](https://support.microsoft.com/help/4037535)
-
 
 ### <a name="source-machines-with-high-churn-error-78188"></a>Computer di origine con varianza elevata [errore 78188]
 
@@ -138,8 +118,21 @@ Per risolvere il problema, attenersi alla procedura seguente per verificare lo s
     - Controllare i log nel percorso per i dettagli dell'errore:
         
           C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
+3. Per registrare la destinazione master con il server di configurazione, passare alla cartella **%ProgramData%\ASR\Agent**ed eseguire il comando seguente nel prompt dei comandi:
+   ```
+   cmd
+   cdpcli.exe --registermt
+
+   net stop obengine
+
+   net start obengine
+
+   exit
+   ```
 
 ## <a name="error-id-78144---no-app-consistent-recovery-point-available-for-the-vm-in-the-last-xxx-minutes"></a>ID errore 78144-nessun punto di ripristino coerente con l'app disponibile per la macchina virtuale negli ultimi minuti ' XXX '
+
+Sono stati apportati miglioramenti nell'agente di mobilità [9,23](vmware-physical-mobility-service-overview.md##from-923-version-onwards) & [9,27](site-recovery-whats-new.md#update-rollup-39) versioni per gestire i comportamenti degli errori di installazione VSS. Assicurarsi di avere le versioni più recenti per informazioni aggiuntive sulla risoluzione dei problemi relativi agli errori del servizio Copia Shadow del volume.
 
 Di seguito sono elencati alcuni dei problemi più comuni.
 

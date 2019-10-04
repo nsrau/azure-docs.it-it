@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/27/2019
 ms.author: danlep
-ms.openlocfilehash: f80956ec401737766f7a85540e90be70b9d621e7
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: dc5276227913d2da6e52ee3c0fb493b98e86688a
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114696"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827770"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Eseguire l'autenticazione con Registro Azure Container dal servizio Azure Kubernetes
 
@@ -21,7 +21,7 @@ Quando si usa Registro Azure Container con il servizio Azure Kubernetes, è nece
 
 È sufficiente configurare uno di questi metodi di autenticazione. L'approccio più comune consiste nel [concedere l'accesso tramite l'entità servizio AKS](#grant-aks-access-to-acr). Se si hanno esigenze specifiche, facoltativamente è possibile [concedere l'accesso usando i segreti Kubernetes](#access-with-kubernetes-secret).
 
-Questo articolo presuppone che sia già stato creato un cluster del servizio Azure Kubernetes e che si sia in grado di accedere al cluster con il client da riga di comando `kubectl`. Se invece si vuole creare un cluster e configurare l'accesso a un registro contenitori in fase di creazione del cluster [, vedere Esercitazione: Distribuire un cluster](../aks/tutorial-kubernetes-deploy-cluster.md) AKS o [eseguire l'autenticazione con container Registry di Azure dal servizio Azure Kubernetes (anteprima)](../aks/cluster-container-registry-integration.md).
+Questo articolo presuppone che sia già stato creato un cluster del servizio Azure Kubernetes e che si sia in grado di accedere al cluster con il client da riga di comando `kubectl`. Se invece si vuole creare un cluster e configurare l'accesso a un registro contenitori al momento della creazione del cluster, vedere [Tutorial: Distribuire un cluster del servizio contenitore di Azure @ no__t-0 oppure [eseguire l'autenticazione con azure container Registry dal servizio Kubernetes di Azure](../aks/cluster-container-registry-integration.md).
 
 ## <a name="grant-aks-access-to-acr"></a>Concedere al servizio Azure Container l'accesso a Registro Azure Container
 

@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 07/02/2019
-ms.openlocfilehash: 7f7eff0a8231d994a792ad20b02607c33db1833a
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: f15fb46568f4ad062605b51600d3c61870b48645
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306145"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828860"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architettura della connettività di SQL di Azure
 
@@ -70,7 +70,7 @@ Nell'articolo seguente sono riportati i dettagli del modo in cui verrà eseguita
 | Brasile meridionale         | 104.41.11.5, 191.233.200.14 |
 | Canada centrale       | 40.85.224.249      |
 | Canada orientale          | 40.86.226.166      |
-| Stati Uniti centrali           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96 | 
+| Stati Uniti centrali           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 | 
 | Cina orientale           | 139.219.130.35     |
 | Cina orientale 2         | 40.73.82.1         |
 | Cina settentrionale          | 139.219.15.17      |
@@ -86,14 +86,14 @@ Nell'articolo seguente sono riportati i dettagli del modo in cui verrà eseguita
 | India occidentale           | 104.211.160.80     |
 | Giappone orientale           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 | 
 | Giappone occidentale           | 104.214.148.156, 40.74.100.192, 191.238.68.11, 40.74.97.10 | 
-| Corea del Sud centrale        | 52.231.32.42       |
-| Corea del Sud meridionale          | 52.231.200.86      |
+| Corea centrale        | 52.231.32.42       |
+| Corea meridionale          | 52.231.200.86      |
 | Stati Uniti centro-settentrionali     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
 | Europa settentrionale         | 40.113.93.91, 191.235.193.75, 52.138.224.1 | 
 | Sudafrica settentrionale   | 102.133.152.0      |
 | Sudafrica occidentale    | 102.133.24.0       |
 | Stati Uniti centro-meridionali     | 13.66.62.124, 23.98.162.75, 104.214.16.32   | 
-| Asia sudorientale      | 104.43.15.0, 23.100.117.95, 40.78.232.3   | 
+| Asia sud-orientale      | 104.43.15.0, 23.100.117.95, 40.78.232.3   | 
 | Emirati Arabi Uniti centrali          | 20.37.72.64        |
 | Emirati Arabi Uniti settentrionali            | 65.52.248.0        |
 | Regno Unito meridionale             | 51.140.184.11      |

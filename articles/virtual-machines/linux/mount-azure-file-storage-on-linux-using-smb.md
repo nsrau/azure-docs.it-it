@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: c394b013b057a78e99cafc0adde9727d0a75a87c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: effe1169fb531abd3fe8a206f2baf83380fcd28f
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091836"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828405"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Montare l'archiviazione file di Azure su VM Linux usando SMB
 
@@ -39,9 +39,9 @@ Creare un gruppo di risorse denominato *myResourceGroup* nella posizione *Stati 
 az group create --name myResourceGroup --location eastus
 ```
 
-## <a name="create-a-storage-account"></a>Creare un account di archiviazione
+## <a name="create-a-storage-account"></a>Crea un account di archiviazione
 
-Creare un nuovo account di archiviazione nel gruppo di risorse creato usando [az storage account create](/cli/azure/storage/account). Questo esempio crea un account di archiviazione *denominato\<mySTORAGEACCT numero casuale >* e inserisce il nome dell'account di archiviazione nella variabile **STORAGEACCT**. I nomi degli account di archiviazione devono essere univoci, usando `$RANDOM` si aggiunge un numero al nome e lo si rende univoco.
+Creare un nuovo account di archiviazione nel gruppo di risorse creato usando [az storage account create](/cli/azure/storage/account). Questo esempio crea un account di archiviazione denominato *mySTORAGEACCT @ no__t-1random number >* e inserisce il nome dell'account di archiviazione nella variabile **STORAGEACCT**. I nomi degli account di archiviazione devono essere univoci, usando `$RANDOM` si aggiunge un numero al nome e lo si rende univoco.
 
 ```bash
 STORAGEACCT=$(az storage account create \
@@ -115,5 +115,5 @@ Per aumentare la sicurezza negli ambienti di produzione, è consigliabile archiv
 
 - [Uso di cloud-init per personalizzare una VM Linux durante la creazione](using-cloud-init.md)
 - [Aggiungere un disco a una VM Linux](add-disk.md)
-- [Crittografare i dischi di una VM Linux usando l'interfaccia della riga di comando di Azure](encrypt-disks.md)
+- [Crittografia dischi di Azure per macchine virtuali Linux](disk-encryption-overview.md)
 

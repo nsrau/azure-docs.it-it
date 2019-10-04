@@ -6,14 +6,14 @@ author: mlearned
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/08/2019
+ms.date: 10/02/2019
 ms.author: mlearned
-ms.openlocfilehash: 54a95186a297cf3604858341fb8f5aba3702bf5a
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 4d736556147797bcd007bdab1b5328deeadea712
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241786"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827360"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Domande frequenti relative al servizio Azure Kubernetes
 
@@ -59,7 +59,9 @@ Per i nodi di Windows Server (attualmente in anteprima in AKS), Windows Update n
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>Perché vengono creati due gruppi di risorse con servizio Azure Kubernetes?
 
-Ogni distribuzione servizio Azure Kubernetes si estende a due gruppi di risorse:
+AKS si basa su una serie di risorse dell'infrastruttura di Azure, inclusi i set di scalabilità di macchine virtuali, le reti virtuali e i dischi gestiti. In questo modo è possibile sfruttare molte delle funzionalità principali della piattaforma Azure all'interno dell'ambiente Kubernetes gestito fornito da AKS. Ad esempio, la maggior parte dei tipi di macchine virtuali di Azure può essere usata direttamente con AKS e le prenotazioni di Azure possono essere usate per ricevere automaticamente sconti su tali risorse.
+
+Per abilitare questa architettura, ogni distribuzione di AKS si estende su due gruppi di risorse:
 
 1. Si crea il primo gruppo di risorse. Questo gruppo contiene solo la risorsa del servizio Kubernetes. Il provider di risorse AKS crea automaticamente il secondo gruppo di risorse durante la distribuzione. Un esempio del secondo gruppo di risorse è *MC_myResourceGroup_myAKSCluster_eastus*. Per informazioni su come specificare il nome del secondo gruppo di risorse, vedere la sezione successiva.
 1. Il secondo gruppo di risorse, noto come *gruppo di risorse nodo*, contiene tutte le risorse dell'infrastruttura associate al cluster. come ad esempio le macchine virtuali dei nodi Kubernetes, le risorse della rete virtuale e di archiviazione. Per impostazione predefinita, il gruppo di risorse del nodo ha un nome come *MC_myResourceGroup_myAKSCluster_eastus*. AKS Elimina automaticamente la risorsa del nodo ogni volta che il cluster viene eliminato, quindi deve essere usato solo per le risorse che condividono il ciclo di vita del cluster.
@@ -159,7 +161,7 @@ La maggior parte dei cluster viene eliminata in seguito alla richiesta dell'uten
 
 No, eliminare o rimuovere tutti i nodi con stato di errore o rimossi dal cluster prima di eseguire l'aggiornamento.
 
-## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>È stata eseguita un'eliminazione del cluster, ma è stato visualizzato l'errore`[Errno 11001] getaddrinfo failed` 
+## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>È stata eseguita un'eliminazione del cluster, ma viene visualizzato l'errore `[Errno 11001] getaddrinfo failed` 
 
 In genere, ciò è dovuto al fatto che gli utenti che dispongono di uno o più gruppi di sicurezza di rete (gruppi) sono ancora in uso e associati al cluster.  Rimuoverli e ripetere l'operazione di eliminazione.
 

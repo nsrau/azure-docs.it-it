@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 58af69b401400c7b2f663a91de8bf38bc9a296a3
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 729b832c068dcd401fa6e9d2f4af9193d3859a83
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877694"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71845538"
 ---
 # <a name="cloudsimple-nodes-overview"></a>Panoramica sui nodi CloudSimple
 
@@ -36,19 +36,20 @@ I nodi acquistati forniscono capacità con pagamento in base al consumo. I nodi 
 
 I tipi di nodi seguenti sono disponibili per l'acquisto o la prenotazione.
 
-| SKU | CS28-nodo | CS36-nodo |
-|-----|-------------|-------------|
-| CPU | 2x 2.2 GHz, 28 Core (56 HT) | 2x 2,3 GHz, 36 core (72 HT) |
-| RAM | 256 GB | 512 GB |
-| Disco della cache |  1,6-TB NVMe | 3,2-TB NVMe |
-| Disco di capacità | 5,625 TB raw | 11,25 TB raw |
-| Tipo di archiviazione | Tutti i flash | Tutti i flash |
+| SKU           | CS28-nodo                 | CS36-nodo                 | CS36m-nodo                |
+|---------------|-----------------------------|-----------------------------|-----------------------------|
+| Region        | Stati Uniti orientali, Stati Uniti occidentali            | Stati Uniti orientali, Stati Uniti occidentali            | Europa occidentale                 |
+| CPU           | 2x 2.2 GHz, 28 Core (56 HT) | 2x 2,3 GHz, 36 core (72 HT) | 2x 2,3 GHz, 36 core (72 HT) |
+| RAM           | 256 GB                      | 512 GB                      | 576 GB                      |
+| Disco della cache    | 1,6-TB NVMe                 | 3,2-TB NVMe                 | 3,2-TB NVMe                 |
+| Disco di capacità | 5,625 TB raw                | 11,25 TB raw                | 15,36 TB raw                |
+| Tipo archivio  | Tutti i flash                   | Tutti i flash                   | Tutti i flash                   |
 
 ## <a name="limits"></a>Limiti
 
 I limiti dei nodi seguenti si applicano ai cloud privati.
 
-| Risorsa | Limite |
+| Resource | Limite |
 |----------|-------|
 | Numero minimo di nodi per la creazione di un cloud privato | 3 |
 | Numero massimo di nodi in un cluster in un cloud privato | 16 |

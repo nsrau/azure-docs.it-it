@@ -1,5 +1,5 @@
 ---
-title: Note sulla versione per SQL Server in macchine virtuali di Azure | Microsoft Docs
+title: Modifiche alla documentazione per SQL Server in macchine virtuali di Azure | Microsoft Docs
 description: Informazioni sulle nuove funzionalità e i miglioramenti per SQL Server in una macchina virtuale di Azure
 services: virtual-machines-windows
 author: MashaMSFT
@@ -12,22 +12,28 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/01/2019
-ms.openlocfilehash: 759bec280b40973cf651dec3741a71d67c01fe04
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: f680eae7f8c4cc2b57e3238a14b793f9b4298a79
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200175"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828602"
 ---
-# <a name="release-notes-for-sql-server-on-azure-virtual-machines"></a>Note sulla versione per SQL Server in macchine virtuali di Azure
+# <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Modifiche alla documentazione per SQL Server in macchine virtuali di Azure
 
-Azure consente di distribuire una macchina virtuale (VM) con un'immagine di SQL Server incorporata. Questo articolo riepiloga le nuove funzionalità e i miglioramenti apportati alle recenti versioni di [SQL Server in macchine virtuali di Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). L'articolo elenca anche gli aggiornamenti del contenuto rilevanti non direttamente correlati alla versione ma pubblicati nello stesso intervallo di tempo. Per informazioni sui miglioramenti apportati ad altri servizi di Azure, vedere [aggiornamenti dei servizi](https://azure.microsoft.com/updates).
+Azure consente di distribuire una macchina virtuale (VM) con un'immagine di SQL Server incorporata. Questo articolo riepiloga le modifiche alla documentazione associate a nuove funzionalità e miglioramenti nelle versioni recenti di [SQL Server in macchine virtuali di Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). 
+
+
+## <a name="october-2019"></a>2019 ottobre
+
+| Modifiche | Dettagli |
+| --- | --- |
+| **Configurazione dell'archiviazione ottimizzata per le prestazioni** | È ora possibile [personalizzare completamente la configurazione dell'archiviazione](virtual-machines-windows-sql-server-storage-configuration.md#new-vms) quando si crea una nuova macchina virtuale SQL Server. |
+| &nbsp; | &nbsp; |
 
 ## <a name="august-2019"></a>Agosto 2019
 
-### <a name="service-improvements"></a>Miglioramenti al servizio
-
-| Miglioramenti al servizio | Dettagli |
+| Modifiche | Dettagli |
 | --- | --- |
 | **Host dedicato di Azure** | È possibile eseguire la macchina virtuale SQL Server in un [host dedicato di Azure](virtual-machines-windows-sql-dedicated-host.md). |
 | &nbsp; | &nbsp; |
@@ -35,18 +41,16 @@ Azure consente di distribuire una macchina virtuale (VM) con un'immagine di SQL 
 
 ## <a name="july-2019"></a>2019 luglio
 
-### <a name="documentation-improvements"></a>Miglioramenti alla documentazione
 
-| Documentazione | Dettagli |
+| Modifiche | Dettagli |
 | --- | --- |
 | **Spostare una macchina virtuale SQL in un'area diversa** | Usare Azure Site Recovery per [eseguire la migrazione della macchina virtuale SQL Server da un'area a un'altra](virtual-machines-windows-sql-move-different-region.md). |
 | &nbsp; | &nbsp; |
 
 ## <a name="june-2019"></a>Giugno 2019
 
-### <a name="service-improvements"></a>Miglioramenti al servizio
 
-| Miglioramenti al servizio | Dettagli |
+| Modifiche | Dettagli |
 | --- | --- |
 | **Nuove modalità di installazione di SQL IaaS** | È ora possibile installare l'estensione IaaS SQL Server in [modalità Lightweight](virtual-machines-windows-sql-server-agent-extension.md) per evitare di riavviare il servizio SQL Server.  |
 | **Modifica di SQL Server Edition** | È ora possibile modificare la [Proprietà Edition](virtual-machines-windows-sql-change-edition.md) per la macchina virtuale SQL Server. |
@@ -57,28 +61,16 @@ Azure consente di distribuire una macchina virtuale (VM) con un'immagine di SQL 
 
 ## <a name="may-2019"></a>Maggio 2019
 
-### <a name="service-improvements"></a>Miglioramenti al servizio
-
-| Miglioramenti al servizio | Dettagli |
+| Modifiche | Dettagli |
 | --- | --- |
 | **Nuova gestione delle macchine virtuali SQL Server in portale di Azure** | È ora possibile gestire la macchina virtuale SQL Server nel portale di Azure. Per altre informazioni, vedere [gestire macchine virtuali SQL Server nel portale di Azure](virtual-machines-windows-sql-manage-portal.md).  | 
 | &nbsp; | &nbsp; |
-
-### <a name="documentation-improvements"></a>Miglioramenti alla documentazione
-
-| Documentazione | Dettagli |
-| --- | --- |
-| **Nuovo SQL Server portale di gestione delle macchine virtuali** | Circa una dozzina di articoli sono stati aggiornati al nuovo SQL Server esperienza del portale di gestione delle macchine virtuali. | 
-| &nbsp; | &nbsp; |
-
 
 
 
 ## <a name="april-2019"></a>Aprile 2019
 
-### <a name="service-improvements"></a>Miglioramenti al servizio
-
-| Miglioramenti al servizio | Dettagli |
+| Modifiche | Dettagli |
 | --- | --- |
 | **Supporto esteso per SQL Server 2008/2008 R2** | [Estendere il supporto](virtual-machines-windows-sql-server-2008-eos-extend-support.md) per SQL Server 2008 e SQL Server 2008 R2 eseguendo *la migrazione così come avviene* in una macchina virtuale di Azure. | 
 | &nbsp; | &nbsp; |
@@ -86,7 +78,7 @@ Azure consente di distribuire una macchina virtuale (VM) con un'immagine di SQL 
 
 ## <a name="march-2019"></a>Marzo 2019
 
-| Miglioramenti al servizio | Dettagli |
+| Modifiche | Dettagli |
 | --- | --- |
 | **Supporto per immagini personalizzate** | È ora possibile installare l' [estensione IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md#installation) per le immagini del sistema operativo e di SQL personalizzate, che offre la funzionalità limitata di [licenze flessibili](virtual-machines-windows-sql-ahb.md). Quando si esegue la registrazione dell'immagine personalizzata con il provider di risorse SQL, specificare il tipo di licenza "vantaggio Ahu". In caso contrario, la registrazione avrà esito negativo. | 
 | **Supporto per istanze denominate** | È ora possibile usare l' [estensione SQL Server IaaS](virtual-machines-windows-sql-server-agent-extension.md#installation) con un'istanza denominata, se l'istanza predefinita è stata disinstallata correttamente. | 
@@ -96,16 +88,18 @@ Azure consente di distribuire una macchina virtuale (VM) con un'immagine di SQL 
 
 ## <a name="february-2019"></a>Febbraio 2019
 
-| Miglioramenti al servizio | Dettagli |
+| Modifiche | Dettagli |
 | --- | --- |
 | **Miglioramento del portale** | È ora possibile modificare il modello di licenza per una macchina virtuale SQL Server dalla versione con pagamento in base al consumo a bring your own License usando il [portale di Azure](virtual-machines-windows-sql-ahb.md#change-the-license-for-vms-already-registered-with-the-resource-provider).|
 |**Semplificazione della distribuzione del gruppo di disponibilità con Azure SQL Server CLI della macchina virtuale** | È ora più facile che mai distribuire un gruppo di disponibilità in una macchina virtuale SQL Server in Azure. È possibile usare l' [interfaccia](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid) della riga di comando di Azure per creare il cluster di failover Windows, il servizio di bilanciamento del carico interno e i listener del gruppo di disponibilità dalla riga di comando. Per altre informazioni, vedere [usare l'interfaccia della riga di comando di azure SQL Server VM per configurare un gruppo di disponibilità always on per SQL Server in una macchina virtuale di Azure](virtual-machines-windows-sql-availability-group-cli.md). | 
 | &nbsp; | &nbsp; |
 
+## <a name="2018"></a>2018
 
-## <a name="december-2018"></a>Dicembre 2018
 
-| Miglioramenti al servizio | Dettagli |
+### <a name="december-2018"></a>Dicembre 2018
+
+| Modifiche | Dettagli |
 | --- | --- |
 | **Nuovo provider di risorse per un cluster SQL Server** | Un nuovo provider di risorse (Microsoft. SqlVirtualMachine/SqlVirtualMachineGroups) definisce i metadati del cluster di failover di Windows. L'aggiunta di una macchina virtuale SQL Server a *SqlVirtualMachineGroups* avvia il servizio WSFC (Windows Server failover cluster) e aggiunge la macchina virtuale al cluster.  |
 |**Installazione automatica di una distribuzione del gruppo di disponibilità con i modelli di avvio rapido di Azure** |È ora possibile creare il cluster di failover di Windows, aggiungervi SQL Server macchine virtuali, creare il listener e configurare il servizio di bilanciamento del carico interno con due modelli di avvio rapido di Azure. Per altre informazioni, vedere [usare i modelli di avvio rapido di Azure per configurare un gruppo di disponibilità always on per SQL Server in una macchina virtuale di Azure](virtual-machines-windows-sql-availability-group-quickstart-template.md). | 
@@ -113,9 +107,9 @@ Azure consente di distribuire una macchina virtuale (VM) con un'immagine di SQL 
 | &nbsp; | &nbsp; |
 
 
-## <a name="november-2018"></a>Novembre 2018
+### <a name="november-2018"></a>Novembre 2018
 
-| Miglioramenti al servizio | Dettagli |
+| Modifiche | Dettagli |
 | --- | --- |
 | **Nuovo provider di risorse per VM di SQL** |  Un nuovo provider di risorse (Microsoft. SqlVirtualMachine) offre una gestione migliore delle macchine virtuali SQL Server. Per altre informazioni sulla registrazione delle macchine virtuali, vedere [registrare una macchina virtuale SQL Server in Azure con il provider di risorse VM SQL](virtual-machines-windows-sql-register-with-resource-provider.md). |
 |**Cambiare il modello di licenza** | È ora possibile passare tra i modelli con pagamento in base al consumo e Bring your own License per la macchina virtuale SQL Server usando l'interfaccia della riga di comando di Azure o PowerShell. Per ulteriori informazioni, vedere [come modificare il modello di licenza per una macchina virtuale SQL Server in Azure](virtual-machines-windows-sql-ahb.md). | 

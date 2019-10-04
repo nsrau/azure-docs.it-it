@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5dee0ef768180057452a232436fc295b36fd756c
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 4893025b7d54dad1f1da6c5967d3c1dec99b499b
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963744"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71826919"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Risoluzione dei problemi del framework di esperienza di gestione delle identità e criteri personalizzati di Azure AD B2C
 
@@ -52,21 +52,19 @@ Gli errori di convalida comuni includono i seguenti:
 
 > Frammento con errore: `Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
 
-* Verificare che il valore TenantId negli elementi `<TrustFrameworkPolicy\>` e `<BasePolicy\>` corrisponda al tenant Azure ad B2C di destinazione.
+* Verificare che il valore TenantId negli elementi `<TrustFrameworkPolicy\>` e `<BasePolicy\>` corrisponda al tenant Azure AD B2C di destinazione.
 
 ## <a name="troubleshoot-the-runtime"></a>Risoluzione dei problemi di runtime
 
-* Usare **Esegui ora** e `https://jwt.ms` per testare i criteri indipendentemente dall'applicazione Web o per dispositivi mobili. Questo sito Web funziona come un'applicazione relying party. Viene visualizzato il contenuto del token JSON Web (JWT) che viene generato per i criteri di Azure AD B2C. Per creare un'applicazione di test, passare a **Azure ad B2C** \> **applicazioni** nel portale di Azure e aggiungere un'applicazione con i valori seguenti:
+* Usare **Run Now** e `https://jwt.ms` per testare i criteri indipendentemente dall'applicazione Web o per dispositivi mobili. Questo sito Web funziona come un'applicazione relying party. Viene visualizzato il contenuto del token JSON Web (JWT) generato dal criterio di Azure AD B2C.
 
-  * **Nome**: TestApp
-  * **App Web/API Web**: No
-  * **Native Client**: No
+    Per creare un'applicazione di test in grado di reindirizzare a `https://jwt.ms` per l'ispezione dei token:
 
-  Quindi, aggiungere `https://jwt.ms` come **URL di risposta**.
+    [!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 
 * Per tracciare lo scambio di messaggi tra il browser client e Azure AD B2C usare [Fiddler](https://www.telerik.com/fiddler). Consente di ottenere un'indicazione del punto in cui il percorso utente genera errori nei passaggi di orchestrazione.
 
-* In **Modalità sviluppo** usare [Application Insights](active-directory-b2c-troubleshoot-custom.md) per tracciare l'attività del percorso utente nel framework di esperienza di gestione delle identità. In **modalità di sviluppo**è possibile osservare lo scambio di attestazioni tra il Framework dell'esperienza di identità e i diversi provider di attestazioni definiti da profili tecnici, ad esempio provider di identità, servizi basati su API, l'utente Azure ad B2C Directory e altri servizi, ad esempio Azure Multifactor Authentication.
+* In **Modalità sviluppo** usare [Application Insights](active-directory-b2c-troubleshoot-custom.md) per tracciare l'attività del percorso utente nel framework di esperienza di gestione delle identità. In **modalità di sviluppo**è possibile osservare lo scambio di attestazioni tra il Framework dell'esperienza di identità e i diversi provider di attestazioni definiti da profili tecnici, ad esempio provider di identità, servizi basati su API, l'utente Azure ad B2C Directory e altri servizi, ad esempio Multi-Factor Authentication di Azure.
 
 ## <a name="recommended-practices"></a>Procedure consigliate
 

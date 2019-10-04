@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: 90007a82acce0010504bc06e96801869aea4a87a
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 485aad245df7feae4ca4ee2c68a29ff20afb3ece
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673012"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937510"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrazioni di partner desktop virtuali Windows
 
@@ -33,9 +33,9 @@ Citrix estende il valore del desktop virtuale di Windows con strumenti aziendali
 
 ![Logo VMware](./media/partners/vmware.png)
 
-VMware Horizon cloud in Microsoft Azure offre alle organizzazioni la possibilità di connettere la propria istanza di Microsoft Azure al piano di controllo cloud Horizon semplice e intuitivo, creando una soluzione protetta, completa e ospitata nel cloud per la distribuzione di virtualizzati Applicazioni e desktop di Windows. Con la versione di desktop virtuale di Windows, VMware ha collaborato con Microsoft per estendere le funzionalità del desktop virtuale di Windows ai clienti che usano Horizon cloud in Microsoft Azure.
-
-Come provider approvato, VMware Horizon cloud su Microsoft Azure clienti ottiene tutti i vantaggi di desktop virtuale di Windows, ad esempio Windows 10 Enterprise per più sessioni, Windows 7 con aggiornamenti della sicurezza estesi gratuiti per un massimo di tre anni e FSLogix funzionalità, oltre a tutte le moderne funzionalità di livello aziendale di Horizon cloud, ad esempio supporto per endpoint di ampio respiro; broker globale, ottimizzato per il cloud, opzioni flessibili per desktop e configurazioni, gestione dell'ambiente utente e supporto per gli ambienti ibridi. 
+VMware Horizon cloud in Microsoft Azure offre alle organizzazioni la possibilità di connettere la propria istanza di Microsoft Azure al piano di controllo cloud Horizon semplice e intuitivo, creando una soluzione protetta, completa e ospitata nel cloud per la distribuzione di virtualizzati Applicazioni e desktop di Windows. Con la versione di desktop virtuale di Windows, VMware ha collaborato con Microsoft per estendere le funzionalità del desktop virtuale di Windows ai clienti che usano Horizon cloud in Microsoft Azure. Questa funzionalità sarà disponibile in Tech Preview entro la fine del 2019.
+ 
+Come provider approvato, i vantaggi di desktop virtuale di Windows verranno estesi a VMware Horizon cloud su Microsoft Azure clienti, tra cui Windows 10 Enterprise per più sessioni, Windows 7 con aggiornamenti della sicurezza estesi gratuiti per un massimo di tre anni e FSLogix. Inoltre, i clienti riceveranno le funzionalità di livello aziendale di Horizon cloud, ad esempio il supporto per endpoint di ampio respiro; broker globale, ottimizzato per il cloud; opzioni e configurazioni flessibili per i desktop; gestione dell'ambiente utente; e il supporto per gli ambienti ibridi.
 
 - [Iscriviti alla versione Tech Preview di Horizon cloud in Microsoft Azure](https://www.vmware.com/learn/323526_TECH_PREVIEW_REG.html).
 - [Accedere al sito Web del partner](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html).
@@ -93,7 +93,7 @@ Nerdio è una piattaforma di automazione IT di Azure che semplifica la distribuz
 Nerdio estende il valore di desktop virtuale di Windows facilitando il provisioning delle risorse di Azure e semplificando la distribuzione. Con Nerdio per Azure, è in grado di distribuire e gestire automaticamente un ambiente Azure completo, incluso il desktop virtuale di Windows, in meno di due ore.
 
 - [Vedere la breve soluzione congiunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mh).
-- [Accedere al sito Web del partner](https://getnerdio.com/academy/windows-virtual-desktop-explained-for-msps/).
+- [Accedere al sito Web del partner](https://getnerdio.com/windows-virtual-desktop/).
 
 ## <a name="thinprint"></a>ThinPrint
 

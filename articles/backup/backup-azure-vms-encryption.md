@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: dacurwin
-ms.openlocfilehash: ac101c6079eee908a6499f5e6ed8cc3aadffb75a
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 5968a675c3f0f9a2c6426ed73d06e2d116a8ff3b
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210306"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827396"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Eseguire il backup e il ripristino di VM di Azure crittografate
 
@@ -32,8 +32,8 @@ Backup di Azure può eseguire il backup e il ripristino di macchine virtuali di 
 
 **Tipo di disco VM** | **ADE (BEK/dm-crypt)** | **ADE e KEK**
 --- | --- | ---
-**Gestito** | Sì | Sì
-**Gestito**  | Sì | Yes
+**Gestito** | Yes | Yes
+**Gestito**  | Yes | Yes
 
 - Scopri di più su [Ade](../security/azure-security-disk-encryption-overview.md), [Key Vault](../key-vault/key-vault-overview.md)e [KEKs](https://blogs.msdn.microsoft.com/cclayton/2017/01/03/creating-a-key-encrypting-key-kek/).
 - Leggere le [domande frequenti](../security/azure-security-disk-encryption-faq.md) sulla crittografia del disco della macchina virtuale di Azure.
@@ -55,7 +55,7 @@ Backup di Azure può eseguire il backup e il ripristino di macchine virtuali di 
 
 Prima di iniziare, eseguire le operazioni seguenti:
 
-1. Assicurarsi di disporre di una o più VM [Windows](../security/azure-security-disk-encryption-windows.md) o [Linux](../security/azure-security-disk-encryption-linux.md) con Ade abilitato.
+1. Assicurarsi di disporre di una o più VM [Windows](../security/azure-security-disk-encryption-windows.md) o [Linux](../virtual-machines/linux/disk-encryption-overview.md) con Ade abilitato.
 2. [Esaminare la matrice di supporto per il](backup-support-matrix-iaas.md) backup delle macchine virtuali di Azure
 3. [Creare](backup-azure-arm-vms-prepare.md#create-a-vault) un insieme di credenziali per il backup dei servizi di ripristino, se non è già presente.
 4. Se si Abilita la crittografia per le macchine virtuali che sono già abilitate per il backup, è sufficiente fornire il backup con le autorizzazioni per accedere al Key Vault in modo che i backup possano continuare senza alcuna distorsione. [Altre](#provide-permissions) informazioni sull'assegnazione di queste autorizzazioni.
@@ -74,12 +74,12 @@ Inoltre, in alcune circostanze potrebbe essere necessario eseguire alcune operaz
 
     ![Pannello Backup](./media/backup-azure-vms-encryption/select-backup.png)
 
-3. In **obiettivo** > di backup in**cui è in esecuzione il carico di lavoro?** selezionare **Azure**.
-4. In **che cosa si vuole eseguire il backup?** selezionare **macchina** > virtuale**OK**.
+3. In **obiettivo di Backup** >  in**cui è in esecuzione il carico di lavoro?** Selezionare **Azure**.
+4. In **che cosa si vuole eseguire il backup? selezionare la** **macchina virtuale** > **OK**.
 
       ![Pannello Scenario](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
 
-5. In **criteri** > di backup**scegliere criteri di backup**, selezionare i criteri che si desidera associare all'insieme di credenziali. Fare quindi clic su **OK**.
+5. In **criteri di backup** > **scegliere criteri di backup**, selezionare il criterio che si vuole associare all'insieme di credenziali. Fare quindi clic su **OK**.
     - Un criterio di backup specifica quando vengono eseguiti i backup e per quanto tempo vengono archiviati.
     - I dettagli dei criteri predefiniti vengono elencati nel menu a discesa.
 
@@ -111,7 +111,7 @@ Il backup iniziale viene eseguito in base alla pianificazione, ma è possibile e
 
 1. Selezionare **Elementi di backup** dal menu dell'insieme di credenziali.
 2. In **Elementi di backup** fare clic su **Macchine virtuali di Azure**.
-3. Nell'elenco **elementi di backup** fare clic sui puntini di sospensione (...).
+3. Nell'elenco elementi di backup fare clic sui **puntini** di sospensione (...).
 4. Fare clic su **Esegui backup ora**.
 5. In **backup ora**usare il controllo calendario per selezionare l'ultimo giorno in cui deve essere mantenuto il punto di ripristino. Fare quindi clic su **OK**.
 6. Monitorare le notifiche del portale. È possibile monitorare l'avanzamento del processo nel dashboard dell'insieme di credenziali > **Processi di Backup** > **In corso**. A seconda delle dimensioni della macchina virtuale, la creazione del backup iniziale potrebbe richiedere un po' di tempo.
@@ -128,13 +128,13 @@ Per impostare le autorizzazioni:
 
 1. Nella portale di Azure selezionare **tutti i servizi**e cercare **Key Vault**.
 2. Selezionare l'insieme di credenziali delle chiavi associato alla macchina virtuale crittografata di cui si sta eseguendo il backup.
-3. Selezionare **criteri** > di accesso**Aggiungi nuovo**.
+3. Selezionare **criteri di accesso** > **Aggiungi nuovo**.
 4. Selezionare **Seleziona entità**, quindi digitare **Gestione backup**.
-5. Selezionare **Backup Management Service** > **Select**.
+5. Selezionare **Backup Management Service** > **SELECT**.
 
     ![Selezione del servizio di backup](./media/backup-azure-vms-encryption/select-backup-service.png)
 
-6. In **Aggiungi criteri** > di accesso**Configura da modello (facoltativo)** selezionare **backup di Azure**.
+6. In **Aggiungi criteri di accesso** > **Configura da modello (facoltativo)** selezionare **backup di Azure**.
     - Le autorizzazioni necessarie sono precompilate per **Autorizzazioni chiave** e **Autorizzazioni segrete**.
     - Se la macchina virtuale è crittografata solo con la chiave di ricerca di **sole**, rimuovere la selezione per le **autorizzazioni chiave** perché sono necessarie solo le autorizzazioni per i segreti.
 
@@ -151,7 +151,7 @@ Per impostare le autorizzazioni:
 Ripristinare le macchine virtuali crittografate come indicato di seguito:
 
 1. [Ripristinare il disco della macchina virtuale](backup-azure-arm-restore-vms.md#restore-disks).
-2. Effettua una delle seguenti operazioni:
+2. Eseguire quindi una delle operazioni seguenti:
     - Usare il modello generato durante l'operazione di ripristino per personalizzare le impostazioni della macchina virtuale e attivare la distribuzione della macchina virtuale. [Altre informazioni](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm)
     - Creare una nuova macchina virtuale dai dischi ripristinati usando PowerShell. [Altre informazioni](backup-azure-vms-automation.md#create-a-vm-from-restored-disks)
     - Per le macchine virtuali Linux, reimpostare l'estensione ADE in modo che i dischi dati siano aperti e montati. 

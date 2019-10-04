@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 83ff39e9f3b7f95256466c74011e55ebdc22a7a9
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 5df9df1474489d7f1b1fb4e1089143cca63a3e42
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910520"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71935609"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Monitoraggio e ottimizzazione delle prestazioni
 
@@ -187,7 +187,7 @@ Una ricompilazione (o una nuova compilazione dopo la rimozione della cache) può
 
 Dopo aver identificato il problema, è possibile ottimizzare le query sul problema oppure aggiornare le dimensioni di calcolo o il livello di servizio per aumentare la capacità del database SQL di assorbire i requisiti della CPU. 
 
-Per altre informazioni, vedere [ridimensionare le risorse di database singolo nel database SQL di Azure](sql-database-single-database-scale.md) e [ridimensionare le risorse del pool elastico nel database SQL di Azure](sql-database-elastic-pool-scale.md). Per informazioni sul ridimensionamento di un'istanza gestita, vedere [limiti delle risorse a livello di istanza](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits).
+Per altre informazioni, vedere [ridimensionare le risorse di database singolo nel database SQL di Azure](sql-database-single-database-scale.md) e [ridimensionare le risorse del pool elastico nel database SQL di Azure](sql-database-elastic-pool-scale.md). Per informazioni sul ridimensionamento di un'istanza gestita, vedere [limiti delle risorse del livello di servizio](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 
 ### <a name="performance-problems-caused-by-increased-workload-volume"></a>Problemi di prestazioni causati dall'aumento del volume del carico di lavoro
 

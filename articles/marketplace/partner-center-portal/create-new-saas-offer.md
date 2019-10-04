@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 7dd57e41144ec33aec6eb716716d0794d92071f5
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: e846db86ce95bd32d21727a4a5ec3195458cb9eb
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013097"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936884"
 ---
 # <a name="create-a-new-saas-offer"></a>Creare una nuova offerta SaaS
 
@@ -93,7 +93,7 @@ La tabella seguente illustra un esempio di suddivisione dei costi e dei pagament
 
 |**Microsoft addebita**|**$100 al mese**|
 |:---|:---|
-|Microsoft paga l'80% del costo della licenza <br>**Per le app SaaS qualificate, Microsoft paga il 90% del costo della licenza*|$ 80,00 al mese <br>*$* 90,00 al mese *|
+|Microsoft paga l'80% del costo della licenza <br>**per le app Saas qualificate, Microsoft paga il 90% del costo della licenza*|$ 80,00 al mese <br>*$* 90,00 al mese *|
 
 - In questo esempio Microsoft fattura $100,00 al cliente per la licenza software e paga $80,00 all'editore.
 - Ai partner qualificati per la **Tariffa ridotta del servizio Marketplace** verrà visualizzato un importo ridotto delle transazioni sulle offerte SaaS, dal 2019 maggio fino al giugno 2020. In questo scenario Microsoft fattura $100,00 per la licenza software e paga $90,00 all'editore.
@@ -177,7 +177,7 @@ Il centro per i partner supporta i sistemi CRM seguenti per la gestione dei lead
 
 Ricordarsi di **salvare** prima di procedere alla sezione successiva.
 
-## <a name="properties"></a>Properties
+## <a name="properties"></a>Proprietà
 La scheda **Proprietà** richiede di definire le categorie e i settori usati per raggruppare l'offerta nei Marketplace, i contratti legali che supportano l'offerta e la versione dell'app. 
 
 Selezionare **Salva** dopo aver completato questi campi. 
@@ -244,19 +244,19 @@ I componenti fondamentali di una proposta di valore devono includere le informaz
 
 Per rendere più accattivante la descrizione dell'offerta, è possibile usare i tag HTML per formattare la descrizione. 
 
-1. Se si desidera creare paragrafi, aggiungere `<p>` al prompt del testo e aggiungere `</p>` alla fine.
+1. Se si desidera creare paragrafi, aggiungere `<p>` al momento dell'accattonaggio del testo e aggiungere `</p>` alla fine.
 
     **Esempio**: 
 
-    `<p>`Questo è il primo paragrafo. `</p>` <br>
-    `<p>`Questo è il secondo paragrafo. `</p>` <br>
+    `<p>` questo è il primo paragrafo. `</p>` <br>
+    `<p>` questo è il secondo paragrafo. `</p>` <br>
 
     Il precedente avrà un aspetto simile al seguente:
 
     <p> Questo è il primo paragrafo. </p>
     <p> Questo è il secondo paragrafo. </p>
 
-1. Se si desidera aggiungere un **elenco puntato di elementi**, inserire il testo all'interno dei `<li>` Tag indicati di seguito. È possibile copiare e incollare più elementi puntati (elementi tra i `<li>` tag `</li>` e) nei `<ul>` tag e `</ul>` . Assicurarsi di aggiungere il `<ul></ul>`. 
+1. Se si desidera aggiungere un **elenco puntato di elementi**, inserire il testo all'interno dei tag `<li>` indicati di seguito. È possibile copiare e incollare più elementi puntati (elementi tra i tag `<li>` e `</li>`) all'interno dei tag `<ul>` e `</ul>`. Assicurarsi di aggiungere il `<ul></ul>`. 
 
     **Esempio**:
 
@@ -275,34 +275,34 @@ Per rendere più accattivante la descrizione dell'offerta, è possibile usare i 
         <li> aggiungere qui il testo </li> 
     </ul> 
 
-1. Per il contenuto in grassetto, aggiungere `<b>` all'inizio del testo che si desidera grassetto `</b>` e aggiungere alla fine del testo che si desidera grassetto. 
+1. Per il contenuto in **grassetto** , aggiungere `<b>` all'inizio del testo che si desidera grassetto e aggiungere `</b>` alla fine del testo che si desidera grassetto. 
 
-    **Esempio**: `<b>`VERSIONE DI VALUTAZIONE GRATUITA`</b>`
+    **Esempio**: VERSIONE DI VALUTAZIONE GRATUITA DI `<b>` `</b>`
     
     Il precedente comporterebbe il grassetto della versione di valutazione gratuita nella descrizione dell'offerta nello storefront. 
 
     **VERSIONE DI VALUTAZIONE GRATUITA**
 
-1. Per aggiungere **interruzioni di riga** tra il contenuto `<br>` , aggiungere prima del contenuto che si vuole avviare in una nuova riga. Se si desidera lasciare uno spazio e verificare che il contenuto venga avviato in una nuova riga, `<br><br>` aggiungere prima del contenuto. 
+1. Per aggiungere **interruzioni di riga** tra il contenuto, aggiungere `<br>` prima del contenuto che si desidera avviare in una nuova riga. Se si desidera lasciare uno spazio e verificare che il contenuto venga avviato in una nuova riga, aggiungere `<br><br>` prima del contenuto. 
 
     **Esempio**:
 
-    Si tratta di una riga di testo. `<br>`Si tratta di una riga di testo che verrà avviata in una nuova riga. `<br><br>`Si tratta di una linea che avvierà due righe sotto. 
+    Si tratta di una riga di testo. `<br>` si tratta di una riga di testo che verrà avviata in una nuova riga. `<br><br>` questa è una riga che avvierà due righe sotto. 
 
     Il precedente avrà un aspetto simile al seguente:
 
     Si tratta di una riga di testo. <br> Si tratta di una riga di testo che verrà avviata in una nuova riga. <br><br> Si tratta di una linea che avvierà due righe sotto. 
 
-1. Se si desidera **aumentare le dimensioni del testo**, è necessario innanzitutto scegliere la dimensione desiderata per il testo. Usare gli esempi seguenti. Dopo aver selezionato le dimensioni del testo, aggiungere i tag corrispondenti `<H*></H*>` all'inizio e alla fine del testo. 
+1. Se si desidera **aumentare le dimensioni del testo**, è necessario innanzitutto scegliere la dimensione desiderata per il testo. Usare gli esempi seguenti. Dopo aver selezionato le dimensioni del testo, aggiungere i tag `<H*></H*>` corrispondenti all'inizio e alla fine del testo. 
 
     **Esempio**:
 
-    `<h1>`Titolo 1`</h1>` <br>
-    `<h2>`Questo è l'intestazione 2`</h2>` <br>
-    `<h3>`Questa è l'intestazione 3`</h3>` <br>
-    `<h4>`Titolo 4`</h4>` <br>
-    `<h5>`Questo è l'intestazione 5`</h5>` <br>
-    `<h6>`Titolo 6`</h6>` 
+    `<h1>`Stanziamento è l'intestazione 1 @ no__t-1 <br>
+    `<h2>`Stanziamento è l'intestazione 2 @ no__t-1 <br>
+    `<h3>`Stanziamento è l'intestazione 3 @ no__t-1 <br>
+    `<h4>`Stanziamento è l'intestazione 4 @ no__t-1 <br>
+    `<h5>`Stanziamento è l'intestazione 5 @ no__t-1 <br>
+    `<h6>`Stanziamento è l'intestazione 6 @ no__t-1 
 
     Il precedente avrà un aspetto simile al seguente:
 
@@ -409,6 +409,9 @@ Le offerte SaaS tramite il Marketplace commerciale ti permettono di offrire una 
 La possibilità di configurare una versione di valutazione gratuita è disponibile per ogni piano nell'offerta. È sufficiente passare a prezzi e disponibilità per ogni offerta e selezionare la casella per consentire una versione di valutazione di un mese.
 
 ![Casella di controllo della versione di valutazione gratuita di un mese](./media/free-trial-enable.png)
+
+>[!Note]
+>Una volta pubblicata l'offerta transazionale con una versione di valutazione gratuita, non è possibile disabilitarla per quel piano. Verificare che questa impostazione sia corretta per la prima pubblicazione, in modo da evitare di dover ricreare il piano.
 
 Per ottenere informazioni sulle sottoscrizioni dei clienti che attualmente partecipano a una versione di valutazione gratuita `isFreeTrial`, usare la nuova proprietà API, che verrà contrassegnata come true o false. Per ulteriori informazioni, vedere l' [API di sottoscrizione Saas Get](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription) .
 
